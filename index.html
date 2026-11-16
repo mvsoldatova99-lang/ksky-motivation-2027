@@ -57,7 +57,7 @@
 @media print{.icon-btn,#add-tier,#add-deal,.custom-indicator-add{display:none!important}.q-table{min-width:0}.q-table .form-control{border:0;padding:0;min-height:0;background:transparent}}
 
 .role-tabs{flex-wrap:wrap;max-width:100%}
-.grades-levels{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:18px}
+.grades-levels{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:18px}
 .grades-level{border:1px solid var(--line);border-radius:9px;padding:16px}
 .grades-level h4{font-size:15px;line-height:1.45;margin:0}
 .grades-level p,.grades-level dl{margin:10px 0 0}
@@ -65,10 +65,12 @@
 .grades-level dt{font-weight:600;margin-top:10px}
 .grades-level dd{margin:2px 0 0;color:var(--muted)}
 .grades-table th[scope=row]{width:24%;font-weight:600;}
+.grades-matrix{min-width:540px;table-layout:fixed}
+.grades-matrix th[scope=row],.grades-matrix thead th:first-child{width:15%}
 .grades-document ol{padding-left:22px}
 .grades-document li+li{margin-top:8px}
 @media(max-width:740px){.grades-levels{grid-template-columns:1fr}.role-tab{padding-inline:12px}}
-@media print{#grades-workspace[hidden],#rp-workspace:has(> #grades-workspace:not([hidden])) > .tab-panel:not(#grades-workspace){display:none!important}.grades-levels{display:block}.grades-level{break-inside:avoid;margin-bottom:8px}}
+@media print{#grades-workspace[hidden],#rp-workspace:has(> #grades-workspace:not([hidden])) > .tab-panel:not(#grades-workspace){display:none!important}.grades-levels{display:block}.grades-level{break-inside:avoid;margin-bottom:8px}.grades-matrix{min-width:0}.grades-matrix tr{break-inside:avoid}}
 </style></head><body>
 <header class="topbar"><div class="brand">К–СКАЙ <span>Рабочие материалы</span></div><div class="actions"><button class="action" id="edit-notes" aria-pressed="false">Править текст</button><button class="action" id="print-doc">Печать / PDF</button><button class="action primary" id="download-doc">Скачать с правками</button></div></header>
 <main class="page"><div class="hero compact-hero"><h1>Квартальная мотивация · 2027</h1><nav class="role-tabs" aria-label="Роль"><button class="role-tab" id="role-rp" role="tab" aria-controls="rp-workspace" aria-selected="true">РП</button><button class="role-tab" id="role-teamlead" role="tab" aria-controls="teamlead-workspace" aria-selected="false">Тимлид РП</button><button class="role-tab" id="role-sales" role="tab" aria-controls="sales-workspace" aria-selected="false">Продажи</button></nav></div>
@@ -135,8 +137,8 @@
     <header class="document-section">
       <h2 data-edit="rp-grades-title">Система грейдов руководителей проектов К‑Скай</h2>
       <p data-edit="rp-grades-intro">Грейды общие для двух направлений: регионального B2G и уникальных проектов — нестандартного B2G, грантов и B2B. Направление показывает, <strong>с какими проектами человек работает</strong>, а грейд — <strong>какую ответственность он может взять и насколько самостоятельно справляется</strong>.</p>
-      <p data-edit="rp-grades-lead">Тимлид — отдельная роль с ответственностью за работу команды.</p>
-      <p data-edit="rp-grades-expert">РП III может развиваться как ведущий эксперт без подчинённых.</p>
+      <p data-edit="rp-grades-career-path"><strong>Карьерный трек:</strong> РП I → РП II → РП III → Тимлид РП.</p>
+      <p data-edit="rp-grades-career-branches">Тимлид — следующий управленческий уровень с ответственностью за работу команды. РП III может развиваться как ведущий эксперт без подчинённых.</p>
     </header>
     <section class="document-section">
       <h3 data-edit="rp-grades-criteria-title">Грейды и критерии</h3>
@@ -165,7 +167,53 @@
             <dt>Уникальные проекты</dt><dd data-edit="rp-grades-level3-unique">Ведёт проект с конфликтующими требованиями, несколькими центрами принятия решений или нестандартными условиями финансирования и приёмки.</dd>
           </dl>
         </section>
+        <section class="grades-level">
+          <h4 data-edit="rp-grades-level4">Тимлид РП. Отвечает за портфель команды</h4>
+          <p data-edit="rp-grades-level4-criteria">Функционально координирует РП. Проводит обзоры портфеля, согласует приоритеты, следит за сроками, рисками, обязательствами и финансовыми показателями. Помогает РП снять блокеры и подключается к переговорам с лицами, принимающими решения (ЛПР).</p>
+          <dl>
+            <dt>Результат на уровне команды</dt><dd data-edit="rp-grades-level4-result">По ключевым проектам видны статус, риск, ответственный и следующий шаг. По эскалациям команда выполняет согласованные решения.</dd>
+          </dl>
+        </section>
       </div>
+    </section>
+    <section class="document-section">
+      <h3 id="rp-grades-skills-title" data-edit="rp-grades-skills-title">Хард- и софт-скиллы по уровням</h3>
+      <div class="table-responsive" role="region" aria-labelledby="rp-grades-skills-title" tabindex="0">
+        <table class="table grades-table grades-matrix">
+          <thead><tr><th scope="col">Уровень</th><th scope="col">Харды · управление проектами</th><th scope="col">Софты · работа с людьми и решениями</th></tr></thead>
+          <tbody>
+            <tr>
+              <th scope="row">РП I</th>
+              <td data-edit="rp-grades-hard1">Ведёт план и задачи в трекере. Фиксирует требования по шаблону, проверяет готовность типового этапа по чек-листу, собирает документы к приёмке.</td>
+              <td data-edit="rp-grades-soft1">Ясно сообщает статус, письменно фиксирует договорённости и заранее поднимает риск. Уточняет ожидания и применяет обратную связь в работе.</td>
+            </tr>
+            <tr>
+              <th scope="row">РП II</th>
+              <td data-edit="rp-grades-hard2">Самостоятельно строит план проекта, оформляет запрос заказчика в ТЗ, координирует внедрение и разработку. Контролирует сроки, обязательства, затраты и риски. Управляет изменениями до приёмки.</td>
+              <td data-edit="rp-grades-soft2">Самостоятельно ведёт рабочие переговоры с заказчиком и смежными командами. Объясняет последствия изменений, предлагает решение и доводит договорённость до исполнения.</td>
+            </tr>
+            <tr>
+              <th scope="row">РП III</th>
+              <td data-edit="rp-grades-hard3">Выстраивает план сложного внедрения с несколькими зависимостями, например интеграцией с МИС и пилотом. Сопоставляет варианты по срокам, бюджету, рискам и условиям приёмки. Внедряет практику, которой пользуются другие РП.</td>
+              <td data-edit="rp-grades-soft3">Ведёт сложные переговоры с ЛПР и согласует позиции сторон с разными интересами. Помогает коллегам разобраться в сложных случаях и передаёт им рабочие методы.</td>
+            </tr>
+            <tr>
+              <th scope="row">Тимлид РП</th>
+              <td data-edit="rp-grades-hard4">Организует регулярный обзор портфеля. Сопоставляет риски, обязательства и финансовые показатели проектов, определяет приоритеты команды, закрепляет ответственных и отслеживает исполнение решений.</td>
+              <td data-edit="rp-grades-soft4">Координирует РП, даёт обратную связь и помогает им принимать решения. Ведёт сложные эскалации с ЛПР, согласует приоритеты со смежными командами и отвечает за общий результат.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    <section class="document-section">
+      <h3 data-edit="rp-grades-hiring-title">Как определить грейд при найме</h3>
+      <ol>
+        <li data-edit="rp-grades-hiring-cases"><strong>Разобрать завершённые кейсы кандидата.</strong> Уточнить масштаб и сложность задач, за что кандидат отвечал лично, какие решения принимал и чем подтверждается принятый результат.</li>
+        <li data-edit="rp-grades-hiring-exercise"><strong>Дать рабочий кейс на предполагаемый уровень.</strong> При риске срыва приёмки РП I обновляет план своего этапа и поднимает риск, РП II перестраивает план проекта и согласует решение, РП III разрешает конфликт сроков и требований нескольких сторон, тимлид расставляет приоритеты между проектами и организует работу РП.</li>
+        <li data-edit="rp-grades-hiring-offer"><strong>Зафиксировать грейд и обоснование оклада.</strong> HR и нанимающий руководитель сверяют успешные кейсы и решение рабочей задачи с хардами и софтами в матрице. В решении по офферу указывают подтверждённый уровень, примеры и соответствующий ему оклад.</li>
+      </ol>
+      <p data-edit="rp-grades-hiring-lead">Для найма тимлида профиль предусматривает от трёх лет управления проектами. Опыт управления командой желателен. Навыки координации, наставничества и работы с эскалациями проверяем на примерах и рабочем кейсе.</p>
     </section>
     <section class="document-section">
       <h3 data-edit="rp-grades-transition-title">Условия перехода</h3>
@@ -174,6 +222,7 @@
         <tbody>
           <tr><th scope="row">РП I → РП II</th><td data-edit="rp-grades-transition1"><strong>Не менее трёх подтверждённых успешных кейсов следующего уровня как минимум в двух кварталах.</strong> В каждом РП самостоятельно провёл проект или существенный этап от планирования до принятого результата, координировал участников и управлял рисками или отклонениями.</td></tr>
           <tr><th scope="row">РП II → РП III</th><td data-edit="rp-grades-transition2"><strong>Не менее трёх подтверждённых успешных кейсов следующего уровня как минимум в двух кварталах.</strong> Как минимум два из них — проекты или существенные этапы высокой сложности. Дополнительно нужен подтверждённый вклад в работу команды: коллеги применили предложенный РП подход или с его помощью довели сложную задачу до результата.</td></tr>
+          <tr><th scope="row">РП III → Тимлид РП</th><td data-edit="rp-grades-transition4"><strong>Подтвердить результаты координации работы нескольких РП как минимум в двух кварталах.</strong> Показать, как проводил обзоры портфеля и согласовывал приоритеты. Представить один успешный кейс по клиентской эскалации и один по устранению блокера или улучшению процесса команды. В каждом зафиксировать решения, ответственных и результат.</td></tr>
         </tbody>
       </table>
       <p data-edit="rp-grades-case"><strong>Успешный кейс</strong> — проект или существенный этап, по которому достигнут и принят согласованный результат. Подтверждением может быть акт, протокол приёмки, подтверждение запуска или принятый грантодателем отчёт. В описании кейса фиксируем, за что отвечал РП, какие решения принял и что получилось. Для длинного проекта можно зачесть существенный этап с собственным результатом и отдельной приёмкой. Если сроки или объём менялись, учитываем, как РП выявил риск, согласовал изменения и довёл работу до приёмки.</p>
@@ -187,6 +236,7 @@
           <tr><th scope="row">РП I</th><td data-edit="rp-grades-salary1">от 90 000 ₽</td></tr>
           <tr><th scope="row">РП II</th><td data-edit="rp-grades-salary2">105 000 ₽</td></tr>
           <tr><th scope="row">РП III</th><td data-edit="rp-grades-salary3">120 000 ₽</td></tr>
+          <tr><th scope="row">Тимлид РП</th><td data-edit="rp-grades-salary4">По модели мотивации тимлида РП</td></tr>
         </tbody>
       </table>
     </section>
