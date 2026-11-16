@@ -65,8 +65,10 @@
 .grades-level dt{font-weight:600;margin-top:10px}
 .grades-level dd{margin:2px 0 0;color:var(--muted)}
 .grades-table th[scope=row]{width:24%;font-weight:600;}
-.grades-matrix{min-width:540px;table-layout:fixed}
-.grades-matrix th[scope=row],.grades-matrix thead th:first-child{width:15%}
+.grades-matrix-heading{font-size:15px;line-height:1.5;margin:20px 0 0}
+.grades-matrix{min-width:700px;table-layout:fixed}
+.grades-matrix th[scope=row],.grades-matrix thead th:first-child{width:18%}
+.grades-matrix thead th{font-weight:600;color:var(--ink)}
 .grades-document ol{padding-left:22px}
 .grades-document li+li{margin-top:8px}
 @media(max-width:740px){.grades-levels{grid-template-columns:1fr}.role-tab{padding-inline:12px}}
@@ -177,30 +179,83 @@
       </div>
     </section>
     <section class="document-section">
-      <h3 id="rp-grades-skills-title" data-edit="rp-grades-skills-title">Хард- и софт-скиллы по уровням</h3>
-      <div class="table-responsive" role="region" aria-labelledby="rp-grades-skills-title" tabindex="0">
+      <h3 data-edit="rp-grades-skills-title">Хард- и софт-скиллы по уровням</h3>
+      <h4 id="rp-grades-hard-skills" class="grades-matrix-heading" data-edit="rp-grades-hard-skills">Харды — профессиональные навыки</h4>
+      <div class="table-responsive grades-matrix-scroll" role="region" aria-labelledby="rp-grades-hard-skills" tabindex="0">
         <table class="table grades-table grades-matrix">
-          <thead><tr><th scope="col">Уровень</th><th scope="col">Харды · управление проектами</th><th scope="col">Софты · работа с людьми и решениями</th></tr></thead>
+          <thead><tr><th scope="col">Компетенция</th><th scope="col">РП I</th><th scope="col">РП II</th><th scope="col">РП III</th><th scope="col">Тимлид РП</th></tr></thead>
           <tbody>
             <tr>
-              <th scope="row">РП I</th>
-              <td data-edit="rp-grades-hard1">Ведёт план и задачи в трекере. Фиксирует требования по шаблону, проверяет готовность типового этапа по чек-листу, собирает документы к приёмке.</td>
-              <td data-edit="rp-grades-soft1">Ясно сообщает статус, письменно фиксирует договорённости и заранее поднимает риск. Уточняет ожидания и применяет обратную связь в работе.</td>
+              <th scope="row" data-edit="rp-grades-hard-planning">Планирование и контроль</th>
+              <td data-edit="rp-grades-hard-planning-1">Ведёт план этапа и задачи в трекере, обновляет сроки, фиксирует риски.</td>
+              <td data-edit="rp-grades-hard-planning-2">Планирует проект целиком, увязывает работу нескольких команд и перестраивает график при отклонениях.</td>
+              <td data-edit="rp-grades-hard-planning-3">Управляет зависимостями между сложными проектами, оценивает сценарии по срокам, ресурсам и рискам.</td>
+              <td data-edit="rp-grades-hard-planning-4">Проводит обзоры портфеля, согласует приоритеты и загрузку РП, отслеживает исполнение решений.</td>
             </tr>
             <tr>
-              <th scope="row">РП II</th>
-              <td data-edit="rp-grades-hard2">Самостоятельно строит план проекта, оформляет запрос заказчика в ТЗ, координирует внедрение и разработку. Контролирует сроки, обязательства, затраты и риски. Управляет изменениями до приёмки.</td>
-              <td data-edit="rp-grades-soft2">Самостоятельно ведёт рабочие переговоры с заказчиком и смежными командами. Объясняет последствия изменений, предлагает решение и доводит договорённость до исполнения.</td>
+              <th scope="row" data-edit="rp-grades-hard-requirements">Требования и изменения</th>
+              <td data-edit="rp-grades-hard-requirements-1">Уточняет запрос по шаблону, фиксирует согласованные требования и передаёт задачу исполнителям.</td>
+              <td data-edit="rp-grades-hard-requirements-2">Переводит запрос заказчика в ТЗ и критерии приёмки, оценивает и согласует изменения.</td>
+              <td data-edit="rp-grades-hard-requirements-3">Разбирает противоречивые требования, предлагает варианты решения и согласует, какой объём работ команда берёт в проект.</td>
+              <td data-edit="rp-grades-hard-requirements-4">Устанавливает общие правила работы с изменениями и помогает РП оценить запросы, которые затрагивают несколько проектов.</td>
             </tr>
             <tr>
-              <th scope="row">РП III</th>
-              <td data-edit="rp-grades-hard3">Выстраивает план сложного внедрения с несколькими зависимостями, например интеграцией с МИС и пилотом. Сопоставляет варианты по срокам, бюджету, рискам и условиям приёмки. Внедряет практику, которой пользуются другие РП.</td>
-              <td data-edit="rp-grades-soft3">Ведёт сложные переговоры с ЛПР и согласует позиции сторон с разными интересами. Помогает коллегам разобраться в сложных случаях и передаёт им рабочие методы.</td>
+              <th scope="row" data-edit="rp-grades-hard-implementation">Продукт и внедрение</th>
+              <td data-edit="rp-grades-hard-implementation-1">Понимает базовые возможности продукта, ведёт типовой запуск по чек-листу и собирает обратную связь.</td>
+              <td data-edit="rp-grades-hard-implementation-2">Координирует внедрение, тестирование и опытную эксплуатацию. Уточняет у технических специалистов ограничения интеграции и учитывает их в плане.</td>
+              <td data-edit="rp-grades-hard-implementation-3">Выстраивает ход сложного внедрения с несколькими системами или организациями, определяет этапы проверки и готовности к запуску.</td>
+              <td data-edit="rp-grades-hard-implementation-4">Задаёт критерии готовности к запуску для команды, помогает снять повторяющиеся блокеры со смежными подразделениями.</td>
             </tr>
             <tr>
-              <th scope="row">Тимлид РП</th>
-              <td data-edit="rp-grades-hard4">Организует регулярный обзор портфеля. Сопоставляет риски, обязательства и финансовые показатели проектов, определяет приоритеты команды, закрепляет ответственных и отслеживает исполнение решений.</td>
-              <td data-edit="rp-grades-soft4">Координирует РП, даёт обратную связь и помогает им принимать решения. Ведёт сложные эскалации с ЛПР, согласует приоритеты со смежными командами и отвечает за общий результат.</td>
+              <th scope="row" data-edit="rp-grades-hard-acceptance">Контракты и приёмка</th>
+              <td data-edit="rp-grades-hard-acceptance-1">Проверяет комплектность документов по чек-листу, отслеживает сроки и готовит материалы к сдаче этапа.</td>
+              <td data-edit="rp-grades-hard-acceptance-2">Выделяет существенные условия контракта, организует приёмку и координирует работу по замечаниям и претензиям.</td>
+              <td data-edit="rp-grades-hard-acceptance-3">Ведёт сложную приёмку с несколькими сторонами, оценивает последствия изменений договора и готовит варианты решения с юристами.</td>
+              <td data-edit="rp-grades-hard-acceptance-4">Контролирует риски приёмки по портфелю и подключается к эскалациям, которые влияют на обязательства команды.</td>
+            </tr>
+            <tr>
+              <th scope="row" data-edit="rp-grades-hard-finance">Бюджет и выручка</th>
+              <td data-edit="rp-grades-hard-finance-1">Ведёт данные по затратам и суммам к актированию в своей зоне, сообщает об отклонениях.</td>
+              <td data-edit="rp-grades-hard-finance-2">Контролирует бюджет проекта, прогнозирует суммы и сроки актирования, объясняет отклонения.</td>
+              <td data-edit="rp-grades-hard-finance-3">Оценивает влияние изменений на бюджет, маржинальность и выручку, обосновывает решение по сложному проекту.</td>
+              <td data-edit="rp-grades-hard-finance-4">Сводит прогноз по портфелю, разбирает причины отклонений и согласует действия с РП и смежными функциями.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p data-edit="rp-grades-skill-context">Технический и отраслевой контекст подбираем под направление. В региональном B2G это может быть внедрение в контуре МИС и работа с региональным заказчиком. Для уникальных проектов — пилот, условия гранта, нестандартная интеграция или приёмка в B2B.</p>
+      <h4 id="rp-grades-soft-skills" class="grades-matrix-heading" data-edit="rp-grades-soft-skills">Софты — как РП думает, принимает решения и взаимодействует</h4>
+      <div class="table-responsive grades-matrix-scroll" role="region" aria-labelledby="rp-grades-soft-skills" tabindex="0">
+        <table class="table grades-table grades-matrix">
+          <thead><tr><th scope="col">Компетенция</th><th scope="col">РП I</th><th scope="col">РП II</th><th scope="col">РП III</th><th scope="col">Тимлид РП</th></tr></thead>
+          <tbody>
+            <tr>
+              <th scope="row" data-edit="rp-grades-soft-analysis">Аналитическое и системное мышление</th>
+              <td data-edit="rp-grades-soft-analysis-1">Отделяет факты от предположений, задаёт уточняющие вопросы и формулирует проблему.</td>
+              <td data-edit="rp-grades-soft-analysis-2">Находит причину отклонения, сравнивает решения и объясняет свой выбор.</td>
+              <td data-edit="rp-grades-soft-analysis-3">Видит последствия решения для нескольких участников, проверяет допущения и принимает решение при неполной информации.</td>
+              <td data-edit="rp-grades-soft-analysis-4">Замечает повторяющиеся проблемы в портфеле и меняет способ работы команды там, где они возникают.</td>
+            </tr>
+            <tr>
+              <th scope="row" data-edit="rp-grades-soft-ownership">Самостоятельность, приоритеты и ответственность</th>
+              <td data-edit="rp-grades-soft-ownership-1">Организует свою работу, выполняет договорённости и вовремя обращается за помощью.</td>
+              <td data-edit="rp-grades-soft-ownership-2">Сам расставляет приоритеты внутри проекта, принимает решения в своей зоне и доводит их до результата.</td>
+              <td data-edit="rp-grades-soft-ownership-3">Пересматривает приоритеты при конфликте ресурсов или сроков, объясняет последствия своего решения и отвечает за результат.</td>
+              <td data-edit="rp-grades-soft-ownership-4">Согласует приоритеты между проектами, даёт РП полномочия для решений и отслеживает результат команды.</td>
+            </tr>
+            <tr>
+              <th scope="row" data-edit="rp-grades-soft-communication">Коммуникация, переговоры и работа с заказчиком</th>
+              <td data-edit="rp-grades-soft-communication-1">Понятно сообщает статус, слушает заказчика и письменно фиксирует следующий шаг.</td>
+              <td data-edit="rp-grades-soft-communication-2">Ведёт рабочие переговоры, согласует ожидания и конструктивно разбирает замечания.</td>
+              <td data-edit="rp-grades-soft-communication-3">Ведёт переговоры с ЛПР при конфликте интересов, сохраняет рабочие отношения и добивается выполнимых договорённостей.</td>
+              <td data-edit="rp-grades-soft-communication-4">Подключается к сложным эскалациям, помогает РП подготовить позицию и согласует решения между подразделениями.</td>
+            </tr>
+            <tr>
+              <th scope="row" data-edit="rp-grades-soft-leadership">Обучаемость, обратная связь и лидерство</th>
+              <td data-edit="rp-grades-soft-leadership-1">Запрашивает обратную связь и применяет её в следующих задачах.</td>
+              <td data-edit="rp-grades-soft-leadership-2">Осваивает новые подходы под задачу и координирует исполнителей из разных команд.</td>
+              <td data-edit="rp-grades-soft-leadership-3">Помогает коллегам разбирать сложные случаи и передаёт практики, которые они применяют в работе.</td>
+              <td data-edit="rp-grades-soft-leadership-4">Даёт конкретную обратную связь, делегирует задачи с учётом уровня РП и помогает им брать более сложную ответственность.</td>
             </tr>
           </tbody>
         </table>
@@ -208,11 +263,10 @@
     </section>
     <section class="document-section">
       <h3 data-edit="rp-grades-hiring-title">Как определить грейд при найме</h3>
-      <ol>
-        <li data-edit="rp-grades-hiring-cases"><strong>Разобрать завершённые кейсы кандидата.</strong> Уточнить масштаб и сложность задач, за что кандидат отвечал лично, какие решения принимал и чем подтверждается принятый результат.</li>
-        <li data-edit="rp-grades-hiring-exercise"><strong>Дать рабочий кейс на предполагаемый уровень.</strong> При риске срыва приёмки РП I обновляет план своего этапа и поднимает риск, РП II перестраивает план проекта и согласует решение, РП III разрешает конфликт сроков и требований нескольких сторон, тимлид расставляет приоритеты между проектами и организует работу РП.</li>
-        <li data-edit="rp-grades-hiring-offer"><strong>Зафиксировать грейд и обоснование оклада.</strong> HR и нанимающий руководитель сверяют успешные кейсы и решение рабочей задачи с хардами и софтами в матрице. В решении по офферу указывают подтверждённый уровень, примеры и соответствующий ему оклад.</li>
-      </ol>
+      <p data-edit="rp-grades-hiring-practice">Для предполагаемого грейда берём релевантный кейс кандидата и даём рабочую задачу. Уточняем, за что кандидат отвечал, какие решения принимал и чем подтверждается результат.</p>
+      <p data-edit="rp-grades-hiring-scenario"><strong>Пример задания.</strong> Приёмка под угрозой: заказчик просит изменить объём работ, а разработка не успевает к сроку. По хардам смотрим, как кандидат проверяет условия приёмки, перестраивает план и оценивает влияние на выручку. По софтам — как выясняет причины, выбирает решение, объясняет его сторонам и ведёт переговоры. Для тимлида добавляем второй проект с тем же дефицитным ресурсом и смотрим, как кандидат расставляет приоритеты между проектами и организует работу РП.</p>
+      <p data-edit="rp-grades-hiring-evidence">В обосновании оффера фиксируем <strong>грейд, подтверждённые компетенции и результат</strong>, который кандидат обеспечил.</p>
+      <p data-edit="rp-grades-hiring-example"><strong>Пример обоснования.</strong> «РП II. Самостоятельно перестроил план внедрения, согласовал новые условия приёмки и довёл проект до принятого результата. На рабочем кейсе учёл влияние изменений на сроки и актирование. Оклад — на уровне РП II».</p>
       <p data-edit="rp-grades-hiring-lead">Для найма тимлида профиль предусматривает от трёх лет управления проектами. Опыт управления командой желателен. Навыки координации, наставничества и работы с эскалациями проверяем на примерах и рабочем кейсе.</p>
     </section>
     <section class="document-section">
