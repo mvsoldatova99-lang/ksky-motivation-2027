@@ -1,0 +1,901 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><title>К-Скай — Мотивация РП и тимлида 2027</title><style>
+
+:root{color-scheme:light;--paper:#fff;--canvas:#f5f6f8;--ink:#1b2c3d;--muted:#677586;--line:#e4e8ed;--accent:#376d77;--soft:#eaf2f2;--red:#b84c42;--orange:#a16b24;--green:#3b7b63;--foreground:var(--ink);--muted-foreground:var(--muted);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;font-size:15px}
+*{box-sizing:border-box}body{margin:0;background:var(--canvas);color:var(--ink)}button,input,select{font:inherit}button,a,input,select,summary{-webkit-tap-highlight-color:transparent}button{cursor:pointer}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid #9bc4ca;outline-offset:3px}
+.topbar{max-width:1320px;margin:auto;padding:22px 36px;display:flex;justify-content:space-between;gap:20px;align-items:center}.brand{font-weight:650;letter-spacing:.04em}.brand span{font-weight:400;color:var(--muted);font-size:13px;margin-left:15px}.actions{display:flex;gap:8px;flex-wrap:wrap}.action{border:1px solid #d7dee5;border-radius:8px;background:var(--paper);padding:9px 13px;color:var(--ink);font-size:13px;white-space:nowrap}.action.primary{background:var(--ink);color:#fff;border-color:var(--ink)}.action[aria-pressed=true]{background:var(--soft);border-color:var(--accent);color:var(--accent)}
+.page{max-width:1320px;margin:0 auto;padding:16px 36px 48px}.eyebrow{text-transform:uppercase;letter-spacing:.13em;color:var(--accent);font-size:11px;font-weight:650;margin:10px 0 12px}.hero{display:flex;gap:32px;justify-content:space-between;align-items:flex-end;margin-bottom:30px}h1{font-size:42px;line-height:1.13;font-weight:600;letter-spacing:-.035em;margin:0 0 13px}.subtitle{font-size:16px;color:var(--muted);max-width:690px;line-height:1.6;margin:0}.draft{border-left:2px solid var(--line);padding-left:20px;color:var(--muted);font-size:12px;line-height:1.8;min-width:190px}.draft strong{color:var(--ink);font-weight:500}
+.tabs{display:flex;gap:24px;border-bottom:1px solid var(--line);margin-bottom:26px}.tab{background:none;border:0;border-bottom:2px solid transparent;color:var(--muted);font-weight:500;padding:13px 0;margin-bottom:-1px}.tab[aria-selected=true]{border-color:var(--accent);color:var(--ink)}[hidden]{display:none!important}
+.calculator-grid{display:grid;grid-template-columns:296px minmax(0,1fr);gap:28px;align-items:start}.calculator-grid>*,.settings,.result-surface,.result-body,.compact-pair>*,.summary-grid>*{min-width:0}.settings{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:22px}.settings h2{font-size:17px;margin:0 0 20px;font-weight:600}.setting-group+.setting-group{border-top:1px solid var(--line);margin-top:23px;padding-top:20px}.setting-title{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:600;margin:0 0 16px}.form-label{display:block;color:var(--muted);font-size:12px;line-height:1.45;margin:0 0 15px}.form-control,.form-select{display:block;width:100%;min-width:0;border:1px solid #dce3e8;border-radius:7px;padding:10px 11px;color:var(--ink);background:#fff;margin-top:6px;font-size:14px;line-height:1.35;min-height:41px}.form-control:disabled,.form-select:disabled{background:#f3f5f7;color:#86919d}.compact-pair{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px}.micro{color:var(--muted);font-size:11px;line-height:1.55;margin:0}.settings details{font-size:12px}.settings summary{color:var(--muted);padding:3px 0 12px;cursor:pointer}.settings details .form-label{margin-top:9px}
+.result-surface{background:var(--paper);border:1px solid var(--line);border-radius:12px;overflow:hidden}.result-header{padding:24px 26px 22px;border-bottom:1px solid var(--line)}.result-kicker{font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin:0 0 18px}.summary-grid{display:grid;grid-template-columns:1fr 1fr .8fr;gap:25px}.summary-label{font-size:12px;color:var(--muted);margin-bottom:7px}.summary-value{font-size:29px;letter-spacing:-.03em;white-space:nowrap;font-weight:550;font-variant-numeric:tabular-nums}.summary-caption{font-size:11px;color:var(--muted);margin-top:5px}.result-body{padding:23px 26px 25px}.section-heading{display:flex;align-items:baseline;justify-content:space-between;gap:15px;margin-bottom:16px}h2{font-size:20px;font-weight:550;margin:0}h3{font-size:16px;font-weight:550;margin:0 0 14px}.small-note{font-size:12px;color:var(--muted)}.table-responsive{overflow-x:auto;width:100%;overscroll-behavior-x:contain}.table{border-collapse:collapse;width:100%;line-height:1.5;font-size:13px}.table th{font-weight:500;text-align:left}.table thead th{font-size:11px;color:var(--muted);padding:0 9px 12px;border-bottom:1px solid var(--line);vertical-align:bottom}.table td,.table tbody th{padding:15px 9px;border-bottom:1px solid #edf0f3;vertical-align:top}.table th:first-child,.table td:first-child{padding-left:0}.table td:last-child,.table th:last-child{padding-right:0}.table tbody tr:last-child td,.table tbody tr:last-child th{border-bottom:0}.text-end{text-align:right!important;font-variant-numeric:tabular-nums}.tabular-nums{font-variant-numeric:tabular-nums}.comparison{min-width:540px}.comparison td:nth-child(2){color:var(--accent);font-weight:600}.comparison th:first-child{width:32%}.comparison td:last-child{font-weight:550}.fund-track{display:block;margin-top:8px;margin-left:auto;width:90px;height:3px;background:#eaf0f1}.fund-track span{display:block;height:3px;background:var(--accent)}
+.salary-note{font-size:11px;color:var(--muted);line-height:1.6;padding-top:15px}.budget-note{padding:14px 16px;background:#f6f8fa;border-radius:7px;font-size:12px;line-height:1.65;color:var(--muted);margin-top:15px}.period-section{margin-top:25px;padding-top:22px;border-top:1px solid var(--line)}.period-controls{display:flex;justify-content:space-between;gap:16px;align-items:center;margin-bottom:18px}.period-controls .form-select{margin:0;min-width:155px;width:auto;font-size:12px;min-height:35px;padding:7px 9px}.rp-status{display:inline-flex;align-items:center;gap:6px;white-space:nowrap}.rp-dot{width:6px;height:6px;border-radius:50%;display:inline-block;flex:none}.legend{display:flex;flex-wrap:wrap;gap:15px;font-size:11px;margin-top:12px;color:var(--muted)}.legend span{display:flex;align-items:center;gap:6px}.legend i{width:6px;height:6px;border-radius:50%;display:inline-block}.input-details{margin-top:24px;border-top:1px solid var(--line);padding-top:16px}.input-details summary{font-size:13px;cursor:pointer}.input-details .table{min-width:620px;margin-top:18px}.input-details input{font-size:12px;padding:8px;min-height:34px;margin:0}.input-details td,.input-details th{padding-top:9px;padding-bottom:9px}.text-destructive{color:var(--red);font-size:12px;line-height:1.6;margin-top:10px}.assumption{font-size:12px;line-height:1.7;color:var(--muted);margin:16px 3px 0}
+.document{background:#fff;border:1px solid var(--line);border-radius:12px;padding:36px 42px;max-width:980px;margin:auto}.document h2{font-size:25px;margin-bottom:12px}.document p,.document li{font-size:14px;line-height:1.7}.document p{margin:10px 0 17px}.document-section+.document-section{border-top:1px solid var(--line);padding-top:25px;margin-top:25px}.document ul{padding-left:20px}.document code{display:block;background:#f6f8fa;padding:12px 14px;border-radius:6px;font:13px/1.7 ui-monospace,SFMono-Regular,Consolas,monospace;white-space:normal;overflow-wrap:anywhere}.document .table{margin:15px 0}.document .table td{font-size:13px}.document .doc-kicker{font-size:11px;color:var(--accent);text-transform:uppercase;letter-spacing:.09em;margin:0 0 10px}.source-links{font-size:12px!important;color:var(--muted);line-height:1.8}.source-links a{color:var(--accent);text-decoration:none;border-bottom:1px solid #cadcde}.edit-hint{display:none;background:var(--soft);color:var(--accent);font-size:13px;line-height:1.6;padding:12px 16px;border-radius:7px;max-width:980px;margin:0 auto 14px}.editing .edit-hint{display:block}.editing [data-edit]{outline:1px dashed #a5c3c8;outline-offset:4px;background:#f7fbfb;min-height:1em}.editing [data-edit]:focus{outline:2px solid #81aeb6}.footer{display:flex;justify-content:space-between;gap:20px;color:var(--muted);font-size:11px;line-height:1.6;margin:24px 0 0}.footer p{margin:0}.save-status{min-height:18px}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(min-width:1500px){.page,.topbar{max-width:1420px}.calculator-grid{grid-template-columns:310px minmax(0,1fr)}}
+@media(max-width:1000px){.topbar,.page{padding-left:24px;padding-right:24px}.calculator-grid{grid-template-columns:250px minmax(0,1fr);gap:18px}.settings{padding:18px}.result-header,.result-body{padding-left:20px;padding-right:20px}.summary-grid{gap:14px}.summary-value{font-size:23px}.hero .draft{display:none}}
+@media(max-width:800px){.calculator-grid{grid-template-columns:1fr}.settings{display:grid;grid-template-columns:1fr 1fr;gap:0 24px}.settings h2{grid-column:1/-1}.setting-group+.setting-group{border-top:0;margin-top:0;padding-top:0}.setting-group:nth-of-type(3){border-top:1px solid var(--line);padding-top:18px;margin-top:7px}.settings .setting-group:last-child{grid-column:1/-1}.hero{margin-bottom:20px}h1{font-size:34px}.brand span{display:none}.topbar{align-items:flex-start}.actions{justify-content:flex-end}.action{font-size:12px}.document{padding:26px}.comparison{min-width:530px}}
+@media(max-width:480px){.topbar,.page{padding-left:16px;padding-right:16px}.topbar{padding-top:16px;display:block}.actions{justify-content:flex-start;margin-top:15px}.page{padding-top:8px}h1{font-size:31px}.subtitle{font-size:14px}.settings{display:block;padding:20px}.setting-group+.setting-group{border-top:1px solid var(--line);margin-top:18px;padding-top:18px}.summary-grid{grid-template-columns:1fr 1fr;gap:20px}.summary-grid>div:last-child{grid-column:1/-1;display:flex;align-items:center;gap:10px}.summary-grid>div:last-child .summary-caption{margin:0}.summary-grid>div:last-child .summary-label{margin:0}.summary-grid>div:last-child .summary-value{font-size:18px}.result-header,.result-body{padding:20px 16px}.period-controls{align-items:flex-start;flex-direction:column;gap:12px}.document{padding:22px 18px}.document h2{font-size:22px}.footer{display:block}.footer p+p{margin-top:8px}input,select{font-size:16px!important}}
+@media print{@page{size:A4 portrait;margin:12mm}body{background:white;color:#111}.topbar,.tabs,.footer,.edit-hint,.action{display:none!important}.page{padding:0;max-width:none}.hero{margin-bottom:18px}.hero h1{font-size:28px}.hero .draft{display:block}.subtitle{font-size:12px}.eyebrow{margin-top:0}.tab-panel[hidden]{display:block!important}#proposal-panel{break-before:page}.calculator-grid{display:block}.settings{border:0;border-radius:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.settings h2{display:none}.settings .setting-group{border:0!important;padding:0!important;margin:0!important}.form-control,.form-select{border:0;background:transparent!important;padding:0;min-height:0;margin:3px 0 0}.form-label{font-size:10px;margin-bottom:8px}.settings details{display:none}.result-surface,.document{border:0;border-radius:0;padding:0}.result-header,.result-body{padding:12px 0}.summary-value{font-size:24px}.comparison{min-width:0}.table{font-size:11px}.table th,.table td{padding:9px 5px}.table thead th{font-size:10px}.table-responsive{overflow:visible}.period-section{break-inside:avoid}.input-details{display:none}.document-section{break-inside:avoid}.document h2{font-size:24px}.document p,.document li{font-size:12px}.editing [data-edit]{outline:0!important;background:transparent}.fund-track{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+
+.indexation-toggle{display:flex;align-items:center;gap:10px;font-size:13px;line-height:1.5;margin:0 0 10px;cursor:pointer}.indexation-toggle input{width:18px;height:18px;flex:none;accent-color:var(--accent)}
+.label-line{display:flex;align-items:center;gap:6px;flex-wrap:wrap}.info-button{display:inline-flex;align-items:center;justify-content:center;flex:none;vertical-align:middle;width:17px;height:17px;min-width:17px;padding:0;border:1px solid #a5afb9;background:transparent;border-radius:50%;color:#667685;font:500 11px/1 Arial,sans-serif;text-transform:none;letter-spacing:0;cursor:help}.info-button:hover,.info-button:focus-visible,.info-button[aria-expanded=true]{background:var(--soft);color:var(--accent);border-color:var(--accent)}.info-popover{position:fixed;z-index:1000;width:320px;max-width:calc(100vw - 24px);max-height:70vh;overflow:auto;background:#fff;border:1px solid var(--line);border-radius:10px;padding:16px 18px;box-shadow:0 8px 35px #22334420;font-size:13px;line-height:1.6;color:var(--ink)}.info-popover strong{display:block;margin-bottom:7px;font-weight:600}.info-popover p{margin:0 0 8px}.info-popover p:last-child{margin:0}.info-popover a{color:var(--accent);text-underline-offset:3px}.period-input-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 20px;align-items:start;margin-top:18px}.period-select-label{max-width:230px}.period-input-grid .compact-pair .form-label{margin-bottom:0}.data-state{margin-top:-5px}.quarter-context{font-size:12px;line-height:1.65;background:#f6f8fa;border-radius:7px;padding:12px 14px;margin:2px 0 24px;color:var(--muted)}.scenario-heading{font-size:15px;margin:26px 0 12px;font-weight:550}.scenario-heading .scenario-weight{font-size:11px;color:var(--muted);font-weight:400;display:block;margin-top:5px}.variant-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.variant-card{border:1px solid var(--line);border-radius:10px;padding:19px;min-width:0;background:#fff}.variant-cycle{font-size:12px;font-weight:600;margin:0 0 4px}.variant-period{font-size:11px;color:var(--muted);margin-bottom:15px}.variant-label{font-size:11px;color:var(--muted);margin-bottom:4px}.variant-amount{font-size:28px;letter-spacing:-.02em;color:var(--accent);font-weight:550;font-variant-numeric:tabular-nums}.variant-cap{font-size:11px;color:var(--muted);margin-top:5px;line-height:1.55}.variant-breakdown{margin:17px 0 0;padding-top:13px;border-top:1px solid var(--line);font-size:12px;line-height:1.8}.variant-breakdown>div{display:flex;justify-content:space-between;gap:8px}.variant-total{font-weight:550;border-top:1px solid var(--line);padding-top:8px;margin-top:8px}.variant-state{font-size:11px;color:var(--muted);margin-top:12px;line-height:1.55}.variants-main .summary-grid{grid-template-columns:1fr 1fr 1fr}.variants-main .summary-value{font-size:26px}.variants-main .summary-grid>div:last-child{display:block;grid-column:auto}.variants-main .summary-grid>div:last-child .summary-value{font-size:26px}.variants-main .summary-grid>div:last-child .summary-label{margin-bottom:7px}.variant-data-warning{font-size:12px;color:var(--red)}
+@media(max-width:1000px) and (min-width:801px){.variant-grid{grid-template-columns:1fr}.period-input-grid{grid-template-columns:1fr}.variants-main .summary-grid{grid-template-columns:1fr}.variants-main .summary-grid>div{display:flex!important;align-items:baseline;justify-content:space-between;gap:12px}.variants-main .summary-caption{display:none}.variants-main .summary-value{font-size:22px!important}.variants-main .summary-label{margin:0!important}}
+@media(max-width:520px){.variant-grid,.period-input-grid{grid-template-columns:1fr}.variants-main .summary-grid{grid-template-columns:1fr}.variants-main .summary-grid>div{display:flex!important;justify-content:space-between;align-items:baseline;gap:12px}.variants-main .summary-caption{display:none}.variants-main .summary-value{font-size:22px!important}.variants-main .summary-label{margin:0!important}.period-select-label{max-width:none}.variant-amount{font-size:29px}.info-button{width:22px;height:22px;min-width:22px}.period-input-grid .compact-pair{margin-bottom:15px}}
+@media print{.info-button,.info-popover,.input-details{display:none!important}.variant-grid{grid-template-columns:1fr 1fr}.variant-card{break-inside:avoid}.variant-amount{font-size:21px}.variants-main .summary-grid{grid-template-columns:repeat(3,1fr)}.scenario-heading{break-after:avoid}.period-input-grid{grid-template-columns:1fr 1fr}}
+
+.variant-state:before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;margin-right:6px;vertical-align:middle}.zone-red:before{background:var(--red)}.zone-yellow:before{background:var(--orange)}.zone-green:before{background:var(--green)}
+.fund-formula{margin-top:16px}.variant-weights{font-size:11px;line-height:1.6;color:var(--muted);min-height:36px;margin-bottom:12px}.variant-fund-parts{font-size:11px;line-height:1.6;color:var(--muted);margin-top:10px}.one-variant{grid-template-columns:1fr}.one-variant .variant-card{max-width:530px}#variant-cards{margin-top:22px}.period-select-label{max-width:330px}
+.scenario-columns{align-items:start}.variant-heading{font-size:18px;line-height:1.35;margin:6px 0 20px;letter-spacing:-.015em}.revenue-metric{font-size:12px;line-height:1.65;padding:14px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:18px}.revenue-metric strong{font-size:13px;font-weight:600;display:block}.revenue-metric p{margin:7px 0;color:var(--muted)}.metric-weight-label{font-size:12px;color:var(--accent);font-weight:550}.kpi-selection h4{font-size:14px;margin:0;font-weight:600}.kpi-selection>.micro{margin:8px 0 12px}.indicator-choice{display:flex;gap:9px;align-items:flex-start;font-size:12px;line-height:1.55;cursor:pointer;padding:8px 0}.indicator-choice input{width:16px;height:16px;flex:none;margin:2px 0 0;accent-color:var(--accent)}.indicator-choice small{display:block;color:var(--muted);font-size:10px}.custom-indicator-add{margin-top:13px}.custom-indicator-add .form-label{margin-bottom:0}.custom-add-row{display:flex;gap:7px;align-items:stretch;margin-top:6px}.custom-add-row .form-control{margin:0;min-width:0}.custom-add-row .action{padding:7px 9px;font-size:11px}.custom-indicator-add .text-destructive:empty{display:none}.indicator-editor{border-top:1px solid var(--line);margin-top:19px;padding-top:17px}.indicator-title{font-size:12px;line-height:1.55;display:block}.indicator-rule{font-size:11px;line-height:1.65;color:var(--muted);margin:7px 0 12px}.indicator-numbers{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;align-items:end;margin-top:12px}.indicator-numbers .form-label{font-size:10px;line-height:1.4;margin-bottom:6px}.indicator-numbers .form-control{padding:8px;font-size:12px}.indicator-unit{max-width:140px}.indicator-editor .micro{font-size:10px}.indicator-editor textarea{resize:vertical;line-height:1.6;font-size:12px}.result-divider{border-top:1px solid var(--line);margin:22px 0 18px}#indicator-weight-summary{margin-top:16px}#lead-definition-live{white-space:pre-line}.variant-data-warning{font-size:11px;line-height:1.6}.indicator-editor .form-label input[type=text]{font-size:12px}#mixed-result .variant-state{overflow-wrap:anywhere}
+@media(max-width:1000px) and (min-width:801px){.scenario-columns{grid-template-columns:1fr}}
+@media(max-width:520px){.indicator-numbers{gap:8px}.indicator-numbers .form-label{font-size:10px}.indicator-choice{font-size:13px}.indicator-title{font-size:13px}.variant-heading{font-size:19px}.indicator-choice input{width:18px;height:18px}.custom-add-row .action{font-size:12px}}
+@media print{.indicator-choice,.custom-indicator-add{display:none}.indicator-editor .form-control{font-size:10px!important}.indicator-editor textarea{border:0;height:auto}.scenario-columns{display:block}.scenario-columns>.variant-card{break-inside:auto;margin-top:18px}.indicator-editor{break-inside:avoid}.indicator-numbers{grid-template-columns:repeat(3,1fr)}}
+.annual-totals{margin-top:22px;padding:24px 26px}.annual-heading h2{font-size:20px}.annual-heading .micro{margin:9px 0 20px}.annual-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.annual-card{min-width:0;padding:19px;border:1px solid var(--line);border-radius:10px}.annual-kicker{font-size:11px;color:var(--muted);margin-bottom:5px}.annual-card h3{font-size:14px;line-height:1.5;margin:0 0 20px;min-height:42px}.annual-parts>div{display:flex;justify-content:space-between;gap:12px;font-size:12px;line-height:1.6;margin:10px 0}.annual-parts span{color:var(--muted)}.annual-parts strong{font-weight:500;white-space:nowrap;font-variant-numeric:tabular-nums}.annual-total{border-top:1px solid var(--line);padding-top:17px;margin-top:18px}.annual-total>span,.annual-average>span{display:block;font-size:12px;color:var(--muted);margin-bottom:7px}.annual-total strong{display:block;font-size:28px;font-weight:550;letter-spacing:-.025em;color:var(--accent);font-variant-numeric:tabular-nums}.annual-average{margin-top:20px}.annual-average strong{font-size:22px;font-weight:500;letter-spacing:-.02em;font-variant-numeric:tabular-nums}.annual-explanation,.annual-missing{font-size:11px;line-height:1.65;color:var(--muted)}.annual-explanation{margin:18px 0 0}.annual-missing{margin:17px 0 0}
+@media(max-width:1000px) and (min-width:801px){.annual-grid{grid-template-columns:1fr}.annual-card h3{min-height:0}}@media(max-width:520px){.annual-totals{padding:22px 16px}.annual-grid{grid-template-columns:1fr}.annual-card{padding:17px}.annual-card h3{min-height:0}.annual-parts>div{font-size:12px}}@media print{.annual-totals{padding:20px 0;margin-top:20px;break-inside:avoid}.annual-card h3{min-height:0}.annual-total strong{font-size:22px}.annual-average strong{font-size:18px}}
+.number-control{position:relative;display:block;margin-top:6px;min-width:0}.number-control .form-control{margin-top:0;padding-right:31px}.number-control input[type=number]{appearance:textfield;-moz-appearance:textfield}.number-control input::-webkit-inner-spin-button,.number-control input::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}.number-step-buttons{position:absolute;right:1px;top:1px;bottom:1px;width:25px;display:grid;grid-template-rows:1fr 1fr;border-radius:0 6px 6px 0;overflow:hidden}.number-step{display:flex;align-items:center;justify-content:center;font:11px/1 Arial,sans-serif;color:var(--muted);background:#f6f8fa;border:0;border-left:1px solid var(--line);padding:0;min-height:0;cursor:pointer}.number-step:first-child{border-bottom:1px solid var(--line)}.number-step:hover:not(:disabled){background:var(--soft);color:var(--accent)}.number-step:disabled{color:#b5bdc5;cursor:default;background:#f3f5f7}.number-step:focus-visible{outline-offset:-2px}.input-details .number-control{margin-top:0}@media print{.number-step-buttons{display:none}.number-control{margin:0}.number-control .form-control{padding-right:0}}
+.indicator-group{font-size:10px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);margin:18px 0 5px}.indicator-group:first-child{margin-top:12px}.catalog-source{margin:10px 0 16px!important;font-size:10px}.catalog-source a{color:var(--accent);text-underline-offset:3px}.catalog-note{border-left:2px solid var(--line);padding-left:10px;margin:12px 0!important}
+.primary-kpi-caption{font-size:12px;font-weight:600;margin:15px 0 4px}.retention-hint{font-size:10px;line-height:1.6;margin:7px 0 4px!important}.support-indicators{border-top:1px solid var(--line);margin-top:17px;padding-top:12px}.support-indicators summary{font-size:11px;line-height:1.6;cursor:pointer;color:var(--muted)}.support-indicators>p{font-size:10px;line-height:1.6;margin-top:10px}.support-indicators .indicator-choice{font-size:11px}@media print{.support-indicators{display:none}}
+.selected-kpi-heading{font-size:13px!important;font-weight:600;margin:20px 0 7px!important}.selected-kpi-explainer{font-size:11px!important;line-height:1.65;margin:0 0 4px!important}.empty-kpi-hint{font-size:12px;line-height:1.65;color:var(--muted);padding:14px 0 0;margin:15px 0 0;border-top:1px solid var(--line)}.kpi-progress{line-height:1.65!important;margin:8px 0 0}
+.agreement-indicator-numbers{grid-template-columns:1fr 1.4fr}.agreement-scenario-inputs{max-width:460px;grid-template-columns:1fr}.agreement-scenario-inputs .form-label{margin-top:15px}
+.role-tabs{display:flex;gap:6px;margin:0 0 24px;padding:5px;border:1px solid var(--line);border-radius:10px;background:#edf0f3;width:fit-content}.role-tab{padding:10px 24px;border:0;border-radius:7px;background:transparent;color:var(--muted);font-weight:550;font-size:14px}.role-tab[aria-selected=true]{background:#fff;color:var(--ink);box-shadow:0 1px 3px #1b2c3d14}.tl-intro{margin:13px 0}.tl-metric{padding:20px 0;border-top:1px solid var(--line)}.tl-metric:first-child{border-top:0;padding-top:0}.tl-metric-title{display:flex;gap:20px;justify-content:space-between;align-items:baseline;margin-bottom:8px}.tl-metric-title h4{font-size:14px;line-height:1.5;font-weight:550;margin:0;max-width:600px}.tl-weight{font-size:12px;color:var(--accent);white-space:nowrap}.tl-definition{font-size:12px;line-height:1.65;color:var(--muted);margin:0 0 14px}.tl-metric-controls{display:grid;grid-template-columns:1fr 1fr 1.15fr;gap:16px;align-items:end}.tl-metric-controls .form-label{margin-bottom:0}.tl-payout{font-size:19px;font-variant-numeric:tabular-nums;font-weight:550;margin-top:8px}.tl-payout-cell{padding:0 0 6px 10px}.tl-calculation{font-size:11px;color:var(--muted);line-height:1.6;margin:10px 0 0}.tl-rule-note{border-top:1px solid var(--line);padding-top:20px}.tl-totals{padding:0 26px 10px}.tl-total-line{display:flex;justify-content:space-between;gap:20px;padding:12px 0;color:var(--muted);font-size:13px}.tl-total-line strong{color:var(--ink);font-weight:500;font-variant-numeric:tabular-nums}.tl-total-line.primary{border-top:1px solid var(--line);margin-top:8px;align-items:center;font-size:15px;color:var(--ink)}.tl-total-line.primary strong{color:var(--accent);font-size:30px;font-weight:550}.tl-rules{margin-top:12px;color:var(--muted);font-size:12px;line-height:1.6}.tl-rules summary{cursor:pointer;color:var(--accent)}.tl-rules p{margin:8px 0 0}#tl-example-note{margin-top:10px}#teamlead-calculator .period-section{margin-top:6px}#teamlead-calculator .section-heading h3{margin:0}#teamlead-calculator .catalog-source{margin-top:14px}
+@media(max-width:600px){.tl-metric-controls{grid-template-columns:1fr 1fr;gap:12px}.tl-payout-cell{grid-column:1/-1;padding:0;display:flex;gap:15px;justify-content:space-between;align-items:center}.tl-payout{margin:0}.tl-metric-title{gap:12px}.tl-totals{padding-left:16px;padding-right:16px}.tl-total-line.primary strong{font-size:25px}}
+@media print{.role-tabs{display:none}.tl-metric{break-inside:avoid}.tl-payout{font-size:16px}.tl-total-line.primary strong{font-size:24px}}
+
+.topbar{padding-top:12px;padding-bottom:12px}.page{padding-top:4px}.compact-hero{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;margin:0 0 14px}.compact-hero h1{font-size:24px;line-height:1.25;letter-spacing:-.02em;margin:0}.compact-hero .role-tabs{margin:0}.tabs{margin-bottom:18px}.tab{padding:9px 0}
+@media(max-width:800px){.compact-hero h1{font-size:21px}}
+.jump-link{display:inline-block;margin-top:10px;font-size:13px;font-weight:550;color:var(--accent);text-decoration:none;border-bottom:1px solid #cadcde}.jump-link:hover{border-color:var(--accent)}#deals-section{scroll-margin-top:16px}#deals-section.flash{animation:flash 1.4s ease}@keyframes flash{0%,40%{background:var(--soft)}100%{background:transparent}}
+.annual-compact{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:14px}.annual-figure span{display:block;font-size:12px;color:var(--muted);margin-bottom:6px}.annual-figure strong{font-size:28px;font-weight:550;letter-spacing:-.02em;color:var(--accent);font-variant-numeric:tabular-nums;white-space:nowrap}
+@media(max-width:480px){.annual-compact{grid-template-columns:1fr}}
+.ind-row{border:1px solid var(--line);border-radius:9px;padding:10px;margin-bottom:10px}.ind-row>.form-control{font-family:inherit;margin:0;font-size:13px;font-weight:550;line-height:1.35;resize:none;min-height:0;padding:8px 10px}.ind-row-meta{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:8px 0 4px}.ind-type{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}.ind-unit{width:auto;min-width:70px;min-height:30px;padding:4px 8px;margin:0;font-size:12px}.ind-row-bottom{display:grid;grid-template-columns:minmax(0,1fr) 34px;gap:8px;align-items:end}.ind-row-bottom .form-label{margin:0;font-size:11px}.q-select{min-height:34px;padding:6px 8px;margin:0;font-size:13px}.role-warnings:empty{display:none}.role-warnings{margin:0 0 14px}.custom-add-row .form-select{margin:0;min-width:0;font-size:12px}
+.annual-upsell-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;align-items:end}.annual-upsell-grid .form-label{margin:0}.annual-upsell-results{margin-top:14px;padding-top:12px;border-top:1px solid var(--line);align-items:start}
+@media(max-width:700px){.annual-upsell-grid{grid-template-columns:1fr 1fr}}
+.num-mask{position:absolute;inset:0;display:flex;align-items:center;pointer-events:none;white-space:nowrap;overflow:hidden;font-variant-numeric:tabular-nums}.number-control input.masked{color:transparent!important;-webkit-text-fill-color:transparent}
+@media print{.num-mask{display:none}.number-control input.masked{color:inherit!important;-webkit-text-fill-color:currentColor}}
+.q-table{min-width:760px}.q-table th[scope=row]{font-weight:400;color:var(--ink);width:26%;padding-top:14px}.q-table td{padding:7px 6px!important}.q-table .number-control{margin:0}.q-table .form-control{min-height:34px;padding:7px 30px 7px 8px;font-size:13px;margin:0;text-align:right}.q-table .row-group th{font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);padding-top:22px!important;padding-bottom:8px!important;font-weight:600;border-bottom:1px solid var(--line)}.q-table .out{font-variant-numeric:tabular-nums;text-align:right;padding-top:14px!important;padding-right:10px!important}.q-table tr.strong th,.q-table tr.strong td{font-weight:600}.q-table tr.strong td{color:var(--accent)}.note{display:block;font-size:10px;line-height:1.5;color:var(--muted);font-weight:400}
+.tier-row{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr) 34px;gap:8px;align-items:end;margin-bottom:10px}.tier-row .form-label{margin:0;font-size:11px}.tier-row .form-control{font-size:12px;padding:8px 28px 8px 8px}.icon-btn{border:1px solid #d7dee5;background:#fff;border-radius:7px;width:34px;height:41px;color:var(--muted);font-size:16px;line-height:1}.icon-btn:hover{color:var(--red);border-color:var(--red)}
+.deal-row{display:grid;grid-template-columns:150px minmax(0,1fr) minmax(0,1fr) 34px;gap:14px;align-items:end;padding:12px 0;border-bottom:1px solid #edf0f3}.deal-row .form-label{margin:0}.deal-bonus{font-variant-numeric:tabular-nums;font-size:16px;font-weight:550;padding:8px 0 4px}
+.warn{color:var(--orange);font-size:12px;line-height:1.6;margin:0}#rp-warnings:empty{display:none}#rp-warnings{margin:0 0 14px}
+@media(max-width:600px){.deal-row{grid-template-columns:1fr 1fr}.deal-row .icon-btn{justify-self:end}}
+@media print{.icon-btn,#add-tier,#add-deal,.custom-indicator-add{display:none!important}.q-table{min-width:0}.q-table .form-control{border:0;padding:0;min-height:0;background:transparent}}
+
+.role-tabs{flex-wrap:wrap;max-width:100%}
+.grades-levels{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:18px}
+.grades-level{border:1px solid var(--line);border-radius:9px;padding:16px}
+.grades-level h4{font-size:15px;line-height:1.45;margin:0}
+.grades-level p,.grades-level dl{margin:10px 0 0}
+.grades-level dl{font-size:13px;line-height:1.6}
+.grades-level dt{font-weight:600;margin-top:10px}
+.grades-level dd{margin:2px 0 0;color:var(--muted)}
+.grades-table th[scope=row]{width:24%;font-weight:600;}
+.grades-document ol{padding-left:22px}
+.grades-document li+li{margin-top:8px}
+@media(max-width:740px){.grades-levels{grid-template-columns:1fr}.role-tab{padding-inline:12px}}
+@media print{.grades-levels{display:block}.grades-level{break-inside:avoid;margin-bottom:8px}}
+</style></head><body>
+<header class="topbar"><div class="brand">К–СКАЙ <span>Рабочие материалы</span></div><div class="actions"><button class="action" id="edit-notes" aria-pressed="false">Править текст</button><button class="action" id="print-doc">Печать / PDF</button><button class="action primary" id="download-doc">Скачать с правками</button></div></header>
+<main class="page"><div class="hero compact-hero"><h1>Квартальная мотивация · 2027</h1><nav class="role-tabs" aria-label="Роль"><button class="role-tab" id="role-rp" role="tab" aria-controls="rp-workspace" aria-selected="true">РП</button><button class="role-tab" id="role-teamlead" role="tab" aria-controls="teamlead-workspace" aria-selected="false">Тимлид РП</button><button class="role-tab" id="role-grades" role="tab" aria-controls="grades-workspace" aria-selected="false">Система грейдов РП</button><button class="role-tab" id="role-sales" role="tab" aria-controls="sales-workspace" aria-selected="false">Продажи</button></nav></div>
+<div id="rp-workspace" class="role-workspace" role="tabpanel" aria-labelledby="role-rp"><nav class="tabs" aria-label="Разделы"><button class="tab" id="tab-calculator" data-panel="calculator-panel" role="tab" aria-controls="calculator-panel" aria-selected="true">Калькулятор</button><button class="tab" id="tab-proposal" data-panel="proposal-panel" role="tab" aria-controls="proposal-panel" aria-selected="false">Предложения и правила</button></nav>
+<section class="tab-panel" id="calculator-panel" role="tabpanel" aria-labelledby="tab-calculator"><div id="rp-motivation-2027"><div class="calculator-grid">
+<aside class="settings"><h2>Параметры</h2>
+<div class="setting-group"><p class="setting-title">1. Оклад <button class="info-button" data-help="salary" type="button" aria-label="Об окладе">i</button></p>
+<label class="form-label">Оклад, ₽ / месяц<input class="form-control" type="number" min="0" step="any" data-s="salary.base" data-increment="1000"></label>
+<label class="indexation-toggle"><input type="checkbox" data-s="salary.indexOn"><span>Добавить индексацию</span></label>
+<label class="form-label">Индексация, %<input class="form-control" type="number" min="0" max="100" step="any" data-s="salary.indexRate" data-increment="0.5"></label>
+<p class="micro" id="index-status"></p></div>
+<div class="setting-group"><p class="setting-title">2. Премиальный фонд <button class="info-button" data-help="bonus" type="button" aria-label="О премиальном фонде">i</button></p>
+<label class="form-label">Как задаём премию<select class="form-select" data-s="bonus.mode"><option value="target">От целевого дохода в месяц</option><option value="percent">% от трёх окладов</option></select></label>
+<label class="form-label" id="target-field">Целевой доход при 100%, ₽ / месяц<input class="form-control" type="number" min="0" step="any" data-s="bonus.target" data-increment="5000"></label>
+<label class="form-label" id="rate-field">Премия за квартал, % от 3 окладов<input class="form-control" type="number" min="0" max="300" step="any" data-s="bonus.rate" data-increment="1"></label>
+<p class="micro" id="bonus-derived"></p></div>
+<div class="setting-group"><p class="setting-title">3. Веса в премии <button class="info-button" data-help="weights" type="button" aria-label="О весах">i</button></p>
+<div class="compact-pair"><label class="form-label">Выручка, %<input class="form-control" type="number" min="0" max="100" step="any" data-s="weights.revenue" data-increment="5"></label><label class="form-label">Топ-задачи, %<input class="form-control" type="number" min="0" max="100" step="any" data-s="weights.tasks" data-increment="5"></label></div>
+<p class="micro" id="weights-sum"></p></div>
+<div class="setting-group"><p class="setting-title">4. Правила по выручке <button class="info-button" data-help="threshold" type="button" aria-label="О пороге и потолке">i</button></p>
+<div class="compact-pair"><label class="form-label">Порог, %<input class="form-control" type="number" min="0" max="100" step="any" data-s="revenue.threshold" data-increment="5"></label><label class="form-label">Потолок, %<input class="form-control" type="number" min="100" step="any" data-s="revenue.cap" data-increment="5"></label></div>
+<label class="form-label">Если план квартала 0<select class="form-select" data-s="revenue.zeroPlan"><option value="none">Не выплачивать</option><option value="carry">Перенести фонд дальше</option></select></label></div>
+<div class="setting-group"><p class="setting-title">5. Допродажи <button class="info-button" data-help="upsell" type="button" aria-label="О допродажах">i</button></p>
+<label class="form-label">Способ<select class="form-select" data-s="upsell.mode"><option value="scale">Регрессивная шкала</option><option value="percent">Один % от суммы</option><option value="fixed">Фикс за сделку</option></select></label>
+<label class="form-label" id="fixed-field">Фикс за допродажу, ₽<input class="form-control" type="number" min="0" step="any" data-s="upsell.fixed" data-increment="5000"></label>
+<label class="form-label" id="percent-field">Процент от суммы, %<input class="form-control" type="number" min="0" max="100" step="any" data-s="upsell.rate" data-increment="0.5"></label>
+<div id="scale-fields"><label class="form-label">Как применять шкалу<select class="form-select" data-s="upsell.scaleType"><option value="marginal">По частям суммы</option><option value="whole">Одна ставка на весь чек</option></select></label>
+<div id="tiers"></div><button type="button" class="action" id="add-tier">+ Ступень</button>
+<label class="form-label" style="margin-top:16px">Выше последней границы<select class="form-select" data-s="upsell.aboveMode"><option value="agree">По согласованию</option><option value="rate">Своя ставка</option></select></label>
+<label class="form-label" id="above-rate-field">Ставка выше границы, %<input class="form-control" type="number" min="0" max="100" step="any" data-s="upsell.aboveRate" data-increment="0.1"></label></div>
+<p class="micro" id="upsell-explainer"></p><p class="micro" style="margin-top:8px">Суммы и количество допродаж вводятся в таблице кварталов, в группе «Допродажи».</p></div>
+</aside>
+<div class="variants-main"><div class="result-surface"><div class="result-header"><p class="result-kicker">Квартальная премия РП · 2027</p><div class="summary-grid"><div><div class="summary-label">Оклад / месяц</div><div class="summary-value" id="hero-salary">—</div><div class="summary-caption" id="hero-salary-caption"></div></div><div><div class="summary-label">Премиальный фонд / квартал</div><div class="summary-value" id="hero-fund">—</div><div class="summary-caption" id="hero-fund-caption"></div></div><div><div class="summary-label">Средний доход / месяц</div><div class="summary-value" id="hero-monthly">—</div><div class="summary-caption" id="hero-monthly-caption"></div></div></div><p class="micro fund-formula" id="fund-formula"></p></div>
+<div class="result-body"><div class="section-heading"><h2>Расчёт по кварталам</h2><button class="info-button" data-help="tasks" type="button" aria-label="Как работают топ-задачи">i</button></div>
+<p class="micro" style="margin-bottom:16px">Введите план и факт актированной выручки, количество контрактов и допродажи. Незаключённые контракты сами переходят в следующий квартал, и цена каждой задачи там падает.</p>
+<div id="rp-warnings" class="warn" role="alert"></div>
+<div class="table-responsive"><table class="table q-table" id="quarter-table"></table></div>
+</div></div>
+<p class="assumption">Суммы до НДФЛ. Цифры по умолчанию — проект по встрече 29.10, а не утверждённые значения. Изменения сохраняются в этом браузере; «Скачать с правками» создаёт копию файла с текущими цифрами и текстом.</p>
+<section class="annual-totals result-surface" aria-labelledby="annual-title"><div class="annual-heading"><div class="label-line"><h2 id="annual-title">Итог за год</h2><button class="info-button" data-help="annual" type="button" aria-label="Как считается итог за год">i</button></div></div><div class="annual-compact" id="annual-results" aria-live="polite"></div></section>
+</div></div></div></section>
+<div class="info-popover" id="info-popover" role="tooltip" hidden></div>
+<section class="tab-panel" id="proposal-panel" role="tabpanel" aria-labelledby="tab-proposal" hidden><div class="edit-hint">Нажмите на текст, чтобы изменить формулировку. Изменения сохраняются в этом браузере. «Скачать с правками» создаёт HTML-копию с текущими цифрами и текстом.</div><article class="document">
+<div class="document-section"><p class="doc-kicker">Рабочая модель · встреча 29.10.2026</p><h2 data-edit="title">Квартальная мотивация РП на 2027 год</h2><p data-edit="intro">Модель собрана по договорённостям рабочей встречи «KPI» 29.10.2026. Премия только квартальная, годовой премии нет. Оклад выплачивается ежемесячно, премия — по итогам квартала, допродажи — разово. Показатели качества в премию не входят и остаются в оценке работы. Все цифры — проект для обсуждения.</p><p class="budget-note" id="proposal-live"></p></div>
+<div class="document-section"><h3 data-edit="s1-title">01. Оклад и целевой доход</h3><p data-edit="s1-text">Ориентир по окладу на 2027 год — 115–120 тыс. ₽ в месяц; индексация обсуждалась на уровне около 10%. Целевой совокупный доход при выполнении плана без допродаж — 160 тыс. ₽ в месяц (без тимлида и Сергея), то есть премия — около 40–45 тыс. ₽ в месяц. По рынку текущие предложения ниже примерно на 20%: в сопоставимых компаниях — от 150 тыс. ₽.</p></div>
+<div class="document-section"><h3 data-edit="s2-title">02. Из чего состоит премия</h3><p data-edit="s2-text">Два показателя: актированная выручка с небольшим весом и подписанные контракты в штуках (топ-задачи) с основным весом. По подписанным контрактам актированная выручка достигается почти всегда, поэтому её вес не может быть 50%; ориентир — около 15%. Контрактование привязано к штукам, а не к сумме: сумма контракта зависит от бюджета региона и согласования цены руководством, а не от РП.</p></div>
+<div class="document-section"><h3 data-edit="s3-title">03. Актированная выручка</h3><code id="live-formula-rev"></code><p data-edit="s3-text">Факт — работы выполнены и приняты заказчиком. Ниже порога часть за выручку не выплачивается, выше — пропорционально выполнению, до потолка. Для квартала с нулевым планом в калькуляторе выбирается правило: часть не выплачивается или фонд переносится на следующий квартал. Перенос предлагали на встрече, но не утвердили.</p></div>
+<div class="document-section"><h3 data-edit="s4-title">04. Топ-задачи: как работает перенос</h3><code id="live-formula-tasks"></code><p data-edit="s4-text">Каждый контракт, запланированный к подписанию в квартале, — одна топ-задача. Выплата по каждой — «да / нет», без порога в процентах. Фонд блока делится на число задач квартала. Незаключённый контракт переходит в следующий квартал, где тот же фонд делится на большее число задач: каждая дешевеет, а недополученное за прошлый квартал не возвращается. Пример со встречи: фонд 10 000 ₽ на 3 задачи — по 3 333 ₽; заключён 1 контракт — 3 333 ₽; 2 переходят, в следующем квартале 3 + 2 = 5 задач по 2 000 ₽. Плановый разброс — 4–7 задач на квартал, минимум 2.</p></div>
+<div class="document-section"><h3 data-edit="s5-title">05. Допродажи</h3><p data-edit="s5-text">Процент от суммы допродажи по регрессивной шкале: чеки бывают от 1 до 20 млн ₽, в теории — до 50 млн ₽. Выше верхней границы — по отдельному согласованию. Допродажи выплачиваются разово и не входят в факт квартальной премии. Ставки шкалы — пример для обсуждения.</p><p class="budget-note" id="proposal-upsell-live"></p></div>
+<div class="document-section"><h3 data-edit="s6-title">06. Показатели качества</h3><p data-edit="s6-text">Показатели качества из прежней модели (готовность этапов к приёмке, продление ТП, использование платформы и др.) остаются в оценке работы РП и в деньги не переводятся, поэтому в калькуляторе их нет.</p></div>
+<div class="document-section"><h3 data-edit="s7-title">07. Что осталось согласовать</h3><p data-edit="s7-text">Точный оклад в диапазоне 115–120 тыс. ₽ и индексация; веса выручки и топ-задач; ставки и отсечка шкалы допродаж; правило для квартала без плана; что делать при полной отмене контракта, а не переносе; переход незакрытых задач через конец года и лимиты выплат; ответственность РП за дебиторскую задолженность и графики закрытия; пилот поквартального закрытия (Тула) и список регионов; бенчмарк по зарплатам в телекоме.</p><p class="source-links">Источник: Plaud, «Рабочая встреча: Система мотивации, согласование ТЗ и регламент КП», 29.10.2026: 21:56–25:38 — два показателя; 29:00–30:29 — вес актированной выручки; 33:19–41:37 — топ-задачи; 42:11–43:53 и 47:24–48:42 — оклад, доход, итог; 48:42–49:56 — допродажи; 50:31–50:44 — рынок.<br>Редактирование текста не меняет формулы. Цифры меняйте в калькуляторе.</p></div>
+</article></section>
+</div>
+<div id="teamlead-workspace" class="role-workspace" role="tabpanel" aria-labelledby="role-teamlead" hidden><nav class="tabs" aria-label="Разделы"><button class="tab" role="tab" data-panel="tl-calc-panel" aria-selected="true">Калькулятор</button><button class="tab" role="tab" data-panel="tl-proposal-panel" aria-selected="false">Предложения и правила</button></nav>
+<section class="tab-panel" id="tl-calc-panel" role="tabpanel"><div id="tl-calc"></div></section>
+<section class="tab-panel" id="tl-proposal-panel" role="tabpanel" hidden><div class="edit-hint">Нажмите на текст, чтобы изменить формулировку. Изменения сохраняются в этом браузере.</div><article class="document">
+<div class="document-section"><p class="doc-kicker">Рабочая модель · встреча 03.11.2026</p><h2 data-edit="tl-title">Квартальная мотивация тимлида РП на 2027 год</h2><p data-edit="tl-intro-v2">Модель пересобрана по встрече «KPI» 03.11.2026 в той же логике, что у РП: премия квартальная, каждый квартал считается отдельно, а не накопительным итогом с начала года. В премии три общих квартальных показателя команды; отдельно — годовой бонус за выполнение плана по допродажам отдела. Все показатели смотрятся только по направлению B2G.</p><p class="budget-note" data-live="teamlead"></p></div>
+<div class="document-section"><h3 data-edit="tl-s1-title">01. Показатели и веса</h3><p data-edit="tl-s1-text-v2">Учитываются только B2G-регионы. Актированная выручка команды — 50%: складывается из результатов всех РП и личного портфеля тимлида по B2G-регионам. Подписанные контракты команды в штуках — 30%: уникальные контрагенты, процент выполнения плана. Механика топ-задач здесь не используется: у тимлида считается совокупный результат команды, а не каждый контракт. Просроченная дебиторская задолженность — 20%: нет просрочки на конец квартала — часть выплачивается полностью, есть — не выплачивается.</p></div>
+<div class="document-section"><h3 data-edit="tl-s2-title">02. Что убрано из прежней модели</h3><p data-edit="tl-s2-text">Обращения врачей к платформе — переводятся в справочные: данные по использованию платформы сейчас ненадёжны. Доля этапов воронки в срок — убрана: её сложно считать, пока не настроен Битрикс. Оба показателя можно вернуть позже, перераспределив веса.</p></div>
+<div class="document-section"><h3 data-edit="tl-s3-title-v2">03. Допродажи отдела — годовой показатель</h3><p data-edit="tl-s3-text-v2">Вместо личных допродаж тимлид получает годовой бонус за выполнение плана по допродажам отдела (только B2G-регионы). Он считается по итогам года, вне квартальной премии. Бонус = факт допродаж отдела за год × ставка, которая зависит от среднего чека: до 5 млн ₽ — 0,3%; от 5 до 20 млн ₽ — 0,2%; от 20 до 50 млн ₽ — 0,1%.</p></div>
+<div class="document-section"><h3 data-edit="tl-s5-title-v2">04. Что осталось согласовать</h3><p data-edit="tl-s5-text-v2">Срок просрочки ДЗ: 1 или 2 месяца (при весе 20% склонились к двум); нужен ли допуск по сумме ДЗ; оклад и размер премии тимлида; условие годового бонуса при невыполнении плана по допродажам отдела и ставка для среднего чека свыше 50 млн ₽; итоговые суммы с Романом. После доработки — получасовая встреча, на которой тимлида и продажника прокручивают вместе и утверждают.</p><p class="source-links">Источник: Plaud, «Совещание: модели вознаграждения и калькуляторы премий», 03.11.2026: 13:54–14:13 — калькуляторы тимлида и продаж; 18:03–18:20 — разбивка по кварталам; 20:52–23:34 — дебиторская задолженность; 23:56–26:40 — убрать показатели 4 и 5; 28:40–30:06 — веса 50 / 30 / 20. Годовой показатель по допродажам отдела, отмена понижающего коэффициента и учёт только B2G — уточнения от 09.11.2026.</p></div>
+</article></section></div>
+<section id="grades-workspace" class="role-workspace" role="tabpanel" aria-labelledby="role-grades" hidden>
+  <div class="edit-hint">Нажмите на текст, чтобы изменить формулировку. Изменения сохраняются в этом браузере.</div>
+  <article class="document grades-document">
+    <header class="document-section">
+      <h2 data-edit="rp-grades-title">Система грейдов руководителей проектов К‑Скай</h2>
+      <p data-edit="rp-grades-intro">Грейды общие для двух направлений: регионального B2G и уникальных проектов — нестандартного B2G, грантов и B2B. Направление показывает, <strong>с какими проектами человек работает</strong>, а грейд — <strong>какую ответственность он может взять и насколько самостоятельно справляется</strong>.</p>
+      <p data-edit="rp-grades-lead">Тимлид — отдельная роль с ответственностью за работу команды.</p>
+      <p data-edit="rp-grades-expert">РП III может развиваться как ведущий эксперт без подчинённых.</p>
+    </header>
+    <section class="document-section">
+      <h3 data-edit="rp-grades-criteria-title">Грейды и критерии</h3>
+      <div class="grades-levels">
+        <section class="grades-level">
+          <h4 data-edit="rp-grades-level1">РП I. Ведёт проект по согласованному плану</h4>
+          <p data-edit="rp-grades-level1-criteria">Ведёт типовой проект или отдельный этап. Координирует текущие задачи, следит за сроками, заранее сообщает о рисках. Согласовывает изменения, которые влияют на сроки, объём работ или обязательства перед заказчиком. Доводит свою часть работ до приёмки.</p>
+          <dl>
+            <dt>Региональный B2G</dt><dd data-edit="rp-grades-level1-b2g">Ведёт типовое внедрение и готовит документы к приёмке.</dd>
+            <dt>Уникальные проекты</dt><dd data-edit="rp-grades-level1-unique">Ведёт отдельный этап гранта или B2B-проекта с понятным результатом.</dd>
+          </dl>
+        </section>
+        <section class="grades-level">
+          <h4 data-edit="rp-grades-level2">РП II. Самостоятельно ведёт проект или портфель</h4>
+          <p data-edit="rp-grades-level2-criteria">Отвечает за весь цикл в своей зоне — от планирования до приёмки. Согласовывает ожидания с заказчиком, координирует внутренние команды, управляет рисками и изменениями. При отклонениях предлагает решение и доводит проект до согласованного результата.</p>
+          <dl>
+            <dt>Региональный B2G</dt><dd data-edit="rp-grades-level2-b2g">Ведёт несколько регионов с пересекающимися сроками и перестраивает план при возникновении зависимостей.</dd>
+            <dt>Уникальные проекты</dt><dd data-edit="rp-grades-level2-unique">Ведёт нестандартный B2G-, грантовый или B2B-проект от уточнения требований до приёмки или отчётности.</dd>
+          </dl>
+        </section>
+        <section class="grades-level">
+          <h4 data-edit="rp-grades-level3">РП III. Ведёт сложные проекты и развивает практику команды</h4>
+          <p data-edit="rp-grades-level3-criteria">Берёт ответственность за проекты с высокой неопределённостью, сложными зависимостями или серьёзными последствиями ошибок. Выстраивает подход к работе, согласует интересы нескольких сторон и доводит проект до результата. Помогает другим РП решать сложные задачи и передаёт команде подходы, которые коллеги применяют в работе.</p>
+          <dl>
+            <dt>Региональный B2G</dt><dd data-edit="rp-grades-level3-b2g">Координирует запуск в нескольких регионах с общими ресурсами или выстраивает процесс приёмки, который используют другие РП.</dd>
+            <dt>Уникальные проекты</dt><dd data-edit="rp-grades-level3-unique">Ведёт проект с конфликтующими требованиями, несколькими центрами принятия решений или нестандартными условиями финансирования и приёмки.</dd>
+          </dl>
+        </section>
+      </div>
+    </section>
+    <section class="document-section">
+      <h3 data-edit="rp-grades-transition-title">Условия перехода</h3>
+      <table class="table grades-table">
+        <thead><tr><th scope="col">Уровень грейда</th><th scope="col">Критерии перехода</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">РП I → РП II</th><td data-edit="rp-grades-transition1"><strong>Не менее трёх подтверждённых успешных кейсов следующего уровня как минимум в двух кварталах.</strong> В каждом РП самостоятельно провёл проект или существенный этап от планирования до принятого результата, координировал участников и управлял рисками или отклонениями.</td></tr>
+          <tr><th scope="row">РП II → РП III</th><td data-edit="rp-grades-transition2"><strong>Не менее трёх подтверждённых успешных кейсов следующего уровня как минимум в двух кварталах.</strong> Как минимум два из них — проекты или существенные этапы высокой сложности. Дополнительно нужен подтверждённый вклад в работу команды: коллеги применили предложенный РП подход или с его помощью довели сложную задачу до результата.</td></tr>
+        </tbody>
+      </table>
+      <p data-edit="rp-grades-case"><strong>Успешный кейс</strong> — проект или существенный этап, по которому достигнут и принят согласованный результат. Подтверждением может быть акт, протокол приёмки, подтверждение запуска или принятый грантодателем отчёт. В описании кейса фиксируем, за что отвечал РП, какие решения принял и что получилось. Для длинного проекта можно зачесть существенный этап с собственным результатом и отдельной приёмкой. Если сроки или объём менялись, учитываем, как РП выявил риск, согласовал изменения и довёл работу до приёмки.</p>
+    </section>
+    <section class="document-section">
+      <h3 data-edit="rp-grades-income-title">Уровень дохода по грейду</h3>
+      <p data-edit="rp-grades-income">Грейд определяет уровень оклада. При переходе на следующий грейд оклад повышается. Квартальная премия рассчитывается по KPI за период.</p>
+      <table class="table grades-table">
+        <thead><tr><th scope="col">Уровень грейда</th><th scope="col">Оклад в месяц</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">РП I</th><td data-edit="rp-grades-salary1">от 90 000 ₽</td></tr>
+          <tr><th scope="row">РП II</th><td data-edit="rp-grades-salary2">определяется отдельно</td></tr>
+          <tr><th scope="row">РП III</th><td data-edit="rp-grades-salary3">120 000 ₽</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section class="document-section">
+      <h3 data-edit="rp-grades-review-title">Пересмотр грейдов</h3>
+      <p data-edit="rp-grades-quarterly"><strong>На квартальном ревью</strong> РП и руководитель фиксируют принятые результаты, отмечают кейсы следующего уровня и договариваются, какую задачу или зону ответственности РП возьмёт в следующем квартале.</p>
+      <p data-edit="rp-grades-annual"><strong>На ревью IV квартала</strong> руководитель проектной функции и HR сверяют оценки по команде и принимают решение о грейде на основе подтверждённых кейсов. Пересмотр проводится <strong>раз в год</strong>, между повышениями — <strong>не менее 12 месяцев</strong>. Каждый РП получает решение с обоснованием и конкретные ожидания к следующему пересмотру.</p>
+    </section>
+    <section class="document-section">
+      <h3 data-edit="rp-grades-launch-title">Внедрение системы грейдов</h3>
+      <ol>
+        <li data-edit="rp-grades-launch1"><strong>Проверить критерии на реальных проектах К‑Скай.</strong> Взять примеры из обоих направлений и определить, какой уровень ответственности и сложности соответствует каждому грейду.</li>
+        <li data-edit="rp-grades-launch2"><strong>Провести первичную оценку команды.</strong> Руководитель проектной функции и HR сверяют оценки по подтверждённым результатам за последние 12 месяцев и определяют стартовый грейд каждого РП.</li>
+        <li data-edit="rp-grades-launch3"><strong>Рассчитать бюджет и согласовать даты перехода.</strong> Сопоставить стартовые грейды с текущими окладами и оценить влияние изменений на фонд оплаты труда.</li>
+        <li data-edit="rp-grades-launch4"><strong>Обсудить результаты с каждым РП.</strong> На ближайшем квартальном ревью объяснить решение и определить, какие задачи помогут подтвердить следующий уровень.</li>
+      </ol>
+    </section>
+  </article>
+</section>
+<div id="sales-workspace" class="role-workspace" role="tabpanel" aria-labelledby="role-sales" hidden><nav class="tabs" aria-label="Разделы"><button class="tab" role="tab" data-panel="sales-calc-panel" aria-selected="true">Калькулятор</button><button class="tab" role="tab" data-panel="sales-proposal-panel" aria-selected="false">Предложения и правила</button></nav>
+<section class="tab-panel" id="sales-calc-panel" role="tabpanel"><div id="sales-calc"></div></section>
+<section class="tab-panel" id="sales-proposal-panel" role="tabpanel" hidden><div class="edit-hint">Нажмите на текст, чтобы изменить формулировку. Изменения сохраняются в этом браузере.</div><article class="document">
+<div class="document-section"><p class="doc-kicker">Черновик · встреча 03.11.2026</p><h2 data-edit="sl-title">Квартальная мотивация менеджера по продажам на 2027 год</h2><p data-edit="sl-intro">Калькулятор добавлен по итогам встречи 03.11.2026: продажника решили считать в той же логике и в том же интерфейсе, что РП и тимлида. Сами показатели продажника на встрече не обсуждались — ниже стартовый вариант для разговора. Показатели, веса и все цифры меняются в калькуляторе.</p><p class="budget-note" data-live="sales"></p></div>
+<div class="document-section"><h3 data-edit="sl-s1-title">01. Стартовые показатели</h3><p data-edit="sl-s1-text">Законтрактованная выручка по новым клиентам — 50%: план и факт за квартал. Новые контракты — 50%: каждый контракт в плане квартала — топ-задача; незаключённый переходит в следующий квартал и дешевеет, как у РП. Бонус за допродажи и понижающий коэффициент пока выключены — их можно включить слева.</p></div>
+<div class="document-section"><h3 data-edit="sl-s2-title">02. Что решить на встрече</h3><p data-edit="sl-s2-text">Какие показатели оставить и их веса; оклад и размер премии; нужны ли бонус за допродажи и понижающий коэффициент; момент зачёта сделки — подписание контракта или поступление выручки (этот вопрос поднимали 03.11 для допродаж); как разделить зачёт, если контракт ведут продажник и РП вместе.</p></div>
+</article></section></div>
+
+<footer class="footer"><p>Рабочая модель для обсуждения · параметры сохраняются в вашем браузере</p><p class="save-status" id="save-status" aria-live="polite">Изменения сохраняются в этом браузере</p></footer></main>
+<script id="rp-file-state" type="application/json">{"version": 1, "documentId": "ksky-rp-2027-v2-20261030", "savedAt": 1793340000000, "calc": null, "notes": {}, "activeRole": "rp"}</script>
+<script>
+(function(){
+  const seed=JSON.parse(document.getElementById('rp-file-state').textContent);
+  const key='ksky-rp-document:'+seed.documentId;
+  let data={...seed},storageAvailable=true;
+  try{const local=JSON.parse(localStorage.getItem(key)||'null');if(local&&local.version===1&&local.savedAt>seed.savedAt)data=local;}catch(e){storageAvailable=false;}
+  if(!data.notes)data.notes={};
+  function persist(){data.savedAt=Date.now();try{localStorage.setItem(key,JSON.stringify(data));storageAvailable=true;}catch(e){storageAvailable=false;}const out=document.getElementById('save-status');if(out)out.textContent=storageAvailable?'Сохранено в этом браузере · '+new Date().toLocaleTimeString('ru-RU',{hour:'2-digit',minute:'2-digit'}):'Автосохранение недоступно — используйте «Скачать с правками»';}
+  window.rpDocument={get data(){return data;},persist,get storageAvailable(){return storageAvailable;}};
+})();
+</script>
+<script>
+(function(){
+  const doc=window.rpDocument;
+  const root=document.getElementById('rp-motivation-2027');
+  const QN=['I квартал','II квартал','III квартал','IV квартал'];
+  const defaults={
+    version:10,
+    salary:{base:120000,indexOn:false,indexRate:10},
+    bonus:{mode:'target',target:160000,rate:33.33},
+    weights:{revenue:15,tasks:85},
+    revenue:{threshold:50,cap:120,zeroPlan:'none'},
+    quarters:[
+      {revPlan:3000000,revFact:3000000,tasksNew:4,tasksRemoved:0,tasksDone:3,upsellSum:0,upsellCount:0},
+      {revPlan:3000000,revFact:2700000,tasksNew:4,tasksRemoved:0,tasksDone:5,upsellSum:0,upsellCount:0},
+      {revPlan:3000000,revFact:3000000,tasksNew:4,tasksRemoved:0,tasksDone:4,upsellSum:2000000,upsellCount:1},
+      {revPlan:3000000,revFact:3300000,tasksNew:4,tasksRemoved:0,tasksDone:4,upsellSum:0,upsellCount:0}
+    ],
+    indicators:[],
+    upsell:{mode:'scale',fixed:50000,rate:2.5,scaleType:'marginal',tiers:[{upTo:5000000,rate:3},{upTo:20000000,rate:2},{upTo:50000000,rate:1}],aboveMode:'agree',aboveRate:0.5}
+  };
+  const clone=o=>JSON.parse(JSON.stringify(o));
+  let state=doc.data.calc&&doc.data.calc.version===10?clone(doc.data.calc):clone(defaults);
+  state.indicators=[];
+  // Earlier saved versions kept upsells as a separate deal list; fold them into the quarters.
+  if(state.quarters.some(q=>q.upsellSum===undefined)){
+    const deals=Array.isArray(state.upsell.deals)?state.upsell.deals:[];
+    state.quarters.forEach((q,i)=>{const own=deals.filter(d=>d.q===i);q.upsellSum=own.reduce((a,d)=>a+(Number(d.amount)||0),0);q.upsellCount=own.length;});
+  }
+  delete state.upsell.deals;
+  doc.data.calc=state;
+
+  const help={
+    salary:['Оклад','Ежемесячный оклад. Ориентир со встречи 29.10 — 115–120 тыс. ₽. Индексация по желанию: оклад × (1 + % / 100).'],
+    bonus:['Премиальный фонд','Фонд — премия за квартал при 100% по всем частям. «От целевого дохода»: фонд = (целевой доход − оклад) × 3. При цели 160 000 ₽ и окладе 120 000 ₽ — 120 000 ₽ за квартал. «% от трёх окладов»: фонд = оклад × 3 × ставка / 100.'],
+    weights:['Веса в премии','Доли фонда для каждой части. По встрече: актированная выручка — меньшая доля (ориентир около 15%), основная — топ-задачи. Меняете один вес — второй подстраивается сам, чтобы сумма была 100%.'],
+    threshold:['Порог и потолок по выручке','Порог — минимальное выполнение плана актированной выручки, с которого платится часть за выручку. Потолок — максимум, учитываемый при перевыполнении. Пример при пороге 50% и потолке 120%: 40% → 0; 90% → 90% части; 150% → 120% части. «Если план 0» — предложение со встречи: фонд пустого квартала переносится на следующий. Оно не утверждено, поэтому вынесено в выбор.'],
+    tasks:['Топ-задачи','Топ-задача — контракт, который должен быть подписан в квартале. Цена задачи = фонд топ-задач / (новые + перенесённые − снятые). Премия = цена × заключённые. Незаключённые переходят в следующий квартал и делят его фонд, поэтому цена каждой падает, а недополученное не возвращается. «Снято с плана» — регион отказался совсем.'],
+    upsell:['Допродажи','Разовый бонус за каждую допродажу, вне квартальной премии. Регрессивная шкала: чем больше чек, тем ниже ставка. «По частям суммы» — каждая часть чека считается по своей ставке, без скачков на границах. «Одна ставка» — весь чек по ставке ступени, в которую он попал. Выше последней границы — по согласованию (в расчёте 0 ₽) или своя ставка.'],
+    annual:['Итог за год','Годовой доход = оклад × 12 + премии четырёх кварталов + бонусы за допродажи. Среднемесячный = годовой / 12.']
+  };
+
+  const n=v=>Number.isFinite(v)?v:0;
+  const money=v=>v===null||!Number.isFinite(v)?'—':new Intl.NumberFormat('ru-RU',{maximumFractionDigits:0}).format(Math.round(v))+' ₽';
+  const num=v=>Number.isFinite(v)?new Intl.NumberFormat('ru-RU',{maximumFractionDigits:2}).format(v):'—';
+  const pct=v=>v===null||!Number.isFinite(v)?'—':new Intl.NumberFormat('ru-RU',{maximumFractionDigits:1}).format(v*100)+'%';
+  const mln=v=>num(v/1e6)+' млн ₽';
+  const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const getP=(o,p)=>p.split('.').reduce((a,k)=>a==null?undefined:a[k],o);
+  const setP=(o,p,v)=>{const ks=p.split('.'),last=ks.pop();ks.reduce((a,k)=>a[k],o)[last]=v;};
+  const $=s=>root.querySelector(s);
+  const numInput=(path,inc,label,attrs)=>'<input class="form-control" type="number" min="0" step="any" data-s="'+path+'" data-increment="'+inc+'" aria-label="'+esc(label)+'"'+(attrs||'')+'>';
+
+  function upsellBonus(amount,u){
+    if(!(amount>0))return {bonus:0,flag:false};
+    if(u.mode==='fixed')return {bonus:n(u.fixed),flag:false};
+    if(u.mode==='percent')return {bonus:amount*n(u.rate)/100,flag:false};
+    const tiers=u.tiers.filter(t=>t.upTo>0).slice().sort((a,b)=>a.upTo-b.upTo);
+    const last=tiers.length?tiers[tiers.length-1].upTo:0;
+    const above=u.aboveMode==='rate'?n(u.aboveRate):0,flag=amount>last&&u.aboveMode==='agree';
+    if(u.scaleType==='whole'){const t=tiers.find(t=>amount<=t.upTo);return {bonus:amount*(t?n(t.rate):above)/100,flag};}
+    let bonus=0,prev=0;
+    for(const t of tiers){if(amount>prev)bonus+=(Math.min(amount,t.upTo)-prev)*n(t.rate)/100;prev=t.upTo;}
+    if(amount>last)bonus+=(amount-last)*above/100;
+    return {bonus,flag};
+  }
+
+  function calc(s){
+    const indexed=n(s.salary.base)*(1+(s.salary.indexOn?n(s.salary.indexRate):0)/100);
+    const salary=Math.round(indexed);
+    const fund=s.bonus.mode==='target'?Math.max(0,(n(s.bonus.target)-salary)*3):salary*3*n(s.bonus.rate)/100;
+    const active=s.indicators.filter(m=>m.enabled);
+    const wInd=active.reduce((a,m)=>a+n(m.weight),0);
+    const wSum=n(s.weights.revenue)+n(s.weights.tasks)+wInd;
+    const revBase=fund*n(s.weights.revenue)/100,taskBase=fund*n(s.weights.tasks)/100;
+    const indPaid=active.reduce((a,m)=>a+fund*n(m.weight)/100*Math.max(0,Math.min(1,n(m.performance)/100)),0);
+    let carryTasks=0,carryRev=0;
+    const quarters=s.quarters.map((q,i)=>{
+      const revFund=revBase+carryRev;carryRev=0;
+      let ratio=null,k=0,revPaid=0,revNote='';
+      if(n(q.revPlan)>0){
+        ratio=n(q.revFact)/q.revPlan;
+        if(ratio<n(s.revenue.threshold)/100){revNote='ниже порога';}
+        else{k=Math.min(ratio,n(s.revenue.cap)/100);if(ratio>k)revNote='учтено до потолка';}
+        revPaid=revFund*k;
+      }else if(s.revenue.zeroPlan==='carry'&&i<3){carryRev=revFund;revNote='план 0 · фонд перенесён';}
+      else revNote='план 0 · не выплачивается';
+      const carried=carryTasks;
+      const open=Math.max(0,n(q.tasksNew)+carried-n(q.tasksRemoved));
+      const done=Math.min(open,Math.max(0,n(q.tasksDone)));
+      const price=open>0?taskBase/open:0;
+      const taskPaid=done*price;
+      carryTasks=open-done;
+      const premium=revPaid+taskPaid+indPaid;
+      const upsellSum=Math.max(0,n(q.upsellSum)),upsellCount=upsellSum>0?Math.max(1,Math.round(n(q.upsellCount))):0;
+      const perDeal=upsellCount?upsellBonus(upsellSum/upsellCount,s.upsell):{bonus:0,flag:false};
+      const upsell=perDeal.bonus*upsellCount,upsellFlag=perDeal.flag;
+      return {revFund,ratio,k,revPaid,revNote,carried,open,done,price,taskPaid,indPaid,premium,upsell,salary3:salary*3,upsellCount,upsellFlag,total:salary*3+premium+upsell,doneOver:n(q.tasksDone)>open};
+    });
+    const sum=k=>quarters.reduce((a,q)=>a+q[k],0);
+    const year={salary:salary*12,revenue:sum('revPaid'),tasks:sum('taskPaid'),ind:sum('indPaid'),premium:sum('premium'),upsell:sum('upsell'),upsellCount:sum('upsellCount'),tasksLeft:carryTasks,flagged:quarters.filter(q=>q.upsellFlag).length,revLost:carryRev};
+    year.total=year.salary+year.premium+year.upsell;year.monthly=year.total/12;
+    return {salary,indexed,fund,revBase,taskBase,wInd,wSum,active,quarters,year};
+  }
+
+  function upsellText(u){
+    if(u.mode==='fixed')return 'фикс '+money(u.fixed)+' за сделку';
+    if(u.mode==='percent')return num(u.rate)+'% от суммы сделки';
+    let prev=0;
+    const parts=u.tiers.filter(t=>t.upTo>0).slice().sort((a,b)=>a.upTo-b.upTo).map(t=>{const s=(prev?'от '+mln(prev)+' ':'')+'до '+mln(t.upTo)+' — '+num(t.rate)+'%';prev=t.upTo;return s;});
+    parts.push('свыше '+mln(prev)+' — '+(u.aboveMode==='rate'?num(u.aboveRate)+'%':'по согласованию'));
+    return 'регрессивная шкала ('+(u.scaleType==='marginal'?'по частям суммы':'одна ставка на весь чек')+'): '+parts.join('; ');
+  }
+
+  function renderQuarterTable(){
+    const head='<thead><tr><th>Показатель</th>'+QN.map(q=>'<th class="text-end">'+q+'</th>').join('')+'</tr></thead>';
+    const hint=h=>h?'<span class="note">'+h+'</span>':'';
+    const inRow=(key,label,inc,h)=>'<tr><th scope="row">'+label+hint(h)+'</th>'+[0,1,2,3].map(i=>'<td>'+numInput('quarters.'+i+'.'+key,inc,label+', '+QN[i])+'</td>').join('')+'</tr>';
+    const outRow=(key,label,cls,h)=>'<tr class="'+(cls||'')+'"><th scope="row">'+label+hint(h)+'</th>'+[0,1,2,3].map(i=>'<td class="out" id="o-'+key+'-'+i+'">—</td>').join('')+'</tr>';
+    const group=t=>'<tr class="row-group"><th colspan="5">'+t+'</th></tr>';
+    $('#quarter-table').innerHTML=head+'<tbody>'
+      +group('Актированная выручка')+inRow('revPlan','План, ₽',100000)+inRow('revFact','Факт, ₽',100000)+outRow('revK','Выполнение')+outRow('revPaid','Премия за выручку')
+      +group('Топ-задачи · подписанные контракты')+inRow('tasksNew','Новые контракты в плане, шт.',1)+outRow('carried','Перенесено из прошлого квартала')+inRow('tasksRemoved','Снято с плана, шт.',1,'регион отказался совсем')+outRow('open','Всего задач в квартале')+inRow('tasksDone','Заключено, шт.',1)+outRow('price','Цена одной задачи')+outRow('taskPaid','Премия за топ-задачи')
+      +group('Допродажи · разовая выплата')+inRow('upsellSum','Сумма допродаж, ₽',100000)+inRow('upsellCount','Сделок, шт.',1,'для шкалы: сумма делится на сделки')+outRow('upsell','Бонус за допродажи')
+      +group('Итог квартала')+outRow('premium','Квартальная премия','strong')+outRow('upsell2','Допродажи')+outRow('salary3','Оклад за 3 месяца')+outRow('total','Доход за квартал','strong')
+      +'</tbody>';
+  }
+
+  function renderTiers(){
+    $('#tiers').innerHTML=state.upsell.tiers.map((t,i)=>'<div class="tier-row"><label class="form-label">Чек до, ₽'+numInput('upsell.tiers.'+i+'.upTo',1000000,'Граница ступени, ₽')+'</label><label class="form-label">Ставка, %'+numInput('upsell.tiers.'+i+'.rate',0.5,'Ставка ступени, %',' max="100"')+'</label><button type="button" class="icon-btn" data-remove-tier="'+i+'" aria-label="Удалить ступень">×</button></div>').join('')||'<p class="micro">Ступеней нет — добавьте хотя бы одну.</p>';
+  }
+
+  function enhance(){
+    root.querySelectorAll('input[type="number"]').forEach(input=>{
+      if(!input.closest('.number-control')){
+        const w=document.createElement('span');w.className='number-control';input.before(w);w.append(input);
+        const b=document.createElement('span');b.className='number-step-buttons';
+        [1,-1].forEach(d=>{const x=document.createElement('button');x.type='button';x.className='number-step';x.dataset.stepDirection=d;x.tabIndex=-1;x.textContent=d>0?'▴':'▾';x.setAttribute('aria-label',(d>0?'Увеличить':'Уменьшить')+' на '+(input.dataset.increment||1));b.append(x);});
+        w.append(b);
+      }
+      input.closest('.number-control').querySelectorAll('.number-step').forEach(x=>x.disabled=input.disabled);
+    });
+  }
+  function stepNumber(input,d){
+    if(input.disabled)return;
+    const inc=Number(input.dataset.increment)||1,cur=input.value===''?0:Number(input.value);
+    let v=Number(((Number.isFinite(cur)?cur:0)+d*inc).toFixed(8));
+    if(input.min!=='')v=Math.max(Number(input.min),v);if(input.max!=='')v=Math.min(Number(input.max),v);
+    input.value=String(v);input.dispatchEvent(new Event('input',{bubbles:true}));input.focus({preventScroll:true});
+  }
+  function sync(){
+    root.querySelectorAll('[data-s]').forEach(el=>{
+      const v=getP(state,el.dataset.s);
+      if(el.type==='checkbox')el.checked=Boolean(v);
+      else el.value=typeof v==='number'&&!Number.isFinite(v)?'':(v??'');
+    });
+  }
+  function renderStructure(){renderTiers();enhance();sync();}
+  function save(){doc.data.calc=state;doc.persist();}
+
+  function update(){
+    const s=state,u=s.upsell,r=calc(s),y=r.year;
+    $('#target-field').hidden=s.bonus.mode!=='target';$('#rate-field').hidden=s.bonus.mode!=='percent';
+    $('#fixed-field').hidden=u.mode!=='fixed';$('#percent-field').hidden=u.mode!=='percent';$('#scale-fields').hidden=u.mode!=='scale';$('#above-rate-field').hidden=u.aboveMode!=='rate';
+    $('[data-s="salary.indexRate"]').disabled=!s.salary.indexOn;enhance();
+    $('#index-status').textContent=s.salary.indexOn?money(s.salary.base)+' × '+(1+n(s.salary.indexRate)/100).toFixed(3)+' = '+money(r.salary):'Индексация выключена: расчёт от оклада';
+    $('#bonus-derived').textContent=s.bonus.mode==='target'?'Премия в месяц '+money(r.fund/3)+', за квартал '+money(r.fund)+' — это '+num(r.salary>0?r.fund/(r.salary*3)*100:NaN)+'% от трёх окладов.':'Фонд за квартал '+money(r.fund)+', в месяц '+money(r.fund/3)+'. Целевой доход при 100% — '+money(r.salary+r.fund/3)+' в месяц.';
+    const wBad=Math.abs(r.wSum-100)>0.01;
+    const ws=$('#weights-sum');ws.className=wBad?'warn':'micro';ws.textContent='Сумма весов: '+num(r.wSum)+'%'+(r.wInd?' (доп. показатели — '+num(r.wInd)+'%)':'')+(wBad?' — должна быть 100%.':'.');
+    $('#hero-salary').textContent=money(r.salary);$('#hero-salary-caption').textContent=s.salary.indexOn?'С индексацией '+num(s.salary.indexRate)+'%':'Без индексации';
+    $('#hero-fund').textContent=money(r.fund);$('#hero-fund-caption').textContent='При 100% · в месяц '+money(r.fund/3);
+    $('#hero-monthly').textContent=money(y.monthly);
+    $('#hero-monthly-caption').textContent=s.bonus.mode==='target'?'Цель '+money(s.bonus.target)+' · '+(y.monthly-s.bonus.target>=0?'+':'−')+money(Math.abs(y.monthly-s.bonus.target)):'Среднее за год по вводным';
+    $('#fund-formula').textContent=(s.bonus.mode==='target'?'Фонд = (целевой доход '+money(s.bonus.target)+' − оклад '+money(r.salary)+') × 3 = '+money(r.fund)+'.':'Фонд = оклад '+money(r.salary)+' × 3 × '+num(s.bonus.rate)+'% = '+money(r.fund)+'.')+' Из него: выручка '+money(r.revBase)+' ('+num(s.weights.revenue)+'%), топ-задачи '+money(r.taskBase)+' ('+num(s.weights.tasks)+'%)'+(r.wInd?', доп. показатели '+money(r.fund*r.wInd/100)+' ('+num(r.wInd)+'%)':'')+'.';
+    const warns=[];
+    if(wBad)warns.push('Сумма весов '+num(r.wSum)+'%, а должна быть 100%.');
+    if(s.bonus.mode==='target'&&n(s.bonus.target)<=r.salary)warns.push('Целевой доход не больше оклада — премиальный фонд равен 0.');
+    r.quarters.forEach((q,i)=>{if(q.doneOver)warns.push(QN[i]+': заключено больше, чем задач в квартале — учтено '+q.open+'.');});
+    if(n(s.revenue.cap)<100)warns.push('Потолок по выручке меньше 100%.');
+    $('#rp-warnings').innerHTML=warns.map(esc).join('<br>');
+    r.quarters.forEach((q,i)=>{
+      const set=(k,h)=>{const el=root.querySelector('#o-'+k+'-'+i);if(el)el.innerHTML=h;};
+      const note=t=>t?'<span class="note">'+esc(t)+'</span>':'';
+      set('revK',(q.ratio===null?'—':pct(q.ratio))+note(q.revNote||(q.ratio!==null?'коэффициент '+pct(q.k):'')));
+      set('revPaid',money(q.revPaid)+note('фонд '+money(q.revFund)));
+      set('carried',num(q.carried));set('open',num(q.open));
+      set('price',money(q.price));set('taskPaid',money(q.taskPaid)+note(q.done+' из '+q.open));
+      set('premium',money(q.premium));set('upsell',money(q.upsell)+(q.upsellFlag?note('выше границы — по согласованию'):q.upsellCount>1?note(q.upsellCount+' сделки'):''));set('upsell2',money(q.upsell));set('salary3',money(q.salary3));set('total',money(q.total));
+    });
+    $('#upsell-explainer').textContent='Сейчас: '+upsellText(u)+'.';
+    $('#annual-results').innerHTML='<div class="annual-figure"><span>Годовой доход</span><strong>'+money(y.total)+'</strong></div><div class="annual-figure"><span>Среднемесячный доход</span><strong>'+money(y.monthly)+'</strong></div>';
+    const g=id=>document.getElementById(id);
+    g('proposal-live').textContent='Настройки: оклад '+money(r.salary)+'/мес.'+(s.salary.indexOn?' (с индексацией '+num(s.salary.indexRate)+'%)':'')+'; премиальный фонд '+money(r.fund)+' за квартал ('+money(r.fund/3)+' в месяц)'+(s.bonus.mode==='target'?', целевой доход '+money(s.bonus.target):'')+'; веса: выручка '+num(s.weights.revenue)+'%, топ-задачи '+num(s.weights.tasks)+'%'+(r.wInd?', доп. показатели '+num(r.wInd)+'%':'')+'; порог выручки '+num(s.revenue.threshold)+'%, потолок '+num(s.revenue.cap)+'%; допродажи — '+upsellText(u)+'.';
+    g('live-formula-rev').textContent='Премия за выручку = фонд × '+num(s.weights.revenue)+'% × K; K = 0, если факт / план < '+num(s.revenue.threshold)+'%, иначе min(факт / план; '+num(s.revenue.cap)+'%)';
+    g('live-formula-tasks').textContent='Цена задачи = фонд × '+num(s.weights.tasks)+'% / (новые + перенесённые − снятые); премия = цена × заключённые';
+    g('proposal-upsell-live').textContent='Сейчас: '+upsellText(u)+'.';
+  }
+
+  // Keeps the total at 100%: the edited weight stays, its counterpart absorbs the rest.
+  function balanceWeights(path){
+    const w=state.weights,ind=state.indicators.filter(m=>m.enabled).reduce((a,m)=>a+n(m.weight),0);
+    const fit=v=>Math.max(0,Math.round((100-v)*100)/100);
+    let other=null;
+    if(path==='weights.revenue'){w.tasks=fit(n(w.revenue)+ind);other='weights.tasks';}
+    else if(path==='weights.tasks'){w.revenue=fit(n(w.tasks)+ind);other='weights.revenue';}
+    else if(/^indicators\.\d+\.(weight|enabled)$/.test(path)){w.tasks=fit(n(w.revenue)+ind);other='weights.tasks';}
+    if(other){const el=root.querySelector('[data-s="'+other+'"]');if(el)el.value=getP(state,other);}
+  }
+  function onField(el){
+    if(!el.dataset||!el.dataset.s)return;
+    let v;
+    if(el.type==='checkbox')v=el.checked;
+    else if(el.type==='number')v=el.value===''?NaN:Number(el.value);
+    else if(el.tagName==='SELECT'&&el.hasAttribute('data-num'))v=Number(el.value);
+    else v=el.value;
+    setP(state,el.dataset.s,v);
+    balanceWeights(el.dataset.s);
+    if(el.dataset.rerender)renderStructure();
+    update();save();
+  }
+  root.addEventListener('input',e=>{if(e.target.type!=='checkbox'&&e.target.tagName!=='SELECT')onField(e.target);});
+  root.addEventListener('change',e=>{
+    if(e.target.type==='checkbox'||e.target.tagName==='SELECT')onField(e.target);
+  });
+  root.addEventListener('keydown',e=>{if(e.target.matches('input[type="number"]')&&['ArrowUp','ArrowDown'].includes(e.key)){e.preventDefault();stepNumber(e.target,e.key==='ArrowUp'?1:-1);}});
+  root.addEventListener('click',e=>{
+    const t=e.target.closest('button');if(!t)return;
+    if(t.dataset.stepDirection){e.preventDefault();stepNumber(t.closest('.number-control').querySelector('input'),Number(t.dataset.stepDirection));return;}
+    if(t.dataset.removeTier!==undefined){state.upsell.tiers.splice(Number(t.dataset.removeTier),1);}
+    else if(t.id==='add-tier'){const tiers=state.upsell.tiers,last=tiers.length?n(tiers[tiers.length-1].upTo):0,rate=tiers.length?n(tiers[tiers.length-1].rate):3;tiers.push({upTo:last?last*2:5000000,rate:Math.max(0,Math.round((rate-0.5)*10)/10)});}
+    else return;
+    renderStructure();update();save();
+  });
+
+  const popup=document.getElementById('info-popover');let activeHelp=null,pinned=false,hideTimer;
+  function closeHelp(){popup.hidden=true;if(activeHelp)activeHelp.setAttribute('aria-expanded','false');activeHelp=null;pinned=false;}
+  function positionHelp(){if(!activeHelp||popup.hidden)return;const r=activeHelp.getBoundingClientRect(),w=popup.offsetWidth,h=popup.offsetHeight;popup.style.left=Math.max(12,Math.min(r.left,window.innerWidth-w-12))+'px';popup.style.top=Math.max(12,r.bottom+h+12>window.innerHeight?r.top-h-8:r.bottom+8)+'px';}
+  function showHelp(btn,pin){clearTimeout(hideTimer);if(pinned&&activeHelp!==btn&&!pin)return;if(activeHelp)activeHelp.setAttribute('aria-expanded','false');activeHelp=btn;pinned=Boolean(pin);const item=help[btn.dataset.help];popup.innerHTML='<strong>'+item[0]+'</strong><div>'+item[1]+'</div>';popup.hidden=false;btn.setAttribute('aria-expanded','true');positionHelp();}
+  document.querySelectorAll('[data-help]').forEach(btn=>{btn.setAttribute('aria-expanded','false');btn.addEventListener('mouseenter',()=>showHelp(btn,false));btn.addEventListener('focus',()=>showHelp(btn,false));btn.addEventListener('mouseleave',()=>{hideTimer=setTimeout(()=>{if(!pinned)closeHelp();},180);});btn.addEventListener('blur',()=>{hideTimer=setTimeout(()=>{if(!pinned)closeHelp();},180);});btn.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();if(pinned&&activeHelp===btn)closeHelp();else showHelp(btn,true);});});
+  popup.addEventListener('mouseenter',()=>clearTimeout(hideTimer));popup.addEventListener('mouseleave',()=>{if(!pinned)closeHelp();});
+  document.addEventListener('pointerdown',e=>{if(!popup.contains(e.target)&&!e.target.closest('[data-help]'))closeHelp();});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')closeHelp();});
+  window.addEventListener('resize',positionHelp);window.addEventListener('scroll',positionHelp,true);
+
+  renderQuarterTable();renderStructure();update();
+})();
+
+</script>
+<script>
+(function(){
+  const doc=window.rpDocument,editButton=document.getElementById('edit-notes'),editable=[...document.querySelectorAll('[data-edit]')];
+  editable.forEach(el=>{if(Object.prototype.hasOwnProperty.call(doc.data.notes,el.dataset.edit))el.textContent=doc.data.notes[el.dataset.edit];});
+  let editing=false;
+  function showPanel(btn){btn.closest('nav.tabs').querySelectorAll('.tab[data-panel]').forEach(b=>{const on=b===btn;b.setAttribute('aria-selected',String(on));document.getElementById(b.dataset.panel).hidden=!on;});}
+  document.querySelectorAll('.tab[data-panel]').forEach(b=>b.addEventListener('click',()=>showPanel(b)));
+  function showProposal(){const ws=[...document.querySelectorAll('.role-workspace')].find(w=>!w.hidden);if(!ws)return null;const tabs=ws.querySelectorAll(':scope > nav.tabs .tab[data-panel]');if(!tabs.length)return ws;showPanel(tabs[tabs.length-1]);return document.getElementById(tabs[tabs.length-1].dataset.panel);}
+  editButton.addEventListener('click',()=>{editing=!editing;document.body.classList.toggle('editing',editing);editButton.setAttribute('aria-pressed',String(editing));editButton.textContent=editing?'Готово':'Править текст';editable.forEach(el=>{if(editing)el.setAttribute('contenteditable','plaintext-only');else el.removeAttribute('contenteditable');});if(editing){const panel=showProposal();const first=panel&&panel.querySelector('[data-edit]');if(first)first.focus();}});
+  document.addEventListener('input',e=>{const el=e.target.closest('[data-edit]');if(el){doc.data.notes[el.dataset.edit]=el.textContent;doc.persist();}});
+  document.getElementById('print-doc').addEventListener('click',()=>window.print());
+  document.getElementById('download-doc').addEventListener('click',()=>{
+    editable.forEach(el=>{
+      if(!el.closest('#grades-workspace')||Object.prototype.hasOwnProperty.call(doc.data.notes,el.dataset.edit)){
+        doc.data.notes[el.dataset.edit]=el.textContent;
+      }
+    });
+    const snapshot={...doc.data,documentId:crypto.randomUUID?crypto.randomUUID():'rp-'+Date.now(),savedAt:Date.now()};
+    const clone=document.documentElement.cloneNode(true);
+    clone.querySelector('#rp-file-state').textContent=JSON.stringify(snapshot).replace(/</g,'\\u003c');
+    clone.querySelector('body').classList.remove('editing');
+    clone.querySelectorAll('[contenteditable]').forEach(el=>el.removeAttribute('contenteditable'));
+    clone.querySelectorAll('script[src],iframe').forEach(el=>el.remove());
+    const pop=clone.querySelector('#info-popover');if(pop){pop.hidden=true;pop.innerHTML='';}
+    const ce=clone.querySelector('#edit-notes');ce.textContent='Править текст';ce.setAttribute('aria-pressed','false');
+    const blob=new Blob(['<!doctype html>\n'+clone.outerHTML],{type:'text/html;charset=utf-8'});
+    const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='К-Скай_Мотивация_РП_2027_'+new Date().toLocaleDateString('sv-SE')+'.html';a.click();setTimeout(()=>URL.revokeObjectURL(url),10000);
+    document.getElementById('save-status').textContent='Создана HTML-копия с текущими параметрами и текстом';
+  });
+  if(!doc.storageAvailable)document.getElementById('save-status').textContent='Автосохранение недоступно — используйте «Скачать с правками»';
+})();
+</script>
+<script>
+// Shared quarterly calculator for the team lead and sales tabs: same layout as the RP tab, indicators configurable.
+window.createRoleCalc=function(cfg){
+  const doc=window.rpDocument;
+  const root=document.getElementById(cfg.rootId);
+  const QN=['I квартал','II квартал','III квартал','IV квартал'];
+  const TYPES={ratio:'Показатель: план / факт',tasks:'Топ-задачи с переносом',debt:'Просроченная ДЗ: да / нет'};
+  const clone=o=>JSON.parse(JSON.stringify(o));
+  doc.data.roles=doc.data.roles||{};
+  const saved=doc.data.roles[cfg.key];
+  if(saved&&cfg.migrate&&saved.version<cfg.defaults.version)cfg.migrate(saved,clone(cfg.defaults));
+  let state=saved&&saved.version===cfg.defaults.version?clone(saved):clone(cfg.defaults);
+  doc.data.roles[cfg.key]=state;
+
+  const n=v=>Number.isFinite(v)?v:0;
+  const money=v=>v===null||!Number.isFinite(v)?'—':new Intl.NumberFormat('ru-RU',{maximumFractionDigits:0}).format(Math.round(v))+' ₽';
+  const num=v=>Number.isFinite(v)?new Intl.NumberFormat('ru-RU',{maximumFractionDigits:2}).format(v):'—';
+  const pct=v=>v===null||!Number.isFinite(v)?'—':new Intl.NumberFormat('ru-RU',{maximumFractionDigits:1}).format(v*100)+'%';
+  const mln=v=>num(v/1e6)+' млн ₽';
+  const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const getP=(o,p)=>p.split('.').reduce((a,k)=>a==null?undefined:a[k],o);
+  const setP=(o,p,v)=>{const ks=p.split('.'),last=ks.pop();ks.reduce((a,k)=>a[k],o)[last]=v;};
+  const $=s=>root.querySelector(s);
+  const out=k=>root.querySelector('[data-o="'+k+'"]');
+  const H=k=>'<button class="info-button" data-rhelp="'+k+'" type="button" aria-label="Подсказка">i</button>';
+  const numIn=(path,inc,label,attrs)=>'<input class="form-control" type="number" min="0" step="any" data-s="'+path+'" data-increment="'+inc+'" aria-label="'+esc(label)+'"'+(attrs||'')+'>';
+  const unitInc=u=>u==='₽'?100000:1;
+  const blankQ=t=>t==='ratio'?{plan:0,fact:0}:t==='tasks'?{new:0,removed:0,done:0}:{amount:0};
+  function normalize(){state.quarters.forEach(q=>{q.v=q.v||{};state.indicators.forEach(m=>{if(!q.v[m.id])q.v[m.id]=blankQ(m.type);});});}
+  normalize();
+
+  function upsellBonus(amount,u){
+    if(!(amount>0))return {bonus:0,flag:false};
+    if(u.mode==='fixed')return {bonus:n(u.fixed),flag:false};
+    if(u.mode==='percent')return {bonus:amount*n(u.rate)/100,flag:false};
+    const tiers=u.tiers.filter(t=>t.upTo>0).slice().sort((a,b)=>a.upTo-b.upTo);
+    const last=tiers.length?tiers[tiers.length-1].upTo:0;
+    const above=u.aboveMode==='rate'?n(u.aboveRate):0,flag=amount>last&&u.aboveMode==='agree';
+    if(u.scaleType==='whole'){const t=tiers.find(t=>amount<=t.upTo);return {bonus:amount*(t?n(t.rate):above)/100,flag};}
+    let bonus=0,prev=0;
+    for(const t of tiers){if(amount>prev)bonus+=(Math.min(amount,t.upTo)-prev)*n(t.rate)/100;prev=t.upTo;}
+    if(amount>last)bonus+=(amount-last)*above/100;
+    return {bonus,flag};
+  }
+  function upsellText(u){
+    if(u.mode==='fixed')return 'фикс '+money(u.fixed)+' за сделку';
+    if(u.mode==='percent')return num(u.rate)+'% от суммы сделки';
+    let prev=0;
+    const parts=u.tiers.filter(t=>t.upTo>0).slice().sort((a,b)=>a.upTo-b.upTo).map(t=>{const s=(prev?'от '+mln(prev)+' ':'')+'до '+mln(t.upTo)+' — '+num(t.rate)+'%';prev=t.upTo;return s;});
+    parts.push('свыше '+mln(prev)+' — '+(u.aboveMode==='rate'?num(u.aboveRate)+'%':'по согласованию'));
+    return 'регрессивная шкала ('+(u.scaleType==='marginal'?'по частям суммы':'одна ставка на весь чек')+'): '+parts.join('; ');
+  }
+
+  // Yearly bonus: the rate is picked by the department's average check and applied to the actual upsell amount.
+  function annualUpsell(s){
+    const a=s.upsell.annual,fact=Math.max(0,n(a.fact)),count=fact>0?Math.max(1,Math.round(n(a.count))):0;
+    const avg=count?fact/count:0,per=count?upsellBonus(avg,s.upsell):{bonus:0,flag:false};
+    const ratio=n(a.plan)>0?fact/a.plan:null,passed=n(a.threshold)<=0||(ratio!==null&&ratio>=n(a.threshold)/100);
+    return {fact,count,avg,ratio,passed,flag:per.flag,rate:avg>0?per.bonus/avg*100:0,bonus:passed?per.bonus*count:0};
+  }
+  function calc(s){
+    const salary=Math.round(n(s.salary.base)*(1+(s.salary.indexOn?n(s.salary.indexRate):0)/100));
+    const fund=s.bonus.mode==='target'?Math.max(0,(n(s.bonus.target)-salary)*3):salary*3*n(s.bonus.rate)/100;
+    const wSum=s.indicators.reduce((a,m)=>a+n(m.weight),0);
+    const carry={};
+    const quarters=s.quarters.map((q,i)=>{
+      const parts={};let raw=0;
+      s.indicators.forEach(m=>{
+        const v=q.v[m.id],base=fund*n(m.weight)/100;let r={base,k:0,paid:0,note:''};
+        if(m.type==='ratio'){
+          if(n(v.plan)>0){r.ratio=n(v.fact)/v.plan;if(r.ratio<n(s.rules.threshold)/100)r.note='ниже порога';else{r.k=Math.min(r.ratio,n(s.rules.cap)/100);if(r.ratio>r.k)r.note='учтено до потолка';}}
+          else{r.ratio=null;r.note='план 0 · не выплачивается';}
+        }else if(m.type==='tasks'){
+          r.carried=carry[m.id]||0;r.open=Math.max(0,n(v.new)+r.carried-n(v.removed));r.done=Math.min(r.open,Math.max(0,n(v.done)));
+          r.price=r.open>0?base/r.open:0;r.k=r.open>0?r.done/r.open:0;carry[m.id]=r.open-r.done;r.over=n(v.done)>r.open;
+        }else{
+          r.amount=n(v.amount);r.k=r.amount<=n(s.debtRule.tolerance)?1:0;r.note=r.k?'нет просрочки сверх допуска':'есть просрочка — часть не платится';
+        }
+        r.paid=m.type==='tasks'?r.done*r.price:base*r.k;raw+=r.paid;parts[m.id]=r;
+      });
+      const docsK=s.docs.on&&!q.docsOk?n(s.docs.coef):1;
+      const premium=raw*docsK;
+      let upsell=0,upsellCount=0,upsellFlag=false;
+      if(s.upsell.on&&!cfg.annualUpsell){const sum=Math.max(0,n(q.upsellSum));upsellCount=sum>0?Math.max(1,Math.round(n(q.upsellCount))):0;const per=upsellCount?upsellBonus(sum/upsellCount,s.upsell):{bonus:0,flag:false};upsell=per.bonus*upsellCount;upsellFlag=per.flag;}
+      return {parts,raw,docsK,premium,upsell,upsellCount,upsellFlag,salary3:salary*3,total:salary*3+premium+upsell};
+    });
+    const sum=k=>quarters.reduce((a,q)=>a+q[k],0);
+    const annual=cfg.annualUpsell?annualUpsell(s):null;
+    const year={premium:sum('premium'),upsell:annual?annual.bonus:sum('upsell')};
+    year.total=salary*12+year.premium+year.upsell;year.monthly=year.total/12;
+    return {salary,fund,wSum,quarters,year,annual,planMonthly:salary+fund/3};
+  }
+
+  function asideHtml(){
+    return '<aside class="settings"><h2>Параметры</h2>'
+      +'<div class="setting-group"><p class="setting-title">1. Оклад '+H('salary')+'</p><label class="form-label">Оклад, ₽ / месяц'+numIn('salary.base',1000,'Оклад, ₽ / месяц')+'</label><label class="indexation-toggle"><input type="checkbox" data-s="salary.indexOn"><span>Добавить индексацию</span></label><label class="form-label">Индексация, %'+numIn('salary.indexRate',0.5,'Индексация, %',' max="100"')+'</label><p class="micro" data-o="index-status"></p></div>'
+      +'<div class="setting-group"><p class="setting-title">2. Премиальный фонд '+H('bonus')+'</p><label class="form-label">Как задаём премию<select class="form-select" data-s="bonus.mode"><option value="target">От целевого дохода в месяц</option><option value="percent">% от трёх окладов</option></select></label><label class="form-label" data-when="bonus.mode:target">Целевой доход при 100%, ₽ / месяц'+numIn('bonus.target',5000,'Целевой доход')+'</label><label class="form-label" data-when="bonus.mode:percent">Премия за квартал, % от 3 окладов'+numIn('bonus.rate',1,'Премия, % от трёх окладов',' max="300"')+'</label><p class="micro" data-o="bonus-derived"></p></div>'
+      +'<div class="setting-group"><p class="setting-title">3. Показатели и веса '+H('weights')+'</p><div data-o="ind-list"></div><div class="custom-add-row"><select class="form-select" data-o="add-type" aria-label="Тип нового показателя">'+Object.entries(TYPES).map(([k,v])=>'<option value="'+k+'">'+v+'</option>').join('')+'</select><button type="button" class="action" data-act="add-ind">Добавить</button></div><p class="micro" data-o="weights-sum"></p></div>'
+      +'<div class="setting-group"><p class="setting-title">4. Правила расчёта '+H('rules')+'</p><div class="compact-pair"><label class="form-label">Порог, %'+numIn('rules.threshold',5,'Порог, %',' max="100"')+'</label><label class="form-label">Потолок, %'+numIn('rules.cap',5,'Потолок, %',' min="100"')+'</label></div><div class="compact-pair" data-o="debt-rules"><label class="form-label">Просрочка ДЗ, мес.'+numIn('debtRule.months',1,'Просрочка ДЗ от, мес.')+'</label><label class="form-label">Допуск ДЗ, ₽'+numIn('debtRule.tolerance',10000,'Допуск ДЗ, ₽')+'</label></div></div>'
+      +(cfg.noDocs?'':'<div class="setting-group"><p class="setting-title">5. Понижающий коэффициент '+H('docs')+'</p><label class="indexation-toggle"><input type="checkbox" data-s="docs.on" data-rerender="1"><span>'+esc(cfg.docsLabel)+'</span></label><label class="form-label" data-when-true="docs.on">Коэффициент, если не выполнено'+numIn('docs.coef',0.05,'Коэффициент',' max="1"')+'</label></div>')
+      +'<div class="setting-group"><p class="setting-title">'+(cfg.annualUpsell?'5. Допродажи отдела · год':'6. Личные допродажи')+' '+H('upsell')+'</p>'+(cfg.annualUpsell?'':'<label class="indexation-toggle"><input type="checkbox" data-s="upsell.on" data-rerender="1"><span>Начислять бонус за допродажи</span></label>')+'<div data-when-true="upsell.on">'
+        +'<label class="form-label">Способ<select class="form-select" data-s="upsell.mode"><option value="scale">Регрессивная шкала</option><option value="percent">Один % от суммы</option><option value="fixed">Фикс за сделку</option></select></label>'
+        +'<label class="form-label" data-when="upsell.mode:fixed">Фикс за допродажу, ₽'+numIn('upsell.fixed',5000,'Фикс за допродажу, ₽')+'</label>'
+        +'<label class="form-label" data-when="upsell.mode:percent">Процент от суммы, %'+numIn('upsell.rate',0.5,'Процент от суммы, %',' max="100"')+'</label>'
+        +'<div data-when="upsell.mode:scale"><label class="form-label">Как применять шкалу<select class="form-select" data-s="upsell.scaleType"><option value="marginal">По частям суммы</option><option value="whole">Одна ставка на весь чек</option></select></label><div data-o="tiers"></div><button type="button" class="action" data-act="add-tier">+ Ступень</button>'
+        +'<label class="form-label" style="margin-top:16px">Выше последней границы<select class="form-select" data-s="upsell.aboveMode"><option value="agree">По согласованию</option><option value="rate">Своя ставка</option></select></label><label class="form-label" data-when="upsell.aboveMode:rate">Ставка выше границы, %'+numIn('upsell.aboveRate',0.1,'Ставка выше границы, %',' max="100"')+'</label></div>'
+        +'<p class="micro" data-o="upsell-explainer"></p><p class="micro" style="margin-top:8px">'+(cfg.annualUpsell?'План, факт и число сделок вводятся в блоке под таблицей кварталов.':'Суммы и количество допродаж вводятся в таблице кварталов.')+'</p></div></div>'
+      +'</aside>';
+  }
+  function annualHtml(){
+    const field=(p,inc,l,a)=>'<label class="form-label">'+l+numIn('upsell.annual.'+p,inc,l,a)+'</label>';
+    const res=(k,l)=>'<div><span class="micro">'+l+'</span><div class="deal-bonus" data-o="'+k+'">—</div></div>';
+    return '<div class="period-section"><div class="section-heading"><h3>Выполнение плана по допродажам отдела · год</h3><span class="small-note">годовой показатель, вне квартальной премии</span></div><p class="micro" style="margin-bottom:14px">'+esc(cfg.annualIntro)+'</p><div class="annual-upsell-grid">'+field('plan',1000000,'План на год, ₽')+field('fact',1000000,'Факт за год, ₽')+field('count',1,'Сделок за год, шт.')+field('threshold',5,'Порог выплаты, %',' max="100"')+'</div><div class="annual-upsell-grid annual-upsell-results">'+res('au-ratio','Выполнение плана')+res('au-avg','Средний чек')+res('au-rate','Ставка')+res('au-bonus','Бонус за год')+'</div></div>';
+  }
+  function mainHtml(){
+    const card=(label,key)=>'<div><div class="summary-label">'+label+'</div><div class="summary-value" data-o="'+key+'">—</div><div class="summary-caption" data-o="'+key+'-caption"></div></div>';
+    return '<div class="variants-main"><div class="result-surface"><div class="result-header"><p class="result-kicker">'+esc(cfg.kicker)+'</p><div class="summary-grid">'+card('Оклад / месяц','hero-salary')+card('Премиальный фонд / квартал','hero-fund')+card('Средний доход / месяц','hero-monthly')+'</div><p class="micro fund-formula" data-o="fund-formula"></p></div>'
+      +'<div class="result-body"><div class="section-heading"><h2>Расчёт по кварталам</h2>'+H('table')+'</div><p class="micro" style="margin-bottom:16px">'+esc(cfg.tableIntro)+'</p><div class="warn role-warnings" data-o="warnings" role="alert"></div><div class="table-responsive"><table class="table q-table" data-o="qtable"></table></div>'+(cfg.annualUpsell?annualHtml():'')+'</div></div>'
+      +'<p class="assumption">'+esc(cfg.assumption)+'</p>'
+      +'<section class="annual-totals result-surface"><div class="annual-heading"><div class="label-line"><h2>Итог за год</h2>'+H('annual')+'</div></div><div class="annual-compact" data-o="annual" aria-live="polite"></div></section></div>';
+  }
+
+  function renderIndList(){
+    out('ind-list').innerHTML=state.indicators.map((m,i)=>'<div class="ind-row"><textarea class="form-control ind-title" rows="'+(cfg.annualUpsell?3:2)+'" maxlength="120" data-s="indicators.'+i+'.title" data-retable="1" aria-label="Название показателя"></textarea><div class="ind-row-meta"><span class="ind-type">'+TYPES[m.type]+'</span>'+(m.type==='ratio'?'<select class="form-select ind-unit" data-s="indicators.'+i+'.unit" data-rerender="1" aria-label="Единица"><option value="₽">₽</option><option value="шт.">шт.</option><option value="%">%</option></select>':'')+'</div><div class="ind-row-bottom"><label class="form-label">Вес, %'+numIn('indicators.'+i+'.weight',5,'Вес, %',' max="100"')+'</label><button type="button" class="icon-btn" data-act="rm-ind" data-i="'+i+'" aria-label="Удалить показатель">×</button></div></div>').join('')||'<p class="micro">Показателей нет — добавьте хотя бы один.</p>';
+  }
+  function renderTiers(){
+    out('tiers').innerHTML=state.upsell.tiers.map((t,i)=>'<div class="tier-row"><label class="form-label">Чек до, ₽'+numIn('upsell.tiers.'+i+'.upTo',1000000,'Граница ступени, ₽')+'</label><label class="form-label">Ставка, %'+numIn('upsell.tiers.'+i+'.rate',cfg.annualUpsell?0.05:0.5,'Ставка ступени, %',' max="100"')+'</label><button type="button" class="icon-btn" data-act="rm-tier" data-i="'+i+'" aria-label="Удалить ступень">×</button></div>').join('')||'<p class="micro">Ступеней нет — добавьте хотя бы одну.</p>';
+  }
+  function renderTable(){
+    const hint=h=>h?'<span class="note">'+h+'</span>':'';
+    const inRow=(path,label,inc,h)=>'<tr><th scope="row">'+label+hint(h)+'</th>'+[0,1,2,3].map(i=>'<td>'+numIn('quarters.'+i+'.'+path,inc,label+', '+QN[i])+'</td>').join('')+'</tr>';
+    const outRow=(key,label,cls,h)=>'<tr class="'+(cls||'')+'"><th scope="row">'+label+hint(h)+'</th>'+[0,1,2,3].map(i=>'<td class="out" data-o="o-'+key+'-'+i+'">—</td>').join('')+'</tr>';
+    const group=t=>'<tr class="row-group"><th colspan="5">'+t+'</th></tr>';
+    let h='<thead><tr><th>Показатель</th>'+QN.map(q=>'<th class="text-end">'+q+'</th>').join('')+'</tr></thead><tbody>';
+    state.indicators.forEach(m=>{
+      const id=m.id,title=esc(m.title||'Без названия')+' · <span data-o="gw-'+id+'">'+num(m.weight)+'%</span>';
+      h+=group(title);
+      if(m.type==='ratio'){const u=m.unit||'₽';h+=inRow('v.'+id+'.plan','План, '+u,unitInc(u))+inRow('v.'+id+'.fact','Факт, '+u,unitInc(u))+outRow(id+'-k','Выполнение')+outRow(id+'-paid','Премия');}
+      else if(m.type==='tasks'){h+=inRow('v.'+id+'.new','Новые в плане, шт.',1)+outRow(id+'-carried','Перенесено из прошлого квартала')+inRow('v.'+id+'.removed','Снято с плана, шт.',1)+outRow(id+'-open','Всего задач в квартале')+inRow('v.'+id+'.done','Выполнено, шт.',1)+outRow(id+'-price','Цена одной задачи')+outRow(id+'-paid','Премия');}
+      else{h+=inRow('v.'+id+'.amount','Просроченная ДЗ на конец квартала, ₽',10000,'просрочка от <span data-o="debt-months-'+id+'"></span> мес.')+outRow(id+'-k','Условие')+outRow(id+'-paid','Премия');}
+    });
+    if(state.docs.on)h+=group('Понижающий коэффициент')+'<tr><th scope="row">'+esc(cfg.docsLabel)+'</th>'+[0,1,2,3].map(i=>'<td><select class="form-select q-select" data-s="quarters.'+i+'.docsOk" data-bool aria-label="'+esc(cfg.docsLabel)+', '+QN[i]+'"><option value="1">Да</option><option value="0">Нет</option></select></td>').join('')+'</tr>'+outRow('docs-k','Коэффициент к премии');
+    if(state.upsell.on&&!cfg.annualUpsell)h+=group('Личные допродажи · разовая выплата')+inRow('upsellSum','Сумма допродаж, ₽',100000)+inRow('upsellCount','Сделок, шт.',1,'для шкалы: сумма делится на сделки')+outRow('upsell','Бонус за допродажи');
+    h+=group('Итог квартала')+(state.docs.on?outRow('raw','Премия до коэффициента'):'')+outRow('premium','Квартальная премия','strong')+(state.upsell.on&&!cfg.annualUpsell?outRow('upsell2','Допродажи'):'')+outRow('salary3','Оклад за 3 месяца')+outRow('total','Доход за квартал','strong')+'</tbody>';
+    out('qtable').innerHTML=h;
+  }
+  function enhance(){
+    root.querySelectorAll('input[type="number"]').forEach(input=>{
+      if(!input.closest('.number-control')){
+        const w=document.createElement('span');w.className='number-control';input.before(w);w.append(input);
+        const b=document.createElement('span');b.className='number-step-buttons';
+        [1,-1].forEach(d=>{const x=document.createElement('button');x.type='button';x.className='number-step';x.dataset.stepDirection=d;x.tabIndex=-1;x.textContent=d>0?'▴':'▾';x.setAttribute('aria-label',(d>0?'Увеличить':'Уменьшить')+' на '+(input.dataset.increment||1));b.append(x);});
+        w.append(b);
+      }
+      input.closest('.number-control').querySelectorAll('.number-step').forEach(x=>x.disabled=input.disabled);
+    });
+  }
+  function stepNumber(input,d){
+    if(input.disabled)return;
+    const inc=Number(input.dataset.increment)||1,cur=input.value===''?0:Number(input.value);
+    let v=Number(((Number.isFinite(cur)?cur:0)+d*inc).toFixed(8));
+    if(input.min!=='')v=Math.max(Number(input.min),v);if(input.max!=='')v=Math.min(Number(input.max),v);
+    input.value=String(v);input.dispatchEvent(new Event('input',{bubbles:true}));input.focus({preventScroll:true});
+  }
+  function sync(){
+    root.querySelectorAll('[data-s]').forEach(el=>{
+      const v=getP(state,el.dataset.s);
+      if(el.type==='checkbox')el.checked=Boolean(v);
+      else if(el.hasAttribute('data-bool'))el.value=v===false?'0':'1';
+      else el.value=typeof v==='number'&&!Number.isFinite(v)?'':(v??'');
+    });
+  }
+  function renderStructure(){renderIndList();renderTiers();renderTable();enhance();sync();}
+  function save(){doc.data.roles[cfg.key]=state;doc.persist();}
+
+  function update(){
+    const s=state,u=s.upsell,r=calc(s),y=r.year;
+    root.querySelectorAll('[data-when]').forEach(el=>{const [p,v]=el.dataset.when.split(':');el.hidden=String(getP(s,p))!==v;});
+    root.querySelectorAll('[data-when-true]').forEach(el=>{el.hidden=!getP(s,el.dataset.whenTrue);});
+    out('debt-rules').hidden=!s.indicators.some(m=>m.type==='debt');
+    $('[data-s="salary.indexRate"]').disabled=!s.salary.indexOn;enhance();
+    out('index-status').textContent=s.salary.indexOn?money(s.salary.base)+' × '+(1+n(s.salary.indexRate)/100).toFixed(3)+' = '+money(r.salary):'Индексация выключена: расчёт от оклада';
+    out('bonus-derived').textContent=s.bonus.mode==='target'?'Премия в месяц '+money(r.fund/3)+', за квартал '+money(r.fund)+' — это '+num(r.salary>0?r.fund/(r.salary*3)*100:NaN)+'% от трёх окладов.':'Фонд за квартал '+money(r.fund)+', в месяц '+money(r.fund/3)+'. Доход при 100% — '+money(r.planMonthly)+' в месяц.';
+    const wBad=Math.abs(r.wSum-100)>0.01,ws=out('weights-sum');
+    ws.className=wBad?'warn':'micro';ws.textContent='Сумма весов: '+num(r.wSum)+'%'+(wBad?' — должна быть 100%.':'.');
+    out('hero-salary').textContent=money(r.salary);out('hero-salary-caption').textContent=s.salary.indexOn?'С индексацией '+num(s.salary.indexRate)+'%':'Без индексации';
+    out('hero-fund').textContent=money(r.fund);out('hero-fund-caption').textContent='При 100% · в месяц '+money(r.fund/3);
+    out('hero-monthly').textContent=money(y.monthly);out('hero-monthly-caption').textContent='По вводным · при 100% — '+money(r.planMonthly);
+    out('fund-formula').textContent=(s.bonus.mode==='target'?'Фонд = (целевой доход '+money(s.bonus.target)+' − оклад '+money(r.salary)+') × 3 = '+money(r.fund)+'.':'Фонд = оклад '+money(r.salary)+' × 3 × '+num(s.bonus.rate)+'% = '+money(r.fund)+'.')+' Из него: '+s.indicators.map(m=>(m.title||'без названия')+' '+money(r.fund*n(m.weight)/100)+' ('+num(m.weight)+'%)').join(', ')+'.';
+    const warns=[];
+    if(wBad)warns.push('Сумма весов '+num(r.wSum)+'%, а должна быть 100%.');
+    if(s.bonus.mode==='target'&&n(s.bonus.target)<=r.salary)warns.push('Целевой доход не больше оклада — премиальный фонд равен 0.');
+    r.quarters.forEach((q,i)=>s.indicators.forEach(m=>{const p=q.parts[m.id];if(p.over)warns.push(QN[i]+', «'+m.title+'»: выполнено больше, чем задач в квартале — учтено '+p.open+'.');}));
+    out('warnings').innerHTML=warns.map(esc).join('<br>');
+    const note=t=>t?'<span class="note">'+esc(t)+'</span>':'';
+    r.quarters.forEach((q,i)=>{
+      const set=(k,h)=>{const el=out('o-'+k+'-'+i);if(el)el.innerHTML=h;};
+      s.indicators.forEach(m=>{
+        const p=q.parts[m.id],id=m.id;
+        if(m.type==='ratio'){set(id+'-k',(p.ratio===null?'—':pct(p.ratio))+note(p.note||(p.ratio!==null?'коэффициент '+pct(p.k):'')));set(id+'-paid',money(p.paid)+note('фонд '+money(p.base)));}
+        else if(m.type==='tasks'){set(id+'-carried',num(p.carried));set(id+'-open',num(p.open));set(id+'-price',money(p.price));set(id+'-paid',money(p.paid)+note(p.done+' из '+p.open));}
+        else{set(id+'-k',(p.k?'Да':'Нет')+note(p.note));set(id+'-paid',money(p.paid)+note('фонд '+money(p.base)));}
+      });
+      set('docs-k','× '+num(q.docsK));set('raw',money(q.raw));set('premium',money(q.premium));
+      set('upsell',money(q.upsell)+(q.upsellFlag?note('выше границы — по согласованию'):q.upsellCount>1?note(q.upsellCount+' сделки'):''));set('upsell2',money(q.upsell));
+      set('salary3',money(q.salary3));set('total',money(q.total));
+    });
+    s.indicators.forEach(m=>{const g=out('gw-'+m.id);if(g)g.textContent=num(m.weight)+'%';const d=out('debt-months-'+m.id);if(d)d.textContent=num(s.debtRule.months);});
+    out('upsell-explainer').textContent=s.upsell.on?'Сейчас: '+upsellText(u)+'.':'';
+    if(r.annual){
+      const a=r.annual;out('au-ratio').textContent=a.ratio===null?'—':pct(a.ratio);out('au-avg').textContent=a.count?money(a.avg):'—';
+      out('au-rate').innerHTML=a.flag?'по согласованию':u.mode==='fixed'?'фикс':a.count?num(a.rate)+'%':'—';
+      out('au-bonus').innerHTML=money(a.bonus)+(a.passed?'':'<span class="note">ниже порога выплаты</span>');
+    }
+    out('annual').innerHTML='<div class="annual-figure"><span>Годовой доход</span><strong>'+money(y.total)+'</strong></div><div class="annual-figure"><span>Среднемесячный доход</span><strong>'+money(y.monthly)+'</strong></div>';
+    const live=document.querySelector('[data-live="'+cfg.key+'"]');
+    if(live)live.textContent='Настройки: оклад '+money(r.salary)+'/мес.'+(s.salary.indexOn?' (с индексацией '+num(s.salary.indexRate)+'%)':'')+'; премиальный фонд '+money(r.fund)+' за квартал ('+money(r.fund/3)+' в месяц); показатели: '+s.indicators.map(m=>(m.title||'без названия')+' — '+num(m.weight)+'%').join(', ')+'; порог '+num(s.rules.threshold)+'%, потолок '+num(s.rules.cap)+'%'+(s.indicators.some(m=>m.type==='debt')?'; ДЗ — просрочка от '+num(s.debtRule.months)+' мес., допуск '+money(s.debtRule.tolerance):'')+(s.docs.on?'; понижающий коэффициент '+num(s.docs.coef):'')+(s.upsell.on?(cfg.annualUpsell?'; годовой бонус за допродажи отдела — ':'; допродажи — ')+upsellText(u):'; без бонуса за допродажи')+'.';
+  }
+
+  // Keeps the total at 100%: the edited weight stays, the last indicator (or the first, if the last was edited) absorbs the rest.
+  function balanceWeights(path){
+    const m=/^indicators\.(\d+)\.weight$/.exec(path),list=state.indicators;
+    if(!m||list.length<2)return;
+    const i=Number(m[1]),j=i===list.length-1?0:list.length-1;
+    const others=list.reduce((a,x,k)=>k===j?a:a+n(x.weight),0);
+    list[j].weight=Math.max(0,Math.round((100-others)*100)/100);
+    const el=root.querySelector('[data-s="indicators.'+j+'.weight"]');if(el)el.value=list[j].weight;
+  }
+  function onField(el){
+    if(!el.dataset||!el.dataset.s)return;
+    let v;
+    if(el.type==='checkbox')v=el.checked;
+    else if(el.type==='number')v=el.value===''?NaN:Number(el.value);
+    else if(el.hasAttribute('data-bool'))v=el.value==='1';
+    else v=el.value;
+    setP(state,el.dataset.s,v);
+    balanceWeights(el.dataset.s);
+    if(el.dataset.rerender)renderStructure();
+    update();save();
+  }
+  root.addEventListener('input',e=>{if(e.target.type!=='checkbox'&&e.target.tagName!=='SELECT')onField(e.target);});
+  root.addEventListener('change',e=>{
+    if(e.target.type==='checkbox'||e.target.tagName==='SELECT')onField(e.target);
+    else if(e.target.dataset.retable){renderTable();enhance();sync();update();}
+  });
+  root.addEventListener('keydown',e=>{if(e.target.matches('input[type="number"]')&&['ArrowUp','ArrowDown'].includes(e.key)){e.preventDefault();stepNumber(e.target,e.key==='ArrowUp'?1:-1);}});
+  root.addEventListener('click',e=>{
+    const t=e.target.closest('button');if(!t||!root.contains(t))return;
+    if(t.dataset.stepDirection){e.preventDefault();stepNumber(t.closest('.number-control').querySelector('input'),Number(t.dataset.stepDirection));return;}
+    const act=t.dataset.act;if(!act)return;
+    if(act==='add-ind'){
+      const type=out('add-type').value,id='ind'+Date.now();
+      state.indicators.push({id,type,title:{ratio:'Новый показатель',tasks:'Топ-задачи',debt:'Просроченная ДЗ'}[type],unit:'₽',weight:0});normalize();
+    }else if(act==='rm-ind'){
+      state.indicators.splice(Number(t.dataset.i),1);
+      if(state.indicators.length){const last=state.indicators[state.indicators.length-1];last.weight=Math.max(0,100-state.indicators.slice(0,-1).reduce((a,x)=>a+n(x.weight),0));}
+    }else if(act==='add-tier'){const tiers=state.upsell.tiers,last=tiers.length?n(tiers[tiers.length-1].upTo):0,rate=tiers.length?n(tiers[tiers.length-1].rate):3;tiers.push({upTo:last?last*2:5000000,rate:cfg.annualUpsell?Math.max(0,Math.round((rate-0.05)*100)/100):Math.max(0,Math.round((rate-0.5)*10)/10)});}
+    else if(act==='rm-tier'){state.upsell.tiers.splice(Number(t.dataset.i),1);}
+    else return;
+    renderStructure();update();save();
+  });
+
+  const popup=document.getElementById('info-popover');let pinnedBtn=null,hideTimer;
+  function showHelp(btn,pin){clearTimeout(hideTimer);const item=cfg.help[btn.dataset.rhelp];if(!item)return;popup.innerHTML='<strong>'+item[0]+'</strong><div>'+item[1]+'</div>';popup.hidden=false;pinnedBtn=pin?btn:null;const r=btn.getBoundingClientRect(),w=popup.offsetWidth,h=popup.offsetHeight;popup.style.left=Math.max(12,Math.min(r.left,window.innerWidth-w-12))+'px';popup.style.top=Math.max(12,r.bottom+h+12>window.innerHeight?r.top-h-8:r.bottom+8)+'px';}
+  root.addEventListener('mouseover',e=>{const b=e.target.closest('[data-rhelp]');if(b&&!pinnedBtn)showHelp(b,false);});
+  root.addEventListener('mouseout',e=>{const b=e.target.closest('[data-rhelp]');if(b&&!pinnedBtn)hideTimer=setTimeout(()=>{popup.hidden=true;},180);});
+  root.addEventListener('click',e=>{const b=e.target.closest('[data-rhelp]');if(!b)return;e.preventDefault();if(pinnedBtn===b){popup.hidden=true;pinnedBtn=null;}else showHelp(b,true);});
+  document.addEventListener('pointerdown',e=>{if(!e.target.closest('[data-rhelp]')&&!popup.contains(e.target))pinnedBtn=null;});
+
+  root.innerHTML='<div class="calculator-grid">'+asideHtml()+mainHtml()+'</div>';
+  renderStructure();update();
+};
+
+</script>
+<script>
+(function(){
+  const scale={on:true,mode:'scale',fixed:50000,rate:2.5,scaleType:'marginal',tiers:[{upTo:5000000,rate:3},{upTo:20000000,rate:2},{upTo:50000000,rate:1}],aboveMode:'agree',aboveRate:0.5};
+  const help={
+    salary:['Оклад','Ежемесячный оклад. Индексация по желанию: оклад × (1 + % / 100).'],
+    bonus:['Премиальный фонд','Фонд — премия за квартал при 100% по всем показателям. «% от трёх окладов»: фонд = оклад × 3 × ставка / 100. «От целевого дохода»: фонд = (целевой доход − оклад) × 3.'],
+    weights:['Показатели и веса','Название и вес каждого показателя можно менять. Меняете вес одного — последний показатель подстраивается, чтобы сумма была 100% (если правите последний — подстраивается первый). Новый показатель добавляется кнопкой «Добавить»: план / факт в %, топ-задачи с переносом или просроченная ДЗ.'],
+    rules:['Правила расчёта','Порог и потолок действуют на показатели «план / факт»: ниже порога часть не платится, выше — пропорционально выполнению, но не больше потолка. Пример при пороге 80% и потолке 120%: 70% → 0; 90% → 90% части; 150% → 120% части. ДЗ: если просроченная ДЗ на конец квартала не больше допуска — часть платится полностью, иначе — 0.'],
+    docs:['Понижающий коэффициент','Если условие на конец квартала не выполнено, вся рассчитанная премия квартала умножается на коэффициент. Допродажи не снижаются. Отметка ставится в таблице по каждому кварталу.'],
+    upsell:['Личные допродажи','Разовый бонус за допродажи в своих регионах, вне квартальной премии. Шкала — как у РП: чем больше чек, тем ниже ставка. Сумма и количество сделок вводятся в таблице кварталов.'],
+    table:['Расчёт по кварталам','Каждый квартал считается отдельно, не накопительным итогом. Белые поля — ввод, остальное считается само. Топ-задачи: незаключённые переходят в следующий квартал и дешевеют.'],
+    annual:['Итог за год','Годовой доход = оклад × 12 + премии четырёх кварталов + бонусы за допродажи. Среднемесячный = годовой / 12.']
+  };
+  createRoleCalc({
+    key:'teamlead',rootId:'tl-calc',noDocs:true,annualUpsell:true,
+    help:{...help,upsell:['Допродажи отдела · годовой показатель','Считается по итогам года, вне квартальной премии, только по B2G-регионам. Средний чек = факт за год / число сделок. По среднему чеку выбирается ставка, бонус = факт допродаж × ставка. Порог выплаты 0% означает, что бонус начисляется при любом выполнении плана.'],table:['Расчёт по кварталам','Каждый квартал считается отдельно, не накопительным итогом. Все показатели — только по B2G-регионам. Белые поля — ввод, остальное считается само.']},
+    annualIntro:'Только B2G-регионы. Ставка зависит от среднего чека (настраивается слева), бонус считается от фактической суммы допродаж отдела за год.',
+    migrate(s,d){
+      const titles={"Актированная выручка команды": "Актированная выручка команды (только B2G-регионы)", "Подписанные контракты команды": "Подписанные контракты команды (только B2G-регионы)", "Просроченная ДЗ команды": "Просроченная ДЗ команды (только B2G-регионы)"};
+      s.version=d.version;s.docs=d.docs;s.upsell=d.upsell;
+      s.indicators.forEach(m=>{if(titles[m.title])m.title=titles[m.title];});
+      s.quarters.forEach(q=>{q.docsOk=true;q.upsellSum=0;q.upsellCount=0;});
+    },
+    kicker:'Квартальная премия тимлида РП · 2027 · только B2G',
+    docsLabel:'Паспорта и дорожные карты актуальны',
+    tableIntro:'Все показатели учитываются только по B2G-регионам: общий результат всех РП и личного портфеля тимлида. Введите план и факт по каждому кварталу; годовые допродажи отдела — под таблицей.',
+    assumption:'Суммы — на руки (уточнено на встрече 03.11). Цифры по умолчанию — пример для проверки механики, а не согласованные планы. Изменения сохраняются в этом браузере.',
+    defaults:{
+      version:2,
+      salary:{base:150000,indexOn:false,indexRate:10},
+      bonus:{mode:'percent',target:200000,rate:30},
+      rules:{threshold:80,cap:120},
+      debtRule:{months:2,tolerance:0},
+      docs:{on:false,coef:0.8},
+      upsell:{...scale,scaleType:'whole',tiers:[{upTo:5000000,rate:0.3},{upTo:20000000,rate:0.2},{upTo:50000000,rate:0.1}],annual:{plan:20000000,fact:18000000,count:6,threshold:0}},
+      indicators:[
+        {id:'rev',type:'ratio',title:'Актированная выручка команды (только B2G-регионы)',unit:'₽',weight:50},
+        {id:'cnt',type:'ratio',title:'Подписанные контракты команды (только B2G-регионы)',unit:'шт.',weight:30},
+        {id:'debt',type:'debt',title:'Просроченная ДЗ команды (только B2G-регионы)',unit:'₽',weight:20}
+      ],
+      quarters:[
+        {docsOk:true,upsellSum:0,upsellCount:0,v:{rev:{plan:30000000,fact:27000000},cnt:{plan:10,fact:9},debt:{amount:0}}},
+        {docsOk:true,upsellSum:0,upsellCount:0,v:{rev:{plan:40000000,fact:38000000},cnt:{plan:12,fact:12},debt:{amount:0}}},
+        {docsOk:true,upsellSum:0,upsellCount:0,v:{rev:{plan:50000000,fact:52000000},cnt:{plan:15,fact:14},debt:{amount:1500000}}},
+        {docsOk:true,upsellSum:0,upsellCount:0,v:{rev:{plan:60000000,fact:55000000},cnt:{plan:13,fact:12},debt:{amount:0}}}
+      ]
+    }
+  });
+  createRoleCalc({
+    key:'sales',rootId:'sales-calc',help,
+    kicker:'Квартальная премия менеджера по продажам · 2027 · черновик',
+    docsLabel:'Сделки в CRM ведутся по регламенту',
+    tableIntro:'Черновик для обсуждения: показатели продажника на встрече 03.11 не согласовывали. Введите план и факт по кварталам; показатели и веса меняются слева.',
+    assumption:'Суммы — на руки. Показатели, веса и цифры — стартовый вариант для обсуждения, не согласованы. Изменения сохраняются в этом браузере.',
+    defaults:{
+      version:1,
+      salary:{base:100000,indexOn:false,indexRate:10},
+      bonus:{mode:'percent',target:140000,rate:30},
+      rules:{threshold:50,cap:120},
+      debtRule:{months:2,tolerance:0},
+      docs:{on:false,coef:0.8},
+      upsell:{...scale,on:false},
+      indicators:[
+        {id:'contracted',type:'ratio',title:'Законтрактованная выручка по новым клиентам',unit:'₽',weight:50},
+        {id:'deals',type:'tasks',title:'Новые контракты (топ-задачи)',unit:'шт.',weight:50}
+      ],
+      quarters:[
+        {docsOk:true,upsellSum:0,upsellCount:0,v:{contracted:{plan:10000000,fact:8000000},deals:{new:2,removed:0,done:1}}},
+        {docsOk:true,upsellSum:0,upsellCount:0,v:{contracted:{plan:10000000,fact:12000000},deals:{new:2,removed:0,done:3}}},
+        {docsOk:true,upsellSum:0,upsellCount:0,v:{contracted:{plan:10000000,fact:10000000},deals:{new:3,removed:0,done:3}}},
+        {docsOk:true,upsellSum:0,upsellCount:0,v:{contracted:{plan:10000000,fact:9000000},deals:{new:3,removed:0,done:2}}}
+      ]
+    }
+  });
+})();
+
+</script>
+<script>
+(function(){
+  const doc=window.rpDocument,roles=['rp','teamlead','grades','sales'];
+  function role(name){roles.forEach(k=>{const on=k===name;document.getElementById(k+'-workspace').hidden=!on;document.getElementById('role-'+k).setAttribute('aria-selected',String(on));});doc.data.activeRole=name;}
+  roles.forEach(k=>document.getElementById('role-'+k).addEventListener('click',()=>{role(k);doc.persist();}));
+  role(roles.includes(doc.data.activeRole)?doc.data.activeRole:'rp');
+})();
+</script>
+<script>
+// Shows numbers in inputs with digit grouping (3 000 000) while the field is not being edited; the stored value stays a plain number.
+(function(){
+  const fmt=new Intl.NumberFormat('ru-RU',{maximumFractionDigits:2});
+  function refresh(input){
+    const mask=input._mask;if(!mask)return;
+    const raw=input.value,editing=document.activeElement===input;
+    mask.textContent=raw===''||editing?'':fmt.format(Number(raw));
+    mask.style.color=input.disabled?'#86919d':'var(--ink)';
+    input.classList.toggle('masked',!editing&&raw!=='');
+  }
+  function attach(input){
+    if(input._mask||!input.parentElement||!input.parentElement.classList.contains('number-control'))return;
+    const old=input.parentElement.querySelector(':scope > .num-mask');if(old)old.remove();
+    const cs=getComputedStyle(input),mask=document.createElement('span');
+    mask.className='num-mask';mask.setAttribute('aria-hidden','true');
+    const bw=parseFloat(cs.borderLeftWidth)||0;
+    mask.style.paddingLeft=(parseFloat(cs.paddingLeft)+bw)+'px';mask.style.paddingRight=(parseFloat(cs.paddingRight)+bw)+'px';
+    mask.style.fontSize=cs.fontSize;mask.style.fontWeight=cs.fontWeight;mask.style.fontFamily=cs.fontFamily;
+    mask.style.justifyContent=cs.textAlign==='right'||cs.textAlign==='end'?'flex-end':'flex-start';
+    input.after(mask);input._mask=mask;refresh(input);
+  }
+  const desc=Object.getOwnPropertyDescriptor(HTMLInputElement.prototype,'value');
+  Object.defineProperty(HTMLInputElement.prototype,'value',{configurable:true,enumerable:desc.enumerable,get(){return desc.get.call(this);},set(v){desc.set.call(this,v);if(this._mask)refresh(this);}});
+  const scan=root=>root.querySelectorAll&&root.querySelectorAll('.number-control > input[type="number"]').forEach(attach);
+  scan(document);
+  new MutationObserver(list=>list.forEach(m=>m.addedNodes.forEach(nd=>{if(nd.nodeType!==1)return;if(nd.matches&&nd.matches('.number-control > input[type="number"]'))attach(nd);scan(nd);if(nd.classList&&nd.classList.contains('number-control'))nd.querySelectorAll('input[type="number"]').forEach(attach);}))).observe(document.body,{childList:true,subtree:true});
+  ['input','change','focusin','focusout'].forEach(t=>document.addEventListener(t,e=>{if(e.target._mask)setTimeout(()=>refresh(e.target));},true));
+  document.addEventListener('change',()=>setTimeout(()=>document.querySelectorAll('.number-control > input[type="number"]').forEach(i=>i._mask&&refresh(i))),true);
+})();
+</script>
+</body></html>
