@@ -76,13 +76,22 @@
 <section class="tab-panel" id="calculator-panel" role="tabpanel" aria-labelledby="tab-calculator"><div id="rp-motivation-2027"><div class="calculator-grid">
 <aside class="settings"><h2>Параметры</h2>
 <div class="setting-group"><p class="setting-title">1. Оклад <button class="info-button" data-help="salary" type="button" aria-label="Об окладе">i</button></p>
-<label class="form-label">Оклад, ₽ / месяц<input class="form-control" type="number" min="0" step="any" data-s="salary.base" data-increment="1000"></label>
+<label class="form-label">Грейд<select class="form-select" data-s="salary.grade">
+  <option value="manual">Свой оклад</option>
+  <option value="rp1">РП I · от 90 000 ₽</option>
+  <option value="rp2">РП II</option>
+  <option value="rp3">РП III · 120 000 ₽</option>
+</select></label>
+<label class="form-label" id="rp-manual-salary">Оклад, ₽ / месяц<input class="form-control" type="number" min="0" step="any" data-s="salary.base" data-increment="1000"></label>
+<label class="form-label" id="rp-grade2-salary" hidden>Оклад РП II для расчёта, ₽ / месяц<input class="form-control" type="number" min="0" step="any" data-s="salary.grade2Base" data-increment="1000" placeholder="105 000" aria-describedby="rp-grade-note"></label>
+<p class="micro" id="rp-grade-note" hidden style="margin-bottom:12px"></p>
 <label class="indexation-toggle"><input type="checkbox" data-s="salary.indexOn"><span>Добавить индексацию</span></label>
 <label class="form-label">Индексация, %<input class="form-control" type="number" min="0" max="100" step="any" data-s="salary.indexRate" data-increment="0.5"></label>
 <p class="micro" id="index-status"></p></div>
 <div class="setting-group"><p class="setting-title">2. Премиальный фонд <button class="info-button" data-help="bonus" type="button" aria-label="О премиальном фонде">i</button></p>
 <label class="form-label">Как задаём премию<select class="form-select" data-s="bonus.mode"><option value="target">От целевого дохода в месяц</option><option value="percent">% от трёх окладов</option></select></label>
-<label class="form-label" id="target-field">Целевой доход при 100%, ₽ / месяц<input class="form-control" type="number" min="0" step="any" data-s="bonus.target" data-increment="5000"></label>
+<label class="form-label" id="target-field">Целевой доход при 100%, ₽ / месяц<input class="form-control" type="number" min="0" step="any" data-s="bonus.target" data-increment="5000" aria-describedby="rp-grade-target-note"></label>
+<p class="micro" id="rp-grade-target-note" hidden style="margin-bottom:12px">При смене грейда целевой доход меняется на разницу в окладе. Премиальный фонд при этом сохраняется.</p>
 <label class="form-label" id="rate-field">Премия за квартал, % от 3 окладов<input class="form-control" type="number" min="0" max="300" step="any" data-s="bonus.rate" data-increment="1"></label>
 <p class="micro" id="bonus-derived"></p></div>
 <div class="setting-group"><p class="setting-title">3. Веса в премии <button class="info-button" data-help="weights" type="button" aria-label="О весах">i</button></p>
@@ -236,7 +245,7 @@
   const QN=['I квартал','II квартал','III квартал','IV квартал'];
   const defaults={
     version:10,
-    salary:{base:120000,indexOn:false,indexRate:10},
+    salary:{base:120000,indexOn:false,indexRate:10,grade:'manual',grade2Base:105000},
     bonus:{mode:'target',target:160000,rate:33.33},
     weights:{revenue:15,tasks:85},
     revenue:{threshold:50,cap:120,zeroPlan:'none'},
@@ -251,6 +260,7 @@
   };
   const clone=o=>JSON.parse(JSON.stringify(o));
   let state=doc.data.calc&&doc.data.calc.version===10?clone(doc.data.calc):clone(defaults);
+  state.salary={...defaults.salary,...state.salary};
   state.indicators=[];
   // Earlier saved versions kept upsells as a separate deal list; fold them into the quarters.
   if(state.quarters.some(q=>q.upsellSum===undefined)){
@@ -295,10 +305,19 @@
     return {bonus,flag};
   }
 
+  function salaryInputs(salary){
+    const customBase=n(salary.base);
+    const grade2Base=Number.isFinite(salary.grade2Base)?salary.grade2Base:defaults.salary.grade2Base;
+    const base=({rp1:90000,rp2:grade2Base,rp3:120000})[salary.grade]??customBase;
+    const multiplier=1+(salary.indexOn?n(salary.indexRate):0)/100;
+    const monthly=Math.round(base*multiplier);
+    return {base,monthly,targetOffset:monthly-Math.round(customBase*multiplier)};
+  }
+
   function calc(s){
-    const indexed=n(s.salary.base)*(1+(s.salary.indexOn?n(s.salary.indexRate):0)/100);
-    const salary=Math.round(indexed);
-    const fund=s.bonus.mode==='target'?Math.max(0,(n(s.bonus.target)-salary)*3):salary*3*n(s.bonus.rate)/100;
+    const {base,monthly:salary,targetOffset}=salaryInputs(s.salary);
+    const target=Math.max(0,n(s.bonus.target)+targetOffset);
+    const fund=s.bonus.mode==='target'?Math.max(0,(target-salary)*3):salary*3*n(s.bonus.rate)/100;
     const active=s.indicators.filter(m=>m.enabled);
     const wInd=active.reduce((a,m)=>a+n(m.weight),0);
     const wSum=n(s.weights.revenue)+n(s.weights.tasks)+wInd;
@@ -330,7 +349,7 @@
     const sum=k=>quarters.reduce((a,q)=>a+q[k],0);
     const year={salary:salary*12,revenue:sum('revPaid'),tasks:sum('taskPaid'),ind:sum('indPaid'),premium:sum('premium'),upsell:sum('upsell'),upsellCount:sum('upsellCount'),tasksLeft:carryTasks,flagged:quarters.filter(q=>q.upsellFlag).length,revLost:carryRev};
     year.total=year.salary+year.premium+year.upsell;year.monthly=year.total/12;
-    return {salary,indexed,fund,revBase,taskBase,wInd,wSum,active,quarters,year};
+    return {salary,base,target,fund,revBase,taskBase,wInd,wSum,active,quarters,year};
   }
 
   function upsellText(u){
@@ -388,23 +407,37 @@
   function renderStructure(){renderTiers();enhance();sync();}
   function save(){doc.data.calc=state;doc.persist();}
 
-  function update(){
+  function update(changedField){
     const s=state,u=s.upsell,r=calc(s),y=r.year;
+    const grade=s.salary.grade;
+    const hasGrade=['rp1','rp2','rp3'].includes(grade);
+    $('#rp-manual-salary').hidden=hasGrade;
+    $('#rp-grade2-salary').hidden=grade!=='rp2';
+    const gradeNote=$('#rp-grade-note');
+    gradeNote.hidden=grade!=='rp1'&&grade!=='rp2';
+    gradeNote.textContent=grade==='rp1'
+      ? 'Для РП I взят нижний порог оклада — 90 000 ₽.'
+      : 'Оклад РП II определяется отдельно. 105 000 ₽ — пример для сравнения, укажите свою сумму.';
+    $('#rp-grade-target-note').hidden=!hasGrade||s.bonus.mode!=='target';
+    if(changedField!=='bonus.target'){
+      const targetInput=$('[data-s="bonus.target"]');
+      targetInput.value=Number.isFinite(s.bonus.target)?r.target:'';
+    }
     $('#target-field').hidden=s.bonus.mode!=='target';$('#rate-field').hidden=s.bonus.mode!=='percent';
     $('#fixed-field').hidden=u.mode!=='fixed';$('#percent-field').hidden=u.mode!=='percent';$('#scale-fields').hidden=u.mode!=='scale';$('#above-rate-field').hidden=u.aboveMode!=='rate';
     $('[data-s="salary.indexRate"]').disabled=!s.salary.indexOn;enhance();
-    $('#index-status').textContent=s.salary.indexOn?money(s.salary.base)+' × '+(1+n(s.salary.indexRate)/100).toFixed(3)+' = '+money(r.salary):'Индексация выключена: расчёт от оклада';
+    $('#index-status').textContent=s.salary.indexOn?money(r.base)+' × '+(1+n(s.salary.indexRate)/100).toFixed(3)+' = '+money(r.salary):'Индексация выключена: расчёт от оклада';
     $('#bonus-derived').textContent=s.bonus.mode==='target'?'Премия в месяц '+money(r.fund/3)+', за квартал '+money(r.fund)+' — это '+num(r.salary>0?r.fund/(r.salary*3)*100:NaN)+'% от трёх окладов.':'Фонд за квартал '+money(r.fund)+', в месяц '+money(r.fund/3)+'. Целевой доход при 100% — '+money(r.salary+r.fund/3)+' в месяц.';
     const wBad=Math.abs(r.wSum-100)>0.01;
     const ws=$('#weights-sum');ws.className=wBad?'warn':'micro';ws.textContent='Сумма весов: '+num(r.wSum)+'%'+(r.wInd?' (доп. показатели — '+num(r.wInd)+'%)':'')+(wBad?' — должна быть 100%.':'.');
-    $('#hero-salary').textContent=money(r.salary);$('#hero-salary-caption').textContent=s.salary.indexOn?'С индексацией '+num(s.salary.indexRate)+'%':'Без индексации';
+    $('#hero-salary').textContent=money(r.salary);$('#hero-salary-caption').textContent=({rp1:'РП I · ',rp2:'РП II · ',rp3:'РП III · '}[grade]||'')+(s.salary.indexOn?'С индексацией '+num(s.salary.indexRate)+'%':'Без индексации');
     $('#hero-fund').textContent=money(r.fund);$('#hero-fund-caption').textContent='При 100% · в месяц '+money(r.fund/3);
     $('#hero-monthly').textContent=money(y.monthly);
-    $('#hero-monthly-caption').textContent=s.bonus.mode==='target'?'Цель '+money(s.bonus.target)+' · '+(y.monthly-s.bonus.target>=0?'+':'−')+money(Math.abs(y.monthly-s.bonus.target)):'Среднее за год по вводным';
-    $('#fund-formula').textContent=(s.bonus.mode==='target'?'Фонд = (целевой доход '+money(s.bonus.target)+' − оклад '+money(r.salary)+') × 3 = '+money(r.fund)+'.':'Фонд = оклад '+money(r.salary)+' × 3 × '+num(s.bonus.rate)+'% = '+money(r.fund)+'.')+' Из него: выручка '+money(r.revBase)+' ('+num(s.weights.revenue)+'%), топ-задачи '+money(r.taskBase)+' ('+num(s.weights.tasks)+'%)'+(r.wInd?', доп. показатели '+money(r.fund*r.wInd/100)+' ('+num(r.wInd)+'%)':'')+'.';
+    $('#hero-monthly-caption').textContent=s.bonus.mode==='target'?'Цель '+money(r.target)+' · '+(y.monthly-r.target>=0?'+':'−')+money(Math.abs(y.monthly-r.target)):'Среднее за год по вводным';
+    $('#fund-formula').textContent=(s.bonus.mode==='target'?'Фонд = (целевой доход '+money(r.target)+' − оклад '+money(r.salary)+') × 3 = '+money(r.fund)+'.':'Фонд = оклад '+money(r.salary)+' × 3 × '+num(s.bonus.rate)+'% = '+money(r.fund)+'.')+' Из него: выручка '+money(r.revBase)+' ('+num(s.weights.revenue)+'%), топ-задачи '+money(r.taskBase)+' ('+num(s.weights.tasks)+'%)'+(r.wInd?', доп. показатели '+money(r.fund*r.wInd/100)+' ('+num(r.wInd)+'%)':'')+'.';
     const warns=[];
     if(wBad)warns.push('Сумма весов '+num(r.wSum)+'%, а должна быть 100%.');
-    if(s.bonus.mode==='target'&&n(s.bonus.target)<=r.salary)warns.push('Целевой доход не больше оклада — премиальный фонд равен 0.');
+    if(s.bonus.mode==='target'&&r.target<=r.salary)warns.push('Целевой доход не больше оклада — премиальный фонд равен 0.');
     r.quarters.forEach((q,i)=>{if(q.doneOver)warns.push(QN[i]+': заключено больше, чем задач в квартале — учтено '+q.open+'.');});
     if(n(s.revenue.cap)<100)warns.push('Потолок по выручке меньше 100%.');
     $('#rp-warnings').innerHTML=warns.map(esc).join('<br>');
@@ -420,7 +453,7 @@
     $('#upsell-explainer').textContent='Сейчас: '+upsellText(u)+'.';
     $('#annual-results').innerHTML='<div class="annual-figure"><span>Годовой доход</span><strong>'+money(y.total)+'</strong></div><div class="annual-figure"><span>Среднемесячный доход</span><strong>'+money(y.monthly)+'</strong></div>';
     const g=id=>document.getElementById(id);
-    g('proposal-live').textContent='Настройки: оклад '+money(r.salary)+'/мес.'+(s.salary.indexOn?' (с индексацией '+num(s.salary.indexRate)+'%)':'')+'; премиальный фонд '+money(r.fund)+' за квартал ('+money(r.fund/3)+' в месяц)'+(s.bonus.mode==='target'?', целевой доход '+money(s.bonus.target):'')+'; веса: выручка '+num(s.weights.revenue)+'%, топ-задачи '+num(s.weights.tasks)+'%'+(r.wInd?', доп. показатели '+num(r.wInd)+'%':'')+'; порог выручки '+num(s.revenue.threshold)+'%, потолок '+num(s.revenue.cap)+'%; допродажи — '+upsellText(u)+'.';
+    g('proposal-live').textContent='Настройки: оклад '+money(r.salary)+'/мес.'+(s.salary.indexOn?' (с индексацией '+num(s.salary.indexRate)+'%)':'')+'; премиальный фонд '+money(r.fund)+' за квартал ('+money(r.fund/3)+' в месяц)'+(s.bonus.mode==='target'?', целевой доход '+money(r.target):'')+'; веса: выручка '+num(s.weights.revenue)+'%, топ-задачи '+num(s.weights.tasks)+'%'+(r.wInd?', доп. показатели '+num(r.wInd)+'%':'')+'; порог выручки '+num(s.revenue.threshold)+'%, потолок '+num(s.revenue.cap)+'%; допродажи — '+upsellText(u)+'.';
     g('live-formula-rev').textContent='Премия за выручку = фонд × '+num(s.weights.revenue)+'% × K; K = 0, если факт / план < '+num(s.revenue.threshold)+'%, иначе min(факт / план; '+num(s.revenue.cap)+'%)';
     g('live-formula-tasks').textContent='Цена задачи = фонд × '+num(s.weights.tasks)+'% / (новые + перенесённые − снятые); премия = цена × заключённые';
     g('proposal-upsell-live').textContent='Сейчас: '+upsellText(u)+'.';
@@ -443,10 +476,13 @@
     else if(el.type==='number')v=el.value===''?NaN:Number(el.value);
     else if(el.tagName==='SELECT'&&el.hasAttribute('data-num'))v=Number(el.value);
     else v=el.value;
-    setP(state,el.dataset.s,v);
-    balanceWeights(el.dataset.s);
+    const path=el.dataset.s;
+    if(path==='bonus.target'&&Number.isFinite(v))v-=salaryInputs(state.salary).targetOffset;
+    if(path==='salary.grade2Base'&&Number.isFinite(v))v=Math.max(0,v);
+    setP(state,path,v);
+    balanceWeights(path);
     if(el.dataset.rerender)renderStructure();
-    update();save();
+    update(path);save();
   }
   root.addEventListener('input',e=>{if(e.target.type!=='checkbox'&&e.target.tagName!=='SELECT')onField(e.target);});
   root.addEventListener('change',e=>{
