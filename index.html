@@ -68,11 +68,11 @@
 .grades-document ol{padding-left:22px}
 .grades-document li+li{margin-top:8px}
 @media(max-width:740px){.grades-levels{grid-template-columns:1fr}.role-tab{padding-inline:12px}}
-@media print{.grades-levels{display:block}.grades-level{break-inside:avoid;margin-bottom:8px}}
+@media print{#grades-workspace[hidden],#rp-workspace:has(> #grades-workspace:not([hidden])) > .tab-panel:not(#grades-workspace){display:none!important}.grades-levels{display:block}.grades-level{break-inside:avoid;margin-bottom:8px}}
 </style></head><body>
 <header class="topbar"><div class="brand">К–СКАЙ <span>Рабочие материалы</span></div><div class="actions"><button class="action" id="edit-notes" aria-pressed="false">Править текст</button><button class="action" id="print-doc">Печать / PDF</button><button class="action primary" id="download-doc">Скачать с правками</button></div></header>
-<main class="page"><div class="hero compact-hero"><h1>Квартальная мотивация · 2027</h1><nav class="role-tabs" aria-label="Роль"><button class="role-tab" id="role-rp" role="tab" aria-controls="rp-workspace" aria-selected="true">РП</button><button class="role-tab" id="role-teamlead" role="tab" aria-controls="teamlead-workspace" aria-selected="false">Тимлид РП</button><button class="role-tab" id="role-grades" role="tab" aria-controls="grades-workspace" aria-selected="false">Система грейдов РП</button><button class="role-tab" id="role-sales" role="tab" aria-controls="sales-workspace" aria-selected="false">Продажи</button></nav></div>
-<div id="rp-workspace" class="role-workspace" role="tabpanel" aria-labelledby="role-rp"><nav class="tabs" aria-label="Разделы"><button class="tab" id="tab-calculator" data-panel="calculator-panel" role="tab" aria-controls="calculator-panel" aria-selected="true">Калькулятор</button><button class="tab" id="tab-proposal" data-panel="proposal-panel" role="tab" aria-controls="proposal-panel" aria-selected="false">Предложения и правила</button></nav>
+<main class="page"><div class="hero compact-hero"><h1>Квартальная мотивация · 2027</h1><nav class="role-tabs" aria-label="Роль"><button class="role-tab" id="role-rp" role="tab" aria-controls="rp-workspace" aria-selected="true">РП</button><button class="role-tab" id="role-teamlead" role="tab" aria-controls="teamlead-workspace" aria-selected="false">Тимлид РП</button><button class="role-tab" id="role-sales" role="tab" aria-controls="sales-workspace" aria-selected="false">Продажи</button></nav></div>
+<div id="rp-workspace" class="role-workspace" role="tabpanel" aria-labelledby="role-rp"><nav class="tabs" aria-label="Разделы"><button class="tab" id="tab-calculator" data-panel="calculator-panel" role="tab" aria-controls="calculator-panel" aria-selected="true">Калькулятор</button><button class="tab" id="tab-proposal" data-panel="proposal-panel" role="tab" aria-controls="proposal-panel" aria-selected="false">Предложения и правила</button><button class="tab" id="tab-grades" data-panel="grades-workspace" role="tab" aria-controls="grades-workspace" aria-selected="false">Система грейдов</button></nav>
 <section class="tab-panel" id="calculator-panel" role="tabpanel" aria-labelledby="tab-calculator"><div id="rp-motivation-2027"><div class="calculator-grid">
 <aside class="settings"><h2>Параметры</h2>
 <div class="setting-group"><p class="setting-title">1. Оклад <button class="info-button" data-help="salary" type="button" aria-label="Об окладе">i</button></p>
@@ -121,17 +121,7 @@
 <div class="document-section"><h3 data-edit="s6-title">06. Показатели качества</h3><p data-edit="s6-text">Показатели качества из прежней модели (готовность этапов к приёмке, продление ТП, использование платформы и др.) остаются в оценке работы РП и в деньги не переводятся, поэтому в калькуляторе их нет.</p></div>
 <div class="document-section"><h3 data-edit="s7-title">07. Что осталось согласовать</h3><p data-edit="s7-text">Точный оклад в диапазоне 115–120 тыс. ₽ и индексация; веса выручки и топ-задач; ставки и отсечка шкалы допродаж; правило для квартала без плана; что делать при полной отмене контракта, а не переносе; переход незакрытых задач через конец года и лимиты выплат; ответственность РП за дебиторскую задолженность и графики закрытия; пилот поквартального закрытия (Тула) и список регионов; бенчмарк по зарплатам в телекоме.</p><p class="source-links">Источник: Plaud, «Рабочая встреча: Система мотивации, согласование ТЗ и регламент КП», 29.10.2026: 21:56–25:38 — два показателя; 29:00–30:29 — вес актированной выручки; 33:19–41:37 — топ-задачи; 42:11–43:53 и 47:24–48:42 — оклад, доход, итог; 48:42–49:56 — допродажи; 50:31–50:44 — рынок.<br>Редактирование текста не меняет формулы. Цифры меняйте в калькуляторе.</p></div>
 </article></section>
-</div>
-<div id="teamlead-workspace" class="role-workspace" role="tabpanel" aria-labelledby="role-teamlead" hidden><nav class="tabs" aria-label="Разделы"><button class="tab" role="tab" data-panel="tl-calc-panel" aria-selected="true">Калькулятор</button><button class="tab" role="tab" data-panel="tl-proposal-panel" aria-selected="false">Предложения и правила</button></nav>
-<section class="tab-panel" id="tl-calc-panel" role="tabpanel"><div id="tl-calc"></div></section>
-<section class="tab-panel" id="tl-proposal-panel" role="tabpanel" hidden><div class="edit-hint">Нажмите на текст, чтобы изменить формулировку. Изменения сохраняются в этом браузере.</div><article class="document">
-<div class="document-section"><p class="doc-kicker">Рабочая модель · встреча 03.11.2026</p><h2 data-edit="tl-title">Квартальная мотивация тимлида РП на 2027 год</h2><p data-edit="tl-intro-v2">Модель пересобрана по встрече «KPI» 03.11.2026 в той же логике, что у РП: премия квартальная, каждый квартал считается отдельно, а не накопительным итогом с начала года. В премии три общих квартальных показателя команды; отдельно — годовой бонус за выполнение плана по допродажам отдела. Все показатели смотрятся только по направлению B2G.</p><p class="budget-note" data-live="teamlead"></p></div>
-<div class="document-section"><h3 data-edit="tl-s1-title">01. Показатели и веса</h3><p data-edit="tl-s1-text-v2">Учитываются только B2G-регионы. Актированная выручка команды — 50%: складывается из результатов всех РП и личного портфеля тимлида по B2G-регионам. Подписанные контракты команды в штуках — 30%: уникальные контрагенты, процент выполнения плана. Механика топ-задач здесь не используется: у тимлида считается совокупный результат команды, а не каждый контракт. Просроченная дебиторская задолженность — 20%: нет просрочки на конец квартала — часть выплачивается полностью, есть — не выплачивается.</p></div>
-<div class="document-section"><h3 data-edit="tl-s2-title">02. Что убрано из прежней модели</h3><p data-edit="tl-s2-text">Обращения врачей к платформе — переводятся в справочные: данные по использованию платформы сейчас ненадёжны. Доля этапов воронки в срок — убрана: её сложно считать, пока не настроен Битрикс. Оба показателя можно вернуть позже, перераспределив веса.</p></div>
-<div class="document-section"><h3 data-edit="tl-s3-title-v2">03. Допродажи отдела — годовой показатель</h3><p data-edit="tl-s3-text-v2">Вместо личных допродаж тимлид получает годовой бонус за выполнение плана по допродажам отдела (только B2G-регионы). Он считается по итогам года, вне квартальной премии. Бонус = факт допродаж отдела за год × ставка, которая зависит от среднего чека: до 5 млн ₽ — 0,3%; от 5 до 20 млн ₽ — 0,2%; от 20 до 50 млн ₽ — 0,1%.</p></div>
-<div class="document-section"><h3 data-edit="tl-s5-title-v2">04. Что осталось согласовать</h3><p data-edit="tl-s5-text-v2">Срок просрочки ДЗ: 1 или 2 месяца (при весе 20% склонились к двум); нужен ли допуск по сумме ДЗ; оклад и размер премии тимлида; условие годового бонуса при невыполнении плана по допродажам отдела и ставка для среднего чека свыше 50 млн ₽; итоговые суммы с Романом. После доработки — получасовая встреча, на которой тимлида и продажника прокручивают вместе и утверждают.</p><p class="source-links">Источник: Plaud, «Совещание: модели вознаграждения и калькуляторы премий», 03.11.2026: 13:54–14:13 — калькуляторы тимлида и продаж; 18:03–18:20 — разбивка по кварталам; 20:52–23:34 — дебиторская задолженность; 23:56–26:40 — убрать показатели 4 и 5; 28:40–30:06 — веса 50 / 30 / 20. Годовой показатель по допродажам отдела, отмена понижающего коэффициента и учёт только B2G — уточнения от 09.11.2026.</p></div>
-</article></section></div>
-<section id="grades-workspace" class="role-workspace" role="tabpanel" aria-labelledby="role-grades" hidden>
+<section id="grades-workspace" class="tab-panel" role="tabpanel" aria-labelledby="tab-grades" hidden>
   <div class="edit-hint">Нажмите на текст, чтобы изменить формулировку. Изменения сохраняются в этом браузере.</div>
   <article class="document grades-document">
     <header class="document-section">
@@ -208,6 +198,16 @@
     </section>
   </article>
 </section>
+</div>
+<div id="teamlead-workspace" class="role-workspace" role="tabpanel" aria-labelledby="role-teamlead" hidden><nav class="tabs" aria-label="Разделы"><button class="tab" role="tab" data-panel="tl-calc-panel" aria-selected="true">Калькулятор</button><button class="tab" role="tab" data-panel="tl-proposal-panel" aria-selected="false">Предложения и правила</button></nav>
+<section class="tab-panel" id="tl-calc-panel" role="tabpanel"><div id="tl-calc"></div></section>
+<section class="tab-panel" id="tl-proposal-panel" role="tabpanel" hidden><div class="edit-hint">Нажмите на текст, чтобы изменить формулировку. Изменения сохраняются в этом браузере.</div><article class="document">
+<div class="document-section"><p class="doc-kicker">Рабочая модель · встреча 03.11.2026</p><h2 data-edit="tl-title">Квартальная мотивация тимлида РП на 2027 год</h2><p data-edit="tl-intro-v2">Модель пересобрана по встрече «KPI» 03.11.2026 в той же логике, что у РП: премия квартальная, каждый квартал считается отдельно, а не накопительным итогом с начала года. В премии три общих квартальных показателя команды; отдельно — годовой бонус за выполнение плана по допродажам отдела. Все показатели смотрятся только по направлению B2G.</p><p class="budget-note" data-live="teamlead"></p></div>
+<div class="document-section"><h3 data-edit="tl-s1-title">01. Показатели и веса</h3><p data-edit="tl-s1-text-v2">Учитываются только B2G-регионы. Актированная выручка команды — 50%: складывается из результатов всех РП и личного портфеля тимлида по B2G-регионам. Подписанные контракты команды в штуках — 30%: уникальные контрагенты, процент выполнения плана. Механика топ-задач здесь не используется: у тимлида считается совокупный результат команды, а не каждый контракт. Просроченная дебиторская задолженность — 20%: нет просрочки на конец квартала — часть выплачивается полностью, есть — не выплачивается.</p></div>
+<div class="document-section"><h3 data-edit="tl-s2-title">02. Что убрано из прежней модели</h3><p data-edit="tl-s2-text">Обращения врачей к платформе — переводятся в справочные: данные по использованию платформы сейчас ненадёжны. Доля этапов воронки в срок — убрана: её сложно считать, пока не настроен Битрикс. Оба показателя можно вернуть позже, перераспределив веса.</p></div>
+<div class="document-section"><h3 data-edit="tl-s3-title-v2">03. Допродажи отдела — годовой показатель</h3><p data-edit="tl-s3-text-v2">Вместо личных допродаж тимлид получает годовой бонус за выполнение плана по допродажам отдела (только B2G-регионы). Он считается по итогам года, вне квартальной премии. Бонус = факт допродаж отдела за год × ставка, которая зависит от среднего чека: до 5 млн ₽ — 0,3%; от 5 до 20 млн ₽ — 0,2%; от 20 до 50 млн ₽ — 0,1%.</p></div>
+<div class="document-section"><h3 data-edit="tl-s5-title-v2">04. Что осталось согласовать</h3><p data-edit="tl-s5-text-v2">Срок просрочки ДЗ: 1 или 2 месяца (при весе 20% склонились к двум); нужен ли допуск по сумме ДЗ; оклад и размер премии тимлида; условие годового бонуса при невыполнении плана по допродажам отдела и ставка для среднего чека свыше 50 млн ₽; итоговые суммы с Романом. После доработки — получасовая встреча, на которой тимлида и продажника прокручивают вместе и утверждают.</p><p class="source-links">Источник: Plaud, «Совещание: модели вознаграждения и калькуляторы премий», 03.11.2026: 13:54–14:13 — калькуляторы тимлида и продаж; 18:03–18:20 — разбивка по кварталам; 20:52–23:34 — дебиторская задолженность; 23:56–26:40 — убрать показатели 4 и 5; 28:40–30:06 — веса 50 / 30 / 20. Годовой показатель по допродажам отдела, отмена понижающего коэффициента и учёт только B2G — уточнения от 09.11.2026.</p></div>
+</article></section></div>
 <div id="sales-workspace" class="role-workspace" role="tabpanel" aria-labelledby="role-sales" hidden><nav class="tabs" aria-label="Разделы"><button class="tab" role="tab" data-panel="sales-calc-panel" aria-selected="true">Калькулятор</button><button class="tab" role="tab" data-panel="sales-proposal-panel" aria-selected="false">Предложения и правила</button></nav>
 <section class="tab-panel" id="sales-calc-panel" role="tabpanel"><div id="sales-calc"></div></section>
 <section class="tab-panel" id="sales-proposal-panel" role="tabpanel" hidden><div class="edit-hint">Нажмите на текст, чтобы изменить формулировку. Изменения сохраняются в этом браузере.</div><article class="document">
@@ -482,9 +482,36 @@
   editable.forEach(el=>{if(Object.prototype.hasOwnProperty.call(doc.data.notes,el.dataset.edit))el.textContent=doc.data.notes[el.dataset.edit];});
   let editing=false;
   function showPanel(btn){btn.closest('nav.tabs').querySelectorAll('.tab[data-panel]').forEach(b=>{const on=b===btn;b.setAttribute('aria-selected',String(on));document.getElementById(b.dataset.panel).hidden=!on;});}
-  document.querySelectorAll('.tab[data-panel]').forEach(b=>b.addEventListener('click',()=>showPanel(b)));
-  function showProposal(){const ws=[...document.querySelectorAll('.role-workspace')].find(w=>!w.hidden);if(!ws)return null;const tabs=ws.querySelectorAll(':scope > nav.tabs .tab[data-panel]');if(!tabs.length)return ws;showPanel(tabs[tabs.length-1]);return document.getElementById(tabs[tabs.length-1].dataset.panel);}
-  editButton.addEventListener('click',()=>{editing=!editing;document.body.classList.toggle('editing',editing);editButton.setAttribute('aria-pressed',String(editing));editButton.textContent=editing?'Готово':'Править текст';editable.forEach(el=>{if(editing)el.setAttribute('contenteditable','plaintext-only');else el.removeAttribute('contenteditable');});if(editing){const panel=showProposal();const first=panel&&panel.querySelector('[data-edit]');if(first)first.focus();}});
+  const rpTabs=[...document.querySelectorAll('#rp-workspace > nav.tabs .tab[data-panel]')];
+  if(doc.data.activeRole==='grades'){
+    doc.data.activeRole='rp';
+    doc.data.rpPanel='grades-workspace';
+  }
+  const savedRpTab=rpTabs.find(tab=>tab.dataset.panel===doc.data.rpPanel);
+  if(savedRpTab)showPanel(savedRpTab);
+
+  function selectPanel(tab){
+    showPanel(tab);
+    if(rpTabs.includes(tab)){
+      doc.data.rpPanel=tab.dataset.panel;
+      doc.persist();
+    }
+  }
+
+  document.querySelectorAll('.tab[data-panel]').forEach(tab=>{
+    tab.addEventListener('click',()=>selectPanel(tab));
+  });
+
+  function showEditablePanel(){
+    const workspace=document.querySelector('.role-workspace:not([hidden])');
+    if(!workspace)return null;
+    const tab=workspace.querySelector('#tab-grades[aria-selected="true"]')
+      || workspace.querySelector('nav.tabs .tab[data-panel$="proposal-panel"]');
+    if(!tab)return null;
+    selectPanel(tab);
+    return document.getElementById(tab.dataset.panel);
+  }
+  editButton.addEventListener('click',()=>{editing=!editing;document.body.classList.toggle('editing',editing);editButton.setAttribute('aria-pressed',String(editing));editButton.textContent=editing?'Готово':'Править текст';editable.forEach(el=>{if(editing)el.setAttribute('contenteditable','plaintext-only');else el.removeAttribute('contenteditable');});if(editing){const panel=showEditablePanel();const first=panel&&panel.querySelector('[data-edit]');if(first)first.focus();}});
   document.addEventListener('input',e=>{const el=e.target.closest('[data-edit]');if(el){doc.data.notes[el.dataset.edit]=el.textContent;doc.persist();}});
   document.getElementById('print-doc').addEventListener('click',()=>window.print());
   document.getElementById('download-doc').addEventListener('click',()=>{
@@ -861,7 +888,7 @@ window.createRoleCalc=function(cfg){
 </script>
 <script>
 (function(){
-  const doc=window.rpDocument,roles=['rp','teamlead','grades','sales'];
+  const doc=window.rpDocument,roles=['rp','teamlead','sales'];
   function role(name){roles.forEach(k=>{const on=k===name;document.getElementById(k+'-workspace').hidden=!on;document.getElementById('role-'+k).setAttribute('aria-selected',String(on));});doc.data.activeRole=name;}
   roles.forEach(k=>document.getElementById('role-'+k).addEventListener('click',()=>{role(k);doc.persist();}));
   role(roles.includes(doc.data.activeRole)?doc.data.activeRole:'rp');
