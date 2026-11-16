@@ -79,11 +79,10 @@
 <label class="form-label">Грейд<select class="form-select" data-s="salary.grade">
   <option value="manual">Свой оклад</option>
   <option value="rp1">РП I · от 90 000 ₽</option>
-  <option value="rp2">РП II</option>
+  <option value="rp2">РП II · 105 000 ₽</option>
   <option value="rp3">РП III · 120 000 ₽</option>
 </select></label>
 <label class="form-label" id="rp-manual-salary">Оклад, ₽ / месяц<input class="form-control" type="number" min="0" step="any" data-s="salary.base" data-increment="1000"></label>
-<label class="form-label" id="rp-grade2-salary" hidden>Оклад РП II для расчёта, ₽ / месяц<input class="form-control" type="number" min="0" step="any" data-s="salary.grade2Base" data-increment="1000" placeholder="105 000" aria-describedby="rp-grade-note"></label>
 <p class="micro" id="rp-grade-note" hidden style="margin-bottom:12px"></p>
 <label class="indexation-toggle"><input type="checkbox" data-s="salary.indexOn"><span>Добавить индексацию</span></label>
 <label class="form-label">Индексация, %<input class="form-control" type="number" min="0" max="100" step="any" data-s="salary.indexRate" data-increment="0.5"></label>
@@ -186,7 +185,7 @@
         <thead><tr><th scope="col">Уровень грейда</th><th scope="col">Оклад в месяц</th></tr></thead>
         <tbody>
           <tr><th scope="row">РП I</th><td data-edit="rp-grades-salary1">от 90 000 ₽</td></tr>
-          <tr><th scope="row">РП II</th><td data-edit="rp-grades-salary2">определяется отдельно</td></tr>
+          <tr><th scope="row">РП II</th><td data-edit="rp-grades-salary2">105 000 ₽</td></tr>
           <tr><th scope="row">РП III</th><td data-edit="rp-grades-salary3">120 000 ₽</td></tr>
         </tbody>
       </table>
@@ -245,7 +244,7 @@
   const QN=['I квартал','II квартал','III квартал','IV квартал'];
   const defaults={
     version:10,
-    salary:{base:120000,indexOn:false,indexRate:10,grade:'manual',grade2Base:105000},
+    salary:{base:120000,indexOn:false,indexRate:10,grade:'manual'},
     bonus:{mode:'target',target:160000,rate:33.33},
     weights:{revenue:15,tasks:85},
     revenue:{threshold:50,cap:120,zeroPlan:'none'},
@@ -307,8 +306,9 @@
 
   function salaryInputs(salary){
     const customBase=n(salary.base);
-    const grade2Base=Number.isFinite(salary.grade2Base)?salary.grade2Base:defaults.salary.grade2Base;
-    const base=({rp1:90000,rp2:grade2Base,rp3:120000})[salary.grade]??customBase;
+    const firstGradeSalary=90000, thirdGradeSalary=120000;
+    const secondGradeSalary=(firstGradeSalary+thirdGradeSalary)/2;
+    const base=({rp1:firstGradeSalary,rp2:secondGradeSalary,rp3:thirdGradeSalary})[salary.grade]??customBase;
     const multiplier=1+(salary.indexOn?n(salary.indexRate):0)/100;
     const monthly=Math.round(base*multiplier);
     return {base,monthly,targetOffset:monthly-Math.round(customBase*multiplier)};
@@ -412,12 +412,11 @@
     const grade=s.salary.grade;
     const hasGrade=['rp1','rp2','rp3'].includes(grade);
     $('#rp-manual-salary').hidden=hasGrade;
-    $('#rp-grade2-salary').hidden=grade!=='rp2';
     const gradeNote=$('#rp-grade-note');
     gradeNote.hidden=grade!=='rp1'&&grade!=='rp2';
     gradeNote.textContent=grade==='rp1'
       ? 'Для РП I взят нижний порог оклада — 90 000 ₽.'
-      : 'Оклад РП II определяется отдельно. 105 000 ₽ — пример для сравнения, укажите свою сумму.';
+      : 'Оклад РП II — среднее между 90 000 ₽ для РП I и 120 000 ₽ для РП III.';
     $('#rp-grade-target-note').hidden=!hasGrade||s.bonus.mode!=='target';
     if(changedField!=='bonus.target'){
       const targetInput=$('[data-s="bonus.target"]');
@@ -478,7 +477,6 @@
     else v=el.value;
     const path=el.dataset.s;
     if(path==='bonus.target'&&Number.isFinite(v))v-=salaryInputs(state.salary).targetOffset;
-    if(path==='salary.grade2Base'&&Number.isFinite(v))v=Math.max(0,v);
     setP(state,path,v);
     balanceWeights(path);
     if(el.dataset.rerender)renderStructure();
