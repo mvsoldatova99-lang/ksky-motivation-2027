@@ -47,6 +47,15 @@
 .ind-row{border:1px solid var(--line);border-radius:9px;padding:10px;margin-bottom:10px}.ind-row>.form-control{font-family:inherit;margin:0;font-size:13px;font-weight:550;line-height:1.35;resize:none;min-height:0;padding:8px 10px}.ind-row-meta{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:8px 0 4px}.ind-type{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}.ind-unit{width:auto;min-width:70px;min-height:30px;padding:4px 8px;margin:0;font-size:12px}.ind-row-bottom{display:grid;grid-template-columns:minmax(0,1fr) 34px;gap:8px;align-items:end}.ind-row-bottom .form-label{margin:0;font-size:11px}.q-select{min-height:34px;padding:6px 8px;margin:0;font-size:13px}.role-warnings:empty{display:none}.role-warnings{margin:0 0 14px}.custom-add-row .form-select{margin:0;min-width:0;font-size:12px}
 .annual-upsell-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;align-items:end}.annual-upsell-grid .form-label{margin:0}.annual-upsell-results{margin-top:14px;padding-top:12px;border-top:1px solid var(--line);align-items:start}
 @media(max-width:700px){.annual-upsell-grid{grid-template-columns:1fr 1fr}}
+.sales-payout .compact-pair{margin:16px 0 10px}
+.sales-payout-table,.sales-payment-table{margin-top:18px;min-width:590px}
+.sales-payout table caption{text-align:left;font-size:13px;font-weight:600;margin-bottom:10px}
+.sales-payout-table td:nth-last-child(2){min-width:175px}
+.sales-payout-table td:last-child{width:125px}
+.sales-payout [data-o="sales-pending"]{margin-top:10px}
+.sales-income h3{margin:0 0 12px;font-size:14px}
+.sales-income .annual-figure+.annual-figure{margin-top:12px}
+@media print{.sales-payout-table,.sales-payment-table{min-width:0}.sales-payout-table td:nth-last-child(2){min-width:0}}
 .num-mask{position:absolute;inset:0;display:flex;align-items:center;pointer-events:none;white-space:nowrap;overflow:hidden;font-variant-numeric:tabular-nums}.number-control input.masked{color:transparent!important;-webkit-text-fill-color:transparent}
 @media print{.num-mask{display:none}.number-control input.masked{color:inherit!important;-webkit-text-fill-color:currentColor}}
 .q-table{min-width:760px}.q-table th[scope=row]{font-weight:400;color:var(--ink);width:26%;padding-top:14px}.q-table td{padding:7px 6px!important}.q-table .number-control{margin:0}.q-table .form-control{min-height:34px;padding:7px 30px 7px 8px;font-size:13px;margin:0;text-align:right}.q-table .row-group th{font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);padding-top:22px!important;padding-bottom:8px!important;font-weight:600;border-bottom:1px solid var(--line)}.q-table .out{font-variant-numeric:tabular-nums;text-align:right;padding-top:14px!important;padding-right:10px!important}.q-table tr.strong th,.q-table tr.strong td{font-weight:600}.q-table tr.strong td{color:var(--accent)}.note{display:block;font-size:10px;line-height:1.5;color:var(--muted);font-weight:400}
@@ -305,7 +314,17 @@
 <section class="tab-panel" id="sales-proposal-panel" role="tabpanel" hidden><div class="edit-hint">Нажмите на текст, чтобы изменить формулировку. Изменения сохраняются в этом браузере.</div><article class="document">
 <div class="document-section"><p class="doc-kicker">Черновик · встреча 03.11.2026</p><h2 data-edit="sl-title">Квартальная мотивация менеджера по продажам на 2027 год</h2><p data-edit="sl-intro">Калькулятор добавлен по итогам встречи 03.11.2026: продажника решили считать в той же логике и в том же интерфейсе, что РП и тимлида. Сами показатели продажника на встрече не обсуждались — ниже стартовый вариант для разговора. Показатели, веса и все цифры меняются в калькуляторе.</p><p class="budget-note" data-live="sales"></p></div>
 <div class="document-section"><h3 data-edit="sl-s1-title">01. Стартовые показатели</h3><p data-edit="sl-s1-text">Законтрактованная выручка по новым клиентам — 50%: план и факт за квартал. Новые контракты — 50%: каждый контракт в плане квартала — топ-задача; незаключённый переходит в следующий квартал и дешевеет, как у РП. Бонус за допродажи и понижающий коэффициент пока выключены — их можно включить слева.</p></div>
-<div class="document-section"><h3 data-edit="sl-s2-title">02. Что решить на встрече</h3><p data-edit="sl-s2-text">Какие показатели оставить и их веса; оклад и размер премии; нужны ли бонус за допродажи и понижающий коэффициент; момент зачёта сделки — подписание контракта или поступление выручки (этот вопрос поднимали 03.11 для допродаж); как разделить зачёт, если контракт ведут продажник и РП вместе.</p></div>
+<div class="document-section">
+  <h3 data-edit="sl-payout-heading">02. Два варианта выплаты премии</h3>
+  <p data-edit="sl-payout-current"><strong>Текущая модель.</strong> Вся рассчитанная премия за контракты выплачивается по итогам квартала подписания.</p>
+  <p data-edit="sl-payout-split"><strong>Двухэтапная модель.</strong> По итогам квартала подписания выплачиваем 70% или 80% премии. Остаток выплачиваем после контрольной точки. Цель — сохранить мотивацию заключать контракты и заинтересовать менеджера в качестве договорённостей и участии в проекте после подписания.</p>
+  <ul>
+    <li data-edit="sl-milestone-launch"><strong>Коммерческий запуск.</strong> Проведён старт с заказчиком, согласован план первого этапа, работы начаты.</li>
+    <li data-edit="sl-milestone-acceptance"><strong>Приёмка первого этапа.</strong> Подписан первый акт или получено другое предусмотренное договором подтверждение результата.</li>
+  </ul>
+  <p data-edit="sl-payout-example">При премии 90 000 ₽ схема 70/30 даёт 63 000 ₽ после подписания и 27 000 ₽ после контрольной точки. Схема 80/20 даёт 72 000 ₽ и 18 000 ₽ соответственно.</p>
+</div>
+<div class="document-section"><h3 data-edit="sl-s2-title">03. Что решить на встрече</h3><p data-edit="sl-payout-decisions">Выбрать схему выплаты 70/30 или 80/20 и контрольную точку. Согласовать показатели и веса, оклад и размер премии, роль допродаж и понижающего коэффициента, а также распределение зачёта, если контракт ведут менеджер и РП вместе.</p></div>
 </article></section></div>
 
 <footer class="footer"><p>Рабочая модель для обсуждения · параметры сохраняются в вашем браузере</p><p class="save-status" id="save-status" aria-live="polite">Изменения сохраняются в этом браузере</p></footer></main>
@@ -714,6 +733,23 @@ window.createRoleCalc=function(cfg){
     const bonus=reachedThreshold&&ratio!==null?Math.round(Math.max(0,n(bonusAtPlan))*ratio):0;
     return {ratio,reachedThreshold,bonus};
   }
+  function salesPayout(s,quarters){
+    const {firstShare,releases}=s.salesPayout;
+    const paidAtMilestone=quarters.map(()=>0);
+    let pending=0;
+    const tranches=quarters.map((quarter,index)=>{
+      const initial=quarter.premium*Number(firstShare)/100;
+      const deferred=quarter.premium-initial;
+      const {period,eligible}=releases[index];
+      const payoutQuarter=QN.indexOf(period);
+      const paid=payoutQuarter>=index?deferred*Math.min(100,Math.max(0,n(eligible)))/100:0;
+      if(payoutQuarter>=index)paidAtMilestone[payoutQuarter]+=paid;
+      pending+=deferred-paid;
+      return {initial,deferred};
+    });
+    const paid=tranches.map(({initial},index)=>initial+paidAtMilestone[index]);
+    return {tranches,paidAtMilestone,paid,pending};
+  }
   function calc(s){
     const salary=Math.round(n(s.salary.base)*(1+(s.salary.indexOn?n(s.salary.indexRate):0)/100));
     const fund=s.bonus.mode==='target'?Math.max(0,(n(s.bonus.target)-salary)*3):salary*3*n(s.bonus.rate)/100;
@@ -773,10 +809,31 @@ window.createRoleCalc=function(cfg){
       +'<div class="annual-upsell-grid">'+field('plan',1000000,'План на год, ₽')+field('fact',1000000,'Факт за год, ₽')+field('bonusAtPlan',10000,'Бонус за 100% плана, ₽')+'</div>'
       +'<div class="annual-upsell-grid annual-upsell-results" aria-live="polite">'+result('au-ratio','Выполнение плана')+result('au-bonus','Бонус за год')+'</div></div>';
   }
+  function salesPayoutHtml(){
+    const rows=QN.map((quarter,index)=>{
+      const path='salesPayout.releases.'+index+'.';
+      return '<tr><th scope="row">'+quarter+'</th>'
+        +'<td data-o="sales-initial-'+index+'">—</td><td data-o="sales-deferred-'+index+'">—</td>'
+        +'<td><select class="form-select" data-s="'+path+'period" aria-label="Квартал выплаты остатка · '+quarter+'"><option value="pending">Не выплачено в 2027</option>'
+        +QN.slice(index).map(name=>'<option value="'+name+'">'+name+'</option>').join('')+'</select></td>'
+        +'<td>'+numIn(path+'eligible',5,'Доля остатка к выплате, % · '+quarter,' max="100"')+'</td></tr>';
+    }).join('');
+    const payoutRow=(key,label)=>'<tr><th scope="row">'+label+'</th>'+QN.map((_,index)=>'<td data-o="sales-'+key+'-'+index+'">—</td>').join('')+'</tr>';
+    return '<section class="period-section sales-payout"><h3>Сравнение двух моделей выплаты</h3>'
+      +'<p class="micro">Обе модели используют премию, рассчитанную выше. Суммы относятся к квартальной премии за контракты.</p>'
+      +'<div class="compact-pair"><label class="form-label">Доли в двухэтапной модели<select class="form-select" data-s="salesPayout.firstShare"><option value="70">70% / 30%</option><option value="80">80% / 20%</option></select></label>'
+      +'<label class="form-label">Контрольная точка<select class="form-select" data-s="salesPayout.milestone"><option value="launch">Коммерческий запуск</option><option value="acceptance">Приёмка первого этапа</option></select></label></div>'
+      +'<p class="micro" data-o="sales-milestone"></p>'
+      +'<div class="table-responsive"><table class="table sales-payout-table"><caption>Двухэтапная модель по кварталу подписания</caption><thead><tr><th scope="col">Квартал подписания</th><th scope="col">После подписания</th><th scope="col">Отложено</th><th scope="col">Квартал выплаты остатка</th><th scope="col">Доля остатка к выплате, %</th></tr></thead><tbody>'+rows+'</tbody></table></div>'
+      +'<p class="micro">Для каждого квартала подписания укажите долю отложенной суммы, по которой контрольная точка достигнута, и квартал её выплаты. Остаток без выплаты в 2027 году отражается отдельно.</p>'
+      +'<div class="table-responsive"><table class="table sales-payment-table"><caption>Выплаты по календарным кварталам</caption><thead><tr><th scope="col">Модель</th>'+QN.map(quarter=>'<th scope="col">'+quarter+'</th>').join('')+'</tr></thead><tbody>'
+      +payoutRow('current','Текущая модель')+payoutRow('split','Двухэтапная модель · всего')+payoutRow('milestone','Из них после контрольной точки')+'</tbody></table></div>'
+      +'<p class="micro" data-o="sales-pending" aria-live="polite"></p></section>';
+  }
   function mainHtml(){
     const card=(label,key)=>'<div><div class="summary-label">'+label+'</div><div class="summary-value" data-o="'+key+'">—</div><div class="summary-caption" data-o="'+key+'-caption"></div></div>';
     return '<div class="variants-main"><div class="result-surface"><div class="result-header"><p class="result-kicker">'+esc(cfg.kicker)+'</p><div class="summary-grid">'+card('Оклад / месяц','hero-salary')+card('Премиальный фонд / квартал','hero-fund')+card('Средний доход / месяц','hero-monthly')+'</div><p class="micro fund-formula" data-o="fund-formula"></p></div>'
-      +'<div class="result-body"><div class="section-heading"><h2>Расчёт по кварталам</h2>'+H('table')+'</div><p class="micro" style="margin-bottom:16px">'+esc(cfg.tableIntro)+'</p><div class="warn role-warnings" data-o="warnings" role="alert"></div><div class="table-responsive"><table class="table q-table" data-o="qtable"></table></div>'+(cfg.annualUpsell?annualHtml():'')+'</div></div>'
+      +'<div class="result-body"><div class="section-heading"><h2>Расчёт по кварталам</h2>'+H('table')+'</div><p class="micro" style="margin-bottom:16px">'+esc(cfg.tableIntro)+'</p><div class="warn role-warnings" data-o="warnings" role="alert"></div><div class="table-responsive"><table class="table q-table" data-o="qtable"></table></div>'+(cfg.annualUpsell?annualHtml():'')+(cfg.salesSplit?salesPayoutHtml():'')+'</div></div>'
       +'<p class="assumption">'+esc(cfg.assumption)+'</p>'
       +'<section class="annual-totals result-surface"><div class="annual-heading"><div class="label-line"><h2>Итог за год</h2>'+H('annual')+'</div></div><div class="annual-compact" data-o="annual" aria-live="polite"></div></section></div>';
   }
@@ -834,6 +891,24 @@ window.createRoleCalc=function(cfg){
   function renderStructure(){renderIndList();if(!cfg.annualUpsell)renderTiers();renderTable();enhance();sync();}
   function save(){doc.data.roles[cfg.key]=state;doc.persist();}
 
+  const annualIncome=(total,monthly)=>'<div class="annual-figure"><span>Годовой доход</span><strong>'+money(total)+'</strong></div><div class="annual-figure"><span>Среднемесячный доход</span><strong>'+money(monthly)+'</strong></div>';
+  function updateSalesPayout(s,r){
+    const payout=salesPayout(s,r.quarters);
+    out('sales-milestone').textContent=cfg.milestones[s.salesPayout.milestone];
+    r.quarters.forEach((quarter,index)=>{
+      const tranche=payout.tranches[index];
+      out('sales-initial-'+index).textContent=money(tranche.initial);
+      out('sales-deferred-'+index).textContent=money(tranche.deferred);
+      out('sales-current-'+index).textContent=money(quarter.premium);
+      out('sales-milestone-'+index).textContent=money(payout.paidAtMilestone[index]);
+      out('sales-split-'+index).textContent=money(payout.paid[index]);
+    });
+    out('sales-pending').textContent='Отложенная премия без выплаты в 2027 году · '+money(payout.pending);
+    const splitTotal=r.year.total-payout.pending;
+    out('annual').innerHTML='<div class="sales-income"><h3>Текущая модель</h3>'+annualIncome(r.year.total,r.year.monthly)+'</div>'
+      +'<div class="sales-income"><h3>Двухэтапная модель</h3>'+annualIncome(splitTotal,splitTotal/12)+'</div>';
+  }
+
   function update(){
     const s=state,u=s.upsell,r=calc(s),y=r.year;
     root.querySelectorAll('[data-when]').forEach(el=>{const [p,v]=el.dataset.when.split(':');el.hidden=String(getP(s,p))!==v;});
@@ -846,7 +921,7 @@ window.createRoleCalc=function(cfg){
     ws.className=wBad?'warn':'micro';ws.textContent='Сумма весов: '+num(r.wSum)+'%'+(wBad?' — должна быть 100%.':'.');
     out('hero-salary').textContent=money(r.salary);out('hero-salary-caption').textContent=s.salary.indexOn?'С индексацией '+num(s.salary.indexRate)+'%':'Без индексации';
     out('hero-fund').textContent=money(r.fund);out('hero-fund-caption').textContent='При 100% · в месяц '+money(r.fund/3);
-    out('hero-monthly').textContent=money(y.monthly);out('hero-monthly-caption').textContent='По вводным · при 100% — '+money(r.planMonthly);
+    out('hero-monthly').textContent=money(y.monthly);out('hero-monthly-caption').textContent=(cfg.salesSplit?'Текущая модель':'По вводным')+' · при 100% — '+money(r.planMonthly);
     out('fund-formula').textContent=(s.bonus.mode==='target'?'Фонд = (целевой доход '+money(s.bonus.target)+' − оклад '+money(r.salary)+') × 3 = '+money(r.fund)+'.':'Фонд = оклад '+money(r.salary)+' × 3 × '+num(s.bonus.rate)+'% = '+money(r.fund)+'.')+' Из него: '+s.indicators.map(m=>(m.title||'без названия')+' '+money(r.fund*n(m.weight)/100)+' ('+num(m.weight)+'%)').join(', ')+'.';
     const warns=[];
     if(wBad)warns.push('Сумма весов '+num(r.wSum)+'%, а должна быть 100%.');
@@ -878,7 +953,8 @@ window.createRoleCalc=function(cfg){
       out('upsell-explainer').textContent=s.upsell.on?'Сейчас: '+upsellText(u)+'.':'';
       upsellSummary=s.upsell.on?'; допродажи — '+upsellText(u):'; без бонуса за допродажи';
     }
-    out('annual').innerHTML='<div class="annual-figure"><span>Годовой доход</span><strong>'+money(y.total)+'</strong></div><div class="annual-figure"><span>Среднемесячный доход</span><strong>'+money(y.monthly)+'</strong></div>';
+    if(cfg.salesSplit)updateSalesPayout(s,r);
+    else out('annual').innerHTML=annualIncome(y.total,y.monthly);
     const live=document.querySelector('[data-live="'+cfg.key+'"]');
     if(live)live.textContent='Настройки: оклад '+money(r.salary)+'/мес.'+(s.salary.indexOn?' (с индексацией '+num(s.salary.indexRate)+'%)':'')+'; премиальный фонд '+money(r.fund)+' за квартал ('+money(r.fund/3)+' в месяц); показатели: '+s.indicators.map(m=>(m.title||'без названия')+' — '+num(m.weight)+'%').join(', ')+'; порог '+num(s.rules.threshold)+'%, потолок '+num(s.rules.cap)+'%'+(s.indicators.some(m=>m.type==='debt')?'; ДЗ — просрочка от '+num(s.debtRule.months)+' мес., допуск '+money(s.debtRule.tolerance):'')+(s.docs.on?'; понижающий коэффициент '+num(s.docs.coef):'')+upsellSummary+'.';
   }
@@ -994,13 +1070,22 @@ window.createRoleCalc=function(cfg){
     }
   });
   createRoleCalc({
-    key:'sales',rootId:'sales-calc',help,
+    key:'sales',rootId:'sales-calc',help,salesSplit:true,
+    milestones:{
+      launch:'Проведён старт с заказчиком, согласован план первого этапа, работы начаты.',
+      acceptance:'Подписан первый акт или получено другое предусмотренное договором подтверждение результата.'
+    },
+    migrate(s,d){
+      s.salesPayout=d.salesPayout;
+      s.version=d.version;
+    },
     kicker:'Квартальная премия менеджера по продажам · 2027 · черновик',
     docsLabel:'Сделки в CRM ведутся по регламенту',
-    tableIntro:'Черновик для обсуждения: показатели продажника на встрече 03.11 не согласовывали. Введите план и факт по кварталам; показатели и веса меняются слева.',
+    tableIntro:'Введите план и факт по кварталам. Ниже можно сравнить, как рассчитанная премия выплачивается в текущей и двухэтапной моделях.',
     assumption:'Суммы — на руки. Показатели, веса и цифры — стартовый вариант для обсуждения, не согласованы. Изменения сохраняются в этом браузере.',
     defaults:{
-      version:1,
+      version:2,
+      salesPayout:{firstShare:'70',milestone:'launch',releases:Array.from({length:4},()=>({period:'pending',eligible:100}))},
       salary:{base:100000,indexOn:false,indexRate:10},
       bonus:{mode:'percent',target:140000,rate:30},
       rules:{threshold:50,cap:120},
