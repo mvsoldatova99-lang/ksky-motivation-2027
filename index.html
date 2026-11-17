@@ -61,6 +61,8 @@
 .grades-level{border:1px solid var(--line);border-radius:9px;padding:16px}
 .grades-level h4{font-size:15px;line-height:1.45;margin:0}
 .grades-level p,.grades-level dl{margin:10px 0 0}
+.grades-level .grades-level-income{font-size:13px;margin:6px 0 11px;color:var(--muted)}
+.grades-level-income strong{color:var(--ink)}
 .grades-level dl{font-size:13px;line-height:1.6}
 .grades-level dt{font-weight:600;margin-top:10px}
 .grades-level dd{margin:2px 0 0;color:var(--muted)}
@@ -144,9 +146,11 @@
     </header>
     <section class="document-section">
       <h3 data-edit="rp-grades-criteria-title">Грейды и критерии</h3>
+      <p data-edit="rp-grades-income">Грейд определяет уровень оклада. При переходе на следующий грейд оклад повышается. Квартальная премия рассчитывается по KPI за период.</p>
       <div class="grades-levels">
         <section class="grades-level">
           <h4 data-edit="rp-grades-level1">РП I. Ведёт проект по согласованному плану</h4>
+          <p class="grades-level-income">Оклад в месяц · <strong data-edit="rp-grades-salary1">от 90 000 ₽</strong></p>
           <p data-edit="rp-grades-level1-criteria">Ведёт типовой проект или отдельный этап. Координирует текущие задачи, следит за сроками, заранее сообщает о рисках. Согласовывает изменения, которые влияют на сроки, объём работ или обязательства перед заказчиком. Доводит свою часть работ до приёмки.</p>
           <dl>
             <dt>Региональный B2G</dt><dd data-edit="rp-grades-level1-b2g">Ведёт типовое внедрение и готовит документы к приёмке.</dd>
@@ -155,6 +159,7 @@
         </section>
         <section class="grades-level">
           <h4 data-edit="rp-grades-level2">РП II. Самостоятельно ведёт проект или портфель</h4>
+          <p class="grades-level-income">Оклад в месяц · <strong data-edit="rp-grades-salary2">105 000 ₽</strong></p>
           <p data-edit="rp-grades-level2-criteria">Отвечает за весь цикл в своей зоне — от планирования до приёмки. Согласовывает ожидания с заказчиком, координирует внутренние команды, управляет рисками и изменениями. При отклонениях предлагает решение и доводит проект до согласованного результата.</p>
           <dl>
             <dt>Региональный B2G</dt><dd data-edit="rp-grades-level2-b2g">Ведёт несколько регионов с пересекающимися сроками и перестраивает план при возникновении зависимостей.</dd>
@@ -163,6 +168,7 @@
         </section>
         <section class="grades-level">
           <h4 data-edit="rp-grades-level3">РП III. Ведёт сложные проекты и развивает практику команды</h4>
+          <p class="grades-level-income">Оклад в месяц · <strong data-edit="rp-grades-salary3">120 000 ₽</strong></p>
           <p data-edit="rp-grades-level3-criteria">Берёт ответственность за проекты с высокой неопределённостью, сложными зависимостями или серьёзными последствиями ошибок. Выстраивает подход к работе, согласует интересы нескольких сторон и доводит проект до результата. Помогает другим РП решать сложные задачи и передаёт команде подходы, которые коллеги применяют в работе.</p>
           <dl>
             <dt>Региональный B2G</dt><dd data-edit="rp-grades-level3-b2g">Координирует запуск в нескольких регионах с общими ресурсами или выстраивает процесс приёмки, который используют другие РП.</dd>
@@ -171,6 +177,7 @@
         </section>
         <section class="grades-level">
           <h4 data-edit="rp-grades-level4">Тимлид РП. Отвечает за портфель команды</h4>
+          <p class="grades-level-income">Доход · <strong data-edit="rp-grades-salary4">По модели мотивации тимлида РП</strong></p>
           <p data-edit="rp-grades-level4-criteria">Функционально координирует РП. Проводит обзоры портфеля, согласует приоритеты, следит за сроками, рисками, обязательствами и финансовыми показателями. Помогает РП снять блокеры и подключается к переговорам с лицами, принимающими решения (ЛПР).</p>
           <dl>
             <dt>Результат на уровне команды</dt><dd data-edit="rp-grades-level4-result">По ключевым проектам видны статус, риск, ответственный и следующий шаг. По эскалациям команда выполняет согласованные решения.</dd>
@@ -266,19 +273,6 @@
         </tbody>
       </table>
       <p data-edit="rp-grades-case"><strong>Успешный кейс</strong> — проект или существенный этап, по которому достигнут и принят согласованный результат. Подтверждением может быть акт, протокол приёмки, подтверждение запуска или принятый грантодателем отчёт. В описании кейса фиксируем, за что отвечал РП, какие решения принял и что получилось. Для длинного проекта можно зачесть существенный этап с собственным результатом и отдельной приёмкой. Если сроки или объём менялись, учитываем, как РП выявил риск, согласовал изменения и довёл работу до приёмки.</p>
-    </section>
-    <section class="document-section">
-      <h3 data-edit="rp-grades-income-title">Уровень дохода по грейду</h3>
-      <p data-edit="rp-grades-income">Грейд определяет уровень оклада. При переходе на следующий грейд оклад повышается. Квартальная премия рассчитывается по KPI за период.</p>
-      <table class="table grades-table">
-        <thead><tr><th scope="col">Уровень грейда</th><th scope="col">Оклад в месяц</th></tr></thead>
-        <tbody>
-          <tr><th scope="row">РП I</th><td data-edit="rp-grades-salary1">от 90 000 ₽</td></tr>
-          <tr><th scope="row">РП II</th><td data-edit="rp-grades-salary2">105 000 ₽</td></tr>
-          <tr><th scope="row">РП III</th><td data-edit="rp-grades-salary3">120 000 ₽</td></tr>
-          <tr><th scope="row">Тимлид РП</th><td data-edit="rp-grades-salary4">По модели мотивации тимлида РП</td></tr>
-        </tbody>
-      </table>
     </section>
     <section class="document-section">
       <h3 data-edit="rp-grades-review-title">Пересмотр грейдов</h3>
