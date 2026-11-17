@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <meta name="robots" content="noindex,nofollow">
+  <title>К‑Скай — Система грейдов специалистов по внедрению ПО</title>
+  <style>
+    :root{color-scheme:light;--paper:#fff;--canvas:#f5f6f8;--ink:#1b2c3d;--muted:#677586;--line:#e4e8ed;--accent:#376d77;--soft:#eaf2f2;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;font-size:15px}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--canvas);color:var(--ink)}button,a{font:inherit;-webkit-tap-highlight-color:transparent}button{cursor:pointer}button:focus-visible,a:focus-visible,[contenteditable]:focus-visible{outline:3px solid #9bc4ca;outline-offset:3px}a{color:var(--accent);text-underline-offset:3px}
+    .topbar{max-width:1320px;margin:auto;padding:22px 36px;display:flex;justify-content:space-between;align-items:center;gap:20px}.brand{font-weight:650;letter-spacing:.04em}.brand span{font-weight:400;color:var(--muted);font-size:13px;margin-left:15px;letter-spacing:0}.actions{display:flex;gap:8px;flex-wrap:wrap}.action{border:1px solid #d7dee5;border-radius:8px;background:var(--paper);padding:9px 13px;color:var(--ink);font-size:13px;white-space:nowrap}.action.primary{background:var(--ink);color:#fff;border-color:var(--ink)}.action[aria-pressed=true]{background:var(--soft);border-color:var(--accent);color:var(--accent)}
+    .page{max-width:1320px;margin:0 auto;padding:16px 36px 48px}.eyebrow{text-transform:uppercase;letter-spacing:.13em;color:var(--accent);font-size:11px;font-weight:650;margin:10px 0 12px}.hero{display:flex;gap:32px;justify-content:space-between;align-items:flex-end;margin-bottom:28px}.hero h1{font-size:40px;line-height:1.15;font-weight:600;letter-spacing:-.035em;margin:0}.hero .draft{border-left:2px solid var(--line);padding-left:20px;color:var(--muted);font-size:12px;line-height:1.7;min-width:190px}.hero .draft strong{color:var(--ink);font-weight:500}
+    .document{background:#fff;border:1px solid var(--line);border-radius:12px;padding:36px 42px;max-width:1120px;margin:auto}.document-section+.document-section{border-top:1px solid var(--line);padding-top:28px;margin-top:30px}.document h2{font-size:22px;line-height:1.35;font-weight:600;letter-spacing:-.015em;margin:0 0 20px}.document h3{font-size:16px;line-height:1.45;font-weight:600;margin:25px 0 12px}.document p,.document li{font-size:13px;line-height:1.7}.document p{margin:10px 0 15px}.document ul{padding-left:20px}.document li+li{margin-top:5px}.micro{font-size:11px!important;line-height:1.6!important;color:var(--muted)}
+    .grade-overview{min-width:690px}.grade-overview th:first-child{width:20%}.grade-overview th:nth-child(2){width:18%}.grade-overview th:nth-child(3){width:62%}.grade-overview tbody th{font-size:13px}.grade-overview tbody td:nth-child(2){color:var(--accent);font-weight:650;font-variant-numeric:tabular-nums}.grade-overview tbody td strong{font-size:13px}.grade-overview tbody td p{font-size:12px;line-height:1.6;margin:6px 0 0}.grade-overview tr.management-row{background:#f6f9f9}.grade-overview .level-note{color:var(--muted);border-top:1px solid var(--line);padding-top:8px;margin-top:9px}
+    .table-responsive{overflow-x:auto;width:100%;overscroll-behavior-x:contain}.table{border-collapse:collapse;width:100%;line-height:1.55;font-size:12px;table-layout:fixed}.table th{text-align:left;font-weight:600}.table thead th{font-size:11px;color:var(--muted);padding:0 10px 12px;border-bottom:1px solid var(--line);vertical-align:bottom}.table td,.table tbody th{padding:14px 10px;border-bottom:1px solid #edf0f3;vertical-align:top}.table th:first-child,.table td:first-child{padding-left:0}.table th:last-child,.table td:last-child{padding-right:0}.table tbody tr:last-child td,.table tbody tr:last-child th{border-bottom:0}.matrix{min-width:850px}.matrix th:first-child{width:18%}.matrix th:not(:first-child){width:20.5%}.matrix td:last-child{background:#f9fbfb}.table strong{font-weight:650}.transition th:first-child{width:26%}
+    .callout{background:#f6f8fa;border-radius:7px;padding:14px 16px;font-size:12px;line-height:1.65;color:var(--muted);margin-top:17px}.callout strong{color:var(--ink)}.subhead{font-size:15px!important;margin-top:22px!important}.case-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:16px}.case-card{border:1px solid var(--line);border-radius:8px;padding:15px 16px}.case-card h4{font-size:13px;margin:0 0 7px}.case-card p{font-size:12px;margin:0}.sources{font-size:11px!important;color:var(--muted);border-top:1px solid var(--line);padding-top:18px;margin-top:26px!important}
+    .edit-hint{display:none;background:var(--soft);color:var(--accent);font-size:13px;line-height:1.6;padding:12px 16px;border-radius:7px;max-width:1120px;margin:0 auto 14px}.editing .edit-hint{display:block}.editing [data-edit]{outline:1px dashed #a5c3c8;outline-offset:4px;background:#f7fbfb;min-height:1em}.editing [data-edit]:focus{outline:2px solid #81aeb6}.footer{max-width:1120px;margin:22px auto 0;display:flex;justify-content:space-between;gap:20px;color:var(--muted);font-size:11px;line-height:1.6}.footer p{margin:0}
+    @media(max-width:800px){.topbar,.page{padding-left:24px;padding-right:24px}.hero h1{font-size:32px}.hero .draft{display:none}.document{padding:26px}.matrix{min-width:760px}.case-grid{grid-template-columns:1fr}}
+    @media(max-width:560px){.topbar,.page{padding-left:16px;padding-right:16px}.topbar{display:block;padding-top:16px}.brand span{display:none}.actions{margin-top:15px}.hero h1{font-size:29px}.document{padding:22px 18px}.document h2{font-size:20px}.footer{display:block}.footer p+p{margin-top:8px}}
+    @media print{@page{size:A4 landscape;margin:12mm}html{scroll-behavior:auto}body{background:#fff;color:#111}.topbar,.edit-hint,.footer{display:none!important}.page{padding:0;max-width:none}.hero{margin-bottom:15px}.hero h1{font-size:25px}.hero .draft{display:block}.eyebrow{margin-top:0}.document{max-width:none;border:0;border-radius:0;padding:0}.document h2{font-size:18px;margin-bottom:12px}.document h3{font-size:13px}.document p,.document li{font-size:10px;line-height:1.5}.document-section+.document-section{padding-top:15px;margin-top:17px}.table-responsive{overflow:visible}.table{font-size:9px}.matrix,.grade-overview{min-width:0}.table thead th{font-size:8px;padding:0 5px 6px}.table td,.table tbody th{padding:7px 5px}.grade-overview tbody td p{font-size:9px}.case-grid{grid-template-columns:repeat(2,1fr)}.case-card{padding:9px 10px}.case-card h4{font-size:10px}.case-card p{font-size:9px}.callout{padding:9px 11px;font-size:9px}.editing [data-edit]{outline:0!important;background:transparent}.grade-overview tr.management-row,.matrix td:last-child,.callout{-webkit-print-color-adjust:exact;print-color-adjust:exact}tr,.case-card{break-inside:avoid}h2,h3{break-after:avoid}}
+    .tabs{display:flex;gap:24px;border-bottom:1px solid var(--line);margin-bottom:26px}.tab{background:none;border:0;border-bottom:2px solid transparent;color:var(--muted);font-weight:500;padding:13px 0;margin-bottom:-1px}.tab[aria-selected=true]{border-color:var(--accent);color:var(--ink)}[hidden]{display:none!important}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    .calculator-grid{display:grid;grid-template-columns:296px minmax(0,1fr);gap:28px;align-items:start}.calculator-grid>*{min-width:0}.settings,.result-surface{background:var(--paper);border:1px solid var(--line);border-radius:12px}.settings{padding:22px}.settings h2{font-size:17px;margin:0 0 20px;font-weight:600}.setting-group+.setting-group{border-top:1px solid var(--line);margin-top:23px;padding-top:20px}.setting-title{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:600;margin:0 0 16px}.form-label{display:block;color:var(--muted);font-size:12px;line-height:1.45;margin:0 0 15px}.form-control,.form-select{display:block;width:100%;min-width:0;border:1px solid #dce3e8;border-radius:7px;padding:10px 11px;color:var(--ink);background:#fff;margin-top:6px;font-size:14px;line-height:1.35;min-height:41px}.form-control:focus-visible,.form-select:focus-visible{outline:3px solid #9bc4ca;outline-offset:2px}.form-pair{display:grid;grid-template-columns:1fr 1fr;gap:10px}.check-label{display:flex;align-items:center;gap:9px;color:var(--ink);font-size:12px;line-height:1.5;cursor:pointer;margin:6px 0 12px}.check-label input{accent-color:var(--accent);width:16px;height:16px;flex:none}.calc-note{font-size:11px;line-height:1.6;color:var(--muted);margin:3px 0 0}.demo-note{background:#f6f8fa;padding:13px 15px;border-radius:7px;font-size:12px;line-height:1.65;color:var(--muted);margin:0 0 18px}.demo-note strong{color:var(--ink)}.result-surface{overflow:hidden}.result-header{padding:24px 26px 22px;border-bottom:1px solid var(--line)}.result-kicker{font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin:0 0 18px}.summary-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}.summary-label{font-size:12px;color:var(--muted);margin-bottom:7px}.summary-value{font-size:27px;letter-spacing:-.03em;font-weight:550;font-variant-numeric:tabular-nums}.summary-caption{font-size:11px;color:var(--muted);line-height:1.5;margin-top:5px}.result-body{padding:24px 26px}.calc-section+.calc-section{border-top:1px solid var(--line);margin-top:23px;padding-top:23px}.calc-section h2{font-size:18px;font-weight:600;margin:0 0 9px}.calc-section>p{font-size:12px;line-height:1.6;color:var(--muted);margin:0 0 16px}.tasks-table{width:100%;border-collapse:collapse;font-size:12px}.tasks-table th{text-align:left;color:var(--muted);font-size:10px;font-weight:600;padding:0 8px 9px;border-bottom:1px solid var(--line)}.tasks-table td{padding:8px;border-bottom:1px solid #edf0f3}.tasks-table th:first-child,.tasks-table td:first-child{padding-left:0}.tasks-table th:last-child,.tasks-table td:last-child{padding-right:0}.tasks-table .form-control{margin:0;min-height:34px;padding:7px 8px;font-size:12px}.tasks-table .task-weight{width:72px}.tasks-table .task-check{width:18px;height:18px;accent-color:var(--accent)}.tasks-table .remove-task{border:0;background:transparent;color:var(--muted);font-size:18px;line-height:1;padding:3px 5px}.tasks-table .remove-task:hover{color:#b84c42}.task-actions{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-top:12px}.task-actions .action{font-size:11px;padding:6px 10px}.task-actions span{font-size:11px;color:var(--muted)}.metric-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px;margin-top:17px}.metric-box{border:1px solid var(--line);border-radius:8px;padding:15px}.metric-box h3{font-size:13px;margin:0 0 7px}.metric-box p{font-size:11px;color:var(--muted);line-height:1.6;margin:0 0 14px}.metric-box .form-label{margin-bottom:0}.formula-line{background:#f6f8fa;padding:11px 13px;border-radius:6px;font:11px/1.6 ui-monospace,SFMono-Regular,Consolas,monospace;color:var(--muted);margin-top:16px}.warnings{background:#fff5e9;border:1px solid #f0d9b7;border-radius:7px;color:#8a5b1f;font-size:12px;line-height:1.6;padding:11px 14px;margin:0 0 15px}.scenario-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}.scenario-card{border:1px solid var(--line);border-radius:9px;padding:19px;min-width:0}.scenario-card h3{font-size:15px;margin:0 0 5px}.scenario-card .sub{font-size:11px;line-height:1.55;color:var(--muted);margin:0 0 17px}.scenario-card .premium{font-size:27px;font-weight:550;color:var(--accent);letter-spacing:-.02em;font-variant-numeric:tabular-nums}.scenario-card .breakdown{border-top:1px solid var(--line);padding-top:11px;margin-top:15px}.scenario-card .breakdown div{display:flex;justify-content:space-between;gap:10px;font-size:11px;line-height:1.7}.scenario-card .breakdown strong{font-weight:600;font-variant-numeric:tabular-nums}.annual-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.annual-card{border:1px solid var(--line);border-radius:8px;padding:16px}.annual-card h3{font-size:12px;margin:0 0 9px}.annual-card strong{font-size:20px;font-weight:550;font-variant-numeric:tabular-nums}.annual-card span{display:block;font-size:11px;color:var(--muted);margin-top:5px}.calc-footer{font-size:11px;color:var(--muted);line-height:1.65;margin:14px 3px 0}.calc-footer a{color:var(--accent)}
+    @media(max-width:950px){.calculator-grid{grid-template-columns:250px minmax(0,1fr);gap:18px}.settings{padding:18px}.result-header,.result-body{padding:20px}.summary-grid{gap:12px}.summary-value{font-size:22px}.scenario-grid,.metric-row{grid-template-columns:1fr}}
+    @media(max-width:720px){.calculator-grid{grid-template-columns:1fr}.settings{display:grid;grid-template-columns:1fr 1fr;gap:0 22px}.settings h2{grid-column:1/-1}.setting-group+.setting-group{border-top:0;margin-top:0;padding-top:0}.summary-value{font-size:25px}.scenario-grid,.metric-row{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:560px){.tabs{gap:16px}.tab{font-size:13px}.settings{display:block}.setting-group+.setting-group{border-top:1px solid var(--line);margin-top:18px;padding-top:18px}.summary-grid,.scenario-grid,.metric-row,.annual-grid{grid-template-columns:1fr}.summary-grid>div{display:flex;justify-content:space-between;align-items:baseline;gap:10px}.summary-caption{display:none}.summary-value{font-size:22px}.task-actions{align-items:flex-start;flex-direction:column}.tasks-table .task-weight{width:60px}.tasks-table th:nth-child(3),.tasks-table td:nth-child(3){text-align:center}}
+    @media print{.tabs,.settings,.task-actions,.remove-task{display:none!important}.tab-panel[hidden]{display:none!important}.calculator-grid{display:block}.result-surface{border:0;border-radius:0}.result-header,.result-body{padding:10px 0}.result-kicker{margin-bottom:10px}.summary-value,.scenario-card .premium{font-size:20px}.calc-section+.calc-section{margin-top:12px;padding-top:12px}.calc-section{break-inside:avoid}.scenario-grid,.metric-row,.annual-grid{grid-template-columns:repeat(2,1fr)}.scenario-card,.metric-box,.annual-card{break-inside:avoid}.form-control,.form-select{border:0;padding:0;min-height:0;background:transparent}.tasks-table .form-control{padding:0}.calc-footer{font-size:9px}}
+    .department-calculator .setting-group+.setting-group{margin-top:17px;padding-top:17px}.department-calculator .setting-title{margin-bottom:10px}.department-calculator .form-label{margin-bottom:10px}.department-calculator .form-pair{gap:8px}.department-calculator .form-pair .form-control{min-height:36px;padding:8px}.pool-table{min-width:610px}.pool-table th:first-child{width:34%}.pool-table th:nth-child(2){width:10%}.pool-table th:not(:first-child){font-variant-numeric:tabular-nums}.pool-table td{font-variant-numeric:tabular-nums}.shared-kpis{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.shared-kpis .metric-box{min-width:0}.shared-kpis .metric-box p{min-height:52px}.kpi-result{display:grid;grid-template-columns:1fr auto;gap:5px 10px;border-top:1px solid var(--line);padding-top:11px;margin-top:12px;font-size:11px;line-height:1.6;color:var(--muted)}.kpi-result strong{font-weight:600;color:var(--ink);font-variant-numeric:tabular-nums}.employee-table{min-width:1080px}.employee-table th:nth-child(1){width:17%}.employee-table th:nth-child(2){width:13%}.employee-table th:nth-child(3){width:25%}.employee-table th:nth-child(4){width:13%}.employee-table th:nth-child(5),.employee-table th:nth-child(6),.employee-table th:nth-child(7){width:10.67%}.employee-table .form-control,.employee-table .form-select{margin:0;min-height:34px;padding:7px 8px;font-size:11px}.employee-table .name-input{margin-bottom:5px}.employee-table .grade-caption{font-size:10px;color:var(--muted)}.employee-table .money-cell{font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap}.payout-grid{padding:15px 0 3px}.payout-grid .summary-value{font-size:22px}
+    @media(max-width:950px){.shared-kpis{grid-template-columns:1fr}.shared-kpis .metric-box p{min-height:0}}
+    @media(max-width:720px){.department-calculator .settings{display:block}.department-calculator .setting-group+.setting-group{border-top:1px solid var(--line)}.shared-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:560px){.shared-kpis{grid-template-columns:1fr}.department-calculator .settings{display:block}.payout-grid{display:block}.payout-grid>div+div{margin-top:13px}}
+    @media print{.pool-table,.employee-table{min-width:0}.shared-kpis{grid-template-columns:repeat(2,1fr)}.employee-table .form-control,.employee-table .form-select{font-size:9px}.employee-table th:nth-child(3){width:23%}.payout-grid{display:grid}.department-calculator .settings{display:none!important}}
+    .department-calculator{display:block}.department-calculator .settings{display:block;margin-bottom:20px;padding:22px 24px}.department-calculator .settings h2{margin-bottom:8px}.roster-intro{margin:0 0 18px!important}.grade-roster-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px;align-items:start}.department-calculator .grade-roster-grid .setting-group{border:1px solid var(--line);border-radius:9px;padding:17px;margin:0;min-width:0}.department-calculator .grade-roster-grid .setting-title{font-size:13px;color:var(--ink);letter-spacing:0;text-transform:none}.roster-people{border-top:1px solid var(--line);padding-top:12px;margin-top:12px}.roster-empty{font-size:11px;color:var(--muted);line-height:1.5;margin:0}.roster-person{padding:10px 0;border-bottom:1px solid #edf0f3}.roster-person:first-child{padding-top:0}.roster-person:last-child{border-bottom:0;padding-bottom:0}.roster-person-title{font-size:11px;font-weight:600;color:var(--muted);margin:0 0 6px}.roster-person-fields{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:8px}.roster-person-fields .form-label{margin:0}.roster-person-fields .form-control{min-height:36px;padding:7px 9px;font-size:12px}.money-input-wrap{display:block;position:relative}.money-input-wrap .form-control{padding-right:26px}.money-suffix{position:absolute;right:10px;top:50%;transform:translateY(-50%);color:var(--muted);font-size:12px;pointer-events:none}.roster-reserve-note{margin-top:14px!important}.employee-identity{display:block;font-weight:600}.employee-identity.is-placeholder{color:var(--muted);font-weight:400}.employee-salary{font-weight:600;white-space:nowrap;font-variant-numeric:tabular-nums}
+    @media(max-width:950px){.grade-roster-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:600px){.grade-roster-grid{grid-template-columns:1fr}.department-calculator .settings{padding:17px}.roster-person-fields{grid-template-columns:minmax(0,1.25fr) minmax(0,1fr)}}
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">К‑СКАЙ <span>Рабочие материалы</span></div>
+    <div class="actions">
+      <button class="action" type="button" id="edit-toggle" aria-pressed="false">Править текст</button>
+      <button class="action" type="button" id="print-button">Печать / PDF</button>
+      <button class="action primary" type="button" id="download-button">Скачать с правками</button>
+    </div>
+  </header>
+  <main class="page">
+    <div class="hero"><div><p class="eyebrow" id="page-eyebrow">Внедрение ПО · проект для согласования</p><h1 id="page-title">Система грейдов специалистов по внедрению</h1></div><div class="draft">К‑Скай<br><strong id="page-draft">Профессиональные грейды I–III<br>и управленческая роль</strong></div></div>
+    <nav class="tabs" role="tablist" aria-label="Разделы"><button class="tab" type="button" id="grades-tab" role="tab" aria-controls="grades-panel" aria-selected="true">Система грейдов</button><button class="tab" type="button" id="motivation-tab" role="tab" aria-controls="motivation-panel" aria-selected="false">Калькулятор мотивации · 2027</button></nav>
+    <section id="grades-panel" class="tab-panel" role="tabpanel" aria-labelledby="grades-tab">
+    <div class="edit-hint">Нажмите на текст, чтобы изменить формулировку. Правки сохраняются в этом браузере. Кнопка «Скачать с правками» создаёт HTML-копию.</div>
+    <article class="document">
+      <section class="document-section" id="criteria">
+        <h2 data-edit="criteria-title">Грейды и критерии</h2>
+        <div class="table-responsive"><table class="table grade-overview"><thead><tr><th scope="col">Грейд</th><th scope="col">Уровень дохода<br><small>оклад в месяц</small></th><th scope="col">Критерии</th></tr></thead><tbody>
+          <tr><th scope="row" data-edit="grade1-label">Специалист I</th><td data-edit="grade1-salary">60 000 ₽</td><td><strong data-edit="grade1-criteria-title">Ведёт типовые задачи по согласованному маршруту.</strong><p data-edit="level1-body">Разбирает обращения пользователей, выполняет типовые настройки и ведёт ограниченный этап внедрения. Уточняет запрос, фиксирует ожидаемый результат и следующий шаг, проверяет выполненную работу. При отклонении вовремя сообщает о риске и привлекает нужного специалиста.</p></td></tr>
+          <tr><th scope="row" data-edit="grade2-label">Специалист II</th><td data-edit="grade2-salary">80 000 ₽</td><td><strong data-edit="grade2-criteria-title">Самостоятельно ведёт клиентскую задачу до результата.</strong><p data-edit="level2-body">Выясняет потребность заказчика, выбирает способ решения, согласует ограничения и критерии готовности. Ставит задачи смежным командам, контролирует договорённости и передаёт проверенный результат заказчику. Самостоятельно справляется с типовыми отклонениями и несколькими параллельными задачами.</p><p class="level-note" data-edit="level2-note">Переданный профиль должности соответствует этому уровню.</p></td></tr>
+          <tr><th scope="row" data-edit="grade3-label">Специалист III</th><td data-edit="grade3-salary">100 000 ₽</td><td><strong data-edit="grade3-criteria-title">Ведёт сложные задачи и развивает практику команды.</strong><p data-edit="level3-body">Берёт задачи с высокой неопределённостью, противоречивыми требованиями, несколькими системами или участниками. Выстраивает способ решения, ведёт сложные эскалации и доводит работу до принятого результата. Помогает коллегам разбирать сложные случаи; его решения и инструкции применяются в дальнейшей работе.</p><p class="level-note" data-edit="level3-note">Высший профессиональный грейд специалиста без ответственности за управление отделом.</p></td></tr>
+          <tr class="management-row"><th scope="row" data-edit="lead-title">Ведущий специалист отдела внедрения</th><td data-edit="lead-salary">По отдельной модели</td><td><strong data-edit="lead-criteria-title">Управленческая роль.</strong><p data-edit="lead-body">Отвечает за результат группы специалистов: распределяет задачи, согласует приоритеты и загрузку, проводит обзоры статусов и рисков, помогает с эскалациями и развитием сотрудников. Оценивается по результату отдела, а не только по собственным задачам.</p><p class="level-note" data-edit="lead-note">Отдельная ставка возможна при численности отдела от семи специалистов по внедрению.</p></td></tr>
+        </tbody></table></div>
+      </section>
+      <section class="document-section" id="skills">
+        <h2 data-edit="skills-title">Хард- и софт-скиллы по уровням</h2>
+        <h3 data-edit="hard-title">Харды — профессиональные навыки</h3>
+        <div class="table-responsive"><table class="table matrix"><thead><tr><th scope="col">Компетенция</th><th scope="col">Специалист I</th><th scope="col">Специалист II</th><th scope="col">Специалист III</th><th scope="col">Ведущий специалист отдела</th></tr></thead><tbody>
+          <tr><th scope="row" data-edit="hard-analysis-name">Анализ запросов и требований</th><td data-edit="hard-analysis-1">Уточняет цель обращения и ожидаемый результат по принятой структуре.</td><td data-edit="hard-analysis-2">Выявляет потребность, ограничения и риски; формулирует требования и критерии приёмки.</td><td data-edit="hard-analysis-3">Разбирает противоречивые требования нескольких сторон и согласует решение при неполной информации.</td><td data-edit="hard-analysis-4">Помогает команде разбирать сложные запросы и задаёт единые требования к качеству постановок.</td></tr>
+          <tr><th scope="row" data-edit="hard-delivery-name">Внедрение, сопровождение и качество результата</th><td data-edit="hard-delivery-1">Выполняет типовые настройки и обращения по инструкции, соблюдает сроки и проверяет результат.</td><td data-edit="hard-delivery-2">Самостоятельно ведёт клиентскую задачу или функциональный блок до проверенного результата, устраняет замечания и соблюдает SLA.</td><td data-edit="hard-delivery-3">Выстраивает нестандартное внедрение, определяет критерии готовности и разбирает причины повторных инцидентов.</td><td data-edit="hard-delivery-4">Планирует работу специалистов, отслеживает сроки, SLA и качество по отделу; устраняет системные причины отклонений.</td></tr>
+          <tr><th scope="row" data-edit="hard-coordination-name">Постановка и координация задач</th><td data-edit="hard-coordination-1">Оформляет задачу с контекстом, результатом и сроком; отслеживает следующий шаг.</td><td data-edit="hard-coordination-2">Ставит задачи смежным командам, согласует ответственных и контролирует исполнение до результата.</td><td data-edit="hard-coordination-3">Координирует сложную задачу с несколькими командами и конфликтующими ограничениями.</td><td data-edit="hard-coordination-4">Распределяет задачи между специалистами, согласует приоритеты со смежными руководителями и контролирует решения отдела.</td></tr>
+          <tr><th scope="row" data-edit="hard-diagnostics-name">Диагностика, данные и интеграции</th><td data-edit="hard-diagnostics-1">Собирает данные для диагностики и проверяет типовые причины проблемы.</td><td data-edit="hard-diagnostics-2">Проверяет гипотезы доступными средствами и организует работу с техническими специалистами.</td><td data-edit="hard-diagnostics-3">Ведёт диагностику сложных проблем на стыке продукта, данных, интеграции и процесса заказчика.</td><td data-edit="hard-diagnostics-4">Видит повторяющиеся технические проблемы в потоке отдела и организует их системное решение.</td></tr>
+        </tbody></table></div>
+        <h3 data-edit="soft-title">Софты — как сотрудник думает, принимает решения и взаимодействует</h3>
+        <div class="table-responsive"><table class="table matrix"><thead><tr><th scope="col">Компетенция</th><th scope="col">Специалист I</th><th scope="col">Специалист II</th><th scope="col">Специалист III</th><th scope="col">Ведущий специалист отдела</th></tr></thead><tbody>
+          <tr><th scope="row" data-edit="soft-analysis-name">Аналитическое мышление</th><td data-edit="soft-analysis-1">Отделяет факты от предположений, задаёт уточняющие вопросы.</td><td data-edit="soft-analysis-2">Находит причину проблемы, сравнивает решения и объясняет выбор.</td><td data-edit="soft-analysis-3">Видит последствия решения для нескольких систем и участников, действует при неопределённости.</td><td data-edit="soft-analysis-4">Замечает повторяющиеся проблемы в работе отдела и меняет способ их решения.</td></tr>
+          <tr><th scope="row" data-edit="soft-ownership-name">Самостоятельность и ответственность</th><td data-edit="soft-ownership-1">Выполняет договорённости, поддерживает статус и вовремя обращается за помощью.</td><td data-edit="soft-ownership-2">Сам продвигает закреплённую задачу до результата, предлагает действия при отклонении.</td><td data-edit="soft-ownership-3">Берёт ответственность за сложный результат и помогает устранить причины повторяющихся проблем.</td><td data-edit="soft-ownership-4">Отвечает за результат специалистов, делегирует задачи и проверяет исполнение.</td></tr>
+          <tr><th scope="row" data-edit="soft-communication-name">Коммуникация</th><td data-edit="soft-communication-1">Понятно сообщает статус и письменно фиксирует следующий шаг.</td><td data-edit="soft-communication-2">Согласует ожидания, сроки и критерии результата; разбирает замечания.</td><td data-edit="soft-communication-3">Ведёт сложные обсуждения и эскалации при конфликтующих ожиданиях.</td><td data-edit="soft-communication-4">Подключается к эскалациям отдела и согласует решения с заказчиком и смежными руководителями.</td></tr>
+        </tbody></table></div>
+      </section>
+      <section class="document-section" id="transition">
+        <h2 data-edit="transition-title">Условия перехода</h2>
+        <div class="table-responsive"><table class="table transition"><thead><tr><th scope="col">Переход</th><th scope="col">Критерии</th></tr></thead><tbody>
+          <tr><th scope="row">Специалист I → II</th><td data-edit="transition-1"><strong>Не менее трёх подтверждённых успешных кейсов уровня II как минимум в двух кварталах.</strong> В каждом сотрудник самостоятельно провёл клиентскую задачу или существенный этап от выяснения потребности до проверенного результата. Как минимум в одном случае координировал смежную команду и справился с отклонением.</td></tr>
+          <tr><th scope="row">Специалист II → III</th><td data-edit="transition-2"><strong>Не менее трёх подтверждённых успешных кейсов уровня III как минимум в двух кварталах.</strong> Как минимум два — сложные задачи с несколькими зависимостями, противоречивыми требованиями или существенным риском. Дополнительно коллеги применили предложенный сотрудником подход, инструкцию или решение.</td></tr>
+          <tr><th scope="row">Специалист III → ведущий специалист отдела</th><td data-edit="transition-3"><strong>Переход возможен при наличии в отделе не менее семи специалистов и отдельной управленческой ставки.</strong> Кандидат показывает результаты координации нескольких специалистов как минимум в двух кварталах: распределял задачи и приоритеты, помогал с эскалациями, давал обратную связь и довёл согласованные решения до результата. Назначение не происходит автоматически при достижении грейда III.</td></tr>
+        </tbody></table></div>
+        <p data-edit="case-definition"><strong>Успешный кейс</strong> — задача или существенный этап внедрения с согласованным и проверенным результатом. В описании фиксируются исходная проблема, личная роль сотрудника, принятые решения, действия при отклонениях и итог. Для длительного внедрения можно зачесть самостоятельный этап с отдельным результатом.</p>
+        <p data-edit="review-rule">На квартальном ревью сотрудник и руководитель фиксируют кейсы и задачи следующего уровня. Плановое решение о профессиональном грейде принимается на ежегодном ревью по результатам последних 12 месяцев. Первичное присвоение грейдов при запуске системы проводится отдельно.</p>
+        <p class="micro" data-edit="case-count-note">Количество кейсов — рабочее предложение по аналогии с РП. Перед утверждением его следует проверить на реальном потоке задач внедрения.</p>
+      </section>
+      <section class="document-section" id="hiring">
+        <h2 data-edit="hiring-title">Определение грейда при найме</h2>
+        <p data-edit="hiring-practice">Для предполагаемого грейда разбираем релевантный кейс кандидата и даём рабочую задачу. Уточняем, за что кандидат отвечал лично, как выяснил потребность, какое решение выбрал, кого подключил, что сделал при отклонении и чем подтверждён результат.</p>
+        <p class="callout" data-edit="hiring-scenario"><strong>Пример задания.</strong> После обновления у медицинской организации перестала отображаться часть данных в Webiomed. Пользователи описывают проблему по-разному; заказчик просит срочную доработку, но причина пока не установлена.</p>
+        <div class="case-grid">
+          <div class="case-card"><h4>Специалист I</h4><p data-edit="hiring-1">Смотрим, как кандидат соберёт факты, проверит типовые причины, зафиксирует статус и передаст сложный случай.</p></div>
+          <div class="case-card"><h4>Специалист II</h4><p data-edit="hiring-2">Смотрим, как отделит симптомы от причины, организует диагностику, согласует решение и проверит результат с заказчиком.</p></div>
+          <div class="case-card"><h4>Специалист III</h4><p data-edit="hiring-3">Добавляем несколько организаций, разные версии МИС и конфликт приоритетов. Смотрим, как кандидат выстроит решение и снизит риск повторения проблемы.</p></div>
+          <div class="case-card"><h4>Ведущий специалист отдела</h4><p data-edit="hiring-4">Добавляем параллельные задачи семи специалистов и ограниченный ресурс смежной команды. Смотрим, как кандидат распределит работу, согласует приоритеты и организует контроль.</p></div>
+        </div>
+        <p data-edit="hiring-evidence">В обосновании оффера фиксируем уровень, подтверждённые компетенции, примеры результата и оклад по утверждённой шкале. На роль ведущего специалиста нанимаем отдельно при наличии управленческой ставки и потребности в ней.</p>
+        <p class="sources">Основа структуры: <a href="https://mvsoldatova99-lang.github.io/ksky-motivation-2027/?v=9635ff0" target="_blank" rel="noopener noreferrer">система грейдов РП</a>. Профиль уровня II: <a href="https://docs.google.com/spreadsheets/d/1iBe3bCkW2kxgYIcUkkR9BTQi1Nq0WjtkSGeqs-mAJUA/edit?gid=1129045794#gid=1129045794" target="_blank" rel="noopener noreferrer">профиль инженера внедрения ПО</a>.</p>
+      </section>
+    </article>
+    </section>
+    <section id="motivation-panel" class="tab-panel" role="tabpanel" aria-labelledby="motivation-tab" hidden>
+      <p class="demo-note"><strong>Мотивация внедрения · модель для расчёта.</strong> Премиальный фонд квартала — <strong>15% совокупного квартального ФОТ отдела</strong>, включая вакансии и исключая руководителей. Веса из <a href="https://docs.google.com/spreadsheets/d/1MvpBu8uUw50PrGrJfYau_PJJwE1jywo0qUVdLn9oCtY/edit?gid=1920645638#gid=1920645638" target="_blank" rel="noopener noreferrer">листа «Внедрение»</a>: запуск регионов и проектов — 40%, стабильность отправки документов — 30%, исполнительская дисциплина — 30%. Первые два показателя распределяются поровну между работающими специалистами. Доля фонда по вакансиям остаётся резервом. Численность ниже — условный пример; замените её планом отдела.</p>
+      <div class="calculator-grid department-calculator">
+        <aside class="settings" aria-label="Состав отдела">
+          <h2>Состав отдела и оклады сотрудников</h2>
+          <p class="calc-note roster-intro">Укажите количество специалистов каждого грейда. Ниже появится отдельная строка для ФИО и месячного оклада каждого сотрудника. Эти данные автоматически перейдут в личный план.</p>
+          <div class="grade-roster-grid">
+            <div class="setting-group"><p class="setting-title">Специалист I</p><div class="form-pair"><label class="form-label">Работают<input class="form-control" id="staff-1" type="number" min="0" max="50" step="1" value="2"></label><label class="form-label">Вакансии<input class="form-control" id="vacancies-1" type="number" min="0" max="50" step="1" value="1"></label></div><label class="form-label">Оклад по грейду, ₽ / мес.<span class="money-input-wrap"><input class="form-control salary-grade-input" id="salary-1" type="text" inputmode="numeric" autocomplete="off" value="60 000" aria-label="Оклад по грейду I, рублей в месяц"><span class="money-suffix" aria-hidden="true">₽</span></span></label><div class="roster-people" id="roster-1"></div></div>
+            <div class="setting-group"><p class="setting-title">Специалист II</p><div class="form-pair"><label class="form-label">Работают<input class="form-control" id="staff-2" type="number" min="0" max="50" step="1" value="2"></label><label class="form-label">Вакансии<input class="form-control" id="vacancies-2" type="number" min="0" max="50" step="1" value="0"></label></div><label class="form-label">Оклад по грейду, ₽ / мес.<span class="money-input-wrap"><input class="form-control salary-grade-input" id="salary-2" type="text" inputmode="numeric" autocomplete="off" value="80 000" aria-label="Оклад по грейду II, рублей в месяц"><span class="money-suffix" aria-hidden="true">₽</span></span></label><div class="roster-people" id="roster-2"></div></div>
+            <div class="setting-group"><p class="setting-title">Специалист III</p><div class="form-pair"><label class="form-label">Работают<input class="form-control" id="staff-3" type="number" min="0" max="50" step="1" value="1"></label><label class="form-label">Вакансии<input class="form-control" id="vacancies-3" type="number" min="0" max="50" step="1" value="0"></label></div><label class="form-label">Оклад по грейду, ₽ / мес.<span class="money-input-wrap"><input class="form-control salary-grade-input" id="salary-3" type="text" inputmode="numeric" autocomplete="off" value="100 000" aria-label="Оклад по грейду III, рублей в месяц"><span class="money-suffix" aria-hidden="true">₽</span></span></label><div class="roster-people" id="roster-3"></div></div>
+          </div>
+          <p class="calc-note roster-reserve-note">Оклад по грейду подставляется новым сотрудникам и используется для расчёта вакансий. Фактический оклад каждого сотрудника можно изменить в его строке. Доля вакансий остаётся в резерве.</p>
+        </aside>
+        <div class="calc-main">
+          <div class="result-surface">
+            <div class="result-header"><p class="result-kicker">Квартальный фонд отдела · 2027</p><div class="summary-grid"><div><div class="summary-label">ФОТ квартала с вакансиями</div><div class="summary-value" id="dept-fot">—</div><div class="summary-caption" id="dept-headcount">—</div></div><div><div class="summary-label">Бюджет премии · 15%</div><div class="summary-value" id="dept-bonus">—</div><div class="summary-caption">По трём показателям</div></div><div><div class="summary-label">Резерв по вакансиям</div><div class="summary-value" id="dept-reserve">—</div><div class="summary-caption">В расчёте ФОТ, без выплаты</div></div></div></div>
+            <div class="result-body">
+              <div id="dept-warnings" class="warnings" role="alert" hidden></div>
+              <section class="calc-section" aria-labelledby="pool-heading"><h2 id="pool-heading">Бюджет по показателям</h2><p>Фонд каждого показателя = 15% квартального ФОТ × его вес. Доля работающих и резерв вакансий показаны отдельно.</p><div class="table-responsive"><table class="table pool-table"><thead><tr><th scope="col">Показатель</th><th scope="col">Вес</th><th scope="col">Весь бюджет</th><th scope="col">Работающим</th><th scope="col">Резерв вакансий</th></tr></thead><tbody><tr><th scope="row">1. Запуск регионов / проектов</th><td>40%</td><td id="pool-1-all">—</td><td id="pool-1-active">—</td><td id="pool-1-reserve">—</td></tr><tr><th scope="row">2. Стабильность отправки документов</th><td>30%</td><td id="pool-2-all">—</td><td id="pool-2-active">—</td><td id="pool-2-reserve">—</td></tr><tr><th scope="row">3. Исполнительская дисциплина</th><td>30%</td><td id="pool-3-all">—</td><td id="pool-3-active">—</td><td id="pool-3-reserve">—</td></tr></tbody></table></div><p class="calc-note" id="shared-per-person">—</p></section>
+              <section class="calc-section" aria-labelledby="plans-heading"><h2 id="plans-heading">Планы и результаты квартала</h2><p>Руководитель задаёт план по каждому показателю. Для первых двух результат общий для отдела; третий проверяется отдельно у каждого сотрудника в таблице ниже.</p><div class="shared-kpis"><div class="metric-box"><h3>1. Запуск регионов и проектов · 40%</h3><p>План — число запусков в согласованные сроки. В рабочей версии выплата пропорциональна числу принятых запусков, но не выше 100% плана.</p><div class="form-pair"><label class="form-label">План, запусков<input class="form-control" id="kpi1-plan" type="number" min="1" step="1" placeholder="Введите план"></label><label class="form-label">Факт в срок<input class="form-control" id="kpi1-fact" type="number" min="0" step="1" placeholder="Введите факт"></label></div><div class="kpi-result"><span>Выполнение</span><strong id="kpi1-progress">—</strong><span>К выплате отделу</span><strong id="kpi1-paid">—</strong></div></div><div class="metric-box"><h3>2. Стабильность отправки документов · 30%</h3><p>План — минимальная доступность коннектов. В рабочей версии фонд выплачивается при достижении порога; иначе 0 ₽.</p><div class="form-pair"><label class="form-label">План, % доступности<input class="form-control" id="kpi2-plan" type="number" min="0.1" max="100" step="0.1" placeholder="Введите план"></label><label class="form-label">Факт, %<input class="form-control" id="kpi2-fact" type="number" min="0" max="100" step="0.1" placeholder="Введите факт"></label></div><div class="kpi-result"><span>План достигнут</span><strong id="kpi2-progress">—</strong><span>К выплате отделу</span><strong id="kpi2-paid">—</strong></div></div></div></section>
+              <section class="calc-section" aria-labelledby="personal-heading"><h2 id="personal-heading">3. Личный план: исполнительская дисциплина · 30%</h2><p>ФИО и оклад берутся из состава отдела выше. Личный бюджет сотрудника = его квартальный оклад × 15% × 30%. Руководитель фиксирует план на квартал; при выполнении выплачивается весь личный бюджет, при невыполнении — 0 ₽. Пустой статус означает, что результат ещё не оценён.</p><div class="table-responsive"><table class="table employee-table"><thead><tr><th scope="col">Сотрудник / грейд</th><th scope="col">Оклад, ₽ / месяц</th><th scope="col">Личный план на квартал</th><th scope="col">Выполнение</th><th scope="col">Бюджет показателя 3</th><th scope="col">К выплате по показателю 3</th><th scope="col">Итого премия</th></tr></thead><tbody id="employee-rows"></tbody></table></div><p class="calc-note" id="personal-budget-note">—</p></section>
+              <section class="calc-section" aria-labelledby="payout-heading"><h2 id="payout-heading">Итог квартала</h2><div class="summary-grid payout-grid"><div><div class="summary-label">Бюджет работающим</div><div class="summary-value" id="active-budget">—</div><div class="summary-caption">Все три показателя при выполнении</div></div><div><div class="summary-label">Рассчитано к выплате</div><div class="summary-value" id="earned-total">—</div><div class="summary-caption">После заполнения планов и статусов</div></div><div><div class="summary-label">Не начислено работающим</div><div class="summary-value" id="unearned-total">—</div><div class="summary-caption">Отдельно от резерва вакансий</div></div></div><div class="formula-line">Бюджет = 15% × 3 × (оклады работающих + оклады вакансий). Показатели 1 и 2: активная часть фонда делится поровну между работающими. Показатель 3: личная часть от оклада сотрудника.</div></section>
+            </div>
+          </div>
+          <p class="calc-footer">Численность, ФИО, оклады и планы можно менять вручную; данные сохраняются только в этом браузере. Для показателей 1 и 2 порядок начисления при частичном выполнении плана показан как рабочее допущение и требует согласования. НДФЛ отдельно не рассчитывается.</p>
+        </div>
+      </div>
+    </section>
+    <footer class="footer"><p>Рабочая версия для обсуждения · К‑Скай</p><p id="save-status" role="status" aria-live="polite"></p></footer>
+  </main>
+  <script>
+    (()=>{
+      const key='ksky-implementation-grades-2027-v3';
+      const legacyKey='ksky-implementation-grades-2027-v2';
+      const oldestKey='ksky-implementation-grades-2027-v1';
+      const editable=[...document.querySelectorAll('[data-edit]')];
+      const toggle=document.getElementById('edit-toggle');
+      const status=document.getElementById('save-status');
+      try{const saved=JSON.parse(localStorage.getItem(key)||localStorage.getItem(legacyKey)||localStorage.getItem(oldestKey)||'{}');for(const node of editable){const value=saved[node.dataset.edit];if(typeof value==='string')node.innerHTML=value}}catch{}
+      function setEditing(on){document.body.classList.toggle('editing',on);toggle.setAttribute('aria-pressed',String(on));toggle.textContent=on?'Готово':'Править текст';for(const node of editable)node.contentEditable=on?'true':'false'}
+      toggle.addEventListener('click',()=>setEditing(!document.body.classList.contains('editing')));
+      document.addEventListener('input',event=>{if(!event.target.closest('[data-edit]'))return;const values={};for(const node of editable)values[node.dataset.edit]=node.innerHTML;try{localStorage.setItem(key,JSON.stringify(values));status.textContent='Правки сохранены в этом браузере'}catch{status.textContent='Не удалось сохранить правки в браузере'}});
+      document.getElementById('print-button').addEventListener('click',()=>window.print());
+      document.getElementById('download-button').addEventListener('click',()=>{
+        const clone=document.documentElement.cloneNode(true);
+        clone.querySelector('body').classList.remove('editing');
+        clone.querySelector('body').dataset.startTab=document.getElementById('motivation-panel').hidden?'grades':'motivation';
+        for(const node of clone.querySelectorAll('[contenteditable]'))node.removeAttribute('contenteditable');
+        const originalFields=[...document.querySelectorAll('input,select')];
+        const copiedFields=[...clone.querySelectorAll('input,select')];
+        originalFields.forEach((field,i)=>{const copy=copiedFields[i];if(!copy)return;if(field.tagName==='SELECT'){[...copy.options].forEach((option,j)=>{option.selected=field.options[j].selected;if(option.selected)option.setAttribute('selected','');else option.removeAttribute('selected')})}else if(field.type==='checkbox'){copy.checked=field.checked;if(field.checked)copy.setAttribute('checked','');else copy.removeAttribute('checked')}else{copy.value=field.value;copy.setAttribute('value',field.value)}});
+        if(window.getImplementationCalcState)clone.querySelector('#motivation-panel').dataset.savedCalc=JSON.stringify(window.getImplementationCalcState());
+        const button=clone.querySelector('#edit-toggle');button.textContent='Править текст';button.setAttribute('aria-pressed','false');
+        const savedStatus=clone.querySelector('#save-status');if(savedStatus)savedStatus.textContent='';
+        const html='<!doctype html>\n'+clone.outerHTML;
+        const url=URL.createObjectURL(new Blob([html],{type:'text/html;charset=utf-8'}));
+        const link=document.createElement('a');link.href=url;link.download='К-Скай_Грейды_и_мотивация_внедрения_2027.html';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
+      });
+    })();
+  </script>
+  <script>
+    (()=>{
+      const panel=document.getElementById('motivation-panel');
+      const storageKey='ksky-implementation-motivation-2027-v2:'+location.pathname;
+      const gradeNames={'1':'I','2':'II','3':'III'};
+      const fieldIds=['staff-1','staff-2','staff-3','vacancies-1','vacancies-2','vacancies-3','salary-1','salary-2','salary-3','kpi1-plan','kpi1-fact','kpi2-plan','kpi2-fact'];
+      const employeeBody=document.getElementById('employee-rows');
+      let employees=[];
+      const archivedEmployees=new Map();
+      const get=id=>document.getElementById(id);
+      const value=id=>get(id).value;
+      const number=id=>value(id).trim()===''?NaN:Number(value(id));
+      const parseMoney=raw=>{const digits=String(raw).replace(/\D/g,'');return digits?Number(digits):NaN};
+      const formattedInput=n=>Number.isFinite(n)?new Intl.NumberFormat('ru-RU',{maximumFractionDigits:0}).format(n).replace(/[\u00a0\u202f]/g,' '):'';
+      function formatMoneyField(input){
+        const before=input.value;
+        const digitsBefore=before.slice(0,input.selectionStart??before.length).replace(/\D/g,'').length;
+        input.value=formattedInput(parseMoney(before));
+        let position=0,seen=0;
+        while(position<input.value.length&&seen<digitsBefore){if(/\d/.test(input.value[position]))seen++;position++}
+        if(document.activeElement===input)input.setSelectionRange(position,position);
+      }
+      const money=n=>Number.isFinite(n)?new Intl.NumberFormat('ru-RU',{maximumFractionDigits:0}).format(Math.round(n))+' ₽':'—';
+      const percent=n=>Number.isFinite(n)?new Intl.NumberFormat('ru-RU',{maximumFractionDigits:1}).format(n*100)+'%':'—';
+      const show=(id,text)=>{get(id).textContent=text};
+      function computeDepartmentModel(input){
+        const {employees,vacancies,salaryByGrade,plan1,fact1,plan2,fact2}=input;
+        const monthlyActive=employees.reduce((sum,person)=>sum+person.salary,0);
+        const monthlyVacant=['1','2','3'].reduce((sum,grade)=>sum+vacancies[grade]*salaryByGrade[grade],0);
+        const fotActive=monthlyActive*3,fotVacant=monthlyVacant*3,fotAll=fotActive+fotVacant;
+        const poolActive=fotActive*0.15,poolVacant=fotVacant*0.15,poolAll=fotAll*0.15;
+        const weights=[0.4,0.3,0.3];
+        const pools=weights.map(weight=>({all:poolAll*weight,active:poolActive*weight,reserve:poolVacant*weight}));
+        const count=employees.length;
+        const sharedPerPerson=count?[(pools[0].active/count),(pools[1].active/count)]:[null,null];
+        const validPlan1=Number.isInteger(plan1)&&plan1>0&&Number.isInteger(fact1)&&fact1>=0;
+        const validPlan2=Number.isFinite(plan2)&&plan2>0&&plan2<=100&&Number.isFinite(fact2)&&fact2>=0&&fact2<=100;
+        const progress1=validPlan1?Math.min(fact1/plan1,1):null;
+        const progress2=validPlan2?(fact2>=plan2?1:0):null;
+        const paid1=progress1===null?null:pools[0].active*progress1;
+        const paid2=progress2===null?null:pools[1].active*progress2;
+        const people=employees.map(person=>{
+          const personalBudget=person.salary*3*0.15*0.3;
+          const assessed=person.plan.trim()!==''&&(person.status==='yes'||person.status==='no');
+          const personalPaid=assessed?(person.status==='yes'?personalBudget:0):null;
+          const totalPaid=paid1!==null&&paid2!==null&&personalPaid!==null&&count?paid1/count+paid2/count+personalPaid:null;
+          return {...person,personalBudget,personalPaid,totalPaid};
+        });
+        const personalComplete=people.every(person=>person.personalPaid!==null);
+        const paid3=personalComplete?people.reduce((sum,person)=>sum+person.personalPaid,0):null;
+        const paidTotal=paid1!==null&&paid2!==null&&paid3!==null?paid1+paid2+paid3:null;
+        return {count,monthlyActive,monthlyVacant,fotActive,fotVacant,fotAll,poolActive,poolVacant,poolAll,pools,sharedPerPerson,progress1,progress2,paid1,paid2,paid3,paidTotal,unearned:paidTotal===null?null:poolActive-paidTotal,people,validPlan1,validPlan2,personalComplete};
+      }
+      function state(){
+        const values={};for(const id of fieldIds)values[id]=value(id);
+        return {values,employees};
+      }
+      window.getImplementationCalcState=state;
+      function save(){try{localStorage.setItem(storageKey,JSON.stringify(state()))}catch{}}
+      function restore(){
+        try{
+          const embedded=panel.dataset.savedCalc?JSON.parse(panel.dataset.savedCalc):null;
+          const saved=JSON.parse(localStorage.getItem(storageKey)||'null')||embedded;
+          if(!saved)return;
+          if(saved.values)for(const id of fieldIds)if(Object.hasOwn(saved.values,id))get(id).value=saved.values[id];
+          if(Array.isArray(saved.employees))employees=saved.employees.map(person=>({id:String(person.id),grade:String(person.grade),name:/^Специалист (I|II|III) · \d+$/.test(String(person.name??''))?'':String(person.name??''),salary:Number(person.salary),manualSalary:Boolean(person.manualSalary),plan:String(person.plan??''),status:['yes','no'].includes(person.status)?person.status:'unset'}));
+        }catch{}
+        for(const grade of ['1','2','3'])get('salary-'+grade).value=formattedInput(parseMoney(value('salary-'+grade)));
+      }
+      function rosterInputs(){
+        const salaryByGrade={},vacancies={},staff={};
+        for(const grade of ['1','2','3']){salaryByGrade[grade]=parseMoney(value('salary-'+grade));vacancies[grade]=number('vacancies-'+grade);staff[grade]=number('staff-'+grade)}
+        return {salaryByGrade,vacancies,staff};
+      }
+      function syncEmployees(){
+        const {salaryByGrade,staff}=rosterInputs();
+        for(const person of employees)archivedEmployees.set(person.id,person);
+        const next=[];
+        for(const grade of ['1','2','3']){
+          const count=Number.isInteger(staff[grade])&&staff[grade]>=0?Math.min(staff[grade],50):0;
+          for(let ordinal=1;ordinal<=count;ordinal++){
+            const id=grade+'-'+ordinal;
+            next.push(archivedEmployees.get(id)||{id,grade,name:'',salary:salaryByGrade[grade],manualSalary:false,plan:'',status:'unset'});
+          }
+        }
+        employees=next;
+      }
+      function renderRoster(){
+        for(const grade of ['1','2','3']){
+          const container=get('roster-'+grade);
+          container.innerHTML='';
+          const people=employees.filter(person=>person.grade===grade);
+          if(!people.length){const empty=document.createElement('p');empty.className='roster-empty';empty.textContent='Работающих специалистов пока нет';container.append(empty);continue}
+          for(const person of people){
+            const ordinal=Number(person.id.split('-')[1]);
+            const row=document.createElement('div');row.className='roster-person';row.dataset.employeeId=person.id;
+            row.innerHTML='<p class="roster-person-title">Сотрудник '+ordinal+'</p><div class="roster-person-fields"><label class="form-label">ФИО<input class="form-control roster-name" type="text" autocomplete="off" placeholder="Введите ФИО"></label><label class="form-label">Оклад, ₽ / мес.<span class="money-input-wrap"><input class="form-control roster-salary" type="text" inputmode="numeric" autocomplete="off" aria-label="Оклад сотрудника, рублей в месяц"><span class="money-suffix" aria-hidden="true">₽</span></span></label></div>';
+            row.querySelector('.roster-name').value=person.name;
+            row.querySelector('.roster-salary').value=formattedInput(person.salary);
+            container.append(row);
+          }
+        }
+      }
+      function renderEmployees(){
+        employeeBody.innerHTML='';
+        for(const person of employees){
+          const row=document.createElement('tr');row.dataset.employeeId=person.id;
+          row.innerHTML='<td><span class="employee-identity"></span><span class="grade-caption"></span></td><td class="employee-salary">—</td><td><input class="form-control plan-input" type="text" aria-label="Личный план на квартал" placeholder="Укажите план"></td><td><select class="form-select status-input" aria-label="Выполнение личного плана"><option value="unset">Не оценён</option><option value="yes">Выполнен</option><option value="no">Не выполнен</option></select></td><td class="money-cell personal-budget">—</td><td class="money-cell personal-paid">—</td><td class="money-cell total-paid">—</td>';
+          row.querySelector('.grade-caption').textContent='Грейд '+gradeNames[person.grade];
+          row.querySelector('.salary-input').value=person.salary;
+          row.querySelector('.plan-input').value=person.plan;
+          row.querySelector('.status-input').value=person.status;
+          employeeBody.append(row);
+        }
+      }
+      function update(){
+        const {salaryByGrade,vacancies,staff}=rosterInputs();
+        const errors=[];
+        const rosterValid=['1','2','3'].every(grade=>Number.isFinite(salaryByGrade[grade])&&salaryByGrade[grade]>0&&Number.isInteger(staff[grade])&&staff[grade]>=0&&staff[grade]<=50&&Number.isInteger(vacancies[grade])&&vacancies[grade]>=0&&vacancies[grade]<=50)&&employees.every(person=>Number.isFinite(person.salary)&&person.salary>0);
+        if(!rosterValid)errors.push('Проверьте численность и оклады: количество — целое от 0 до 50, оклад — больше нуля.');
+        const model=rosterValid?computeDepartmentModel({employees,vacancies,salaryByGrade,plan1:number('kpi1-plan'),fact1:number('kpi1-fact'),plan2:number('kpi2-plan'),fact2:number('kpi2-fact')}):null;
+        show('dept-fot',money(model?.fotAll));show('dept-bonus',money(model?.poolAll));show('dept-reserve',money(model?.poolVacant));
+        const totalPositions=['1','2','3'].reduce((sum,grade)=>sum+Math.max(0,staff[grade]||0)+Math.max(0,vacancies[grade]||0),0);
+        show('dept-headcount',model?model.count+' работают · '+(totalPositions-model.count)+' вакансий':'—');
+        for(let index=0;index<3;index++){
+          show('pool-'+(index+1)+'-all',money(model?.pools[index].all));
+          show('pool-'+(index+1)+'-active',money(model?.pools[index].active));
+          show('pool-'+(index+1)+'-reserve',money(model?.pools[index].reserve));
+        }
+        show('shared-per-person',model&&model.count?'При выполнении плана каждому работающему специалисту: показатель 1 — '+money(model.sharedPerPerson[0])+', показатель 2 — '+money(model.sharedPerPerson[1])+'.':'Добавьте работающих специалистов, чтобы увидеть долю каждого по показателям 1 и 2.');
+        show('kpi1-progress',model?(model.progress1===null?'План / факт не заданы':percent(model.progress1)):'—');
+        show('kpi2-progress',model?(model.progress2===null?'План / факт не заданы':model.progress2?'Да':'Нет'):'—');
+        show('kpi1-paid',money(model?.paid1));show('kpi2-paid',money(model?.paid2));
+        show('personal-budget-note',model?'Бюджет показателя 3 для работающих — '+money(model.pools[2].active)+'. По вакансиям зарезервировано '+money(model.pools[2].reserve)+'.':'—');
+        for(const row of employeeBody.rows){
+          const person=employees.find(item=>item.id===row.dataset.employeeId);
+          const result=model?.people.find(item=>item.id===row.dataset.employeeId);
+          const identity=row.querySelector('.employee-identity');
+          identity.textContent=person?.name.trim()||'Сотрудник '+person?.id.split('-')[1];
+          identity.classList.toggle('is-placeholder',!person?.name.trim());
+          row.querySelector('.employee-salary').textContent=money(person?.salary);
+          row.querySelector('.personal-budget').textContent=money(result?.personalBudget);
+          row.querySelector('.personal-paid').textContent=money(result?.personalPaid);
+          row.querySelector('.total-paid').textContent=money(result?.totalPaid);
+        }
+        show('active-budget',money(model?.poolActive));show('earned-total',money(model?.paidTotal));show('unearned-total',money(model?.unearned));
+        if(model&&!model.validPlan1)errors.push('Укажите план и факт запусков для показателя 1.');
+        if(model&&!model.validPlan2)errors.push('Укажите план и факт доступности для показателя 2.');
+        if(model&&!model.personalComplete)errors.push('Укажите личный план и статус выполнения для каждого работающего специалиста.');
+        const warning=get('dept-warnings');warning.hidden=errors.length===0;warning.textContent=errors.join(' ');
+        return model;
+      }
+      restore();syncEmployees();renderRoster();renderEmployees();update();
+      panel.querySelector('.settings').addEventListener('input',event=>{
+        const target=event.target;
+        const personRow=target.closest('.roster-person');
+        if(personRow){
+          const person=employees.find(item=>item.id===personRow.dataset.employeeId);
+          if(!person)return;
+          if(target.classList.contains('roster-name'))person.name=target.value;
+          if(target.classList.contains('roster-salary')){formatMoneyField(target);person.salary=parseMoney(target.value);person.manualSalary=true}
+          update();save();return;
+        }
+        if(!target.id)return;
+        if(target.id.startsWith('salary-')){
+          formatMoneyField(target);
+          const grade=event.target.id.slice(-1);
+          for(const person of employees)if(person.grade===grade&&!person.manualSalary)person.salary=parseMoney(target.value);
+        }
+        const staffField=event.target.id.startsWith('staff-');
+        if(staffField){
+          const count=Number(event.target.value);
+          if(!Number.isInteger(count)||count<0||count>50){update();save();return}
+          syncEmployees();
+        }
+        if(staffField){renderRoster();renderEmployees()}
+        else if(target.id.startsWith('salary-'))renderRoster();
+        update();save();
+      });
+      employeeBody.addEventListener('input',event=>{
+        const row=event.target.closest('tr');if(!row)return;
+        const person=employees.find(item=>item.id===row.dataset.employeeId);if(!person)return;
+        if(event.target.classList.contains('plan-input'))person.plan=event.target.value;
+        if(event.target.classList.contains('status-input'))person.status=event.target.value;
+        update();save();
+      });
+      employeeBody.addEventListener('change',event=>{if(!event.target.classList.contains('status-input'))return;const row=event.target.closest('tr');const person=employees.find(item=>item.id===row.dataset.employeeId);if(person){person.status=event.target.value;update();save()}});
+      for(const id of ['kpi1-plan','kpi1-fact','kpi2-plan','kpi2-fact'])get(id).addEventListener('input',()=>{update();save()});
+      const gradesTab=get('grades-tab'),motivationTab=get('motivation-tab');
+      function activate(which){
+        const motivation=which==='motivation';
+        gradesTab.setAttribute('aria-selected',String(!motivation));motivationTab.setAttribute('aria-selected',String(motivation));
+        get('grades-panel').hidden=motivation;panel.hidden=!motivation;
+        document.title=motivation?'К‑Скай — Мотивация специалистов внедрения 2027':'К‑Скай — Система грейдов специалистов по внедрению ПО';
+        get('page-title').textContent=motivation?'Мотивация специалистов внедрения · 2027':'Система грейдов специалистов по внедрению';
+        get('page-eyebrow').textContent=motivation?'Квартальный калькулятор · проект для согласования':'Внедрение ПО · проект для согласования';
+        get('page-draft').innerHTML=motivation?'Бюджет премии отдела<br>и личный показатель':'Профессиональные грейды I–III<br>и управленческая роль';
+        const edit=get('edit-toggle');edit.hidden=motivation;
+        if(motivation&&document.body.classList.contains('editing')){document.body.classList.remove('editing');edit.setAttribute('aria-pressed','false');edit.textContent='Править текст';for(const node of document.querySelectorAll('[data-edit]'))node.contentEditable='false'}
+        if(location.hash!=='#'+which)history.replaceState(null,'','#'+which);
+      }
+      gradesTab.addEventListener('click',()=>activate('grades'));
+      motivationTab.addEventListener('click',()=>activate('motivation'));
+      activate(location.hash==='#motivation'||(!location.hash&&document.body.dataset.startTab==='motivation')?'motivation':'grades');
+    })();
+  
+</script>
+</body>
+</html>
