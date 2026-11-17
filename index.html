@@ -45,7 +45,7 @@
 .annual-compact{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:14px}.annual-figure span{display:block;font-size:12px;color:var(--muted);margin-bottom:6px}.annual-figure strong{font-size:28px;font-weight:550;letter-spacing:-.02em;color:var(--accent);font-variant-numeric:tabular-nums;white-space:nowrap}
 @media(max-width:480px){.annual-compact{grid-template-columns:1fr}}
 .ind-row{border:1px solid var(--line);border-radius:9px;padding:10px;margin-bottom:10px}.ind-row>.form-control{font-family:inherit;margin:0;font-size:13px;font-weight:550;line-height:1.35;resize:none;min-height:0;padding:8px 10px}.ind-row-meta{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:8px 0 4px}.ind-type{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}.ind-unit{width:auto;min-width:70px;min-height:30px;padding:4px 8px;margin:0;font-size:12px}.ind-row-bottom{display:grid;grid-template-columns:minmax(0,1fr) 34px;gap:8px;align-items:end}.ind-row-bottom .form-label{margin:0;font-size:11px}.q-select{min-height:34px;padding:6px 8px;margin:0;font-size:13px}.role-warnings:empty{display:none}.role-warnings{margin:0 0 14px}.custom-add-row .form-select{margin:0;min-width:0;font-size:12px}
-.annual-upsell-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;align-items:end}.annual-upsell-grid .form-label{margin:0}.annual-upsell-results{margin-top:14px;padding-top:12px;border-top:1px solid var(--line);align-items:start}
+.annual-upsell-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;align-items:end}.annual-upsell-grid .form-label{margin:0}.annual-upsell-results{margin-top:14px;padding-top:12px;border-top:1px solid var(--line);align-items:start}
 @media(max-width:700px){.annual-upsell-grid{grid-template-columns:1fr 1fr}}
 .num-mask{position:absolute;inset:0;display:flex;align-items:center;pointer-events:none;white-space:nowrap;overflow:hidden;font-variant-numeric:tabular-nums}.number-control input.masked{color:transparent!important;-webkit-text-fill-color:transparent}
 @media print{.num-mask{display:none}.number-control input.masked{color:inherit!important;-webkit-text-fill-color:currentColor}}
@@ -297,8 +297,8 @@
 <div class="document-section"><p class="doc-kicker">Рабочая модель · встреча 03.11.2026</p><h2 data-edit="tl-title">Квартальная мотивация тимлида РП на 2027 год</h2><p data-edit="tl-intro-v2">Модель пересобрана по встрече «KPI» 03.11.2026 в той же логике, что у РП: премия квартальная, каждый квартал считается отдельно, а не накопительным итогом с начала года. В премии три общих квартальных показателя команды; отдельно — годовой бонус за выполнение плана по допродажам отдела. Все показатели смотрятся только по направлению B2G.</p><p class="budget-note" data-live="teamlead"></p></div>
 <div class="document-section"><h3 data-edit="tl-s1-title">01. Показатели и веса</h3><p data-edit="tl-s1-text-v2">Учитываются только B2G-регионы. Актированная выручка команды — 50%: складывается из результатов всех РП и личного портфеля тимлида по B2G-регионам. Подписанные контракты команды в штуках — 30%: уникальные контрагенты, процент выполнения плана. Механика топ-задач здесь не используется: у тимлида считается совокупный результат команды, а не каждый контракт. Просроченная дебиторская задолженность — 20%: нет просрочки на конец квартала — часть выплачивается полностью, есть — не выплачивается.</p></div>
 <div class="document-section"><h3 data-edit="tl-s2-title">02. Что убрано из прежней модели</h3><p data-edit="tl-s2-text">Обращения врачей к платформе — переводятся в справочные: данные по использованию платформы сейчас ненадёжны. Доля этапов воронки в срок — убрана: её сложно считать, пока не настроен Битрикс. Оба показателя можно вернуть позже, перераспределив веса.</p></div>
-<div class="document-section"><h3 data-edit="tl-s3-title-v2">03. Допродажи отдела — годовой показатель</h3><p data-edit="tl-s3-text-v2">Вместо личных допродаж тимлид получает годовой бонус за выполнение плана по допродажам отдела (только B2G-регионы). Он считается по итогам года, вне квартальной премии. Бонус = факт допродаж отдела за год × ставка, которая зависит от среднего чека: до 5 млн ₽ — 0,3%; от 5 до 20 млн ₽ — 0,2%; от 20 до 50 млн ₽ — 0,1%.</p></div>
-<div class="document-section"><h3 data-edit="tl-s5-title-v2">04. Что осталось согласовать</h3><p data-edit="tl-s5-text-v2">Срок просрочки ДЗ: 1 или 2 месяца (при весе 20% склонились к двум); нужен ли допуск по сумме ДЗ; оклад и размер премии тимлида; условие годового бонуса при невыполнении плана по допродажам отдела и ставка для среднего чека свыше 50 млн ₽; итоговые суммы с Романом. После доработки — получасовая встреча, на которой тимлида и продажника прокручивают вместе и утверждают.</p><p class="source-links">Источник: Plaud, «Совещание: модели вознаграждения и калькуляторы премий», 03.11.2026: 13:54–14:13 — калькуляторы тимлида и продаж; 18:03–18:20 — разбивка по кварталам; 20:52–23:34 — дебиторская задолженность; 23:56–26:40 — убрать показатели 4 и 5; 28:40–30:06 — веса 50 / 30 / 20. Годовой показатель по допродажам отдела, отмена понижающего коэффициента и учёт только B2G — уточнения от 09.11.2026.</p></div>
+<div class="document-section"><h3 data-edit="tl-s3-title-v2">03. Допродажи отдела — годовой показатель</h3><p data-edit="tl-s3-revenue-v3">Годовой бонус тимлида зависит от выручки от допродаж отдела в B2G-регионах. План на 2027 год по умолчанию — 60 млн ₽ при ориентире 50 млн ₽ за 2026 год. При факте ниже 20 млн ₽ бонус равен нулю. Начиная с 20 млн ₽, сумма за 100% плана умножается на фактическое выполнение. При перевыполнении бонус растёт пропорционально. Сумму за 100% можно изменить в калькуляторе. Годовой бонус выплачивается отдельно от квартальной премии.</p></div>
+<div class="document-section"><h3 data-edit="tl-s5-title-v2">04. Что осталось согласовать</h3><p data-edit="tl-s5-text-v3">Срок просрочки ДЗ: 1 или 2 месяца (при весе 20% склонились к двум); нужен ли допуск по сумме ДЗ; оклад и размер премии тимлида; размер годового бонуса за 100% плана по допродажам отдела; итоговые суммы с Романом. После доработки — получасовая встреча, на которой тимлида и продажника прокручивают вместе и утверждают.</p><p class="source-links">Источник: Plaud, «Совещание: модели вознаграждения и калькуляторы премий», 03.11.2026: 13:54–14:13 — калькуляторы тимлида и продаж; 18:03–18:20 — разбивка по кварталам; 20:52–23:34 — дебиторская задолженность; 23:56–26:40 — убрать показатели 4 и 5; 28:40–30:06 — веса 50 / 30 / 20. Годовой показатель по допродажам отдела, отмена понижающего коэффициента и учёт только B2G — уточнения от 09.11.2026.</p></div>
 </article></section></div>
 <div id="sales-workspace" class="role-workspace" role="tabpanel" aria-labelledby="role-sales" hidden><nav class="tabs" aria-label="Разделы"><button class="tab" role="tab" data-panel="sales-calc-panel" aria-selected="true">Калькулятор</button><button class="tab" role="tab" data-panel="sales-proposal-panel" aria-selected="false">Предложения и правила</button></nav>
 <section class="tab-panel" id="sales-calc-panel" role="tabpanel"><div id="sales-calc"></div></section>
@@ -706,12 +706,13 @@ window.createRoleCalc=function(cfg){
     return 'регрессивная шкала ('+(u.scaleType==='marginal'?'по частям суммы':'одна ставка на весь чек')+'): '+parts.join('; ');
   }
 
-  // Yearly bonus: the rate is picked by the department's average check and applied to the actual upsell amount.
   function annualUpsell(s){
-    const a=s.upsell.annual,fact=Math.max(0,n(a.fact)),count=fact>0?Math.max(1,Math.round(n(a.count))):0;
-    const avg=count?fact/count:0,per=count?upsellBonus(avg,s.upsell):{bonus:0,flag:false};
-    const ratio=n(a.plan)>0?fact/a.plan:null,passed=n(a.threshold)<=0||(ratio!==null&&ratio>=n(a.threshold)/100);
-    return {fact,count,avg,ratio,passed,flag:per.flag,rate:avg>0?per.bonus/avg*100:0,bonus:passed?per.bonus*count:0};
+    const {plan,fact,bonusAtPlan}=s.upsell.annual;
+    const revenue=Math.max(0,n(fact));
+    const ratio=n(plan)>0?revenue/plan:null;
+    const reachedThreshold=revenue>=cfg.annualUpsell.minRevenue;
+    const bonus=reachedThreshold&&ratio!==null?Math.round(Math.max(0,n(bonusAtPlan))*ratio):0;
+    return {ratio,reachedThreshold,bonus};
   }
   function calc(s){
     const salary=Math.round(n(s.salary.base)*(1+(s.salary.indexOn?n(s.salary.indexRate):0)/100));
@@ -753,19 +754,24 @@ window.createRoleCalc=function(cfg){
       +'<div class="setting-group"><p class="setting-title">3. Показатели и веса '+H('weights')+'</p><div data-o="ind-list"></div><div class="custom-add-row"><select class="form-select" data-o="add-type" aria-label="Тип нового показателя">'+Object.entries(TYPES).map(([k,v])=>'<option value="'+k+'">'+v+'</option>').join('')+'</select><button type="button" class="action" data-act="add-ind">Добавить</button></div><p class="micro" data-o="weights-sum"></p></div>'
       +'<div class="setting-group"><p class="setting-title">4. Правила расчёта '+H('rules')+'</p><div class="compact-pair"><label class="form-label">Порог, %'+numIn('rules.threshold',5,'Порог, %',' max="100"')+'</label><label class="form-label">Потолок, %'+numIn('rules.cap',5,'Потолок, %',' min="100"')+'</label></div><div class="compact-pair" data-o="debt-rules"><label class="form-label">Просрочка ДЗ, мес.'+numIn('debtRule.months',1,'Просрочка ДЗ от, мес.')+'</label><label class="form-label">Допуск ДЗ, ₽'+numIn('debtRule.tolerance',10000,'Допуск ДЗ, ₽')+'</label></div></div>'
       +(cfg.noDocs?'':'<div class="setting-group"><p class="setting-title">5. Понижающий коэффициент '+H('docs')+'</p><label class="indexation-toggle"><input type="checkbox" data-s="docs.on" data-rerender="1"><span>'+esc(cfg.docsLabel)+'</span></label><label class="form-label" data-when-true="docs.on">Коэффициент, если не выполнено'+numIn('docs.coef',0.05,'Коэффициент',' max="1"')+'</label></div>')
-      +'<div class="setting-group"><p class="setting-title">'+(cfg.annualUpsell?'5. Допродажи отдела · год':'6. Личные допродажи')+' '+H('upsell')+'</p>'+(cfg.annualUpsell?'':'<label class="indexation-toggle"><input type="checkbox" data-s="upsell.on" data-rerender="1"><span>Начислять бонус за допродажи</span></label>')+'<div data-when-true="upsell.on">'
+      +(cfg.annualUpsell
+        ?'<div class="setting-group"><p class="setting-title">5. Допродажи отдела · год '+H('upsell')+'</p><p class="micro">План, факт и бонус за 100% плана задаются под таблицей кварталов.</p></div>'
+        :'<div class="setting-group"><p class="setting-title">6. Личные допродажи '+H('upsell')+'</p><label class="indexation-toggle"><input type="checkbox" data-s="upsell.on" data-rerender="1"><span>Начислять бонус за допродажи</span></label><div data-when-true="upsell.on">'
         +'<label class="form-label">Способ<select class="form-select" data-s="upsell.mode"><option value="scale">Регрессивная шкала</option><option value="percent">Один % от суммы</option><option value="fixed">Фикс за сделку</option></select></label>'
         +'<label class="form-label" data-when="upsell.mode:fixed">Фикс за допродажу, ₽'+numIn('upsell.fixed',5000,'Фикс за допродажу, ₽')+'</label>'
         +'<label class="form-label" data-when="upsell.mode:percent">Процент от суммы, %'+numIn('upsell.rate',0.5,'Процент от суммы, %',' max="100"')+'</label>'
         +'<div data-when="upsell.mode:scale"><label class="form-label">Как применять шкалу<select class="form-select" data-s="upsell.scaleType"><option value="marginal">По частям суммы</option><option value="whole">Одна ставка на весь чек</option></select></label><div data-o="tiers"></div><button type="button" class="action" data-act="add-tier">+ Ступень</button>'
         +'<label class="form-label" style="margin-top:16px">Выше последней границы<select class="form-select" data-s="upsell.aboveMode"><option value="agree">По согласованию</option><option value="rate">Своя ставка</option></select></label><label class="form-label" data-when="upsell.aboveMode:rate">Ставка выше границы, %'+numIn('upsell.aboveRate',0.1,'Ставка выше границы, %',' max="100"')+'</label></div>'
-        +'<p class="micro" data-o="upsell-explainer"></p><p class="micro" style="margin-top:8px">'+(cfg.annualUpsell?'План, факт и число сделок вводятся в блоке под таблицей кварталов.':'Суммы и количество допродаж вводятся в таблице кварталов.')+'</p></div></div>'
+        +'<p class="micro" data-o="upsell-explainer"></p><p class="micro" style="margin-top:8px">Суммы и количество допродаж вводятся в таблице кварталов.</p></div></div>')
       +'</aside>';
   }
   function annualHtml(){
-    const field=(p,inc,l,a)=>'<label class="form-label">'+l+numIn('upsell.annual.'+p,inc,l,a)+'</label>';
-    const res=(k,l)=>'<div><span class="micro">'+l+'</span><div class="deal-bonus" data-o="'+k+'">—</div></div>';
-    return '<div class="period-section"><div class="section-heading"><h3>Выполнение плана по допродажам отдела · год</h3><span class="small-note">годовой показатель, вне квартальной премии</span></div><p class="micro" style="margin-bottom:14px">'+esc(cfg.annualIntro)+'</p><div class="annual-upsell-grid">'+field('plan',1000000,'План на год, ₽')+field('fact',1000000,'Факт за год, ₽')+field('count',1,'Сделок за год, шт.')+field('threshold',5,'Порог выплаты, %',' max="100"')+'</div><div class="annual-upsell-grid annual-upsell-results">'+res('au-ratio','Выполнение плана')+res('au-avg','Средний чек')+res('au-rate','Ставка')+res('au-bonus','Бонус за год')+'</div></div>';
+    const field=(path,increment,label)=>'<label class="form-label">'+label+numIn('upsell.annual.'+path,increment,label)+'</label>';
+    const result=(key,label)=>'<div><span class="micro">'+label+'</span><div class="deal-bonus" data-o="'+key+'">—</div></div>';
+    return '<div class="period-section"><div class="section-heading"><h3>Выручка от допродаж отдела за год</h3><span class="small-note">Только B2G-регионы</span></div>'
+      +'<p class="micro" style="margin-bottom:14px">При факте ниже '+mln(cfg.annualUpsell.minRevenue)+' бонус равен нулю. От порога бонус равен сумме за 100% плана × факт / план. Сумма за 100% в калькуляторе — пример.</p>'
+      +'<div class="annual-upsell-grid">'+field('plan',1000000,'План на год, ₽')+field('fact',1000000,'Факт за год, ₽')+field('bonusAtPlan',10000,'Бонус за 100% плана, ₽')+'</div>'
+      +'<div class="annual-upsell-grid annual-upsell-results" aria-live="polite">'+result('au-ratio','Выполнение плана')+result('au-bonus','Бонус за год')+'</div></div>';
   }
   function mainHtml(){
     const card=(label,key)=>'<div><div class="summary-label">'+label+'</div><div class="summary-value" data-o="'+key+'">—</div><div class="summary-caption" data-o="'+key+'-caption"></div></div>';
@@ -779,7 +785,7 @@ window.createRoleCalc=function(cfg){
     out('ind-list').innerHTML=state.indicators.map((m,i)=>'<div class="ind-row"><textarea class="form-control ind-title" rows="'+(cfg.annualUpsell?3:2)+'" maxlength="120" data-s="indicators.'+i+'.title" data-retable="1" aria-label="Название показателя"></textarea><div class="ind-row-meta"><span class="ind-type">'+TYPES[m.type]+'</span>'+(m.type==='ratio'?'<select class="form-select ind-unit" data-s="indicators.'+i+'.unit" data-rerender="1" aria-label="Единица"><option value="₽">₽</option><option value="шт.">шт.</option><option value="%">%</option></select>':'')+'</div><div class="ind-row-bottom"><label class="form-label">Вес, %'+numIn('indicators.'+i+'.weight',5,'Вес, %',' max="100"')+'</label><button type="button" class="icon-btn" data-act="rm-ind" data-i="'+i+'" aria-label="Удалить показатель">×</button></div></div>').join('')||'<p class="micro">Показателей нет — добавьте хотя бы один.</p>';
   }
   function renderTiers(){
-    out('tiers').innerHTML=state.upsell.tiers.map((t,i)=>'<div class="tier-row"><label class="form-label">Чек до, ₽'+numIn('upsell.tiers.'+i+'.upTo',1000000,'Граница ступени, ₽')+'</label><label class="form-label">Ставка, %'+numIn('upsell.tiers.'+i+'.rate',cfg.annualUpsell?0.05:0.5,'Ставка ступени, %',' max="100"')+'</label><button type="button" class="icon-btn" data-act="rm-tier" data-i="'+i+'" aria-label="Удалить ступень">×</button></div>').join('')||'<p class="micro">Ступеней нет — добавьте хотя бы одну.</p>';
+    out('tiers').innerHTML=state.upsell.tiers.map((t,i)=>'<div class="tier-row"><label class="form-label">Чек до, ₽'+numIn('upsell.tiers.'+i+'.upTo',1000000,'Граница ступени, ₽')+'</label><label class="form-label">Ставка, %'+numIn('upsell.tiers.'+i+'.rate',0.5,'Ставка ступени, %',' max="100"')+'</label><button type="button" class="icon-btn" data-act="rm-tier" data-i="'+i+'" aria-label="Удалить ступень">×</button></div>').join('')||'<p class="micro">Ступеней нет — добавьте хотя бы одну.</p>';
   }
   function renderTable(){
     const hint=h=>h?'<span class="note">'+h+'</span>':'';
@@ -825,7 +831,7 @@ window.createRoleCalc=function(cfg){
       else el.value=typeof v==='number'&&!Number.isFinite(v)?'':(v??'');
     });
   }
-  function renderStructure(){renderIndList();renderTiers();renderTable();enhance();sync();}
+  function renderStructure(){renderIndList();if(!cfg.annualUpsell)renderTiers();renderTable();enhance();sync();}
   function save(){doc.data.roles[cfg.key]=state;doc.persist();}
 
   function update(){
@@ -861,15 +867,20 @@ window.createRoleCalc=function(cfg){
       set('salary3',money(q.salary3));set('total',money(q.total));
     });
     s.indicators.forEach(m=>{const g=out('gw-'+m.id);if(g)g.textContent=num(m.weight)+'%';const d=out('debt-months-'+m.id);if(d)d.textContent=num(s.debtRule.months);});
-    out('upsell-explainer').textContent=s.upsell.on?'Сейчас: '+upsellText(u)+'.':'';
+    let upsellSummary;
     if(r.annual){
-      const a=r.annual;out('au-ratio').textContent=a.ratio===null?'—':pct(a.ratio);out('au-avg').textContent=a.count?money(a.avg):'—';
-      out('au-rate').innerHTML=a.flag?'по согласованию':u.mode==='fixed'?'фикс':a.count?num(a.rate)+'%':'—';
-      out('au-bonus').innerHTML=money(a.bonus)+(a.passed?'':'<span class="note">ниже порога выплаты</span>');
+      const a=r.annual;
+      const reason=a.ratio===null?'укажите положительный план':!a.reachedThreshold?'ниже порога '+mln(cfg.annualUpsell.minRevenue):'';
+      out('au-ratio').textContent=pct(a.ratio);
+      out('au-bonus').innerHTML=money(a.bonus)+note(reason);
+      upsellSummary='. Годовые допродажи отдела: план '+money(u.annual.plan)+', факт '+money(u.annual.fact)+', бонус '+money(a.bonus);
+    }else{
+      out('upsell-explainer').textContent=s.upsell.on?'Сейчас: '+upsellText(u)+'.':'';
+      upsellSummary=s.upsell.on?'; допродажи — '+upsellText(u):'; без бонуса за допродажи';
     }
     out('annual').innerHTML='<div class="annual-figure"><span>Годовой доход</span><strong>'+money(y.total)+'</strong></div><div class="annual-figure"><span>Среднемесячный доход</span><strong>'+money(y.monthly)+'</strong></div>';
     const live=document.querySelector('[data-live="'+cfg.key+'"]');
-    if(live)live.textContent='Настройки: оклад '+money(r.salary)+'/мес.'+(s.salary.indexOn?' (с индексацией '+num(s.salary.indexRate)+'%)':'')+'; премиальный фонд '+money(r.fund)+' за квартал ('+money(r.fund/3)+' в месяц); показатели: '+s.indicators.map(m=>(m.title||'без названия')+' — '+num(m.weight)+'%').join(', ')+'; порог '+num(s.rules.threshold)+'%, потолок '+num(s.rules.cap)+'%'+(s.indicators.some(m=>m.type==='debt')?'; ДЗ — просрочка от '+num(s.debtRule.months)+' мес., допуск '+money(s.debtRule.tolerance):'')+(s.docs.on?'; понижающий коэффициент '+num(s.docs.coef):'')+(s.upsell.on?(cfg.annualUpsell?'; годовой бонус за допродажи отдела — ':'; допродажи — ')+upsellText(u):'; без бонуса за допродажи')+'.';
+    if(live)live.textContent='Настройки: оклад '+money(r.salary)+'/мес.'+(s.salary.indexOn?' (с индексацией '+num(s.salary.indexRate)+'%)':'')+'; премиальный фонд '+money(r.fund)+' за квартал ('+money(r.fund/3)+' в месяц); показатели: '+s.indicators.map(m=>(m.title||'без названия')+' — '+num(m.weight)+'%').join(', ')+'; порог '+num(s.rules.threshold)+'%, потолок '+num(s.rules.cap)+'%'+(s.indicators.some(m=>m.type==='debt')?'; ДЗ — просрочка от '+num(s.debtRule.months)+' мес., допуск '+money(s.debtRule.tolerance):'')+(s.docs.on?'; понижающий коэффициент '+num(s.docs.coef):'')+upsellSummary+'.';
   }
 
   // Keeps the total at 100%: the edited weight stays, the last indicator (or the first, if the last was edited) absorbs the rest.
@@ -909,7 +920,7 @@ window.createRoleCalc=function(cfg){
     }else if(act==='rm-ind'){
       state.indicators.splice(Number(t.dataset.i),1);
       if(state.indicators.length){const last=state.indicators[state.indicators.length-1];last.weight=Math.max(0,100-state.indicators.slice(0,-1).reduce((a,x)=>a+n(x.weight),0));}
-    }else if(act==='add-tier'){const tiers=state.upsell.tiers,last=tiers.length?n(tiers[tiers.length-1].upTo):0,rate=tiers.length?n(tiers[tiers.length-1].rate):3;tiers.push({upTo:last?last*2:5000000,rate:cfg.annualUpsell?Math.max(0,Math.round((rate-0.05)*100)/100):Math.max(0,Math.round((rate-0.5)*10)/10)});}
+    }else if(act==='add-tier'){const tiers=state.upsell.tiers,last=tiers.length?n(tiers[tiers.length-1].upTo):0,rate=tiers.length?n(tiers[tiers.length-1].rate):3;tiers.push({upTo:last?last*2:5000000,rate:Math.max(0,Math.round((rate-0.5)*10)/10)});}
     else if(act==='rm-tier'){state.upsell.tiers.splice(Number(t.dataset.i),1);}
     else return;
     renderStructure();update();save();
@@ -941,27 +952,34 @@ window.createRoleCalc=function(cfg){
     annual:['Итог за год','Годовой доход = оклад × 12 + премии четырёх кварталов + бонусы за допродажи. Среднемесячный = годовой / 12.']
   };
   createRoleCalc({
-    key:'teamlead',rootId:'tl-calc',noDocs:true,annualUpsell:true,
-    help:{...help,upsell:['Допродажи отдела · годовой показатель','Считается по итогам года, вне квартальной премии, только по B2G-регионам. Средний чек = факт за год / число сделок. По среднему чеку выбирается ставка, бонус = факт допродаж × ставка. Порог выплаты 0% означает, что бонус начисляется при любом выполнении плана.'],table:['Расчёт по кварталам','Каждый квартал считается отдельно, не накопительным итогом. Все показатели — только по B2G-регионам. Белые поля — ввод, остальное считается само.']},
-    annualIntro:'Только B2G-регионы. Ставка зависит от среднего чека (настраивается слева), бонус считается от фактической суммы допродаж отдела за год.',
+    key:'teamlead',rootId:'tl-calc',noDocs:true,annualUpsell:{minRevenue:20000000},
+    help:{...help,upsell:['Допродажи отдела · годовой показатель','Считается по итогам года отдельно от квартальной премии. Выполнение плана = выручка от допродаж отдела в B2G-регионах / план. При факте от 20 млн ₽ годовой бонус растёт пропорционально выполнению.'],table:['Расчёт по кварталам','Каждый квартал считается отдельно, не накопительным итогом. Все показатели — только по B2G-регионам. Белые поля — ввод, остальное считается само.']},
     migrate(s,d){
-      const titles={"Актированная выручка команды": "Актированная выручка команды (только B2G-регионы)", "Подписанные контракты команды": "Подписанные контракты команды (только B2G-регионы)", "Просроченная ДЗ команды": "Просроченная ДЗ команды (только B2G-регионы)"};
-      s.version=d.version;s.docs=d.docs;s.upsell=d.upsell;
-      s.indicators.forEach(m=>{if(titles[m.title])m.title=titles[m.title];});
-      s.quarters.forEach(q=>{q.docsOk=true;q.upsellSum=0;q.upsellCount=0;});
+      if(s.version<2){
+        const titles={"Актированная выручка команды": "Актированная выручка команды (только B2G-регионы)", "Подписанные контракты команды": "Подписанные контракты команды (только B2G-регионы)", "Просроченная ДЗ команды": "Просроченная ДЗ команды (только B2G-регионы)"};
+        s.docs=d.docs;
+        s.indicators.forEach(m=>{if(titles[m.title])m.title=titles[m.title];});
+        s.quarters.forEach(q=>{q.docsOk=true;q.upsellSum=0;q.upsellCount=0;});
+      }
+      const oldAnnual=s.upsell?.annual;
+      const annual={...d.upsell.annual};
+      if(Number.isFinite(oldAnnual?.plan)&&oldAnnual.plan>0&&oldAnnual.plan!==20000000)annual.plan=oldAnnual.plan;
+      if(Number.isFinite(oldAnnual?.fact))annual.fact=oldAnnual.fact;
+      s.upsell={annual};
+      s.version=d.version;
     },
     kicker:'Квартальная премия тимлида РП · 2027 · только B2G',
     docsLabel:'Паспорта и дорожные карты актуальны',
     tableIntro:'Все показатели учитываются только по B2G-регионам: общий результат всех РП и личного портфеля тимлида. Введите план и факт по каждому кварталу; годовые допродажи отдела — под таблицей.',
     assumption:'Суммы — на руки (уточнено на встрече 03.11). Цифры по умолчанию — пример для проверки механики, а не согласованные планы. Изменения сохраняются в этом браузере.',
     defaults:{
-      version:2,
+      version:3,
       salary:{base:150000,indexOn:false,indexRate:10},
       bonus:{mode:'percent',target:200000,rate:30},
       rules:{threshold:80,cap:120},
       debtRule:{months:2,tolerance:0},
       docs:{on:false,coef:0.8},
-      upsell:{...scale,scaleType:'whole',tiers:[{upTo:5000000,rate:0.3},{upTo:20000000,rate:0.2},{upTo:50000000,rate:0.1}],annual:{plan:20000000,fact:18000000,count:6,threshold:0}},
+      upsell:{annual:{plan:60000000,fact:50000000,bonusAtPlan:100000}},
       indicators:[
         {id:'rev',type:'ratio',title:'Актированная выручка команды (только B2G-регионы)',unit:'₽',weight:50},
         {id:'cnt',type:'ratio',title:'Подписанные контракты команды (только B2G-регионы)',unit:'шт.',weight:30},
