@@ -114,35 +114,39 @@
 <div class="setting-group"><p class="setting-title">4. Правила по выручке <button class="info-button" data-help="threshold" type="button" aria-label="О пороге и потолке">i</button></p>
 <div class="compact-pair"><label class="form-label">Порог, %<input class="form-control" type="number" min="0" max="100" step="any" data-s="revenue.threshold" data-increment="5"></label><label class="form-label">Потолок, %<input class="form-control" type="number" min="100" step="any" data-s="revenue.cap" data-increment="5"></label></div>
 <label class="form-label">Если план квартала 0<select class="form-select" data-s="revenue.zeroPlan"><option value="none">Не выплачивать</option><option value="carry">Перенести фонд дальше</option></select></label></div>
-<div class="setting-group"><p class="setting-title">5. Допродажи <button class="info-button" data-help="upsell" type="button" aria-label="О допродажах">i</button></p>
-<label class="form-label">Способ<select class="form-select" data-s="upsell.mode"><option value="scale">Регрессивная шкала</option><option value="percent">Один % от суммы</option><option value="fixed">Фикс за сделку</option></select></label>
-<label class="form-label" id="fixed-field">Фикс за допродажу, ₽<input class="form-control" type="number" min="0" step="any" data-s="upsell.fixed" data-increment="5000"></label>
-<label class="form-label" id="percent-field">Процент от суммы, %<input class="form-control" type="number" min="0" max="100" step="any" data-s="upsell.rate" data-increment="0.5"></label>
-<div id="scale-fields"><label class="form-label">Как применять шкалу<select class="form-select" data-s="upsell.scaleType"><option value="marginal">По частям суммы</option><option value="whole">Одна ставка на весь чек</option></select></label>
-<div id="tiers"></div><button type="button" class="action" id="add-tier">+ Ступень</button>
-<label class="form-label" style="margin-top:16px">Выше последней границы<select class="form-select" data-s="upsell.aboveMode"><option value="agree">По согласованию</option><option value="rate">Своя ставка</option></select></label>
-<label class="form-label" id="above-rate-field">Ставка выше границы, %<input class="form-control" type="number" min="0" max="100" step="any" data-s="upsell.aboveRate" data-increment="0.1"></label></div>
-<p class="micro" id="upsell-explainer"></p><p class="micro" style="margin-top:8px">Суммы и количество допродаж вводятся в таблице кварталов, в группе «Допродажи».</p></div>
+<div class="setting-group"><p class="setting-title">5. Допродажи · год <button class="info-button" data-help="upsell" type="button" aria-label="О годовом бонусе за допродажи">i</button></p>
+<label class="form-label">Индивидуальный план на год, ₽<input class="form-control" type="number" min="0" step="any" data-s="upsell.annual.plan" data-increment="1000000"></label>
+<label class="form-label">Факт выручки за год, ₽<input class="form-control" type="number" min="0" step="any" data-s="upsell.annual.fact" data-increment="100000"></label>
+<p class="micro">50% и ниже — 0 ₽ · 80% — 150 000 ₽ · 100% — 250 000 ₽ · от 120% — 350 000 ₽.</p>
+</div>
 </aside>
 <div class="variants-main"><div class="result-surface"><div class="result-header"><p class="result-kicker">Квартальная премия РП · 2027</p><div class="summary-grid"><div><div class="summary-label">Оклад / месяц</div><div class="summary-value" id="hero-salary">—</div><div class="summary-caption" id="hero-salary-caption"></div></div><div><div class="summary-label">Премиальный фонд / квартал</div><div class="summary-value" id="hero-fund">—</div><div class="summary-caption" id="hero-fund-caption"></div></div><div><div class="summary-label">Средний доход / месяц</div><div class="summary-value" id="hero-monthly">—</div><div class="summary-caption" id="hero-monthly-caption"></div></div></div><p class="micro fund-formula" id="fund-formula"></p></div>
 <div class="result-body"><div class="section-heading"><h2>Расчёт по кварталам</h2><button class="info-button" data-help="tasks" type="button" aria-label="Как работают топ-задачи">i</button></div>
-<p class="micro" style="margin-bottom:16px">Введите план и факт актированной выручки, количество контрактов и допродажи. Незаключённые контракты сами переходят в следующий квартал, и цена каждой задачи там падает.</p>
+<p class="micro" style="margin-bottom:16px">Введите план и факт актированной выручки и количество контрактов. Незаключённые контракты сами переходят в следующий квартал, и цена каждой задачи там падает.</p>
 <div id="rp-warnings" class="warn" role="alert"></div>
 <div class="table-responsive"><table class="table q-table" id="quarter-table"></table></div>
+<section class="period-section" aria-labelledby="rp-upsell-title">
+<div class="section-heading"><h3 id="rp-upsell-title">Годовой бонус за допродажи</h3></div>
+<p class="micro">За каждый процентный пункт выполнения индивидуального плана сверх 50% — 5 000 ₽. Потолок выплаты — 350 000 ₽ за год.</p>
+<div class="annual-upsell-grid annual-upsell-results" aria-live="polite">
+<div><span class="micro">Выполнение плана</span><div class="deal-bonus" id="rp-upsell-ratio">—</div></div>
+<div><span class="micro">Бонус за год</span><div class="deal-bonus" id="rp-upsell-bonus">—</div></div>
+</div><p class="micro" id="rp-upsell-note"></p>
+</section>
 </div></div>
 <p class="assumption">Суммы до НДФЛ. Цифры по умолчанию — проект по встрече 29.10, а не утверждённые значения. Изменения сохраняются в этом браузере; «Скачать с правками» создаёт копию файла с текущими цифрами и текстом.</p>
 <section class="annual-totals result-surface" aria-labelledby="annual-title"><div class="annual-heading"><div class="label-line"><h2 id="annual-title">Итог за год</h2><button class="info-button" data-help="annual" type="button" aria-label="Как считается итог за год">i</button></div></div><div class="annual-compact" id="annual-results" aria-live="polite"></div></section>
 </div></div></div></section>
 <div class="info-popover" id="info-popover" role="tooltip" hidden></div>
 <section class="tab-panel" id="proposal-panel" role="tabpanel" aria-labelledby="tab-proposal" hidden><div class="edit-hint">Нажмите на текст, чтобы изменить формулировку. Изменения сохраняются в этом браузере. «Скачать с правками» создаёт HTML-копию с текущими цифрами и текстом.</div><article class="document">
-<div class="document-section"><p class="doc-kicker">Рабочая модель · встреча 29.10.2026</p><h2 data-edit="title">Квартальная мотивация РП на 2027 год</h2><p data-edit="intro">Модель собрана по договорённостям рабочей встречи «KPI» 29.10.2026. Премия только квартальная, годовой премии нет. Оклад выплачивается ежемесячно, премия — по итогам квартала, допродажи — разово. Показатели качества в премию не входят и остаются в оценке работы. Все цифры — проект для обсуждения.</p><p class="budget-note" id="proposal-live"></p></div>
+<div class="document-section"><p class="doc-kicker">Рабочая модель · встреча 29.10.2026</p><h2 data-edit="title">Квартальная мотивация РП на 2027 год</h2><p data-edit="rp-intro-annual-upsell">Модель учитывает договорённости рабочей встречи «KPI» 29.10.2026 и последующие уточнения. Оклад выплачивается ежемесячно, KPI-премия — по итогам квартала, бонус за допродажи — разово по итогам года. Показатели качества в премию не входят и остаются в оценке работы. Все цифры — проект для обсуждения.</p><p class="budget-note" id="proposal-live"></p></div>
 <div class="document-section"><h3 data-edit="s1-title">01. Оклад и целевой доход</h3><p data-edit="s1-text">Ориентир по окладу на 2027 год — 115–120 тыс. ₽ в месяц; индексация обсуждалась на уровне около 10%. Целевой совокупный доход при выполнении плана без допродаж — 160 тыс. ₽ в месяц (без тимлида и Сергея), то есть премия — около 40–45 тыс. ₽ в месяц. По рынку текущие предложения ниже примерно на 20%: в сопоставимых компаниях — от 150 тыс. ₽.</p></div>
 <div class="document-section"><h3 data-edit="s2-title">02. Из чего состоит премия</h3><p data-edit="s2-text">Два показателя: актированная выручка с небольшим весом и подписанные контракты в штуках (топ-задачи) с основным весом. По подписанным контрактам актированная выручка достигается почти всегда, поэтому её вес не может быть 50%; ориентир — около 15%. Контрактование привязано к штукам, а не к сумме: сумма контракта зависит от бюджета региона и согласования цены руководством, а не от РП.</p></div>
 <div class="document-section"><h3 data-edit="s3-title">03. Актированная выручка</h3><code id="live-formula-rev"></code><p data-edit="s3-text">Факт — работы выполнены и приняты заказчиком. Ниже порога часть за выручку не выплачивается, выше — пропорционально выполнению, до потолка. Для квартала с нулевым планом в калькуляторе выбирается правило: часть не выплачивается или фонд переносится на следующий квартал. Перенос предлагали на встрече, но не утвердили.</p></div>
 <div class="document-section"><h3 data-edit="s4-title">04. Топ-задачи: как работает перенос</h3><code id="live-formula-tasks"></code><p data-edit="s4-text">Каждый контракт, запланированный к подписанию в квартале, — одна топ-задача. Выплата по каждой — «да / нет», без порога в процентах. Фонд блока делится на число задач квартала. Незаключённый контракт переходит в следующий квартал, где тот же фонд делится на большее число задач: каждая дешевеет, а недополученное за прошлый квартал не возвращается. Пример со встречи: фонд 10 000 ₽ на 3 задачи — по 3 333 ₽; заключён 1 контракт — 3 333 ₽; 2 переходят, в следующем квартале 3 + 2 = 5 задач по 2 000 ₽. Плановый разброс — 4–7 задач на квартал, минимум 2.</p></div>
-<div class="document-section"><h3 data-edit="s5-title">05. Допродажи</h3><p data-edit="s5-text">Процент от суммы допродажи по регрессивной шкале: чеки бывают от 1 до 20 млн ₽, в теории — до 50 млн ₽. Выше верхней границы — по отдельному согласованию. Допродажи выплачиваются разово и не входят в факт квартальной премии. Ставки шкалы — пример для обсуждения.</p><p class="budget-note" id="proposal-upsell-live"></p></div>
+<div class="document-section"><h3 data-edit="s5-title">05. Допродажи</h3><p data-edit="rp-upsell-annual-rule">Бонус за допродажи рассчитывается по выполнению индивидуального годового плана выручки. При выполнении до 50% включительно — 0 ₽, при 80% — 150 000 ₽, при 100% — 250 000 ₽, от 120% — 350 000 ₽. Между точками выплата растёт плавно. Формула — МИН(350 000; МАКС(0; выполнение плана в процентах − 50) × 5 000). Выплата производится разово по итогам года.</p><p class="budget-note" id="proposal-upsell-live"></p></div>
 <div class="document-section"><h3 data-edit="s6-title">06. Показатели качества</h3><p data-edit="s6-text">Показатели качества из прежней модели (готовность этапов к приёмке, продление ТП, использование платформы и др.) остаются в оценке работы РП и в деньги не переводятся, поэтому в калькуляторе их нет.</p></div>
-<div class="document-section"><h3 data-edit="s7-title">07. Что осталось согласовать</h3><p data-edit="s7-text">Точный оклад в диапазоне 115–120 тыс. ₽ и индексация; веса выручки и топ-задач; ставки и отсечка шкалы допродаж; правило для квартала без плана; что делать при полной отмене контракта, а не переносе; переход незакрытых задач через конец года и лимиты выплат; ответственность РП за дебиторскую задолженность и графики закрытия; пилот поквартального закрытия (Тула) и список регионов; бенчмарк по зарплатам в телекоме.</p><p class="source-links">Источник: Plaud, «Рабочая встреча: Система мотивации, согласование ТЗ и регламент КП», 29.10.2026: 21:56–25:38 — два показателя; 29:00–30:29 — вес актированной выручки; 33:19–41:37 — топ-задачи; 42:11–43:53 и 47:24–48:42 — оклад, доход, итог; 48:42–49:56 — допродажи; 50:31–50:44 — рынок.<br>Редактирование текста не меняет формулы. Цифры меняйте в калькуляторе.</p></div>
+<div class="document-section"><h3 data-edit="s7-title">07. Что осталось согласовать</h3><p data-edit="rp-open-annual-upsell">Точный оклад в диапазоне 115–120 тыс. ₽ и индексация; веса выручки и топ-задач; индивидуальные годовые планы выручки от допродаж; правило для квартала без плана; что делать при полной отмене контракта, а не переносе; переход незакрытых задач через конец года и лимиты выплат; ответственность РП за дебиторскую задолженность и графики закрытия; пилот поквартального закрытия (Тула) и список регионов; бенчмарк по зарплатам в телекоме.</p><p class="source-links">Источник: Plaud, «Рабочая встреча: Система мотивации, согласование ТЗ и регламент КП», 29.10.2026: 21:56–25:38 — два показателя; 29:00–30:29 — вес актированной выручки; 33:19–41:37 — топ-задачи; 42:11–43:53 и 47:24–48:42 — оклад, доход, итог; 48:42–49:56 — допродажи; 50:31–50:44 — рынок.<br>Редактирование текста не меняет формулы. Цифры меняйте в калькуляторе.</p></div>
 </article></section>
 <section id="grades-workspace" class="tab-panel" role="tabpanel" aria-labelledby="tab-grades" hidden>
   <div class="edit-hint">Нажмите на текст, чтобы изменить формулировку. Изменения сохраняются в этом браузере.</div>
@@ -346,7 +350,7 @@
   const root=document.getElementById('rp-motivation-2027');
   const QN=['I квартал','II квартал','III квартал','IV квартал'];
   const defaults={
-    version:10,
+    version:11,
     salary:{base:120000,indexOn:false,indexRate:10,grade:'manual'},
     bonus:{mode:'target',target:160000,rate:33.33},
     weights:{revenue:15,tasks:85},
@@ -358,18 +362,20 @@
       {revPlan:3000000,revFact:3300000,tasksNew:4,tasksRemoved:0,tasksDone:4,upsellSum:0,upsellCount:0}
     ],
     indicators:[],
-    upsell:{mode:'scale',fixed:50000,rate:2.5,scaleType:'marginal',tiers:[{upTo:5000000,rate:3},{upTo:20000000,rate:2},{upTo:50000000,rate:1}],aboveMode:'agree',aboveRate:0.5}
+    upsell:{annual:{plan:0,fact:0}}
   };
   const clone=o=>JSON.parse(JSON.stringify(o));
-  let state=doc.data.calc&&doc.data.calc.version===10?clone(doc.data.calc):clone(defaults);
+  const saved=doc.data.calc;
+  let state=saved&&[10,11].includes(saved.version)?clone(saved):clone(defaults);
   state.salary={...defaults.salary,...state.salary};
   state.indicators=[];
-  // Earlier saved versions kept upsells as a separate deal list; fold them into the quarters.
-  if(state.quarters.some(q=>q.upsellSum===undefined)){
-    const deals=Array.isArray(state.upsell.deals)?state.upsell.deals:[];
-    state.quarters.forEach((q,i)=>{const own=deals.filter(d=>d.q===i);q.upsellSum=own.reduce((a,d)=>a+(Number(d.amount)||0),0);q.upsellCount=own.length;});
+  if(state.version===10){
+    const fact=Array.isArray(state.upsell.deals)
+      ?state.upsell.deals.reduce((sum,deal)=>sum+(Number(deal.amount)||0),0)
+      :state.quarters.reduce((sum,quarter)=>sum+(Number(quarter.upsellSum)||0),0);
+    state.upsell={annual:{plan:0,fact}};
+    state.version=11;
   }
-  delete state.upsell.deals;
   doc.data.calc=state;
 
   const help={
@@ -378,7 +384,7 @@
     weights:['Веса в премии','Доли фонда для каждой части. По встрече: актированная выручка — меньшая доля (ориентир около 15%), основная — топ-задачи. Меняете один вес — второй подстраивается сам, чтобы сумма была 100%.'],
     threshold:['Порог и потолок по выручке','Порог — минимальное выполнение плана актированной выручки, с которого платится часть за выручку. Потолок — максимум, учитываемый при перевыполнении. Пример при пороге 50% и потолке 120%: 40% → 0; 90% → 90% части; 150% → 120% части. «Если план 0» — предложение со встречи: фонд пустого квартала переносится на следующий. Оно не утверждено, поэтому вынесено в выбор.'],
     tasks:['Топ-задачи','Топ-задача — контракт, который должен быть подписан в квартале. Цена задачи = фонд топ-задач / (новые + перенесённые − снятые). Премия = цена × заключённые. Незаключённые переходят в следующий квартал и делят его фонд, поэтому цена каждой падает, а недополученное не возвращается. «Снято с плана» — регион отказался совсем.'],
-    upsell:['Допродажи','Разовый бонус за каждую допродажу, вне квартальной премии. Регрессивная шкала: чем больше чек, тем ниже ставка. «По частям суммы» — каждая часть чека считается по своей ставке, без скачков на границах. «Одна ставка» — весь чек по ставке ступени, в которую он попал. Выше последней границы — по согласованию (в расчёте 0 ₽) или своя ставка.'],
+    upsell:['Годовой бонус за допродажи','Выполнение = факт выручки от допродаж / индивидуальный годовой план. До 50% включительно бонус равен нулю. За каждый процентный пункт сверх 50% начисляется 5 000 ₽. При 80% — 150 000 ₽, при 100% — 250 000 ₽, от 120% — 350 000 ₽. Выплата разовая по итогам года.'],
     annual:['Итог за год','Годовой доход = оклад × 12 + премии четырёх кварталов + бонусы за допродажи. Среднемесячный = годовой / 12.']
   };
 
@@ -393,18 +399,11 @@
   const $=s=>root.querySelector(s);
   const numInput=(path,inc,label,attrs)=>'<input class="form-control" type="number" min="0" step="any" data-s="'+path+'" data-increment="'+inc+'" aria-label="'+esc(label)+'"'+(attrs||'')+'>';
 
-  function upsellBonus(amount,u){
-    if(!(amount>0))return {bonus:0,flag:false};
-    if(u.mode==='fixed')return {bonus:n(u.fixed),flag:false};
-    if(u.mode==='percent')return {bonus:amount*n(u.rate)/100,flag:false};
-    const tiers=u.tiers.filter(t=>t.upTo>0).slice().sort((a,b)=>a.upTo-b.upTo);
-    const last=tiers.length?tiers[tiers.length-1].upTo:0;
-    const above=u.aboveMode==='rate'?n(u.aboveRate):0,flag=amount>last&&u.aboveMode==='agree';
-    if(u.scaleType==='whole'){const t=tiers.find(t=>amount<=t.upTo);return {bonus:amount*(t?n(t.rate):above)/100,flag};}
-    let bonus=0,prev=0;
-    for(const t of tiers){if(amount>prev)bonus+=(Math.min(amount,t.upTo)-prev)*n(t.rate)/100;prev=t.upTo;}
-    if(amount>last)bonus+=(amount-last)*above/100;
-    return {bonus,flag};
+  function annualUpsell(u){
+    const {plan,fact}=u.annual;
+    const ratio=n(plan)>0?Math.max(0,n(fact))/plan:null;
+    const bonus=ratio===null?0:Math.round(Math.min(350000,Math.max(0,(ratio*100-50)*5000)));
+    return {ratio,bonus};
   }
 
   function salaryInputs(salary){
@@ -444,24 +443,17 @@
       const taskPaid=done*price;
       carryTasks=open-done;
       const premium=revPaid+taskPaid+indPaid;
-      const upsellSum=Math.max(0,n(q.upsellSum)),upsellCount=upsellSum>0?Math.max(1,Math.round(n(q.upsellCount))):0;
-      const perDeal=upsellCount?upsellBonus(upsellSum/upsellCount,s.upsell):{bonus:0,flag:false};
-      const upsell=perDeal.bonus*upsellCount,upsellFlag=perDeal.flag;
-      return {revFund,ratio,k,revPaid,revNote,carried,open,done,price,taskPaid,indPaid,premium,upsell,salary3:salary*3,upsellCount,upsellFlag,total:salary*3+premium+upsell,doneOver:n(q.tasksDone)>open};
+      return {revFund,ratio,k,revPaid,revNote,carried,open,done,price,taskPaid,indPaid,premium,salary3:salary*3,total:salary*3+premium,doneOver:n(q.tasksDone)>open};
     });
     const sum=k=>quarters.reduce((a,q)=>a+q[k],0);
-    const year={salary:salary*12,revenue:sum('revPaid'),tasks:sum('taskPaid'),ind:sum('indPaid'),premium:sum('premium'),upsell:sum('upsell'),upsellCount:sum('upsellCount'),tasksLeft:carryTasks,flagged:quarters.filter(q=>q.upsellFlag).length,revLost:carryRev};
+    const year={salary:salary*12,revenue:sum('revPaid'),tasks:sum('taskPaid'),ind:sum('indPaid'),premium:sum('premium'),upsell:annualUpsell(s.upsell).bonus,tasksLeft:carryTasks,revLost:carryRev};
     year.total=year.salary+year.premium+year.upsell;year.monthly=year.total/12;
     return {salary,base,target,fund,revBase,taskBase,wInd,wSum,active,quarters,year};
   }
 
   function upsellText(u){
-    if(u.mode==='fixed')return 'фикс '+money(u.fixed)+' за сделку';
-    if(u.mode==='percent')return num(u.rate)+'% от суммы сделки';
-    let prev=0;
-    const parts=u.tiers.filter(t=>t.upTo>0).slice().sort((a,b)=>a.upTo-b.upTo).map(t=>{const s=(prev?'от '+mln(prev)+' ':'')+'до '+mln(t.upTo)+' — '+num(t.rate)+'%';prev=t.upTo;return s;});
-    parts.push('свыше '+mln(prev)+' — '+(u.aboveMode==='rate'?num(u.aboveRate)+'%':'по согласованию'));
-    return 'регрессивная шкала ('+(u.scaleType==='marginal'?'по частям суммы':'одна ставка на весь чек')+'): '+parts.join('; ');
+    const result=annualUpsell(u);
+    return 'годовой план '+money(u.annual.plan)+', факт '+money(u.annual.fact)+', выполнение '+pct(result.ratio)+', бонус '+money(result.bonus);
   }
 
   function renderQuarterTable(){
@@ -473,13 +465,8 @@
     $('#quarter-table').innerHTML=head+'<tbody>'
       +group('Актированная выручка')+inRow('revPlan','План, ₽',100000)+inRow('revFact','Факт, ₽',100000)+outRow('revK','Выполнение')+outRow('revPaid','Премия за выручку')
       +group('Топ-задачи · подписанные контракты')+inRow('tasksNew','Новые контракты в плане, шт.',1)+outRow('carried','Перенесено из прошлого квартала')+inRow('tasksRemoved','Снято с плана, шт.',1,'регион отказался совсем')+outRow('open','Всего задач в квартале')+inRow('tasksDone','Заключено, шт.',1)+outRow('price','Цена одной задачи')+outRow('taskPaid','Премия за топ-задачи')
-      +group('Допродажи · разовая выплата')+inRow('upsellSum','Сумма допродаж, ₽',100000)+inRow('upsellCount','Сделок, шт.',1,'для шкалы: сумма делится на сделки')+outRow('upsell','Бонус за допродажи')
-      +group('Итог квартала')+outRow('premium','Квартальная премия','strong')+outRow('upsell2','Допродажи')+outRow('salary3','Оклад за 3 месяца')+outRow('total','Доход за квартал','strong')
+      +group('Итог квартала')+outRow('premium','Квартальная премия','strong')+outRow('salary3','Оклад за 3 месяца')+outRow('total','Доход за квартал','strong')
       +'</tbody>';
-  }
-
-  function renderTiers(){
-    $('#tiers').innerHTML=state.upsell.tiers.map((t,i)=>'<div class="tier-row"><label class="form-label">Чек до, ₽'+numInput('upsell.tiers.'+i+'.upTo',1000000,'Граница ступени, ₽')+'</label><label class="form-label">Ставка, %'+numInput('upsell.tiers.'+i+'.rate',0.5,'Ставка ступени, %',' max="100"')+'</label><button type="button" class="icon-btn" data-remove-tier="'+i+'" aria-label="Удалить ступень">×</button></div>').join('')||'<p class="micro">Ступеней нет — добавьте хотя бы одну.</p>';
   }
 
   function enhance(){
@@ -507,7 +494,7 @@
       else el.value=typeof v==='number'&&!Number.isFinite(v)?'':(v??'');
     });
   }
-  function renderStructure(){renderTiers();enhance();sync();}
+  function renderStructure(){enhance();sync();}
   function save(){doc.data.calc=state;doc.persist();}
 
   function update(changedField){
@@ -526,7 +513,6 @@
       targetInput.value=Number.isFinite(s.bonus.target)?r.target:'';
     }
     $('#target-field').hidden=s.bonus.mode!=='target';$('#rate-field').hidden=s.bonus.mode!=='percent';
-    $('#fixed-field').hidden=u.mode!=='fixed';$('#percent-field').hidden=u.mode!=='percent';$('#scale-fields').hidden=u.mode!=='scale';$('#above-rate-field').hidden=u.aboveMode!=='rate';
     $('[data-s="salary.indexRate"]').disabled=!s.salary.indexOn;enhance();
     $('#index-status').textContent=s.salary.indexOn?money(r.base)+' × '+(1+n(s.salary.indexRate)/100).toFixed(3)+' = '+money(r.salary):'Индексация выключена: расчёт от оклада';
     $('#bonus-derived').textContent=s.bonus.mode==='target'?'Премия в месяц '+money(r.fund/3)+', за квартал '+money(r.fund)+' — это '+num(r.salary>0?r.fund/(r.salary*3)*100:NaN)+'% от трёх окладов.':'Фонд за квартал '+money(r.fund)+', в месяц '+money(r.fund/3)+'. Целевой доход при 100% — '+money(r.salary+r.fund/3)+' в месяц.';
@@ -550,10 +536,13 @@
       set('revPaid',money(q.revPaid)+note('фонд '+money(q.revFund)));
       set('carried',num(q.carried));set('open',num(q.open));
       set('price',money(q.price));set('taskPaid',money(q.taskPaid)+note(q.done+' из '+q.open));
-      set('premium',money(q.premium));set('upsell',money(q.upsell)+(q.upsellFlag?note('выше границы — по согласованию'):q.upsellCount>1?note(q.upsellCount+' сделки'):''));set('upsell2',money(q.upsell));set('salary3',money(q.salary3));set('total',money(q.total));
+      set('premium',money(q.premium));set('salary3',money(q.salary3));set('total',money(q.total));
     });
-    $('#upsell-explainer').textContent='Сейчас: '+upsellText(u)+'.';
-    $('#annual-results').innerHTML='<div class="annual-figure"><span>Годовой доход</span><strong>'+money(y.total)+'</strong></div><div class="annual-figure"><span>Среднемесячный доход</span><strong>'+money(y.monthly)+'</strong></div>';
+    const annual=annualUpsell(u);
+    $('#rp-upsell-ratio').textContent=pct(annual.ratio);
+    $('#rp-upsell-bonus').textContent=money(annual.bonus);
+    $('#rp-upsell-note').textContent=annual.ratio===null?'Укажите индивидуальный годовой план больше нуля.':'Разовая выплата по итогам года.';
+    $('#annual-results').innerHTML='<div class="annual-figure"><span>Годовой бонус за допродажи</span><strong>'+money(y.upsell)+'</strong></div><div class="annual-figure"><span>Годовой доход</span><strong>'+money(y.total)+'</strong></div><div class="annual-figure"><span>Среднемесячный доход</span><strong>'+money(y.monthly)+'</strong></div>';
     const g=id=>document.getElementById(id);
     g('proposal-live').textContent='Настройки: оклад '+money(r.salary)+'/мес.'+(s.salary.indexOn?' (с индексацией '+num(s.salary.indexRate)+'%)':'')+'; премиальный фонд '+money(r.fund)+' за квартал ('+money(r.fund/3)+' в месяц)'+(s.bonus.mode==='target'?', целевой доход '+money(r.target):'')+'; веса: выручка '+num(s.weights.revenue)+'%, топ-задачи '+num(s.weights.tasks)+'%'+(r.wInd?', доп. показатели '+num(r.wInd)+'%':'')+'; порог выручки '+num(s.revenue.threshold)+'%, потолок '+num(s.revenue.cap)+'%; допродажи — '+upsellText(u)+'.';
     g('live-formula-rev').textContent='Премия за выручку = фонд × '+num(s.weights.revenue)+'% × K; K = 0, если факт / план < '+num(s.revenue.threshold)+'%, иначе min(факт / план; '+num(s.revenue.cap)+'%)';
@@ -593,10 +582,7 @@
   root.addEventListener('click',e=>{
     const t=e.target.closest('button');if(!t)return;
     if(t.dataset.stepDirection){e.preventDefault();stepNumber(t.closest('.number-control').querySelector('input'),Number(t.dataset.stepDirection));return;}
-    if(t.dataset.removeTier!==undefined){state.upsell.tiers.splice(Number(t.dataset.removeTier),1);}
-    else if(t.id==='add-tier'){const tiers=state.upsell.tiers,last=tiers.length?n(tiers[tiers.length-1].upTo):0,rate=tiers.length?n(tiers[tiers.length-1].rate):3;tiers.push({upTo:last?last*2:5000000,rate:Math.max(0,Math.round((rate-0.5)*10)/10)});}
-    else return;
-    renderStructure();update();save();
+
   });
 
   const popup=document.getElementById('info-popover');let activeHelp=null,pinned=false,hideTimer;
