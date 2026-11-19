@@ -321,7 +321,6 @@
           const row=document.createElement('tr');row.dataset.employeeId=person.id;
           row.innerHTML='<td><span class="employee-identity"></span><span class="grade-caption"></span></td><td class="employee-salary">—</td><td><input class="form-control plan-input" type="text" aria-label="Личный план на квартал" placeholder="Укажите план"></td><td><select class="form-select status-input" aria-label="Выполнение личного плана"><option value="unset">Не оценён</option><option value="yes">Выполнен</option><option value="no">Не выполнен</option></select></td><td class="money-cell personal-budget">—</td><td class="money-cell personal-paid">—</td><td class="money-cell total-paid">—</td>';
           row.querySelector('.grade-caption').textContent='Грейд '+gradeNames[person.grade];
-          row.querySelector('.salary-input').value=person.salary;
           row.querySelector('.plan-input').value=person.plan;
           row.querySelector('.status-input').value=person.status;
           employeeBody.append(row);
