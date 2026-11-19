@@ -33,6 +33,7 @@
     .department-calculator{display:block}.department-calculator .settings{display:block;margin-bottom:20px;padding:22px 24px}.department-calculator .settings h2{margin-bottom:8px}.roster-intro{margin:0 0 18px!important}.grade-roster-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px;align-items:start}.department-calculator .grade-roster-grid .setting-group{border:1px solid var(--line);border-radius:9px;padding:17px;margin:0;min-width:0}.department-calculator .grade-roster-grid .setting-title{font-size:13px;color:var(--ink);letter-spacing:0;text-transform:none}.roster-people{border-top:1px solid var(--line);padding-top:12px;margin-top:12px}.roster-empty{font-size:11px;color:var(--muted);line-height:1.5;margin:0}.roster-person{padding:10px 0;border-bottom:1px solid #edf0f3}.roster-person:first-child{padding-top:0}.roster-person:last-child{border-bottom:0;padding-bottom:0}.roster-person-title{font-size:11px;font-weight:600;color:var(--muted);margin:0 0 6px}.roster-person-fields{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:8px}.roster-person-fields .form-label{margin:0}.roster-person-fields .form-control{min-height:36px;padding:7px 9px;font-size:12px}.money-input-wrap{display:block;position:relative}.money-input-wrap .form-control{padding-right:26px}.money-suffix{position:absolute;right:10px;top:50%;transform:translateY(-50%);color:var(--muted);font-size:12px;pointer-events:none}.roster-reserve-note{margin-top:14px!important}.employee-identity{display:block;font-weight:600}.employee-identity.is-placeholder{color:var(--muted);font-weight:400}.employee-salary{font-weight:600;white-space:nowrap;font-variant-numeric:tabular-nums}
     @media(max-width:950px){.grade-roster-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
     @media(max-width:600px){.grade-roster-grid{grid-template-columns:1fr}.department-calculator .settings{padding:17px}.roster-person-fields{grid-template-columns:minmax(0,1.25fr) minmax(0,1fr)}}
+    .grade-income-field{display:inline-flex;align-items:center;gap:5px;white-space:nowrap}.grade-income-input{width:82px;max-width:100%;border:1px solid #cddde0;border-radius:5px;background:#fff;color:var(--accent);font:inherit;font-weight:650;font-variant-numeric:tabular-nums;padding:6px 7px;text-align:right}.grade-income-input:focus-visible{outline:3px solid #9bc4ca;outline-offset:2px}.grade-income-field span{font-size:12px}
   </style>
 </head>
 <body>
@@ -53,11 +54,12 @@
       <section class="document-section" id="criteria">
         <h2 data-edit="criteria-title">Грейды и критерии</h2>
         <div class="table-responsive"><table class="table grade-overview"><thead><tr><th scope="col">Грейд</th><th scope="col">Уровень дохода<br><small>оклад в месяц</small></th><th scope="col">Критерии</th></tr></thead><tbody>
-          <tr><th scope="row" data-edit="grade1-label">Специалист I</th><td data-edit="grade1-salary">60 000 ₽</td><td><strong data-edit="grade1-criteria-title">Ведёт типовые задачи по согласованному маршруту.</strong><p data-edit="level1-body">Разбирает обращения пользователей, выполняет типовые настройки и ведёт ограниченный этап внедрения. Уточняет запрос, фиксирует ожидаемый результат и следующий шаг, проверяет выполненную работу. При отклонении вовремя сообщает о риске и привлекает нужного специалиста.</p></td></tr>
-          <tr><th scope="row" data-edit="grade2-label">Специалист II</th><td data-edit="grade2-salary">80 000 ₽</td><td><strong data-edit="grade2-criteria-title">Самостоятельно ведёт клиентскую задачу до результата.</strong><p data-edit="level2-body">Выясняет потребность заказчика, выбирает способ решения, согласует ограничения и критерии готовности. Ставит задачи смежным командам, контролирует договорённости и передаёт проверенный результат заказчику. Самостоятельно справляется с типовыми отклонениями и несколькими параллельными задачами.</p><p class="level-note" data-edit="level2-note">Переданный профиль должности соответствует этому уровню.</p></td></tr>
-          <tr><th scope="row" data-edit="grade3-label">Специалист III</th><td data-edit="grade3-salary">100 000 ₽</td><td><strong data-edit="grade3-criteria-title">Ведёт сложные задачи и развивает практику команды.</strong><p data-edit="level3-body">Берёт задачи с высокой неопределённостью, противоречивыми требованиями, несколькими системами или участниками. Выстраивает способ решения, ведёт сложные эскалации и доводит работу до принятого результата. Помогает коллегам разбирать сложные случаи; его решения и инструкции применяются в дальнейшей работе.</p><p class="level-note" data-edit="level3-note">Высший профессиональный грейд специалиста без ответственности за управление отделом.</p></td></tr>
+          <tr><th scope="row" data-edit="grade1-label">Специалист I</th><td><span class="grade-income-field"><input class="grade-income-input" data-grade-income="1" type="text" inputmode="numeric" autocomplete="off" value="70 000" aria-label="Уровень дохода специалиста I, рублей в месяц"><span aria-hidden="true">₽</span></span></td><td><strong data-edit="grade1-criteria-title">Ведёт типовые задачи по согласованному маршруту.</strong><p data-edit="level1-body">Разбирает обращения пользователей, выполняет типовые настройки и ведёт ограниченный этап внедрения. Уточняет запрос, фиксирует ожидаемый результат и следующий шаг, проверяет выполненную работу. При отклонении вовремя сообщает о риске и привлекает нужного специалиста.</p></td></tr>
+          <tr><th scope="row" data-edit="grade2-label">Специалист II</th><td><span class="grade-income-field"><input class="grade-income-input" data-grade-income="2" type="text" inputmode="numeric" autocomplete="off" value="90 000" aria-label="Уровень дохода специалиста II, рублей в месяц"><span aria-hidden="true">₽</span></span></td><td><strong data-edit="grade2-criteria-title">Самостоятельно ведёт клиентскую задачу до результата.</strong><p data-edit="level2-body">Выясняет потребность заказчика, выбирает способ решения, согласует ограничения и критерии готовности. Ставит задачи смежным командам, контролирует договорённости и передаёт проверенный результат заказчику. Самостоятельно справляется с типовыми отклонениями и несколькими параллельными задачами.</p><p class="level-note" data-edit="level2-note">Переданный профиль должности соответствует этому уровню.</p></td></tr>
+          <tr><th scope="row" data-edit="grade3-label">Специалист III</th><td><span class="grade-income-field"><input class="grade-income-input" data-grade-income="3" type="text" inputmode="numeric" autocomplete="off" value="110 000" aria-label="Уровень дохода специалиста III, рублей в месяц"><span aria-hidden="true">₽</span></span></td><td><strong data-edit="grade3-criteria-title">Ведёт сложные задачи и развивает практику команды.</strong><p data-edit="level3-body">Берёт задачи с высокой неопределённостью, противоречивыми требованиями, несколькими системами или участниками. Выстраивает способ решения, ведёт сложные эскалации и доводит работу до принятого результата. Помогает коллегам разбирать сложные случаи; его решения и инструкции применяются в дальнейшей работе.</p><p class="level-note" data-edit="level3-note">Высший профессиональный грейд специалиста без ответственности за управление отделом.</p></td></tr>
           <tr class="management-row"><th scope="row" data-edit="lead-title">Ведущий специалист отдела внедрения</th><td data-edit="lead-salary">По отдельной модели</td><td><strong data-edit="lead-criteria-title">Управленческая роль.</strong><p data-edit="lead-body">Отвечает за результат группы специалистов: распределяет задачи, согласует приоритеты и загрузку, проводит обзоры статусов и рисков, помогает с эскалациями и развитием сотрудников. Оценивается по результату отдела, а не только по собственным задачам.</p><p class="level-note" data-edit="lead-note">Отдельная ставка возможна при численности отдела от семи специалистов по внедрению.</p></td></tr>
         </tbody></table></div>
+        <p class="micro">Уровень дохода можно изменить прямо в таблице. Значение автоматически подставится в калькулятор.</p>
       </section>
       <section class="document-section" id="skills">
         <h2 data-edit="skills-title">Хард- и софт-скиллы по уровням</h2>
@@ -108,9 +110,9 @@
           <h2>Состав отдела и оклады сотрудников</h2>
           <p class="calc-note roster-intro">Укажите количество специалистов каждого грейда. Ниже появится отдельная строка для ФИО и месячного оклада каждого сотрудника. Эти данные автоматически перейдут в личный план.</p>
           <div class="grade-roster-grid">
-            <div class="setting-group"><p class="setting-title">Специалист I</p><div class="form-pair"><label class="form-label">Работают<input class="form-control" id="staff-1" type="number" min="0" max="50" step="1" value="2"></label><label class="form-label">Вакансии<input class="form-control" id="vacancies-1" type="number" min="0" max="50" step="1" value="1"></label></div><label class="form-label">Оклад по грейду, ₽ / мес.<span class="money-input-wrap"><input class="form-control salary-grade-input" id="salary-1" type="text" inputmode="numeric" autocomplete="off" value="60 000" aria-label="Оклад по грейду I, рублей в месяц"><span class="money-suffix" aria-hidden="true">₽</span></span></label><div class="roster-people" id="roster-1"></div></div>
-            <div class="setting-group"><p class="setting-title">Специалист II</p><div class="form-pair"><label class="form-label">Работают<input class="form-control" id="staff-2" type="number" min="0" max="50" step="1" value="2"></label><label class="form-label">Вакансии<input class="form-control" id="vacancies-2" type="number" min="0" max="50" step="1" value="0"></label></div><label class="form-label">Оклад по грейду, ₽ / мес.<span class="money-input-wrap"><input class="form-control salary-grade-input" id="salary-2" type="text" inputmode="numeric" autocomplete="off" value="80 000" aria-label="Оклад по грейду II, рублей в месяц"><span class="money-suffix" aria-hidden="true">₽</span></span></label><div class="roster-people" id="roster-2"></div></div>
-            <div class="setting-group"><p class="setting-title">Специалист III</p><div class="form-pair"><label class="form-label">Работают<input class="form-control" id="staff-3" type="number" min="0" max="50" step="1" value="1"></label><label class="form-label">Вакансии<input class="form-control" id="vacancies-3" type="number" min="0" max="50" step="1" value="0"></label></div><label class="form-label">Оклад по грейду, ₽ / мес.<span class="money-input-wrap"><input class="form-control salary-grade-input" id="salary-3" type="text" inputmode="numeric" autocomplete="off" value="100 000" aria-label="Оклад по грейду III, рублей в месяц"><span class="money-suffix" aria-hidden="true">₽</span></span></label><div class="roster-people" id="roster-3"></div></div>
+            <div class="setting-group"><p class="setting-title">Специалист I</p><div class="form-pair"><label class="form-label">Работают<input class="form-control" id="staff-1" type="number" min="0" max="50" step="1" value="2"></label><label class="form-label">Вакансии<input class="form-control" id="vacancies-1" type="number" min="0" max="50" step="1" value="1"></label></div><label class="form-label">Оклад по грейду, ₽ / мес.<span class="money-input-wrap"><input class="form-control salary-grade-input" id="salary-1" type="text" inputmode="numeric" autocomplete="off" value="70 000" aria-label="Оклад по грейду I, рублей в месяц"><span class="money-suffix" aria-hidden="true">₽</span></span></label><div class="roster-people" id="roster-1"></div></div>
+            <div class="setting-group"><p class="setting-title">Специалист II</p><div class="form-pair"><label class="form-label">Работают<input class="form-control" id="staff-2" type="number" min="0" max="50" step="1" value="2"></label><label class="form-label">Вакансии<input class="form-control" id="vacancies-2" type="number" min="0" max="50" step="1" value="0"></label></div><label class="form-label">Оклад по грейду, ₽ / мес.<span class="money-input-wrap"><input class="form-control salary-grade-input" id="salary-2" type="text" inputmode="numeric" autocomplete="off" value="90 000" aria-label="Оклад по грейду II, рублей в месяц"><span class="money-suffix" aria-hidden="true">₽</span></span></label><div class="roster-people" id="roster-2"></div></div>
+            <div class="setting-group"><p class="setting-title">Специалист III</p><div class="form-pair"><label class="form-label">Работают<input class="form-control" id="staff-3" type="number" min="0" max="50" step="1" value="1"></label><label class="form-label">Вакансии<input class="form-control" id="vacancies-3" type="number" min="0" max="50" step="1" value="0"></label></div><label class="form-label">Оклад по грейду, ₽ / мес.<span class="money-input-wrap"><input class="form-control salary-grade-input" id="salary-3" type="text" inputmode="numeric" autocomplete="off" value="110 000" aria-label="Оклад по грейду III, рублей в месяц"><span class="money-suffix" aria-hidden="true">₽</span></span></label><div class="roster-people" id="roster-3"></div></div>
           </div>
           <p class="calc-note roster-reserve-note">Оклад по грейду подставляется новым сотрудникам и используется для расчёта вакансий. Фактический оклад каждого сотрудника можно изменить в его строке. Доля вакансий остаётся в резерве.</p>
         </aside>
@@ -139,7 +141,51 @@
       const editable=[...document.querySelectorAll('[data-edit]')];
       const toggle=document.getElementById('edit-toggle');
       const status=document.getElementById('save-status');
-      try{const saved=JSON.parse(localStorage.getItem(key)||localStorage.getItem(legacyKey)||localStorage.getItem(oldestKey)||'{}');for(const node of editable){const value=saved[node.dataset.edit];if(typeof value==='string')node.innerHTML=value}}catch{}
+      let savedText={};
+      try{savedText=JSON.parse(localStorage.getItem(key)||localStorage.getItem(legacyKey)||localStorage.getItem(oldestKey)||'{}');for(const node of editable){const value=savedText[node.dataset.edit];if(typeof value==='string')node.innerHTML=value}}catch{}
+      const incomeKey='ksky-implementation-grade-incomes-2027-v1:'+location.pathname;
+      const incomeFields=[...document.querySelectorAll('[data-grade-income]')];
+      const oldDefaults={'1':60000,'2':80000,'3':100000};
+      const parseIncome=raw=>{const digits=String(raw??'').replace(/\D/g,'');return digits?Number(digits):NaN};
+      const formatIncome=n=>Number.isFinite(n)?new Intl.NumberFormat('ru-RU',{maximumFractionDigits:0}).format(n).replace(/[\u00a0\u202f]/g,' '):'';
+      const readStored=(key)=>{try{return JSON.parse(localStorage.getItem(key)||'null')}catch{return null}};
+      const savedIncomes=readStored(incomeKey);
+      const savedCalculator=readStored('ksky-implementation-motivation-2027-v2:'+location.pathname);
+      const incomes={};
+      for(const field of incomeFields){
+        const grade=field.dataset.gradeIncome;
+        const savedAmount=Number(savedIncomes?.[grade]);
+        const oldTextAmount=parseIncome(savedText['grade'+grade+'-salary']);
+        const oldCalcAmount=parseIncome(savedCalculator?.values?.['salary-'+grade]);
+        const fallback=parseIncome(field.value);
+        const chosen=savedAmount>0?savedAmount:oldTextAmount>0&&oldTextAmount!==oldDefaults[grade]?oldTextAmount:oldCalcAmount>0&&oldCalcAmount!==oldDefaults[grade]?oldCalcAmount:fallback;
+        incomes[grade]=chosen;
+        field.value=formatIncome(chosen);
+        field.addEventListener('input',()=>{
+          const before=field.value;
+          const beforeDigits=before.slice(0,field.selectionStart??before.length).replace(/\D/g,'').length;
+          const amount=parseIncome(before);
+          field.value=formatIncome(amount);
+          let position=0,seen=0;
+          while(position<field.value.length&&seen<beforeDigits){if(/\d/.test(field.value[position]))seen++;position++}
+          field.setSelectionRange(position,position);
+          if(amount>0)window.setImplementationGradeIncome(grade,amount,'grades');
+        });
+        field.addEventListener('blur',()=>{if(!(parseIncome(field.value)>0))field.value=formatIncome(incomes[grade])});
+      }
+      window.getImplementationGradeIncomes=()=>({...incomes});
+      window.setImplementationGradeIncome=(grade,amount,source='grades')=>{
+        grade=String(grade);amount=Number(amount);
+        if(!Object.hasOwn(incomes,grade)||!Number.isFinite(amount)||amount<=0)return false;
+        amount=Math.round(amount);
+        const changed=incomes[grade]!==amount;
+        incomes[grade]=amount;
+        const field=incomeFields.find(item=>item.dataset.gradeIncome===grade);
+        if(field&&field.value!==formatIncome(amount))field.value=formatIncome(amount);
+        try{localStorage.setItem(incomeKey,JSON.stringify(incomes));status.textContent='Уровень дохода сохранён; калькулятор обновлён'}catch{status.textContent='Не удалось сохранить уровень дохода в браузере'}
+        if(changed)document.dispatchEvent(new CustomEvent('implementation-grade-income-changed',{detail:{grade,amount,source}}));
+        return true;
+      };
       function setEditing(on){document.body.classList.toggle('editing',on);toggle.setAttribute('aria-pressed',String(on));toggle.textContent=on?'Готово':'Править текст';for(const node of editable)node.contentEditable=on?'true':'false'}
       toggle.addEventListener('click',()=>setEditing(!document.body.classList.contains('editing')));
       document.addEventListener('input',event=>{if(!event.target.closest('[data-edit]'))return;const values={};for(const node of editable)values[node.dataset.edit]=node.innerHTML;try{localStorage.setItem(key,JSON.stringify(values));status.textContent='Правки сохранены в этом браузере'}catch{status.textContent='Не удалось сохранить правки в браузере'}});
@@ -160,7 +206,8 @@
         const link=document.createElement('a');link.href=url;link.download='К-Скай_Грейды_и_мотивация_внедрения_2027.html';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
       });
     })();
-  </script>
+
+</script>
   <script>
     (()=>{
       const panel=document.getElementById('motivation-panel');
@@ -224,11 +271,15 @@
         try{
           const embedded=panel.dataset.savedCalc?JSON.parse(panel.dataset.savedCalc):null;
           const saved=JSON.parse(localStorage.getItem(storageKey)||'null')||embedded;
-          if(!saved)return;
-          if(saved.values)for(const id of fieldIds)if(Object.hasOwn(saved.values,id))get(id).value=saved.values[id];
-          if(Array.isArray(saved.employees))employees=saved.employees.map(person=>({id:String(person.id),grade:String(person.grade),name:/^Специалист (I|II|III) · \d+$/.test(String(person.name??''))?'':String(person.name??''),salary:Number(person.salary),manualSalary:Boolean(person.manualSalary),plan:String(person.plan??''),status:['yes','no'].includes(person.status)?person.status:'unset'}));
+          if(saved?.values)for(const id of fieldIds)if(Object.hasOwn(saved.values,id))get(id).value=saved.values[id];
+          if(Array.isArray(saved?.employees))employees=saved.employees.map(person=>({id:String(person.id),grade:String(person.grade),name:/^Специалист (I|II|III) · \d+$/.test(String(person.name??''))?'':String(person.name??''),salary:Number(person.salary),manualSalary:Boolean(person.manualSalary),plan:String(person.plan??''),status:['yes','no'].includes(person.status)?person.status:'unset'}));
         }catch{}
-        for(const grade of ['1','2','3'])get('salary-'+grade).value=formattedInput(parseMoney(value('salary-'+grade)));
+        const incomes=window.getImplementationGradeIncomes?.()||{};
+        for(const grade of ['1','2','3']){
+          const amount=incomes[grade]||parseMoney(value('salary-'+grade));
+          get('salary-'+grade).value=formattedInput(amount);
+          for(const person of employees)if(person.grade===grade&&!person.manualSalary)person.salary=amount;
+        }
       }
       function rosterInputs(){
         const salaryByGrade={},vacancies={},staff={};
@@ -328,7 +379,9 @@
         if(target.id.startsWith('salary-')){
           formatMoneyField(target);
           const grade=event.target.id.slice(-1);
-          for(const person of employees)if(person.grade===grade&&!person.manualSalary)person.salary=parseMoney(target.value);
+          const amount=parseMoney(target.value);
+          for(const person of employees)if(person.grade===grade&&!person.manualSalary)person.salary=amount;
+          if(amount>0)window.setImplementationGradeIncome?.(grade,amount,'calculator');
         }
         const staffField=event.target.id.startsWith('staff-');
         if(staffField){
@@ -348,6 +401,13 @@
         update();save();
       });
       employeeBody.addEventListener('change',event=>{if(!event.target.classList.contains('status-input'))return;const row=event.target.closest('tr');const person=employees.find(item=>item.id===row.dataset.employeeId);if(person){person.status=event.target.value;update();save()}});
+      document.addEventListener('implementation-grade-income-changed',event=>{
+        const {grade,amount,source}=event.detail;
+        if(source==='calculator')return;
+        get('salary-'+grade).value=formattedInput(amount);
+        for(const person of employees)if(person.grade===grade&&!person.manualSalary)person.salary=amount;
+        renderRoster();update();save();
+      });
       for(const id of ['kpi1-plan','kpi1-fact','kpi2-plan','kpi2-fact'])get(id).addEventListener('input',()=>{update();save()});
       const gradesTab=get('grades-tab'),motivationTab=get('motivation-tab');
       function activate(which){
@@ -366,7 +426,7 @@
       motivationTab.addEventListener('click',()=>activate('motivation'));
       activate(location.hash==='#motivation'||(!location.hash&&document.body.dataset.startTab==='motivation')?'motivation':'grades');
     })();
-  
+
 </script>
 </body>
 </html>
