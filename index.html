@@ -72,6 +72,9 @@
 .grades-level p,.grades-level dl{margin:10px 0 0}
 .grades-level .grades-level-income{font-size:13px;margin:6px 0 11px;color:var(--muted)}
 .grades-level-income strong{color:var(--ink)}
+.grades-income-field{display:inline-flex;align-items:center;gap:5px;flex-wrap:wrap;color:var(--ink);font-weight:600}
+.grades-income-input{width:92px;max-width:100%;padding:5px 7px;border:1px solid var(--line);border-radius:6px;background:var(--surface,#fff);color:var(--ink);font:inherit;font-weight:600;text-align:right}
+.grades-income-input:focus{outline:2px solid var(--accent);outline-offset:1px}
 .grades-level dl{font-size:13px;line-height:1.6}
 .grades-level dt{font-weight:600;margin-top:10px}
 .grades-level dd{margin:2px 0 0;color:var(--muted)}
@@ -163,7 +166,8 @@
       <div class="grades-levels">
         <section class="grades-level">
           <h4 data-edit="rp-grades-level1">РП I. Ведёт проект по согласованному плану</h4>
-          <p class="grades-level-income">Оклад в месяц · <strong data-edit="rp-grades-salary1">от 90 000 ₽</strong></p>
+          <p class="grades-level-income">Оклад в месяц · <span class="grades-income-field">от <input class="grades-income-input" data-rp-income="salary1" inputmode="numeric" aria-label="Оклад РП I, рублей" value="90 000"> ₽</span></p>
+          <p class="grades-level-income">Совокупный доход в месяц · <span class="grades-income-field"><input class="grades-income-input" data-rp-income="min1" inputmode="numeric" aria-label="Нижняя граница совокупного дохода РП I, рублей" value="100 000">–<input class="grades-income-input" data-rp-income="max1" inputmode="numeric" aria-label="Верхняя граница совокупного дохода РП I, рублей" value="120 000"> ₽</span></p>
           <p data-edit="rp-grades-level1-criteria">Ведёт типовой проект или отдельный этап. Координирует текущие задачи, следит за сроками, заранее сообщает о рисках. Согласовывает изменения, которые влияют на сроки, объём работ или обязательства перед заказчиком. Доводит свою часть работ до приёмки.</p>
           <dl>
             <dt>Региональный B2G</dt><dd data-edit="rp-grades-level1-b2g">Ведёт типовое внедрение и готовит документы к приёмке.</dd>
@@ -172,7 +176,8 @@
         </section>
         <section class="grades-level">
           <h4 data-edit="rp-grades-level2">РП II. Самостоятельно ведёт проект или портфель</h4>
-          <p class="grades-level-income">Оклад в месяц · <strong data-edit="rp-grades-salary2">105 000 ₽</strong></p>
+          <p class="grades-level-income">Оклад в месяц · <span class="grades-income-field"><input class="grades-income-input" data-rp-income="salary2" inputmode="numeric" aria-label="Оклад РП II, рублей" value="105 000"> ₽</span></p>
+          <p class="grades-level-income">Совокупный доход в месяц · <span class="grades-income-field"><input class="grades-income-input" data-rp-income="min2" inputmode="numeric" aria-label="Нижняя граница совокупного дохода РП II, рублей" value="120 000">–<input class="grades-income-input" data-rp-income="max2" inputmode="numeric" aria-label="Верхняя граница совокупного дохода РП II, рублей" value="150 000"> ₽</span></p>
           <p data-edit="rp-grades-level2-criteria">Отвечает за весь цикл в своей зоне — от планирования до приёмки. Согласовывает ожидания с заказчиком, координирует внутренние команды, управляет рисками и изменениями. При отклонениях предлагает решение и доводит проект до согласованного результата.</p>
           <dl>
             <dt>Региональный B2G</dt><dd data-edit="rp-grades-level2-b2g">Ведёт несколько регионов с пересекающимися сроками и перестраивает план при возникновении зависимостей.</dd>
@@ -181,7 +186,8 @@
         </section>
         <section class="grades-level">
           <h4 data-edit="rp-grades-level3">РП III. Ведёт сложные проекты и развивает практику команды</h4>
-          <p class="grades-level-income">Оклад в месяц · <strong data-edit="rp-grades-salary3">120 000 ₽</strong></p>
+          <p class="grades-level-income">Оклад в месяц · <span class="grades-income-field"><input class="grades-income-input" data-rp-income="salary3" inputmode="numeric" aria-label="Оклад РП III, рублей" value="120 000"> ₽</span></p>
+          <p class="grades-level-income">Совокупный доход в месяц · <span class="grades-income-field">до <input class="grades-income-input" data-rp-income="max3" inputmode="numeric" aria-label="Верхняя граница совокупного дохода РП III, рублей" value="200 000"> ₽</span></p>
           <p data-edit="rp-grades-level3-criteria">Берёт ответственность за проекты с высокой неопределённостью, сложными зависимостями или серьёзными последствиями ошибок. Выстраивает подход к работе, согласует интересы нескольких сторон и доводит проект до результата. Помогает другим РП решать сложные задачи и передаёт команде подходы, которые коллеги применяют в работе.</p>
           <dl>
             <dt>Региональный B2G</dt><dd data-edit="rp-grades-level3-b2g">Координирует запуск в нескольких регионах с общими ресурсами или выстраивает процесс приёмки, который используют другие РП.</dd>
@@ -347,6 +353,38 @@
 <script>
 (function(){
   const doc=window.rpDocument;
+  const defaults={salary1:90000,salary2:105000,salary3:120000,min1:100000,max1:120000,min2:120000,max2:150000,max3:200000};
+  const income={...defaults,...(doc.data.gradeIncome||{})};
+  if(!doc.data.gradeIncome){
+    for(let i=1;i<=3;i++){
+      const old=doc.data.notes?.['rp-grades-salary'+i];
+      const value=old?Number(String(old).replace(/\D/g,'')):NaN;
+      if(Number.isFinite(value)&&value>0)income['salary'+i]=value;
+    }
+  }
+  doc.data.gradeIncome=income;
+  const format=value=>new Intl.NumberFormat('ru-RU').format(value).replace(/[\u00a0\u202f]/g,' ');
+  function updateOptions(){
+    ['salary1','salary2','salary3'].forEach((key,i)=>{
+      const option=document.querySelector('option[value="rp'+(i+1)+'"]');
+      if(option)option.textContent='РП '+['I','II','III'][i]+' · '+(i===0?'от ':'')+format(income[key])+' ₽';
+    });
+  }
+  document.querySelectorAll('[data-rp-income]').forEach(input=>{
+    const key=input.dataset.rpIncome;
+    input.value=format(income[key]);
+    input.addEventListener('change',()=>{
+      const value=Number(input.value.replace(/\s/g,''));
+      if(Number.isFinite(value)&&value>=0){income[key]=value;doc.persist();updateOptions();document.dispatchEvent(new Event('rp-grade-income-change'));}
+      input.value=format(income[key]);
+    });
+  });
+  updateOptions();
+})();
+</script>
+<script>
+(function(){
+  const doc=window.rpDocument;
   const root=document.getElementById('rp-motivation-2027');
   const QN=['I квартал','II квартал','III квартал','IV квартал'];
   const defaults={
@@ -408,9 +446,8 @@
 
   function salaryInputs(salary){
     const customBase=n(salary.base);
-    const firstGradeSalary=90000, thirdGradeSalary=120000;
-    const secondGradeSalary=(firstGradeSalary+thirdGradeSalary)/2;
-    const base=({rp1:firstGradeSalary,rp2:secondGradeSalary,rp3:thirdGradeSalary})[salary.grade]??customBase;
+    const income=doc.data.gradeIncome;
+    const base=({rp1:income.salary1,rp2:income.salary2,rp3:income.salary3})[salary.grade]??customBase;
     const multiplier=1+(salary.indexOn?n(salary.indexRate):0)/100;
     const monthly=Math.round(base*multiplier);
     return {base,monthly,targetOffset:monthly-Math.round(customBase*multiplier)};
@@ -505,8 +542,8 @@
     const gradeNote=$('#rp-grade-note');
     gradeNote.hidden=grade!=='rp1'&&grade!=='rp2';
     gradeNote.textContent=grade==='rp1'
-      ? 'Для РП I взят нижний порог оклада — 90 000 ₽.'
-      : 'Оклад РП II — среднее между 90 000 ₽ для РП I и 120 000 ₽ для РП III.';
+      ? 'Для РП I взят нижний порог оклада — '+money(doc.data.gradeIncome.salary1)+'.'
+      : 'Для РП II взят оклад из системы грейдов — '+money(doc.data.gradeIncome.salary2)+'.';
     $('#rp-grade-target-note').hidden=!hasGrade||s.bonus.mode!=='target';
     if(changedField!=='bonus.target'){
       const targetInput=$('[data-s="bonus.target"]');
@@ -578,6 +615,7 @@
   root.addEventListener('change',e=>{
     if(e.target.type==='checkbox'||e.target.tagName==='SELECT')onField(e.target);
   });
+  document.addEventListener('rp-grade-income-change',()=>update());
   root.addEventListener('keydown',e=>{if(e.target.matches('input[type="number"]')&&['ArrowUp','ArrowDown'].includes(e.key)){e.preventDefault();stepNumber(e.target,e.key==='ArrowUp'?1:-1);}});
   root.addEventListener('click',e=>{
     const t=e.target.closest('button');if(!t)return;
