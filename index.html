@@ -96,9 +96,9 @@
 <div class="setting-group"><p class="setting-title">1. Оклад <button class="info-button" data-help="salary" type="button" aria-label="Об окладе">i</button></p>
 <label class="form-label">Грейд<select class="form-select" data-s="salary.grade">
   <option value="manual">Свой оклад</option>
-  <option value="rp1">РП I · от 90 000 ₽</option>
-  <option value="rp2">РП II · 105 000 ₽</option>
-  <option value="rp3">РП III · 120 000 ₽</option>
+  <option value="rp1">РП I · 100 000–120 000 ₽</option>
+  <option value="rp2">РП II · 120 000–150 000 ₽</option>
+  <option value="rp3">РП III · 150 000–200 000 ₽</option>
 </select></label>
 <label class="form-label" id="rp-manual-salary">Оклад, ₽ / месяц<input class="form-control" type="number" min="0" step="any" data-s="salary.base" data-increment="1000"></label>
 <p class="micro" id="rp-grade-note" hidden style="margin-bottom:12px"></p>
@@ -163,11 +163,12 @@
     <section class="document-section">
       <h3 data-edit="rp-grades-criteria-title">Грейды и критерии</h3>
       <p data-edit="rp-grades-income">Грейд определяет уровень оклада. При переходе на следующий грейд оклад повышается. Квартальная премия рассчитывается по KPI за период.</p>
+      <p class="micro">Совокупный доход ниже — ориентир при условной премии 20% от оклада. Фактическая премия зависит от выполнения KPI.</p>
       <div class="grades-levels">
         <section class="grades-level">
           <h4 data-edit="rp-grades-level1">РП I. Ведёт проект по согласованному плану</h4>
-          <p class="grades-level-income">Оклад в месяц · <span class="grades-income-field">от <input class="grades-income-input" data-rp-income="salary1" inputmode="numeric" aria-label="Оклад РП I, рублей" value="90 000"> ₽</span></p>
-          <p class="grades-level-income">Совокупный доход в месяц · <span class="grades-income-field"><input class="grades-income-input" data-rp-income="min1" inputmode="numeric" aria-label="Нижняя граница совокупного дохода РП I, рублей" value="100 000">–<input class="grades-income-input" data-rp-income="max1" inputmode="numeric" aria-label="Верхняя граница совокупного дохода РП I, рублей" value="120 000"> ₽</span></p>
+          <p class="grades-level-income">Оклад в месяц · <span class="grades-income-field"><input class="grades-income-input" data-rp-income="salary1" inputmode="numeric" aria-label="Нижняя граница оклада РП I, рублей" value="100 000">–<input class="grades-income-input" data-rp-income="salaryMax1" inputmode="numeric" aria-label="Верхняя граница оклада РП I, рублей" value="120 000"> ₽</span></p>
+          <p class="grades-level-income">Совокупный доход в месяц · <span class="grades-income-field">≈ <output data-rp-total="salary1">120 000</output>–<output data-rp-total="salaryMax1">144 000</output> ₽</span></p>
           <p data-edit="rp-grades-level1-criteria">Ведёт типовой проект или отдельный этап. Координирует текущие задачи, следит за сроками, заранее сообщает о рисках. Согласовывает изменения, которые влияют на сроки, объём работ или обязательства перед заказчиком. Доводит свою часть работ до приёмки.</p>
           <dl>
             <dt>Региональный B2G</dt><dd data-edit="rp-grades-level1-b2g">Ведёт типовое внедрение и готовит документы к приёмке.</dd>
@@ -176,8 +177,8 @@
         </section>
         <section class="grades-level">
           <h4 data-edit="rp-grades-level2">РП II. Самостоятельно ведёт проект или портфель</h4>
-          <p class="grades-level-income">Оклад в месяц · <span class="grades-income-field"><input class="grades-income-input" data-rp-income="salary2" inputmode="numeric" aria-label="Оклад РП II, рублей" value="105 000"> ₽</span></p>
-          <p class="grades-level-income">Совокупный доход в месяц · <span class="grades-income-field"><input class="grades-income-input" data-rp-income="min2" inputmode="numeric" aria-label="Нижняя граница совокупного дохода РП II, рублей" value="120 000">–<input class="grades-income-input" data-rp-income="max2" inputmode="numeric" aria-label="Верхняя граница совокупного дохода РП II, рублей" value="150 000"> ₽</span></p>
+          <p class="grades-level-income">Оклад в месяц · <span class="grades-income-field"><input class="grades-income-input" data-rp-income="salary2" inputmode="numeric" aria-label="Нижняя граница оклада РП II, рублей" value="120 000">–<input class="grades-income-input" data-rp-income="salaryMax2" inputmode="numeric" aria-label="Верхняя граница оклада РП II, рублей" value="150 000"> ₽</span></p>
+          <p class="grades-level-income">Совокупный доход в месяц · <span class="grades-income-field">≈ <output data-rp-total="salary2">144 000</output>–<output data-rp-total="salaryMax2">180 000</output> ₽</span></p>
           <p data-edit="rp-grades-level2-criteria">Отвечает за весь цикл в своей зоне — от планирования до приёмки. Согласовывает ожидания с заказчиком, координирует внутренние команды, управляет рисками и изменениями. При отклонениях предлагает решение и доводит проект до согласованного результата.</p>
           <dl>
             <dt>Региональный B2G</dt><dd data-edit="rp-grades-level2-b2g">Ведёт несколько регионов с пересекающимися сроками и перестраивает план при возникновении зависимостей.</dd>
@@ -186,8 +187,8 @@
         </section>
         <section class="grades-level">
           <h4 data-edit="rp-grades-level3">РП III. Ведёт сложные проекты и развивает практику команды</h4>
-          <p class="grades-level-income">Оклад в месяц · <span class="grades-income-field"><input class="grades-income-input" data-rp-income="salary3" inputmode="numeric" aria-label="Оклад РП III, рублей" value="120 000"> ₽</span></p>
-          <p class="grades-level-income">Совокупный доход в месяц · <span class="grades-income-field">до <input class="grades-income-input" data-rp-income="max3" inputmode="numeric" aria-label="Верхняя граница совокупного дохода РП III, рублей" value="200 000"> ₽</span></p>
+          <p class="grades-level-income">Оклад в месяц · <span class="grades-income-field"><input class="grades-income-input" data-rp-income="salary3" inputmode="numeric" aria-label="Нижняя граница оклада РП III, рублей" value="150 000">–<input class="grades-income-input" data-rp-income="salaryMax3" inputmode="numeric" aria-label="Верхняя граница оклада РП III, рублей" value="200 000"> ₽</span></p>
+          <p class="grades-level-income">Совокупный доход в месяц · <span class="grades-income-field">≈ <output data-rp-total="salary3">180 000</output>–<output data-rp-total="salaryMax3">240 000</output> ₽</span></p>
           <p data-edit="rp-grades-level3-criteria">Берёт ответственность за проекты с высокой неопределённостью, сложными зависимостями или серьёзными последствиями ошибок. Выстраивает подход к работе, согласует интересы нескольких сторон и доводит проект до результата. Помогает другим РП решать сложные задачи и передаёт команде подходы, которые коллеги применяют в работе.</p>
           <dl>
             <dt>Региональный B2G</dt><dd data-edit="rp-grades-level3-b2g">Координирует запуск в нескольких регионах с общими ресурсами или выстраивает процесс приёмки, который используют другие РП.</dd>
@@ -353,13 +354,20 @@
 <script>
 (function(){
   const doc=window.rpDocument;
-  const defaults={salary1:90000,salary2:105000,salary3:120000,min1:100000,max1:120000,min2:120000,max2:150000,max3:200000};
-  const income={...defaults,...(doc.data.gradeIncome||{})};
+  const defaults={salary1:100000,salaryMax1:120000,salary2:120000,salaryMax2:150000,salary3:150000,salaryMax3:200000};
+  const previousDefaults={salary1:90000,salary2:105000,salary3:120000};
+  const saved=doc.data.gradeIncome||{};
+  const income={...defaults,version:2};
+  Object.keys(defaults).forEach(key=>{
+    if(!Number.isFinite(saved[key])||saved[key]<0)return;
+    if(saved.version!==2&&Object.prototype.hasOwnProperty.call(previousDefaults,key)&&saved[key]===previousDefaults[key])return;
+    income[key]=saved[key];
+  });
   if(!doc.data.gradeIncome){
     for(let i=1;i<=3;i++){
       const old=doc.data.notes?.['rp-grades-salary'+i];
       const value=old?Number(String(old).replace(/\D/g,'')):NaN;
-      if(Number.isFinite(value)&&value>0)income['salary'+i]=value;
+      if(Number.isFinite(value)&&value>0&&value!==previousDefaults['salary'+i])income['salary'+i]=value;
     }
   }
   doc.data.gradeIncome=income;
@@ -367,19 +375,21 @@
   function updateOptions(){
     ['salary1','salary2','salary3'].forEach((key,i)=>{
       const option=document.querySelector('option[value="rp'+(i+1)+'"]');
-      if(option)option.textContent='РП '+['I','II','III'][i]+' · '+(i===0?'от ':'')+format(income[key])+' ₽';
+      if(option)option.textContent='РП '+['I','II','III'][i]+' · '+format(income[key])+'–'+format(income['salaryMax'+(i+1)])+' ₽';
     });
   }
+  function updateTotals(){document.querySelectorAll('[data-rp-total]').forEach(output=>{output.textContent=format(Math.round(income[output.dataset.rpTotal]*1.2));});}
   document.querySelectorAll('[data-rp-income]').forEach(input=>{
     const key=input.dataset.rpIncome;
     input.value=format(income[key]);
     input.addEventListener('change',()=>{
       const value=Number(input.value.replace(/\s/g,''));
-      if(Number.isFinite(value)&&value>=0){income[key]=value;doc.persist();updateOptions();document.dispatchEvent(new Event('rp-grade-income-change'));}
+      if(Number.isFinite(value)&&value>=0){income[key]=Math.round(value);doc.persist();updateOptions();updateTotals();document.dispatchEvent(new Event('rp-grade-income-change'));}
       input.value=format(income[key]);
     });
   });
   updateOptions();
+  updateTotals();
 })();
 </script>
 <script>
@@ -417,7 +427,7 @@
   doc.data.calc=state;
 
   const help={
-    salary:['Оклад','Ежемесячный оклад. Ориентир со встречи 29.10 — 115–120 тыс. ₽. Индексация по желанию: оклад × (1 + % / 100).'],
+    salary:['Оклад','Диапазоны оклада по грейдам указаны в разделе «Система грейдов». При выборе грейда для расчёта берётся нижняя граница диапазона. Индивидуальный оклад можно ввести через пункт «Свой оклад». Индексация по желанию: оклад × (1 + % / 100).'],
     bonus:['Премиальный фонд','Фонд — премия за квартал при 100% по всем частям. «От целевого дохода»: фонд = (целевой доход − оклад) × 3. При цели 160 000 ₽ и окладе 120 000 ₽ — 120 000 ₽ за квартал. «% от трёх окладов»: фонд = оклад × 3 × ставка / 100.'],
     weights:['Веса в премии','Доли фонда для каждой части. По встрече: актированная выручка — меньшая доля (ориентир около 15%), основная — топ-задачи. Меняете один вес — второй подстраивается сам, чтобы сумма была 100%.'],
     threshold:['Порог и потолок по выручке','Порог — минимальное выполнение плана актированной выручки, с которого платится часть за выручку. Потолок — максимум, учитываемый при перевыполнении. Пример при пороге 50% и потолке 120%: 40% → 0; 90% → 90% части; 150% → 120% части. «Если план 0» — предложение со встречи: фонд пустого квартала переносится на следующий. Оно не утверждено, поэтому вынесено в выбор.'],
@@ -540,10 +550,8 @@
     const hasGrade=['rp1','rp2','rp3'].includes(grade);
     $('#rp-manual-salary').hidden=hasGrade;
     const gradeNote=$('#rp-grade-note');
-    gradeNote.hidden=grade!=='rp1'&&grade!=='rp2';
-    gradeNote.textContent=grade==='rp1'
-      ? 'Для РП I взят нижний порог оклада — '+money(doc.data.gradeIncome.salary1)+'.'
-      : 'Для РП II взят оклад из системы грейдов — '+money(doc.data.gradeIncome.salary2)+'.';
+    gradeNote.hidden=!hasGrade;
+    gradeNote.textContent=hasGrade?'Для расчёта взята нижняя граница оклада по грейду — '+money(r.base)+'. Для другого оклада внутри диапазона выберите «Свой оклад».':'';
     $('#rp-grade-target-note').hidden=!hasGrade||s.bonus.mode!=='target';
     if(changedField!=='bonus.target'){
       const targetInput=$('[data-s="bonus.target"]');
