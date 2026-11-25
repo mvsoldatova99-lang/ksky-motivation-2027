@@ -392,23 +392,23 @@
   const root=document.getElementById('rp-motivation-2027');
   const QN=['I квартал','II квартал','III квартал','IV квартал'];
   const defaults={
-    version:11,
-    salary:{base:120000,indexOn:false,indexRate:10,grade:'manual'},
-    bonus:{mode:'target',target:160000,rate:33.33},
+    version:12,
+    salary:{base:100000,indexOn:true,indexRate:10,grade:'manual'},
+    bonus:{mode:'percent',target:160000,rate:30},
     weights:{revenue:15,tasks:85},
     revenue:{threshold:50,cap:120,zeroPlan:'none'},
     quarters:[
-      {revPlan:3000000,revFact:3000000,tasksNew:4,tasksRemoved:0,tasksDone:3,upsellSum:0,upsellCount:0},
-      {revPlan:3000000,revFact:2700000,tasksNew:4,tasksRemoved:0,tasksDone:5,upsellSum:0,upsellCount:0},
-      {revPlan:3000000,revFact:3000000,tasksNew:4,tasksRemoved:0,tasksDone:4,upsellSum:2000000,upsellCount:1},
-      {revPlan:3000000,revFact:3300000,tasksNew:4,tasksRemoved:0,tasksDone:4,upsellSum:0,upsellCount:0}
+      {revPlan:10000000,revFact:7000000,tasksNew:3,tasksRemoved:0,tasksDone:1},
+      {revPlan:10000000,revFact:8000000,tasksNew:4,tasksRemoved:0,tasksDone:2},
+      {revPlan:20000000,revFact:25000000,tasksNew:2,tasksRemoved:0,tasksDone:4},
+      {revPlan:25000000,revFact:25000000,tasksNew:1,tasksRemoved:0,tasksDone:3}
     ],
     indicators:[],
     upsell:{annual:{plan:0,fact:0}}
   };
   const clone=o=>JSON.parse(JSON.stringify(o));
   const saved=doc.data.calc;
-  let state=saved&&[10,11].includes(saved.version)?clone(saved):clone(defaults);
+  let state=saved&&[10,11,12].includes(saved.version)?clone(saved):clone(defaults);
   state.salary={...defaults.salary,...state.salary};
   state.indicators=[];
   if(state.version===10){
@@ -417,6 +417,14 @@
       :state.quarters.reduce((sum,quarter)=>sum+(Number(quarter.upsellSum)||0),0);
     state.upsell={annual:{plan:0,fact}};
     state.version=11;
+  }
+  if(state.version<12){
+    state.salary=clone(defaults.salary);
+    state.bonus={...state.bonus,mode:defaults.bonus.mode,rate:defaults.bonus.rate};
+    state.weights=clone(defaults.weights);
+    state.revenue=clone(defaults.revenue);
+    state.quarters=clone(defaults.quarters);
+    state.version=12;
   }
   doc.data.calc=state;
 
@@ -1067,11 +1075,19 @@ window.createRoleCalc=function(cfg){
         s.indicators.forEach(m=>{if(titles[m.title])m.title=titles[m.title];});
         s.quarters.forEach(q=>{q.docsOk=true;q.upsellSum=0;q.upsellCount=0;});
       }
-      const oldAnnual=s.upsell?.annual;
-      const annual={...d.upsell.annual};
-      if(Number.isFinite(oldAnnual?.plan)&&oldAnnual.plan>0&&oldAnnual.plan!==20000000)annual.plan=oldAnnual.plan;
-      if(Number.isFinite(oldAnnual?.fact))annual.fact=oldAnnual.fact;
-      s.upsell={annual};
+      if(s.version<3){
+        const oldAnnual=s.upsell?.annual;
+        const annual={...d.upsell.annual};
+        if(Number.isFinite(oldAnnual?.plan)&&oldAnnual.plan>0&&oldAnnual.plan!==20000000)annual.plan=oldAnnual.plan;
+        if(Number.isFinite(oldAnnual?.fact))annual.fact=oldAnnual.fact;
+        s.upsell={annual};
+      }
+      s.salary=d.salary;
+      s.bonus={...s.bonus,mode:d.bonus.mode,rate:d.bonus.rate};
+      s.rules=d.rules;
+      s.debtRule=d.debtRule;
+      s.indicators=d.indicators;
+      s.quarters=s.quarters.map((q,index)=>({...q,v:{...q.v,...d.quarters[index].v}}));
       s.version=d.version;
     },
     kicker:'Квартальная премия тимлида РП · 2027 · только B2G',
@@ -1079,7 +1095,7 @@ window.createRoleCalc=function(cfg){
     tableIntro:'Все показатели учитываются только по B2G-регионам: общий результат всех РП и личного портфеля тимлида. Введите план и факт по каждому кварталу; годовые допродажи отдела — под таблицей.',
     assumption:'Суммы — на руки (уточнено на встрече 03.11). Цифры по умолчанию — пример для проверки механики, а не согласованные планы. Изменения сохраняются в этом браузере.',
     defaults:{
-      version:3,
+      version:4,
       salary:{base:150000,indexOn:false,indexRate:10},
       bonus:{mode:'percent',target:200000,rate:30},
       rules:{threshold:80,cap:120},
@@ -1092,10 +1108,10 @@ window.createRoleCalc=function(cfg){
         {id:'debt',type:'debt',title:'Просроченная ДЗ команды (только B2G-регионы)',unit:'₽',weight:20}
       ],
       quarters:[
-        {docsOk:true,upsellSum:0,upsellCount:0,v:{rev:{plan:30000000,fact:27000000},cnt:{plan:10,fact:9},debt:{amount:0}}},
-        {docsOk:true,upsellSum:0,upsellCount:0,v:{rev:{plan:40000000,fact:38000000},cnt:{plan:12,fact:12},debt:{amount:0}}},
-        {docsOk:true,upsellSum:0,upsellCount:0,v:{rev:{plan:50000000,fact:52000000},cnt:{plan:15,fact:14},debt:{amount:1500000}}},
-        {docsOk:true,upsellSum:0,upsellCount:0,v:{rev:{plan:60000000,fact:55000000},cnt:{plan:13,fact:12},debt:{amount:0}}}
+        {docsOk:true,upsellSum:0,upsellCount:0,v:{rev:{plan:20000000,fact:20000000},cnt:{plan:10,fact:7},debt:{amount:0}}},
+        {docsOk:true,upsellSum:0,upsellCount:0,v:{rev:{plan:40000000,fact:30000000},cnt:{plan:20,fact:20},debt:{amount:0}}},
+        {docsOk:true,upsellSum:0,upsellCount:0,v:{rev:{plan:80000000,fact:80000000},cnt:{plan:7,fact:10},debt:{amount:1500000}}},
+        {docsOk:true,upsellSum:0,upsellCount:0,v:{rev:{plan:120000000,fact:130000000},cnt:{plan:5,fact:5},debt:{amount:0}}}
       ]
     }
   });
@@ -1106,7 +1122,12 @@ window.createRoleCalc=function(cfg){
       acceptance:'Подписан первый акт или получено другое предусмотренное договором подтверждение результата.'
     },
     migrate(s,d){
-      s.salesPayout=d.salesPayout;
+      if(s.version<2)s.salesPayout=d.salesPayout;
+      s.salary=d.salary;
+      s.bonus={...s.bonus,mode:d.bonus.mode,rate:d.bonus.rate};
+      s.rules=d.rules;
+      s.indicators=d.indicators;
+      s.quarters=s.quarters.map((q,index)=>({...q,v:{...q.v,...d.quarters[index].v}}));
       s.version=d.version;
     },
     kicker:'Квартальная премия менеджера по продажам · 2027 · черновик',
@@ -1114,9 +1135,9 @@ window.createRoleCalc=function(cfg){
     tableIntro:'Введите план и факт по кварталам. Ниже можно сравнить, как рассчитанная премия выплачивается в текущей и двухэтапной моделях.',
     assumption:'Суммы — на руки. Показатели, веса и цифры — стартовый вариант для обсуждения, не согласованы. Изменения сохраняются в этом браузере.',
     defaults:{
-      version:2,
+      version:3,
       salesPayout:{firstShare:'70',milestone:'launch',releases:Array.from({length:4},()=>({period:'pending',eligible:100}))},
-      salary:{base:100000,indexOn:false,indexRate:10},
+      salary:{base:110000,indexOn:false,indexRate:10},
       bonus:{mode:'percent',target:140000,rate:30},
       rules:{threshold:50,cap:120},
       debtRule:{months:2,tolerance:0},
@@ -1127,10 +1148,10 @@ window.createRoleCalc=function(cfg){
         {id:'deals',type:'tasks',title:'Новые контракты (топ-задачи)',unit:'шт.',weight:50}
       ],
       quarters:[
-        {docsOk:true,upsellSum:0,upsellCount:0,v:{contracted:{plan:10000000,fact:8000000},deals:{new:2,removed:0,done:1}}},
-        {docsOk:true,upsellSum:0,upsellCount:0,v:{contracted:{plan:10000000,fact:12000000},deals:{new:2,removed:0,done:3}}},
-        {docsOk:true,upsellSum:0,upsellCount:0,v:{contracted:{plan:10000000,fact:10000000},deals:{new:3,removed:0,done:3}}},
-        {docsOk:true,upsellSum:0,upsellCount:0,v:{contracted:{plan:10000000,fact:9000000},deals:{new:3,removed:0,done:2}}}
+        {docsOk:true,upsellSum:0,upsellCount:0,v:{contracted:{plan:5000000,fact:3000000},deals:{new:1,removed:0,done:1}}},
+        {docsOk:true,upsellSum:0,upsellCount:0,v:{contracted:{plan:30000000,fact:25000000},deals:{new:4,removed:0,done:3}}},
+        {docsOk:true,upsellSum:0,upsellCount:0,v:{contracted:{plan:40000000,fact:45000000},deals:{new:5,removed:0,done:5}}},
+        {docsOk:true,upsellSum:0,upsellCount:0,v:{contracted:{plan:15000000,fact:20000000},deals:{new:2,removed:0,done:3}}}
       ]
     }
   });
