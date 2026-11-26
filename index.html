@@ -88,12 +88,23 @@
 .grades-skills>summary:focus-visible{outline:2px solid var(--accent);outline-offset:5px;border-radius:3px}
 .grades-skills-content{padding-top:1px}
 .grades-document ol{padding-left:22px}
+.budget-document{max-width:none;padding:26px}
+.budget-table{min-width:1240px;margin-top:20px}
+.budget-table th,.budget-table td{padding:12px 8px}
+.budget-table input{min-width:105px;max-width:145px}
+.budget-table select{min-width:130px}
+.budget-table .budget-private input{min-width:210px}
+.budget-table .budget-amount{white-space:nowrap;font-variant-numeric:tabular-nums}
+.budget-table tfoot th,.budget-table tfoot td{border-top:1px solid var(--line);font-weight:600;padding-top:16px}
+.budget-name-toggle{margin:16px 0 8px}
+.budget-totals{margin-top:24px}
+@media print{.budget-private,.budget-name-toggle{display:none!important}.budget-document{border:0;padding:0}.budget-table{min-width:0;font-size:9px}.budget-table input,.budget-table select{min-width:0;max-width:90px;font-size:9px}.budget-table th,.budget-table td{padding:7px 3px}}
 .grades-document li+li{margin-top:8px}
 @media(max-width:740px){.grades-levels{grid-template-columns:1fr}.role-tab{padding-inline:12px}}
 @media print{#grades-workspace[hidden],#rp-workspace:has(> #grades-workspace:not([hidden])) > .tab-panel:not(#grades-workspace){display:none!important}.grades-levels{display:block}.grades-level{break-inside:avoid;margin-bottom:8px}.grades-matrix{min-width:0}.grades-matrix tr{break-inside:avoid}}
 </style></head><body>
 <header class="topbar"><div class="brand">К–СКАЙ <span>Рабочие материалы</span></div><div class="actions"><button class="action" id="edit-notes" aria-pressed="false">Править текст</button><button class="action" id="print-doc">Печать / PDF</button><button class="action primary" id="download-doc">Скачать с правками</button></div></header>
-<main class="page"><div class="hero compact-hero"><h1>Квартальная мотивация · 2027</h1><nav class="role-tabs" aria-label="Роль"><button class="role-tab" id="role-rp" role="tab" aria-controls="rp-workspace" aria-selected="true">РП</button><button class="role-tab" id="role-teamlead" role="tab" aria-controls="teamlead-workspace" aria-selected="false">Тимлид РП</button><button class="role-tab" id="role-sales" role="tab" aria-controls="sales-workspace" aria-selected="false">Продажи</button></nav></div>
+<main class="page"><div class="hero compact-hero"><h1>Квартальная мотивация · 2027</h1><nav class="role-tabs" aria-label="Роль"><button class="role-tab" id="role-rp" role="tab" aria-controls="rp-workspace" aria-selected="true">РП</button><button class="role-tab" id="role-teamlead" role="tab" aria-controls="teamlead-workspace" aria-selected="false">Тимлид РП</button><button class="role-tab" id="role-sales" role="tab" aria-controls="sales-workspace" aria-selected="false">Продажи</button><button class="role-tab" id="role-budget" role="tab" aria-controls="budget-workspace" aria-selected="false">Бюджет отдела</button></nav></div>
 <div id="rp-workspace" class="role-workspace" role="tabpanel" aria-labelledby="role-rp"><nav class="tabs" aria-label="Разделы"><button class="tab" id="tab-calculator" data-panel="calculator-panel" role="tab" aria-controls="calculator-panel" aria-selected="true">Калькулятор</button><button class="tab" id="tab-proposal" data-panel="proposal-panel" role="tab" aria-controls="proposal-panel" aria-selected="false">Предложения и правила</button><button class="tab" id="tab-grades" data-panel="grades-workspace" role="tab" aria-controls="grades-workspace" aria-selected="false">Система грейдов</button></nav>
 <section class="tab-panel" id="calculator-panel" role="tabpanel" aria-labelledby="tab-calculator"><div id="rp-motivation-2027"><div class="calculator-grid">
 <aside class="settings"><h2>Параметры</h2>
@@ -148,7 +159,7 @@
 <section class="tab-panel" id="proposal-panel" role="tabpanel" aria-labelledby="tab-proposal" hidden><div class="edit-hint">Нажмите на текст, чтобы изменить формулировку. Изменения сохраняются в этом браузере. «Скачать с правками» создаёт HTML-копию с текущими цифрами и текстом.</div><article class="document">
 <div class="document-section"><p class="doc-kicker">Рабочая модель · встреча 29.10.2026</p><h2 data-edit="title">Квартальная мотивация РП на 2027 год</h2><p data-edit="rp-intro-annual-upsell">Модель учитывает договорённости рабочей встречи «KPI» 29.10.2026 и последующие уточнения. Оклад выплачивается ежемесячно, KPI-премия — по итогам квартала, бонус за допродажи — разово по итогам года. Показатели качества в премию не входят и остаются в оценке работы. Все цифры — проект для обсуждения.</p><p class="budget-note" id="proposal-live"></p></div>
 <div class="document-section"><h3 data-edit="s1-title">01. Оклад и целевой доход</h3><p data-edit="s1-text">Ориентир по окладу на 2027 год — 115–120 тыс. ₽ в месяц; индексация обсуждалась на уровне около 10%. Целевой совокупный доход при выполнении плана без допродаж — 160 тыс. ₽ в месяц (без тимлида и Сергея), то есть премия — около 40–45 тыс. ₽ в месяц. По рынку текущие предложения ниже примерно на 20%: в сопоставимых компаниях — от 150 тыс. ₽.</p></div>
-<div class="document-section"><h3 data-edit="s2-title">02. Из чего состоит премия</h3><p data-edit="s2-text">Два показателя: актированная выручка с небольшим весом и подписанные контракты в штуках (топ-задачи) с основным весом. По подписанным контрактам актированная выручка достигается почти всегда, поэтому её вес не может быть 50%; ориентир — около 15%. Контрактование привязано к штукам, а не к сумме: сумма контракта зависит от бюджета региона и согласования цены руководством, а не от РП.</p></div>
+<div class="document-section"><h3 data-edit="s2-title">02. Из чего состоит премия</h3><p data-edit="rp-weights-50-50">Квартальная премия РП состоит из актированной выручки и подписанных контрактов с весами 50% / 50%. Это вариант для проверки по итогам встречи 25.11.2026. Показатели рассчитываются по текущим планам и фактам, механизм переноса топ-задач применяется по прежним правилам.</p></div>
 <div class="document-section"><h3 data-edit="s3-title">03. Актированная выручка</h3><code id="live-formula-rev"></code><p data-edit="s3-text">Факт — работы выполнены и приняты заказчиком. Ниже порога часть за выручку не выплачивается, выше — пропорционально выполнению, до потолка. Для квартала с нулевым планом в калькуляторе выбирается правило: часть не выплачивается или фонд переносится на следующий квартал. Перенос предлагали на встрече, но не утвердили.</p></div>
 <div class="document-section"><h3 data-edit="s4-title">04. Топ-задачи: как работает перенос</h3><code id="live-formula-tasks"></code><p data-edit="s4-text">Каждый контракт, запланированный к подписанию в квартале, — одна топ-задача. Выплата по каждой — «да / нет», без порога в процентах. Фонд блока делится на число задач квартала. Незаключённый контракт переходит в следующий квартал, где тот же фонд делится на большее число задач: каждая дешевеет, а недополученное за прошлый квартал не возвращается. Пример со встречи: фонд 10 000 ₽ на 3 задачи — по 3 333 ₽; заключён 1 контракт — 3 333 ₽; 2 переходят, в следующем квартале 3 + 2 = 5 задач по 2 000 ₽. Плановый разброс — 4–7 задач на квартал, минимум 2.</p></div>
 <div class="document-section"><h3 data-edit="s5-title">05. Допродажи</h3><p data-edit="rp-upsell-approved-caps">Годовой бонус за допродажи зависит от выполнения индивидуального плана выручки. До 50% включительно — 0 ₽. От 50% до 80% бонус плавно растёт от 0 до 100 000 ₽. От 80% до 120% каждый процентный пункт добавляет 2 500 ₽. При 100% — 150 000 ₽. Максимум — 200 000 ₽ при выполнении от 120%. Выплата производится разово по итогам года.</p><p class="budget-note" id="proposal-upsell-live"></p></div>
@@ -332,6 +343,19 @@
 <div class="document-section"><h3 data-edit="sl-s2-title">03. Что решить на встрече</h3><p data-edit="sl-payout-decisions">Выбрать схему выплаты 70/30 или 80/20 и контрольную точку. Согласовать показатели и веса, оклад и размер премии, роль допродаж и понижающего коэффициента, а также распределение зачёта, если контракт ведут менеджер и РП вместе.</p></div>
 </article></section></div>
 
+<section id="budget-workspace" class="role-workspace" role="tabpanel" aria-labelledby="role-budget" hidden>
+  <div class="document budget-document">
+    <h2>Бюджет отдела при 100% выполнения</h2>
+    <p class="micro">Расчёт на 12 месяцев для шести РП, тимлида и менеджера по продажам. Итог — сумма выплат сотрудникам. Для всех строк используйте единую базу окладов, например суммы до НДФЛ.</p>
+    <p class="micro">Выберите текущий грейд РП. Оклад берётся по нижней границе диапазона с индексацией из калькулятора РП, его можно уточнить вручную. Квартальная премия считается по настройкам роли при 100% выполнения, годовая — по действующей модели за 100% плана.</p>
+    <label class="indexation-toggle budget-name-toggle"><input type="checkbox" id="budget-show-names"><span>Показать поля ФИО на время работы</span></label>
+    <p class="micro">ФИО хранятся только в памяти открытой вкладки. При перезагрузке, скачивании HTML и печати используются коды позиций. Грейды и суммы сохраняются в этом браузере.</p>
+    <div class="table-responsive"><table class="table budget-table" id="department-budget-table"></table></div>
+    <div class="annual-compact budget-totals" id="department-budget-totals" aria-live="polite"></div>
+    <p class="micro" id="department-budget-status" role="status"></p>
+  </div>
+</section>
+
 <footer class="footer"><p>Рабочая модель для обсуждения · параметры сохраняются в вашем браузере</p><p class="save-status" id="save-status" aria-live="polite">Изменения сохраняются в этом браузере</p></footer></main>
 <script id="rp-file-state" type="application/json">{"version": 1, "documentId": "ksky-rp-2027-v2-20261030", "savedAt": 1793340000000, "calc": null, "notes": {}, "activeRole": "rp"}</script>
 <script>
@@ -395,7 +419,7 @@
     version:12,
     salary:{base:100000,indexOn:true,indexRate:10,grade:'manual'},
     bonus:{mode:'percent',target:160000,rate:30},
-    weights:{revenue:15,tasks:85},
+    weights:{revenue:50,tasks:50},
     revenue:{threshold:50,cap:120,zeroPlan:'none'},
     quarters:[
       {revPlan:10000000,revFact:7000000,tasksNew:3,tasksRemoved:0,tasksDone:1},
@@ -426,12 +450,16 @@
     state.quarters=clone(defaults.quarters);
     state.version=12;
   }
+  if(state.weightsScenario!=='revenue-50-50'){
+    state.weights=clone(defaults.weights);
+    state.weightsScenario='revenue-50-50';
+  }
   doc.data.calc=state;
 
   const help={
     salary:['Оклад','Диапазоны оклада по грейдам указаны в разделе «Система грейдов». При выборе грейда для расчёта берётся нижняя граница диапазона. Индивидуальный оклад можно ввести через пункт «Свой оклад». Индексация по желанию: оклад × (1 + % / 100).'],
     bonus:['Премиальный фонд','Фонд — премия за квартал при 100% по всем частям. «От целевого дохода»: фонд = (целевой доход − оклад) × 3. При цели 160 000 ₽ и окладе 120 000 ₽ — 120 000 ₽ за квартал. «% от трёх окладов»: фонд = оклад × 3 × ставка / 100.'],
-    weights:['Веса в премии','Доли фонда для каждой части. По встрече: актированная выручка — меньшая доля (ориентир около 15%), основная — топ-задачи. Меняете один вес — второй подстраивается сам, чтобы сумма была 100%.'],
+    weights:['Веса в премии','Проверяем вариант с равными долями актированной выручки и подписанных контрактов — 50% / 50%. Меняете один вес — второй подстраивается сам, чтобы сумма была 100%.'],
     threshold:['Порог и потолок по выручке','Порог — минимальное выполнение плана актированной выручки, с которого платится часть за выручку. Потолок — максимум, учитываемый при перевыполнении. Пример при пороге 50% и потолке 120%: 40% → 0; 90% → 90% части; 150% → 120% части. «Если план 0» — предложение со встречи: фонд пустого квартала переносится на следующий. Оно не утверждено, поэтому вынесено в выбор.'],
     tasks:['Топ-задачи','Топ-задача — контракт, который должен быть подписан в квартале. Цена задачи = фонд топ-задач / (новые + перенесённые − снятые). Премия = цена × заключённые. Незаключённые переходят в следующий квартал и делят его фонд, поэтому цена каждой падает, а недополученное не возвращается. «Снято с плана» — регион отказался совсем.'],
     upsell:['Годовой бонус за допродажи','Выполнение = факт выручки от допродаж / индивидуальный годовой план. До 50% включительно — 0 ₽. От 50% до 80% выплата плавно растёт до 100 000 ₽. Дальше каждый процентный пункт добавляет 2 500 ₽. При 100% — 150 000 ₽, от 120% — 200 000 ₽. Выплата разовая по итогам года.'],
@@ -508,6 +536,9 @@
     const result=annualUpsell(u);
     return 'годовой план '+money(u.annual.plan)+', факт '+money(u.annual.fact)+', выполнение '+pct(result.ratio)+', бонус '+money(result.bonus);
   }
+  window.motivationBudgetModels={
+    rp:{state:()=>state,calc,annualAtPlan:()=>annualUpsell({annual:{plan:1,fact:1}}).bonus}
+  };
 
   function renderQuarterTable(){
     const head='<thead><tr><th>Показатель</th>'+QN.map(q=>'<th class="text-end">'+q+'</th>').join('')+'</tr></thead>';
@@ -701,6 +732,7 @@
     });
     const snapshot={...doc.data,documentId:crypto.randomUUID?crypto.randomUUID():'rp-'+Date.now(),savedAt:Date.now()};
     const clone=document.documentElement.cloneNode(true);
+    clone.querySelectorAll('[data-budget-name]').forEach(input=>{input.value='';input.removeAttribute('value');});
     clone.querySelector('#rp-file-state').textContent=JSON.stringify(snapshot).replace(/</g,'\\u003c');
     clone.querySelector('body').classList.remove('editing');
     clone.querySelectorAll('[contenteditable]').forEach(el=>el.removeAttribute('contenteditable'));
@@ -828,6 +860,11 @@ window.createRoleCalc=function(cfg){
     year.total=salary*12+year.premium+year.upsell;year.monthly=year.total/12;
     return {salary,fund,wSum,quarters,year,annual,planMonthly:salary+fund/3};
   }
+  window.motivationBudgetModels[cfg.key]={
+    state:()=>state,
+    calc,
+    annualAtPlan:()=>cfg.annualUpsell?Math.min(cfg.annualUpsell.maxBonus,Math.max(0,n(state.upsell.annual.bonusAtPlan))):0
+  };
 
   function asideHtml(){
     return '<aside class="settings"><h2>Параметры</h2>'
@@ -1168,7 +1205,134 @@ window.createRoleCalc=function(cfg){
 </script>
 <script>
 (function(){
-  const doc=window.rpDocument,roles=['rp','teamlead','sales'];
+  const doc=window.rpDocument;
+  const root=document.getElementById('budget-workspace');
+  const table=document.getElementById('department-budget-table');
+  const totals=document.getElementById('department-budget-totals');
+  const status=document.getElementById('department-budget-status');
+  const showNames=document.getElementById('budget-show-names');
+  const models=window.motivationBudgetModels;
+  const positions=[
+    {id:'rp-u01',code:'РП-У01',role:'rp',label:'РП · уникальные проекты'},
+    {id:'rp-u02',code:'РП-У02',role:'rp',label:'РП · уникальные проекты'},
+    {id:'rp-b01',code:'РП-Б01',role:'rp',label:'РП · B2G'},
+    {id:'rp-b02',code:'РП-Б02',role:'rp',label:'РП · B2G'},
+    {id:'rp-b03',code:'РП-Б03',role:'rp',label:'РП · B2G'},
+    {id:'rp-b04',code:'РП-Б04',role:'rp',label:'РП · B2G · вакансия'},
+    {id:'teamlead',code:'ТЛ-01',role:'teamlead',label:'Тимлид РП'},
+    {id:'sales',code:'ПР-01',role:'sales',label:'Менеджер по продажам'}
+  ];
+  const grades={rp1:'РП I',rp2:'РП II',rp3:'РП III'};
+  const clone=value=>JSON.parse(JSON.stringify(value));
+  const money=value=>Number.isFinite(value)?new Intl.NumberFormat('ru-RU',{maximumFractionDigits:0}).format(Math.round(value))+' ₽':'—';
+  const esc=value=>String(value??'').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+  const saved=doc.data.departmentBudget?.rows||[];
+  const state={
+    version:1,
+    rows:positions.map(position=>{
+      const old=saved.find(row=>row.id===position.id);
+      return {
+        id:position.id,
+        grade:grades[old?.grade]?old.grade:'',
+        monthlyOverride:Number.isFinite(old?.monthlyOverride)&&old.monthlyOverride>=0?old.monthlyOverride:null
+      };
+    })
+  };
+  doc.data.departmentBudget=state;
+  const names=new Map();
+  showNames.checked=false;
+
+  function monthlySalary(position,row){
+    if(row.monthlyOverride!==null)return row.monthlyOverride;
+    const source=models[position.role].state();
+    if(position.role!=='rp')return models[position.role].calc(source).salary;
+    if(!grades[row.grade])return null;
+    const key={rp1:'salary1',rp2:'salary2',rp3:'salary3'}[row.grade];
+    const base=doc.data.gradeIncome[key];
+    return Math.round(base*(1+(source.salary.indexOn?source.salary.indexRate:0)/100));
+  }
+
+  function calculate(position,row){
+    const monthly=monthlySalary(position,row);
+    const model=models[position.role];
+    const annual=model.annualAtPlan();
+    if(monthly===null)return {monthly,salary:null,quarterly:null,premiums:null,annual,total:null};
+    const source=model.state();
+    const scenario=clone(source);
+    scenario.salary={...scenario.salary,base:monthly,indexOn:false,grade:'manual'};
+    if(position.role==='rp')scenario.bonus.target=model.calc(source).target;
+    const quarterly=model.calc(scenario).fund;
+    const salary=monthly*12;
+    const premiums=quarterly*4;
+    return {monthly,salary,quarterly,premiums,annual,total:salary+premiums+annual};
+  }
+
+  function render(){
+    const amounts=[];
+    const privateHidden=showNames.checked?'':' hidden';
+    const rows=positions.map((position,index)=>{
+      const row=state.rows[index];
+      const result=calculate(position,row);
+      amounts.push(result);
+      const grade=position.role==='rp'
+        ?'<select class="form-select" data-budget-grade="'+position.id+'" aria-label="Грейд · '+position.code+'"><option value="">Выберите грейд</option>'
+          +Object.entries(grades).map(([key,label])=>'<option value="'+key+'"'+(row.grade===key?' selected':'')+'>'+label+'</option>').join('')+'</select>'
+        :'—';
+      const salary='<input class="form-control" type="number" min="0" step="1000" data-budget-salary="'+position.id+'" aria-label="Оклад в месяц · '+position.code+'" value="'+(result.monthly??'')+'">';
+      return '<tr><th scope="row">'+position.code+'</th>'
+        +'<td class="budget-private"'+privateHidden+'><input class="form-control" type="text" autocomplete="off" spellcheck="false" data-budget-name="'+position.id+'" aria-label="ФИО · '+position.code+'" value="'+esc(names.get(position.id)||'')+'"></td>'
+        +'<td>'+position.label+'</td><td>'+grade+'</td><td>'+salary+'</td>'
+        +['salary','quarterly','premiums','annual','total'].map(key=>'<td class="budget-amount">'+money(result[key])+'</td>').join('')+'</tr>';
+    }).join('');
+    const complete=amounts.filter(result=>result.total!==null);
+    const sum=key=>complete.reduce((total,result)=>total+result[key],0);
+    table.innerHTML='<thead><tr><th scope="col">Позиция</th><th scope="col" class="budget-private"'+privateHidden+'>ФИО</th><th scope="col">Роль</th><th scope="col">Грейд</th><th scope="col">Оклад в месяц, ₽</th><th scope="col">Оклад за год</th><th scope="col">Премия за квартал · 100%</th><th scope="col">Четыре квартальные премии</th><th scope="col">Годовая премия · 100%</th><th scope="col">Всего за год</th></tr></thead><tbody>'+rows+'</tbody>'
+      +'<tfoot><tr><th scope="row">Итого</th><td class="budget-private"'+privateHidden+'></td><td colspan="3">По заполненным строкам</td>'
+      +['salary','quarterly','premiums','annual','total'].map(key=>'<td class="budget-amount">'+money(sum(key))+'</td>').join('')+'</tr></tfoot>';
+    totals.innerHTML='<div class="annual-figure"><span>Годовой бюджет выплат</span><strong>'+money(sum('total'))+'</strong></div>'
+      +'<div class="annual-figure"><span>Средний бюджет выплат в месяц</span><strong>'+money(sum('total')/12)+'</strong></div>';
+    status.textContent='Заполнено '+complete.length+' из '+positions.length+' позиций. '
+      +(complete.length<positions.length?'Для полного итога задайте грейд или оклад во всех строках. ':'')
+      +'Бюджет = оклад × 12 + квартальная премия при 100% × 4 + годовая премия при 100%. Вакансия учитывается на полный год.';
+  }
+
+  root.addEventListener('input',event=>{
+    const input=event.target.closest('[data-budget-name]');
+    if(input)names.set(input.dataset.budgetName,input.value);
+  });
+  root.addEventListener('change',event=>{
+    const input=event.target;
+    const gradeId=input.dataset.budgetGrade;
+    const salaryId=input.dataset.budgetSalary;
+    if(!gradeId&&!salaryId)return;
+    const row=state.rows.find(item=>item.id===(gradeId||salaryId));
+    if(gradeId){
+      row.grade=input.value;
+      row.monthlyOverride=null;
+    }else{
+      const amount=input.value===''?null:Number(input.value);
+      if(amount!==null&&(!Number.isFinite(amount)||amount<0))return;
+      row.monthlyOverride=amount;
+    }
+    doc.persist();
+    render();
+  });
+  showNames.addEventListener('change',render);
+  document.getElementById('role-budget').addEventListener('click',render);
+  document.addEventListener('rp-grade-income-change',render);
+  document.addEventListener('input',event=>{
+    if(event.target.closest('#rp-motivation-2027,#tl-calc,#sales-calc'))render();
+  });
+  document.addEventListener('change',event=>{
+    if(event.target.closest('#rp-motivation-2027,#tl-calc,#sales-calc'))render();
+  });
+  render();
+})();
+
+</script>
+<script>
+(function(){
+  const doc=window.rpDocument,roles=['rp','teamlead','sales','budget'];
   function role(name){roles.forEach(k=>{const on=k===name;document.getElementById(k+'-workspace').hidden=!on;document.getElementById('role-'+k).setAttribute('aria-selected',String(on));});doc.data.activeRole=name;}
   roles.forEach(k=>document.getElementById('role-'+k).addEventListener('click',()=>{role(k);doc.persist();}));
   role(roles.includes(doc.data.activeRole)?doc.data.activeRole:'rp');
